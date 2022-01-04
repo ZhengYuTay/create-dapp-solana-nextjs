@@ -6,10 +6,10 @@ import React from 'react'
 const Header = () => {
     return (
         <div className="navbar w-full mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
-            <div className="flex-none">
-                <button className="btn btn-square btn-ghost relative h-12 w-32">
+            <div className="flex-none relative h-10 w-36">
+                <button className="btn btn-square btn-ghost">
                     
-                    <Image src={LagrangeLogo} alt="Lagrange Logo" width="127" height="35"/>
+                    <Image layout="fill" objectFit="cover" src={LagrangeLogo} alt="Lagrange Logo"/>
                 </button>
             </div>
             <div className="flex-1 px-2 mx-2">
