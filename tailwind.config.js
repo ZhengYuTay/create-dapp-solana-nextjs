@@ -6,11 +6,16 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "media", // or 'false' or 'class'
   theme: {
+    
     fontFamily: {
       // sans: ['Graphik', 'sans-serif'],
       // serif: ['Merriweather', 'serif'],
     },
     extend: {
+      colors: {
+        'lagrangelight': '#b7f1e3',
+        'lagrangedark': '#d4d5f7',
+      },
       // spacing: {
       //   '128': '32rem',
       //   '144': '36rem',
@@ -19,6 +24,7 @@ module.exports = {
       //   '4xl': '2rem',
       // }
     },
+   
   },
   variants: {
     extend: {},
@@ -28,7 +34,7 @@ module.exports = {
     styled: true,
     themes: [
       // first one will be the default theme
-      "dark",
+
       // uncomment to enable
       // "light (default)",
       // "dark",
@@ -52,6 +58,7 @@ module.exports = {
       // "luxury",
       // "dracula",
     ],
+
     base: true,
     utils: true,
     logs: true,
