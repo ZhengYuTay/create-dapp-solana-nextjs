@@ -1,4 +1,5 @@
 import React, { useEffect,useState } from 'react';
+import Link from 'next/link'
 import type { NextPage } from "next";
 import SidebarNavigation from "../components/SidebarNavigation";
 import ContentHeader from "../components/ContentHeader";
@@ -45,7 +46,7 @@ const [isExpanded, toggleExpansion] = useState(true);
       <div className={`${
             isExpanded ? `-translate-x-full` : `translate-x-0`
           } sidebar bg-gray-100 text-gray-700 w-64 space-y-6 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out`}>
-        <a href="#" className="text-gray-600 flex items-center space-x-2">
+        <Link href="/home"><a className="text-gray-600 flex items-center space-x-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -60,7 +61,7 @@ const [isExpanded, toggleExpansion] = useState(true);
           </svg>
 
           <span className="text-2xl font-semibold">Lagrange.fi</span>
-        </a>
+        </a></Link>
 
         <SidebarNavigation />
       </div>
