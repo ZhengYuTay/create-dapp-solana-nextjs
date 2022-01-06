@@ -2,18 +2,17 @@ import React, { FunctionComponent, useEffect, useMemo, useState } from "react";
 import { PublicKey } from "@solana/web3.js";
 import { TokenListProvider, TokenInfo } from "@solana/spl-token-registry";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-
 import { useJupiter } from "@jup-ag/react-hook";
 import { CHAIN_ID, INPUT_MINT_ADDRESS, OUTPUT_MINT_ADDRESS } from "../../constants";
 
 import styles from "./JupiterForm.module.css";
 import FeeInfo from "./FeeInfo";
-
 interface IJupiterFormProps { }
 type UseJupiterProps = Parameters<typeof useJupiter>[0];
+const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
-const JupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
-  const wallet = useWallet();
+    const { publicKey } = useWallet();
+    const wallet = useWallet();
   const { connection } = useConnection();
   const [tokenMap, setTokenMap] = useState<Map<string, TokenInfo>>(
     new Map()
@@ -45,7 +44,6 @@ const JupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
       );
     });
   }, [setTokenMap]);
-
   const amountInDecimal = useMemo(() => {
     return formValue.amount * 10 ** (inputTokenInfo?.decimals || 1);
   }, [inputTokenInfo, formValue.amount]);
@@ -60,9 +58,9 @@ const JupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
     () => routeMap.get(formValue.inputMint?.toBase58() || "") || allTokenMints,
     [routeMap, formValue.inputMint?.toBase58()]
   );
-
-  // ensure outputMint can be swapable to inputMint
-  useEffect(() => {
+  
+   // ensure outputMint can be swapable to inputMint
+   useEffect(() => {
     if (formValue.inputMint) {
       const possibleOutputs = routeMap.get(formValue.inputMint.toBase58());
 
@@ -78,16 +76,18 @@ const JupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
     }
   }, [formValue.inputMint?.toBase58(), formValue.outputMint?.toBase58()]);
 
-  return (
-    <div className="max-w-full md:max-w-lg bg-gray-100">
-      <div className="mb-2">
-        <label htmlFor="inputMint" className="block text-sm font-medium">
+    return(
+        <div>
+            <div className="w-full bg-gray-100">coin logo</div>
+            <div>Form</div>
+            <div className="mb-2">
+        <label htmlFor="inputMint" className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
           Input token
         </label>
         <select
           id="inputMint"
           name="inputMint"
-          className="mt-1 bg-neutral block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+          className="appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           value={formValue.inputMint?.toBase58()}
           onChange={(e) => {
             const pbKey = new PublicKey(e.currentTarget.value);
@@ -108,15 +108,14 @@ const JupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           })}
         </select>
       </div>
-
       <div className="mb-2">
-        <label htmlFor="outputMint" className="block text-sm font-medium">
+        <label htmlFor="outputMint" className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
           Output token
         </label>
         <select
           id="outputMint"
           name="outputMint"
-          className="mt-1 bg-neutral block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+          className="appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           value={formValue.outputMint?.toBase58()}
           onChange={(e) => {
             const pbKey = new PublicKey(e.currentTarget.value);
@@ -139,14 +138,14 @@ const JupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
       </div>
 
       <div>
-        <label htmlFor="amount" className="block text-sm font-medium">
+        <label htmlFor="amount" className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
           Input Amount ({inputTokenInfo?.symbol})
         </label>
         <div className="mt-1">
           <input
             name="amount"
             id="amount"
-            className="shadow-sm bg-neutral p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+            className="appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             value={formValue.amount}
             type="text"
             pattern="[0-9]*"
@@ -161,6 +160,9 @@ const JupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           />
         </div>
       </div>
+
+
+
 
 
       <div className="flex justify-center">
@@ -181,7 +183,6 @@ const JupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
       </div>
 
       <div>Total routes: {routes?.length}</div>
-
       {
         routes?.[0] &&
         (() => {
@@ -253,8 +254,8 @@ const JupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           Swap Best Route
         </button>
       </div>
-    </div >
-  );
-};
-
-export default JupiterForm;
+        
+        </div>
+    )
+}
+export default LagrangeJupiterForm
