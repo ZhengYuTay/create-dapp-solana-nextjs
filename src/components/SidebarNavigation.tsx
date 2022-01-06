@@ -7,11 +7,11 @@ const SidebarNavigation: NextPage = (props) => {
        <Link href="/swap">
          <a className="block py-3 px-4 rounded-lg transition duration-200 hover:bg-gray-600 hover:text-white">Swap</a>
        </Link>
-        <a href="" className="block py-2.5 px-4 rounded-lg transition duration-200 hover:bg-gray-600 hover:text-white">Market Overview</a>
-        <a href="" className="block py-2.5 px-4 rounded-lg transition duration-200 hover:bg-gray-600 hover:text-white">Account</a>
-        <a href="" className="block py-2.5 px-4 rounded-lg transition duration-200 hover:bg-gray-600 hover:text-white">Roadmap</a>
-        <a href="" className="block py-2.5 px-4 rounded-lg transition duration-200 hover:bg-gray-600 hover:text-white">Whitepaper</a>
-        <a href="" className="block py-2.5 px-4 rounded-lg transition duration-200 hover:bg-gray-600 hover:text-white">Settings</a>
+        <a href="/market" className="block py-2.5 px-4 rounded-lg transition duration-200 hover:bg-gray-600 hover:text-white">Market Overview</a>
+        <a href="/account" className="block py-2.5 px-4 rounded-lg transition duration-200 hover:bg-gray-600 hover:text-white">Account</a>
+        <a href="/roadmap" className="block py-2.5 px-4 rounded-lg transition duration-200 hover:bg-gray-600 hover:text-white">Roadmap</a>
+        <a href="/whitepaper" className="block py-2.5 px-4 rounded-lg transition duration-200 hover:bg-gray-600 hover:text-white">Whitepaper</a>
+        <a href="/settings" className="block py-2.5 px-4 rounded-lg transition duration-200 hover:bg-gray-600 hover:text-white">Settings</a>
      
       </nav>
     )

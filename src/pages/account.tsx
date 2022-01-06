@@ -1,17 +1,13 @@
 import React, { useEffect,useState } from 'react';
-import type { NextPage } from "next"
-import SidebarNavigation from "../components/SidebarNavigation";
 import ContentHeader from "../components/ContentHeader";
-import SwapContent from "../components/SwapContent";
 import SidebarLogo from '../components/SidebarLogo';
-
-const Swap: NextPage = (props) => {
+import SidebarNavigation from "../components/SidebarNavigation";
+import type { NextPage } from "next"
+const Account: NextPage = (props) => {
     const [isExpanded, toggleExpansion] = useState(true);
-
-
-    return(
+    return (
         <div className="relative min-h-screen md:flex">
-        <div className="bg-gray-800 text-gray-100 flex justify-between md:hidden">
+            <div className="bg-gray-800 text-gray-100 flex justify-between md:hidden">
           <a href="#" className="block h-5 p-5 text-white font-bold">
             Lagrange .fi Mobile
           </a>
@@ -32,6 +28,7 @@ const Swap: NextPage = (props) => {
             </svg>
           </button>
         </div>
+
         <div className={`${
               isExpanded ? `-translate-x-full` : `translate-x-0`
             } sidebar bg-gray-100 text-gray-700 w-64 space-y-6 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out`}>
@@ -40,14 +37,11 @@ const Swap: NextPage = (props) => {
   
           <SidebarNavigation />
         </div>
-  
-        <div className="bg-gradient-to-r from-lagrangelight to-lagrangedark flex-1 p-10 text-xl font-bold">
-          <ContentHeader/>
-          <SwapContent/>
-
+            <div className="bg-gradient-to-r from-lagrangelight to-lagrangedark flex-1 p-10 text-xl font-bold">
+            <ContentHeader/>
+                <h1>Account</h1>
+            </div>
         </div>
-      </div>
     )
 }
-
-export default Swap
+export default Account
