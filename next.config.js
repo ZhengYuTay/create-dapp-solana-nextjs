@@ -36,6 +36,9 @@ const plugins = [
     {
       webpack5: true,
       reactStrictMode: true,
+      images: {
+        domains: ['avatars.dicebear.com'],
+      },
     },
   ],
 ];
