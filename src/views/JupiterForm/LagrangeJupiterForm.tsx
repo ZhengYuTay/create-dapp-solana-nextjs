@@ -7,6 +7,7 @@ import { CHAIN_ID, INPUT_MINT_ADDRESS, OUTPUT_MINT_ADDRESS } from "../../constan
 
 import styles from "./JupiterForm.module.css";
 import FeeInfo from "./FeeInfo";
+import PoolProviders from "../../components/PoolProviders";
 const TrustedTokenAddresses = [
   'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // USDC
   'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', // USDT
@@ -97,8 +98,8 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
     return(
         <div>
-            <div className="w-full bg-gray-100">coin logo</div>
-            <div>Form</div>
+            <PoolProviders/>
+         
             <div className="mb-2">
         <label htmlFor="inputMint" className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
           Input token
@@ -202,6 +203,8 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           Refresh rate
         </button>
       </div>
+
+      {console.log(routes)}
 
       <div>Total routes: {routes?.length}</div>
       {

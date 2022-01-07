@@ -2,15 +2,14 @@ import React, { useEffect,useState } from 'react';
 import ContentHeader from "../components/ContentHeader";
 import SidebarLogo from '../components/SidebarLogo';
 import SidebarNavigation from "../components/SidebarNavigation";
+import MobileLogo from '../components/MobileLogo';
 import type { NextPage } from "next"
 const Whitepaper: NextPage = (props) => {
     const [isExpanded, toggleExpansion] = useState(true);
     return (
         <div className="relative min-h-screen md:flex">
-            <div className="bg-gray-800 text-gray-100 flex justify-between md:hidden">
-          <a href="#" className="block h-5 p-5 text-white font-bold">
-            Lagrange .fi Mobile
-          </a>
+            <div className="bg-gray-800 text-gray-100 flex justify-between md:hidden px-2 py-2">
+          <MobileLogo/>
           <button onClick={() => toggleExpansion(!isExpanded)} className="mobile-menu-button p-4 focus:outline-none focus:bg-gray-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
