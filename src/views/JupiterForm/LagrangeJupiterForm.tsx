@@ -11,11 +11,12 @@ const TrustedTokenAddresses = [
   'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // USDC
   'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', // USDT
   'A94X2fRy3wydNShU4dRaDyap2UuoeWJGWyATtyp61WZf', // BILIRA
-  '5trVBqv1LvHxiSPMsHtEZuf8iN82wbpDcR5Zaw7sWC3s', // SOL JPYC
-  '6CssfnBjF4Vo56EithaLHLWDF95fLrt48QHsUfZwNnhv', //jpyc
+  '5trVBqv1LvHxiSPMsHtEZuf8iN82wbpDcR5Zaw7sWC3s', // soJPYC
+  '6CssfnBjF4Vo56EithaLHLWDF95fLrt48QHsUfZwNnhv', // JPYC
   'FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD', // BRZ
   '3uXMgtaMRBcyEtEChgiLMdHDjb5Azr17SQWwQo3ppEH8', // Wrapped BRZ
   'CbNYA9n3927uXUukee2Hf4tm3xxkffJPPZvGazc2EAH1', // agEUR
+  '7g166TuBmnoHKvS2PEkZx6kREZtbfjUxCHGWjCqoDXZv', // acEUR
 ];
 
 interface IJupiterFormProps { }

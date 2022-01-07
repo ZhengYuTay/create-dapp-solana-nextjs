@@ -10,10 +10,14 @@ const Avatar: NextPage = (props) => {
 
 
         <div>
-            {!publicKey ? <></> : <Image
-                className="rounded-full bg-black cursor-pointer hover:opacity-75"
-                src={`https://avatars.dicebear.com/api/adventurer/${publicKey.toBase58()}.svg`}
-                layout="fill" alt="Logo" />}
+            {!publicKey ? <></> : <div>
+               <Image
+                className="rounded-full bg-gray-200 cursor-pointer hover:opacity-75"
+                src={`https://avatars.dicebear.com/api/pixel-art/${publicKey.toBase58()}.svg`}
+                layout="fill" alt="Logo" />
+              
+                
+            </div>}
         </div>
 
 

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
-import Avatar from "./Avatar";
+
 import { ENV } from "../constants";
 const ContentHeader: NextPage = (props) => {
     const { publicKey } = useWallet();
@@ -11,10 +11,8 @@ const ContentHeader: NextPage = (props) => {
 
 
             <div>
-      {!publicKey ? <></> : <div className="relative h-12 w-12 lg:mx-auto border-pink-500 border-4 rounded-full"><Avatar/></div>}  
+    
 	</div>
-
-            
       
             <div className="flex-none">
                 <WalletMultiButton className="btn btn-ghost" />
