@@ -7,9 +7,20 @@ import { CHAIN_ID, INPUT_MINT_ADDRESS, OUTPUT_MINT_ADDRESS } from "../../constan
 
 import styles from "./JupiterForm.module.css";
 import FeeInfo from "./FeeInfo";
+const TrustedTokenAddresses = [
+  'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // USDC
+  'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', // USDT
+  'A94X2fRy3wydNShU4dRaDyap2UuoeWJGWyATtyp61WZf', // BILIRA
+  '5trVBqv1LvHxiSPMsHtEZuf8iN82wbpDcR5Zaw7sWC3s', // JPYC
+  'FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD', // BRZ
+  '3uXMgtaMRBcyEtEChgiLMdHDjb5Azr17SQWwQo3ppEH8', // Wrapped BRZ
+  'CbNYA9n3927uXUukee2Hf4tm3xxkffJPPZvGazc2EAH1', // agEUR
+];
+
 interface IJupiterFormProps { }
 type UseJupiterProps = Parameters<typeof useJupiter>[0];
 const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
+
 
     const { publicKey } = useWallet();
     const wallet = useWallet();
@@ -34,10 +45,16 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
   useEffect(() => {
     new TokenListProvider().resolve().then((tokens) => {
-      const tokenList = tokens.filterByChainId(CHAIN_ID).getList();
+       const tokenList = tokens.filterByChainId(CHAIN_ID).getList(); 
+      /* const tokenList = tokens.filterByChainId(CHAIN_ID).filterByTag('stablecoin').getList(); */
+      console.log(tokenList)
+
+     
+ 
 
       setTokenMap(
         tokenList.reduce((map, item) => {
+          
           map.set(item.address, item);
           return map;
         }, new Map())
@@ -99,10 +116,12 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             }
           }}
         >
-          {allTokenMints.map((tokenMint) => {
+     
+          {allTokenMints.filter(item =>  TrustedTokenAddresses.includes(item)).map((tokenMint) => {
             return (
               <option key={tokenMint} value={tokenMint}>
                 {tokenMap.get(tokenMint)?.name || "unknown"}
+                
               </option>
             );
           })}
@@ -127,7 +146,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             }
           }}
         >
-          {validOutputMints.map((tokenMint) => {
+          {validOutputMints.filter(item =>  TrustedTokenAddresses.includes(item)).map((tokenMint) => {
             return (
               <option key={tokenMint} value={tokenMint}>
                 {tokenMap.get(tokenMint)?.name || "unknown"}
