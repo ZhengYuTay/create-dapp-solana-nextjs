@@ -36,7 +36,6 @@ const JupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
   useEffect(() => {
     new TokenListProvider().resolve().then((tokens) => {
       const tokenList = tokens.filterByChainId(CHAIN_ID).getList();
-      console.log(tokenList)
 
       setTokenMap(
         tokenList.reduce((map, item) => {
