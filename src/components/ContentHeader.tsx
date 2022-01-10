@@ -8,8 +8,8 @@ const ContentHeader: NextPage = (props) => {
   return (
     <div className="bg-white px-2 py-2 flex justify-between shadow-xl">
       <div className="flex justify-center">
-        <FaSearch size="1em" className="mt-4"/>
-        <input type="text" value="Search Data" className="px-2 py-2 w-2/3 text-xs"></input>
+        <FaSearch size="1em" className="mt-4 mr-4"/>
+        <input type="text" placeholder="Search Data" className="px-2 py-2 w-2/3 text-xs"></input>
       </div>
 
           <div className="flex-none">
