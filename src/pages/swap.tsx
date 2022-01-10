@@ -32,7 +32,7 @@ const Swap: NextPage = (props) => {
         </div>
         <div className={`${
               isExpanded ? `-translate-x-full` : `translate-x-0`
-            } sidebar bg-gradient-to-r from-lagrangesidebarlight to-lagrangesidebardark text-gray-700 w-80 space-y-6 px-2 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}>
+            } sidebar bg-gradient-to-r from-lagrangesidebarlightopacity to-lagrangesidebardarkopacity xs:bg-lagrangesidebarmobile text-gray-700 w-80 xs:w-52 space-y-6 px-1 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}>
          
           <SidebarLogo/>
   

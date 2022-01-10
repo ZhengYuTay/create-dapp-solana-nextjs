@@ -101,21 +101,21 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <h1 className="text-3xl">Swap</h1>
         </div>
         <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden">
-          <div className="text-lg box">Max Slippage</div>
-          <div className="col-span-2 col-start-2 box">
+          <div className="box"><p className="text-sm">Max Slippage</p></div>
+          <div className="col-span-2 col-start-2 box flex justify-end">
             <input
               type="text"
-              className="w-1/2 text-center border-2 rounded-lg shadow-lg text-grey-darkest border-lagrangeborder"
+              className="w-2/3 text-center border-2 rounded-lg shadow-lg text-grey-darkest border-lagrangeborder"
               value="0.5%"
             />
           </div>
         </div>
         <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden">
-          <div className="text-lg box">Transaction deadline (minutes)</div>
-          <div className="col-span-2 col-start-2 box">
+          <div className="box"><p className="text-sm">Transaction deadline (minutes)</p></div>
+          <div className="col-span-2 col-start-2 box flex justify-end">
             <input
               type="text"
-              className="w-1/2 text-center border-2 rounded-lg shadow-lg text-grey-darkest border-lagrangeborder"
+              className="w-2/3 text-center border-2 rounded-lg shadow-lg text-grey-darkest border-lagrangeborder"
               value="10"
             />
           </div>

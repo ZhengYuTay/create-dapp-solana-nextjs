@@ -5,7 +5,7 @@ import LagrangeJupiterForm from "../views/JupiterForm/LagrangeJupiterForm";
 const SwapContent: NextPage = (props) => {
   const { publicKey } = useWallet();
   return (
-    <div className="px-4 py-4">
+    <div className="px-4 py-4 xs:px-2 xs:py-4">
  
       <div className="flex justify-center w-full">
 

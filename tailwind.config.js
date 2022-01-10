@@ -6,7 +6,16 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "media", // or 'false' or 'class'
   theme: {
+    screens: {
+      'xs': '320px',
+      'sm': '640px',
+      'md': '1024px',
+      'lg': '1280px',
+      'xl': '1920px',
+   
 
+    },
+    
     fontFamily: {
 
       'body': ['Roboto',]
@@ -20,8 +29,10 @@ module.exports = {
         'lagrangegraybackground': '#373737',
         'lagrangepurple': '#4D54F9',
         'lagrangepurpledark': '#2B30B9',
-        'lagrangesidebarlight': '#1A8BFD26',
-        'lagrangesidebardark': '#30D6B126',
+        'lagrangesidebarmobile': '#E1F0FF',
+       
+        'lagrangesidebarlightopacity': '#1A8BFD26',
+        'lagrangesidebardarkopacity': '#30D6B126',
 
       },
       // spacing: {
