@@ -33,6 +33,7 @@ module.exports = {
        
         'lagrangesidebarlightopacity': '#1A8BFD26',
         'lagrangesidebardarkopacity': '#30D6B126',
+        'lagrangegraybackground': '#373737',
 
       },
       // spacing: {

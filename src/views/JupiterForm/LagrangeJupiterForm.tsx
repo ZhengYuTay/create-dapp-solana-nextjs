@@ -105,7 +105,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="col-span-2 col-start-2 box flex justify-end">
             <input
               type="text"
-              className="w-2/3 text-center border-2 rounded-lg shadow-lg text-grey-darkest border-lagrangeborder"
+              className="w-11/12 text-center border-2 rounded-lg shadow-lg text-grey-darkest border-lagrangeborder"
               value="0.5%"
             />
           </div>
@@ -115,7 +115,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="col-span-2 col-start-2 box flex justify-end">
             <input
               type="text"
-              className="w-2/3 text-center border-2 rounded-lg shadow-lg text-grey-darkest border-lagrangeborder"
+              className="w-11/12 text-center border-2 rounded-lg shadow-lg text-grey-darkest border-lagrangeborder"
               value="10"
             />
           </div>
@@ -123,12 +123,12 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
         {/* from */}
         <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden">
-          <div className="box">
-            From ({inputTokenInfo?.symbol})
+          <div className="box"><p className="text-xs">
+            From ({inputTokenInfo?.symbol})</p>
             <input
               name="amount"
               id="amount"
-              className="w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-100 border-2 rounded-lg appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
+              className="w-full px-2 py-2 pr-8 text-sm leading-tight text-gray-700 bg-gray-100 border-2 rounded-lg appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
               value={formValue.amount}
               type="text"
               pattern="[0-9]*"
@@ -142,12 +142,13 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               }}
             />
           </div>
-          <div className="col-span-2 col-start-2 box">
-            Balance -
-            <select
+          <div className="col-span-2 col-start-2">
+          <div className="box flex justify-end"> <p className="text-sm">Balance -</p></div>
+          <div className="box flex justify-end"> 
+          <select
               id="inputMint"
               name="inputMint"
-              className="w-10/12 px-4 py-3 pr-8 leading-tight text-white border-2 border-gray-200 rounded-lg appearance-none bg-lagrangegraybackground focus:outline-none focus:bg-lagrangegraybackground focus:border-gray-500"
+              className="w-11/12 px-2 py-2 pr-8 text-xs leading-tight text-white border-2 border-gray-200 rounded-lg appearance-none bg-lagrangegraybackground focus:outline-none focus:bg-lagrangegraybackground focus:border-gray-500"
               value={formValue.inputMint?.toBase58()}
               onChange={(e) => {
                 const pbKey = new PublicKey(e.currentTarget.value);
@@ -170,7 +171,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                     </>
                   );
                 })}
-            </select>
+            </select></div> 
             {/* yedek select menu  */}
           </div>
         </div>
@@ -189,8 +190,8 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
         <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden">
           <div className="box">
-            <div>To</div>
-            <div className="w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-100 border-2 rounded-lg appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500">
+            <div><p className="text-xs">To</p></div>
+            <div className="w-full px-2 py-2 text-xs pr-8 leading-tight text-gray-700 bg-gray-100 border-2 rounded-lg appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500">
               {routes?.[0] &&
                 (() => {
                   const route = routes[0];
@@ -199,7 +200,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       <div>
                         {route.outAmount /
                           10 ** (outputTokenInfo?.decimals || 1)}{" "}
-                        {outputTokenInfo?.symbol}
+                        {/* {outputTokenInfo?.symbol} */}
                       </div>
                       <FeeInfo route={route} />
                     </div>
@@ -208,11 +209,11 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             </div>
           </div>
           <div className="col-span-2 col-start-2 box">
-            Balance
-            <select
+          <div className="box flex justify-end"> <p className="text-xs">Balance -</p></div>
+            <div className="box flex justify-end"><select
               id="outputMint"
               name="outputMint"
-              className="w-10/12 px-4 py-3 pr-8 leading-tight text-white border-2 border-gray-200 rounded-lg appearance-none bg-lagrangegraybackground focus:outline-none focus:bg-lagrangegraybackground focus:border-gray-500"
+              className="w-11/12 px-2 py-2 pr-8 text-xs leading-tight text-white border-2 border-gray-200 rounded-lg appearance-none bg-lagrangegraybackground focus:outline-none focus:bg-lagrangegraybackground focus:border-gray-500"
               value={formValue.outputMint?.toBase58()}
               onChange={(e) => {
                 const pbKey = new PublicKey(e.currentTarget.value);
@@ -233,7 +234,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                     </option>
                   );
                 })}
-            </select>
+            </select></div>
           </div>
         </div>
 
