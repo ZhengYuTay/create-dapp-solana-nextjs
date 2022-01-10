@@ -39,7 +39,7 @@ const Swap: NextPage = (props) => {
           <SidebarNavigation />
         </div>
   
-        <div className="bg-gradient-to-r from-lagrangelight to-lagrangedark flex-1 p-10 sm:p-5 text-xl font-bold">
+        <div className="bg-gradient-to-r from-lagrangelight to-lagrangedark flex-1 p-6 sm:p-1 text-xl font-bold">
           <ContentHeader/>
           <SwapContent/>
 
