@@ -24,7 +24,7 @@ const SidebarNavigation: NextPage = (props) => {
           </div>
         </a>
       </Link>
-      <Link href="/market">
+      <Link href="/overview">
         <a className="block px-2 py-3 transition duration-200 rounded-lg hover:bg-gray-600 hover:text-white">
           <div className="flex">
             <div className="w-8 item">

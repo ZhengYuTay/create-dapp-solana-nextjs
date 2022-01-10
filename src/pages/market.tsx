@@ -46,8 +46,9 @@ const currencies = [
     image: "https://s2.coinmarketcap.com/static/img/coins/64x64/4139.png",
   },
 ];
-const MarketOverview: NextPage = (props) => {
+const MarketOverview: NextPage = (pairs) => {
   const [isExpanded, toggleExpansion] = useState(true);
+
 
   return (
     <div className="relative min-h-screen md:flex">
@@ -86,13 +87,42 @@ const MarketOverview: NextPage = (props) => {
       <div className="flex-1 p-10 text-xl font-bold bg-gradient-to-r from-lagrangelight to-lagrangedark">
         <ContentHeader />
         <h1>Market Overview</h1>
+        
       </div>
+      <div><table className="table-fixed">
+  <thead>
+    <tr>
+    <th>--</th>
+      {pairs.pairs.map((coin) =>(<th>{coin.cryptoSymbol}</th>))}
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>--</th>
+      {pairs.pairs.map((coin) =>(<th>{coin.cryptoSymbol}</th>))}
+    
+      <td>USDC</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+  
+   
+  </tbody>
+</table></div>
     </div>
   );
 };
 export default MarketOverview;
 
 export async function getServerSideProps() {
+  
   const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
   const endpoint = "https://api.currencylayer.com/live";
   const sourceCurrencyPairs = currencies.map((source) => ({
@@ -113,19 +143,22 @@ export async function getServerSideProps() {
       };
     })
   );
+  
 
-  const res = await fetch(endpoint);
+
+/*  const res = await fetch(endpoint);
   const data = await res.json();
   console.log(data);
   if (!data) {
     return {
       notFound: true,
     };
-  }
+  } */
 
   return {
     props: {
-      data: data,
+      pairs:pairs
+      
     },
     // will be passed to the page component as props
   };
