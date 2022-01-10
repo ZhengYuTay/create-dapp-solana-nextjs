@@ -14,12 +14,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        'lagrangelight': '#29E1AA40',
-        'lagrangedark': '#9078F040',
+        'lagrangelight': '#29E1AA26',
+        'lagrangedark': '#1A8BFD26',
         'lagrangeborder': '#343A40',
         'lagrangegraybackground': '#373737',
         'lagrangepurple': '#4D54F9',
         'lagrangepurpledark': '#2B30B9',
+        'lagrangesidebarlight': '#1A8BFD26',
+        'lagrangesidebardark': '#30D6B126',
 
       },
       // spacing: {
