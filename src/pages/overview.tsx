@@ -47,8 +47,12 @@ const currencies = [
       image: "https://s2.coinmarketcap.com/static/img/coins/64x64/4139.png",
     },
   ];
-const Overview: NextPage = ({pairs}) => {
+const Overview: NextPage = (props) => {
     const [isExpanded, toggleExpansion] = useState(true);
+    
+   
+
+        
     return (
         <div className="relative min-h-screen md:flex">
             <div className="bg-gray-800 text-gray-100 flex justify-between md:hidden px-2 py-2">
@@ -79,39 +83,12 @@ const Overview: NextPage = ({pairs}) => {
   
           <SidebarNavigation />
         </div>
-            <div className="bg-gradient-to-r from-lagrangelight to-lagrangedark flex-1 px-1 text-xl font-bold">
+            <div className="bg-gradient-to-r from-lagrangelight to-lagrangedark flex-1 p-10 text-xl font-bold">
             <ContentHeader/>
-            <div>Market Overview</div>
+                <h1>Market Overview</h1>
             
-
-            <table  className="table-fixed text-2xs">
-  <thead>
-    <tr>
-      <th>Boş</th>
-       {pairs.map((pair) =>(<th key={pair.cryptoSymbol}>{pair.cryptoSymbol}</th>))}
-    
-    </tr>
-  </thead>
-  <tbody>
-   
-    <td>USDC</td>
-    <td>---</td>
-    <td>{pairs[0].quotes.USDAUD}</td>
-    <td>{pairs[0].quotes.USDEUR}</td>
-    <td>{pairs[0].quotes.USDCHF}</td>
-    <td>{pairs[0].quotes.USDNZD}</td>
-    <td>{pairs[0].quotes.USDJPY}</td>
-    <td>{pairs[0].quotes.USDTRY}</td>
-    <td>{pairs[0].quotes.USDBRL}</td>
-    
-    {console.log(pairs[0].quotes)}
-    
-  </tbody>
-</table>
-
             </div>
-            </div>
-        
+        </div>
     )
 }
 export default Overview
@@ -138,13 +115,16 @@ export async function getServerSideProps() {
         };
       })
     );
-    
-  
  
-  
+
+    if (!pairs) {
+      return {
+        notFound: true,
+      };
+    }
     return {
       props: {
-        pairs:pairs
+        data:pairs
         
       },
       // will be passed to the page component as props
