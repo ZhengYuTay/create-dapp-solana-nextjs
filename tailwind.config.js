@@ -6,15 +6,21 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "media", // or 'false' or 'class'
   theme: {
-    
+
     fontFamily: {
-      // sans: ['Graphik', 'sans-serif'],
+
+      'body': ['Roboto',]
       // serif: ['Merriweather', 'serif'],
     },
     extend: {
       colors: {
-        'lagrangelight': '#b7f1e3',
-        'lagrangedark': '#d4d5f7',
+        'lagrangelight': '#29E1AA40',
+        'lagrangedark': '#9078F040',
+        'lagrangeborder': '#343A40',
+        'lagrangegraybackground': '#373737',
+        'lagrangepurple': '#4D54F9',
+        'lagrangepurpledark': '#2B30B9',
+
       },
       // spacing: {
       //   '128': '32rem',
@@ -24,7 +30,7 @@ module.exports = {
       //   '4xl': '2rem',
       // }
     },
-   
+
   },
   variants: {
     extend: {},
