@@ -282,7 +282,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   }
                 }
               }}
-              className="inline-flex items-center w-11/12 px-4 py-2 text-base font-medium text-white uppercase border-2 border-transparent rounded-md shadow-sm bg-lagrangepurple hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="inline-flex items-center w-full px-4 py-2 text-base font-medium text-white uppercase border-2 border-transparent rounded-md shadow-sm bg-lagrangepurple hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Swap
             </button>
@@ -291,7 +291,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             <button
               className={`${
                 loading ? "opacity-50 cursor-not-allowed" : ""
-              } w-11/12 uppercase inline-flex items-center px-4 py-2 border-2 border-transparent text-base font-medium rounded-md shadow-sm text-white bg-lagrangepurple hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
+              } w-full uppercase inline-flex items-center px-4 py-2 border-2 border-lagrangebuttongray text-base font-medium rounded-md shadow-sm text-lagrangebuttongray bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2`}
               type="button"
               onClick={refresh}
               disabled={loading}
