@@ -55,7 +55,7 @@ const Overview: NextPage<Props> = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
   /*   console.log(props.data[1].quotes.USDAUD); */
   const { data } = props;
-  console.log(data[2].quotes);
+  console.log(data[3].quotes);
   return (
     <div className="relative min-h-screen md:flex">
       <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
@@ -243,14 +243,14 @@ const Overview: NextPage<Props> = (props) => {
                     />
                     XCHF
                   </td>
-                  <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td>
-                  <td>6</td>
-                  <td>7</td>
-                  <td>8</td>
-                  <td>9</td>
+                  <td>{data[3].quotes.CHFUSD}</td>
+                  <td>{data[3].quotes.CHFAUD}</td>
+                  <td>{data[3].quotes.CHFEUR}</td>
+                  <td>-</td>
+                  <td>{data[3].quotes.CHFEUR}</td>
+                  <td>{data[3].quotes.CHFJPY}</td>
+                  <td>{data[3].quotes.CHFTRY}</td>
+                  <td>{data[3].quotes.CHFBRL}</td>
                 </tr>
                 <tr>
                   <td>
