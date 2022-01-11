@@ -236,17 +236,25 @@ const Overview: NextPage<Props> = (props) => {
                     AUDT
                   </td>
                   <td>
-                    <p className="text-2xs">{data[1].quotes.AUDUSD}</p>
+                    <p className="text-2xs">
+                    {data[1].quotes.AUDUSD.toFixed(4)}
+                    </p>
                   </td>
                   <td>-</td>
                   <td>
-                    <p className="text-2xs">{data[1].quotes.AUDEUR}</p>
+                    <p className="text-2xs">
+                    {data[1].quotes.AUDEUR.toFixed(4)}
+                    </p>
                   </td>
                   <td>
-                    <p className="text-2xs">{data[1].quotes.AUDCHF}</p>
+                    <p className="text-2xs">
+                    {data[1].quotes.AUDCHF.toFixed(4)}
+                    </p>
                   </td>
                   <td>
-                    <p className="text-2xs">{data[1].quotes.AUDNZD}</p>
+                    <p className="text-2xs">
+                    {data[1].quotes.AUDNZD.toFixed(4)}
+                    </p>
                   </td>
                   <td>
                     <p className="text-2xs">
@@ -254,10 +262,14 @@ const Overview: NextPage<Props> = (props) => {
                     </p>
                   </td>
                   <td>
-                    <p className="text-2xs">{data[1].quotes.AUDTRY}</p>
+                    <p className="text-2xs">
+                    {data[1].quotes.AUDTRY.toFixed(4)}
+                    </p>
                   </td>
                   <td>
-                    <p className="text-2xs">{data[1].quotes.AUDBRL}</p>
+                    <p className="text-2xs">
+                    {data[1].quotes.AUDTRY.toFixed(4)}
+                    </p>
                   </td>
                 </tr>
                 <tr>
@@ -270,16 +282,28 @@ const Overview: NextPage<Props> = (props) => {
                     />
                     EURS
                   </td>
-                  <td>{data[2].quotes.EURUSD}</td>
-                  <td>{data[2].quotes.EURAUD}</td>
+                  <td>
+                  {data[2].quotes.EURUSD.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[2].quotes.EURAUD.toFixed(4)}
+                    </td>
                   <td>-</td>
-                  <td>{data[2].quotes.EURCHF}</td>
-                  <td>{data[2].quotes.EURNZD}</td>
+                  <td>
+                  {data[2].quotes.EURCHF.toFixed(4)}
+                 </td>
+                  <td>
+                  {data[2].quotes.EURNZD.toFixed(4)}
+                  </td>
                   <td>
                   {data[2].quotes.EURJPY.toFixed(4)}
                   </td>
-                  <td>{data[2].quotes.EURTRY}</td>
-                  <td>{data[2].quotes.EURBRL}</td>
+                  <td>
+                  {data[2].quotes.EURTRY.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[2].quotes.EURBRL.toFixed(4)}
+                  </td>
                 </tr>
                 <tr>
                   <td className="bg-lagrangesidebardarkopacity border text-left">
@@ -291,15 +315,27 @@ const Overview: NextPage<Props> = (props) => {
                     />
                     XCHF
                   </td>
-                  <td>{data[3].quotes.CHFUSD}</td>
-                  <td>{data[3].quotes.CHFAUD}</td>
-                  <td>{data[3].quotes.CHFEUR}</td>
+                  <td>
+                  {data[3].quotes.CHFUSD.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[3].quotes.CHFAUD.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[3].quotes.CHFEUR.toFixed(4)}
+                  </td>
                   <td>-</td>
-                  <td>{data[3].quotes.CHFEUR}</td>
+                  <td>
+                  {data[3].quotes.CHFEUR.toFixed(4)}
+                  </td>
                   <td>{data[3].quotes.CHFJPY.toFixed(4)}
                   </td>
-                  <td>{data[3].quotes.CHFTRY}</td>
-                  <td>{data[3].quotes.CHFBRL}</td>
+                  <td>
+                  {data[3].quotes.CHFTRY.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[3].quotes.CHFBRL.toFixed(4)}
+                  </td>
                 </tr>
                 <tr>
                   <td className="bg-lagrangesidebardarkopacity border text-left">
@@ -311,16 +347,28 @@ const Overview: NextPage<Props> = (props) => {
                     />
                     NZDs
                   </td>
-                  <td>{data[4].quotes.NZDUSD}</td>
-                  <td>{data[4].quotes.NZDAUD}</td>
-                  <td>{data[4].quotes.NZDEUR}</td>
-                  <td>{data[4].quotes.NZDCHF}</td>
+                  <td>
+                  {data[4].quotes.NZDUSD.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[4].quotes.NZDAUD.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[4].quotes.NZDEUR.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[4].quotes.NZDCHF.toFixed(4)}
+                  </td>
                   <td>-</td>
                   <td>
                   {data[4].quotes.NZDJPY.toFixed(4)}
                     </td>
-                  <td>{data[4].quotes.NZDTRY}</td>
-                  <td>{data[4].quotes.NZDBRL}</td>
+                  <td>
+                  {data[4].quotes.NZDTRY.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[4].quotes.NZDBRL.toFixed(4)}
+                  </td>
                 </tr>
                 <tr>
                   <td className="bg-lagrangesidebardarkopacity border text-left">
@@ -367,14 +415,28 @@ const Overview: NextPage<Props> = (props) => {
                     />
                     TRYB
                   </td>
-                  <td>{data[6].quotes.TRYUSD}</td>
-                  <td>{data[6].quotes.TRYAUD}</td>
-                  <td>{data[6].quotes.TRYEUR}</td>
-                  <td>{data[6].quotes.TRYCHF}</td>
-                  <td>{data[6].quotes.TRYNZD}</td>
-                  <td>{data[6].quotes.TRYJPY}</td>
+                  <td>
+                  {data[6].quotes.TRYUSD.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[6].quotes.TRYAUD.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[6].quotes.TRYEUR.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[6].quotes.TRYCHF.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[6].quotes.TRYNZD.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[6].quotes.TRYJPY.toFixed(4)}
+                  </td>
                   <td>-</td>
-                  <td>{data[6].quotes.TRYBRL}</td>
+                  <td>
+                  {data[6].quotes.TRYBRL.toFixed(4)}
+                  </td>
                 </tr>
                 <tr>
                   <td className="bg-lagrangesidebardarkopacity border text-left">
@@ -386,13 +448,27 @@ const Overview: NextPage<Props> = (props) => {
                     />
                     BRZ
                   </td>
-                  <td>{data[7].quotes.BRLUSD}</td>
-                  <td>{data[7].quotes.BRLAUD}</td>
-                  <td>{data[7].quotes.BRLEUR}</td>
-                  <td>{data[7].quotes.BRLCHF}</td>
-                  <td>{data[7].quotes.BRLNZD}</td>
-                  <td>{data[7].quotes.BRLJPY}</td>
-                  <td>{data[7].quotes.BRLTRY}</td>
+                  <td>
+                  {data[7].quotes.BRLUSD.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[7].quotes.BRLAUD.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[7].quotes.BRLEUR.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[7].quotes.BRLCHF.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[7].quotes.BRLNZD.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[7].quotes.BRLJPY.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[7].quotes.BRLTRY.toFixed(4)}
+                  </td>
                   <td>-</td>
                 </tr>
               </tbody>
