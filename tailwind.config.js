@@ -18,8 +18,8 @@ module.exports = {
     
     fontFamily: {
 
-      'body': ['Roboto',]
-      // serif: ['Merriweather', 'serif'],
+      'body': ['Roboto','sans-serif']
+      // serif: ['Merriweather', 'thin'],
     },
     extend: {
       colors: {

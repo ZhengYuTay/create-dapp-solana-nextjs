@@ -55,7 +55,7 @@ const Overview: NextPage<Props> = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
   /*   console.log(props.data[1].quotes.USDAUD); */
   const { data } = props;
-  console.log(data[7].quotes);
+
   return (
     <div className="relative min-h-screen md:flex">
       <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
@@ -84,7 +84,7 @@ const Overview: NextPage<Props> = (props) => {
       <div
         className={`${
           isExpanded ? `-translate-x-full` : `translate-x-0`
-        } sidebar bg-gray-100 text-gray-700 w-64 space-y-6 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out`}
+        } sidebar bg-gray-100 text-gray-700 w-64 space-y-6 z-50 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out`}
       >
         <SidebarLogo />
 
@@ -96,80 +96,82 @@ const Overview: NextPage<Props> = (props) => {
           <h1 className="text-2xl">Overview</h1>
         </div>
         <div>
-          <div>
-            <table className="w-full">
+          <div className="px-2 py-2">
+            <table className="w-full shadow-lg bg-white">
               <thead>
                 <tr>
-                  <th>--</th>
-                  <th>
+                  <th className="bg-lagrangesidebardarkopacity border text-left">
+                    --
+                  </th>
+                  <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
                       alt="USDC"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     USDC
                   </th>
-                  <th>
+                  <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/8123.png"
                       alt="USDC"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     AUDT
                   </th>
-                  <th>
+                  <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/2989.png"
                       alt="EURS"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     EURS
                   </th>
-                  <th>
+                  <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/4075.png"
                       alt="XCHF"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     XCHF
                   </th>
-                  <th>
+                  <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/5494.png"
                       alt="NZDs"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     NZDs
                   </th>
-                  <th>
+                  <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/9045.png"
                       alt="JPYC"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     JPYC
                   </th>
-                  <th>
+                  <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/5181.png"
                       alt="TRYB"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     TRYB
                   </th>
-                  <th>
+                  <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/4139.png"
                       alt="BRZ"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     BRZ
                   </th>
@@ -177,50 +179,90 @@ const Overview: NextPage<Props> = (props) => {
               </thead>
               <tbody>
                 <tr>
-                  <td>
+                  <td className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
                       alt="USDC"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     USDC
                   </td>
                   <td>-</td>
-                  <td>{data[0].quotes.USDAUD}</td>
-                  <td>{data[0].quotes.USDEUR}</td>
-                  <td>{data[0].quotes.USDCHF}</td>
-                  <td>{data[0].quotes.USDNZD}</td>
-                  <td>{data[0].quotes.USDJPY}</td>
-                  <td>{data[0].quotes.USDTRY}</td>
-                  <td>{data[0].quotes.USDBRL}</td>
+                  <td>
+                    <p className="text-2xs">
+                      {data[0].quotes.USDAUD.toFixed(5)}
+                    </p>
+                  </td>
+                  <td>
+                    <p className="text-2xs">
+                      {data[0].quotes.USDEUR.toFixed(5)}
+                    </p>
+                  </td>
+                  <td>
+                    <p className="text-2xs">
+                      {data[0].quotes.USDCHF.toFixed(5)}
+                    </p>
+                  </td>
+                  <td>
+                    <p className="text-2xs">
+                    {data[0].quotes.USDNZD.toFixed(5)}
+                    </p>
+                  </td>
+                  <td>
+                    <p className="text-2xs">
+                    {data[0].quotes.USDJPY.toFixed(4)}
+                    </p>
+                  </td>
+                  <td>
+                    <p className="text-2xs">{data[0].quotes.USDTRY}</p>
+                  </td>
+                  <td>
+                    <p className="text-2xs">{data[0].quotes.USDBRL}</p>
+                  </td>
                 </tr>
                 <tr>
-                  <td>
+                  <td className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/8123.png"
                       alt="USDC"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     AUDT
                   </td>
-                  <td>{data[1].quotes.AUDUSD}</td>
+                  <td>
+                    <p className="text-2xs">{data[1].quotes.AUDUSD}</p>
+                  </td>
                   <td>-</td>
-                  <td>{data[1].quotes.AUDEUR}</td>
-                  <td>{data[1].quotes.AUDCHF}</td>
-                  <td>{data[1].quotes.AUDNZD}</td>
-                  <td>{data[1].quotes.AUDJPY}</td>
-                  <td>{data[1].quotes.AUDTRY}</td>
-                  <td>{data[1].quotes.AUDBRL}</td>
+                  <td>
+                    <p className="text-2xs">{data[1].quotes.AUDEUR}</p>
+                  </td>
+                  <td>
+                    <p className="text-2xs">{data[1].quotes.AUDCHF}</p>
+                  </td>
+                  <td>
+                    <p className="text-2xs">{data[1].quotes.AUDNZD}</p>
+                  </td>
+                  <td>
+                    <p className="text-2xs">
+                    {data[1].quotes.AUDJPY.toFixed(4)}
+                    </p>
+                  </td>
+                  <td>
+                    <p className="text-2xs">{data[1].quotes.AUDTRY}</p>
+                  </td>
+                  <td>
+                    <p className="text-2xs">{data[1].quotes.AUDBRL}</p>
+                  </td>
                 </tr>
                 <tr>
-                  <td>
+                  <td className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/2989.png"
                       alt="EURS"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     EURS
                   </td>
@@ -229,17 +271,19 @@ const Overview: NextPage<Props> = (props) => {
                   <td>-</td>
                   <td>{data[2].quotes.EURCHF}</td>
                   <td>{data[2].quotes.EURNZD}</td>
-                  <td>{data[2].quotes.EURJPY}</td>
+                  <td>
+                  {data[2].quotes.EURJPY.toFixed(4)}
+                  </td>
                   <td>{data[2].quotes.EURTRY}</td>
                   <td>{data[2].quotes.EURBRL}</td>
                 </tr>
                 <tr>
-                  <td>
+                  <td className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/4075.png"
                       alt="XCHF"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     XCHF
                   </td>
@@ -248,17 +292,18 @@ const Overview: NextPage<Props> = (props) => {
                   <td>{data[3].quotes.CHFEUR}</td>
                   <td>-</td>
                   <td>{data[3].quotes.CHFEUR}</td>
-                  <td>{data[3].quotes.CHFJPY}</td>
+                  <td>{data[3].quotes.CHFJPY.toFixed(4)}
+                  </td>
                   <td>{data[3].quotes.CHFTRY}</td>
                   <td>{data[3].quotes.CHFBRL}</td>
                 </tr>
                 <tr>
-                  <td>
+                  <td className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/5494.png"
                       alt="NZDs"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     NZDs
                   </td>
@@ -267,36 +312,54 @@ const Overview: NextPage<Props> = (props) => {
                   <td>{data[4].quotes.NZDEUR}</td>
                   <td>{data[4].quotes.NZDCHF}</td>
                   <td>-</td>
-                  <td>{data[4].quotes.NZDJPY}</td>
+                  <td>
+                  {data[4].quotes.NZDJPY.toFixed(4)}
+                    </td>
                   <td>{data[4].quotes.NZDTRY}</td>
                   <td>{data[4].quotes.NZDBRL}</td>
                 </tr>
                 <tr>
-                  <td>
+                  <td className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/9045.png"
                       alt="JPYC"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     JPYC
                   </td>
-                  <td>{data[5].quotes.JPYUSD}</td>
-                  <td>{data[5].quotes.JPYAUD}</td>
-                  <td>{data[5].quotes.JPYEUR}</td>
-                  <td>{data[5].quotes.JPYCHF}</td>
-                  <td>{data[5].quotes.JPYNZD}</td>
+                  <td>
+                  {data[5].quotes.JPYUSD.toFixed(4)}
+                    </td>
+                  <td>
+                  {data[5].quotes.JPYAUD.toFixed(4)}
+                    </td>
+                  <td>
+                  {data[5].quotes.JPYEUR.toFixed(4)}
+                    </td>
+                  <td>
+                  {data[5].quotes.JPYCHF.toFixed(4)}
+                  </td>
+                  <td>
+                  {data[5].quotes.JPYNZD.toFixed(4)}
+                  
+                  </td>
                   <td>-</td>
-                  <td>{data[5].quotes.JPYTRY}</td>
-                  <td>{data[5].quotes.JPYBRL}</td>
+                  <td>
+                  {data[5].quotes.JPYTRY.toFixed(4)}
+
+                    </td>
+                  <td>
+                  {data[5].quotes.JPYBRL.toFixed(4)}
+                  </td>
                 </tr>
                 <tr>
-                  <td>
+                  <td className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/5181.png"
                       alt="TRYB"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     TRYB
                   </td>
@@ -310,12 +373,12 @@ const Overview: NextPage<Props> = (props) => {
                   <td>{data[6].quotes.TRYBRL}</td>
                 </tr>
                 <tr>
-                  <td>
+                  <td className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
                       src="https://s2.coinmarketcap.com/static/img/coins/64x64/4139.png"
                       alt="BRZ"
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                     />
                     BRZ
                   </td>
