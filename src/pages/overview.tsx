@@ -55,7 +55,7 @@ const Overview: NextPage<Props> = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
   /*   console.log(props.data[1].quotes.USDAUD); */
   const { data } = props;
-  console.log(data[3].quotes);
+  console.log(data[4].quotes);
   return (
     <div className="relative min-h-screen md:flex">
       <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
@@ -262,14 +262,14 @@ const Overview: NextPage<Props> = (props) => {
                     />
                     NZDs
                   </td>
-                  <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td>
-                  <td>6</td>
-                  <td>7</td>
-                  <td>8</td>
-                  <td>9</td>
+                  <td>{data[4].quotes.NZDUSD}</td>
+                  <td>{data[4].quotes.NZDAUD}</td>
+                  <td>{data[4].quotes.NZDEUR}</td>
+                  <td>{data[4].quotes.NZDCHF}</td>
+                  <td>-</td>
+                  <td>{data[4].quotes.NZDJPY}</td>
+                  <td>{data[4].quotes.NZDTRY}</td>
+                  <td>{data[4].quotes.NZDBRL}</td>
                 </tr>
                 <tr>
                   <td>
