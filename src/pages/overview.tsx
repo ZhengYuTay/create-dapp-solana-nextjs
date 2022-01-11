@@ -110,7 +110,7 @@ const Overview: NextPage<Props> = (props) => {
                       width={24}
                       height={24}
                     />
-                    USDC
+                    <p className="text-xs">USDC</p>
                   </th>
                   <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
@@ -119,7 +119,7 @@ const Overview: NextPage<Props> = (props) => {
                       width={24}
                       height={24}
                     />
-                    AUDT
+                     <p className="text-xs">AUDT</p>
                   </th>
                   <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
@@ -137,7 +137,7 @@ const Overview: NextPage<Props> = (props) => {
                       width={24}
                       height={24}
                     />
-                    XCHF
+                    <p className="text-xs">XCHF</p>
                   </th>
                   <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
@@ -146,7 +146,7 @@ const Overview: NextPage<Props> = (props) => {
                       width={24}
                       height={24}
                     />
-                    NZDs
+                    <p className="text-xs">NZDs</p>
                   </th>
                   <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
@@ -155,7 +155,7 @@ const Overview: NextPage<Props> = (props) => {
                       width={24}
                       height={24}
                     />
-                    JPYC
+                    <p className="text-xs">JPYC</p>
                   </th>
                   <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
@@ -164,7 +164,7 @@ const Overview: NextPage<Props> = (props) => {
                       width={24}
                       height={24}
                     />
-                    TRYB
+                    <p className="text-xs">TRYB</p>
                   </th>
                   <th className="bg-lagrangesidebardarkopacity border text-left">
                     <Image
@@ -173,7 +173,7 @@ const Overview: NextPage<Props> = (props) => {
                       width={24}
                       height={24}
                     />
-                    BRZ
+                    <p className="text-xs">BRZ</p>
                   </th>
                 </tr>
               </thead>
@@ -191,22 +191,22 @@ const Overview: NextPage<Props> = (props) => {
                   <td>-</td>
                   <td>
                     <p className="text-2xs">
-                      {data[0].quotes.USDAUD.toFixed(5)}
+                      {data[0].quotes.USDAUD.toFixed(4)}
                     </p>
                   </td>
                   <td>
                     <p className="text-2xs">
-                      {data[0].quotes.USDEUR.toFixed(5)}
+                      {data[0].quotes.USDEUR.toFixed(4)}
                     </p>
                   </td>
                   <td>
                     <p className="text-2xs">
-                      {data[0].quotes.USDCHF.toFixed(5)}
+                      {data[0].quotes.USDCHF.toFixed(4)}
                     </p>
                   </td>
                   <td>
                     <p className="text-2xs">
-                    {data[0].quotes.USDNZD.toFixed(5)}
+                    {data[0].quotes.USDNZD.toFixed(4)}
                     </p>
                   </td>
                   <td>
@@ -215,10 +215,14 @@ const Overview: NextPage<Props> = (props) => {
                     </p>
                   </td>
                   <td>
-                    <p className="text-2xs">{data[0].quotes.USDTRY}</p>
+                    <p className="text-2xs">
+                    {data[0].quotes.USDTRY.toFixed(4)}
+                    </p>
                   </td>
                   <td>
-                    <p className="text-2xs">{data[0].quotes.USDBRL}</p>
+                    <p className="text-2xs">
+                    {data[0].quotes.USDBRL.toFixed(4)}
+                    </p>
                   </td>
                 </tr>
                 <tr>
