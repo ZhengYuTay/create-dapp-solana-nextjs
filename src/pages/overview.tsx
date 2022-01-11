@@ -55,7 +55,7 @@ const Overview: NextPage<Props> = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
   /*   console.log(props.data[1].quotes.USDAUD); */
   const { data } = props;
-  console.log(data[4].quotes);
+  console.log(data[7].quotes);
   return (
     <div className="relative min-h-screen md:flex">
       <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
@@ -281,14 +281,14 @@ const Overview: NextPage<Props> = (props) => {
                     />
                     JPYC
                   </td>
-                  <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td>
-                  <td>6</td>
-                  <td>7</td>
-                  <td>8</td>
-                  <td>9</td>
+                  <td>{data[5].quotes.JPYUSD}</td>
+                  <td>{data[5].quotes.JPYAUD}</td>
+                  <td>{data[5].quotes.JPYEUR}</td>
+                  <td>{data[5].quotes.JPYCHF}</td>
+                  <td>{data[5].quotes.JPYNZD}</td>
+                  <td>-</td>
+                  <td>{data[5].quotes.JPYTRY}</td>
+                  <td>{data[5].quotes.JPYBRL}</td>
                 </tr>
                 <tr>
                   <td>
@@ -300,14 +300,14 @@ const Overview: NextPage<Props> = (props) => {
                     />
                     TRYB
                   </td>
-                  <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td>
-                  <td>6</td>
-                  <td>7</td>
-                  <td>8</td>
-                  <td>9</td>
+                  <td>{data[6].quotes.TRYUSD}</td>
+                  <td>{data[6].quotes.TRYAUD}</td>
+                  <td>{data[6].quotes.TRYEUR}</td>
+                  <td>{data[6].quotes.TRYCHF}</td>
+                  <td>{data[6].quotes.TRYNZD}</td>
+                  <td>{data[6].quotes.TRYJPY}</td>
+                  <td>-</td>
+                  <td>{data[6].quotes.TRYBRL}</td>
                 </tr>
                 <tr>
                   <td>
@@ -319,14 +319,14 @@ const Overview: NextPage<Props> = (props) => {
                     />
                     BRZ
                   </td>
-                  <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td>
-                  <td>6</td>
-                  <td>7</td>
-                  <td>8</td>
-                  <td>9</td>
+                  <td>{data[7].quotes.BRLUSD}</td>
+                  <td>{data[7].quotes.BRLAUD}</td>
+                  <td>{data[7].quotes.BRLEUR}</td>
+                  <td>{data[7].quotes.BRLCHF}</td>
+                  <td>{data[7].quotes.BRLNZD}</td>
+                  <td>{data[7].quotes.BRLJPY}</td>
+                  <td>{data[7].quotes.BRLTRY}</td>
+                  <td>-</td>
                 </tr>
               </tbody>
             </table>
