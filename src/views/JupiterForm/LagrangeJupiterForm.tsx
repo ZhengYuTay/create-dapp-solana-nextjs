@@ -1,4 +1,6 @@
-import React, { FunctionComponent, useEffect, useMemo, useState } from "react";
+import React, { FunctionComponent,Fragment, useEffect, useMemo, useState } from "react";
+import { Listbox, Transition } from '@headlessui/react'
+import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import { PublicKey } from "@solana/web3.js";
 import { TokenListProvider, TokenInfo } from "@solana/spl-token-registry";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
@@ -32,6 +34,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
   const wallet = useWallet();
   const { connection } = useConnection();
   const [tokenMap, setTokenMap] = useState<Map<string, TokenInfo>>(new Map());
+ 
 
   const [formValue, setFormValue] = useState<UseJupiterProps>({
     amount: 1 * 10 ** 6, // unit in lamports (Decimals)
@@ -145,7 +148,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="col-span-2 col-start-2">
           <div className="box flex justify-end"> <p className="text-sm">Balance -</p></div>
           <div className="box flex justify-end"> 
-          <select
+          {/* <select
               id="inputMint"
               name="inputMint"
               className="w-11/12 px-2 py-2 pr-8 text-xs leading-tight text-white border-2 border-gray-200 rounded-lg appearance-none bg-lagrangegraybackground focus:outline-none focus:bg-lagrangegraybackground focus:border-gray-500"
@@ -171,8 +174,83 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                     </>
                   );
                 })}
-            </select></div> 
+            </select> */}
+           
+            <div className="w-72 fixed border">
+      <Listbox value={formValue.inputMint?.toBase58()} onChange={(e?: any) => {
+                const pbKey = new PublicKey(e);
+                if (pbKey) {
+                  setFormValue((val) => ({
+                    ...val,
+                    inputMint: pbKey,
+                  }));
+                }
+              }}>
+        <div className="relative mt-1">
+          
+          <Listbox.Button className="relative w-full h-18 py-2 pl-3 pr-10 text-left rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+            {/* <span className="block truncate animate-bounce">{formValue.inputMint?.toBase58()}</span> */}
+          {inputTokenInfo? <Image src={`${inputTokenInfo?.logoURI}`} alt="" width={24} height={24} />: <Image src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png" alt="" width={24} height={24} /> }
+           
+            <span>{inputTokenInfo?.name}</span>          
+            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+              <SelectorIcon
+                className="w-5 h-5 text-gray-500"
+                aria-hidden="true"
+              />
+            </span>
+          </Listbox.Button>
+          <Transition
+            as={Fragment}
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              {allTokenMints.filter((item) => TrustedTokenAddresses.includes(item)).map((tokenMint) => (
+                <Listbox.Option
+                  key={tokenMint}
+                  className={({ active }) =>
+                    `${active ? 'text-amber-900 bg-amber-100' : 'text-gray-900'}
+                          cursor-default select-none relative py-2 pl-10 pr-4`
+                  }
+                  value={tokenMint}
+                >
+                  {({ selected, active }) => (
+                    <>
+                      <span
+                        className={`${
+                          selected ? 'font-medium' : 'font-normal'
+                        } block truncate`}
+                      >
+                  
+                        {tokenMap.get(tokenMint)?.name || "unknown"}
+                        {console.log(inputTokenInfo?.logoURI)}
+                      </span>
+                      {selected ? (
+                        <span
+                          className={`${
+                            active ? 'text-amber-600' : 'text-amber-600'
+                          }
+                                absolute inset-y-0 left-0 flex items-center pl-3`}
+                        >
+                          <CheckIcon className="w-5 h-5" aria-hidden="true" />
+                        </span>
+                      ) : null}
+                    </>
+                  )}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </Transition>
+        </div>
+      </Listbox>
+    </div>
+        
+            
+            </div> 
             {/* yedek select menu  */}
+            
           </div>
         </div>
 
