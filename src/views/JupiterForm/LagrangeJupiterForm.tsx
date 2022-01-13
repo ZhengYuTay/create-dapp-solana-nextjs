@@ -157,7 +157,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="col-span-2 col-start-2">
             <div className="flex justify-end box">
               {" "}
-              <p className="text-sm">Balance -</p>
+              <p className="text-xs">Balance -</p>
             </div>
             <div className="flex justify-end box">
               {/* <select
@@ -188,7 +188,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                 })}
             </select> */}
 
-              <div className="fixed z-50 border w-36 bg-lagrangegraybackground">
+              <div className="relative z-50 border w-36 bg-lagrangegraybackground">
                 <Listbox
                   value={formValue.inputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -224,7 +224,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         </>
                       )}
 
-                      <span className="ml-1 text-sm text-white">
+                      <span className="ml-1 text-xs text-white truncate">
                         {inputTokenInfo?.name}
                       </span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -363,7 +363,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               </select>
             </div> */}
             <div className="flex justify-end box">
-              <div className="fixed z-40 border w-36 bg-lagrangegraybackground">
+              <div className="relative z-40 border w-36 bg-lagrangegraybackground">
                 <Listbox
                   value={formValue.outputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -397,7 +397,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         </>
                       )}
 
-                      <span className="text-white">
+                      <span className="ml-1 text-xs text-white truncate">
                         {outputTokenInfo?.name}
                       </span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
