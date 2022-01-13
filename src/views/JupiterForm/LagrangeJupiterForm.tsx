@@ -157,12 +157,12 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="col-span-2 col-start-2">
             <div className="flex justify-end box">
               {" "}
-              <p className="text-sm">Balance -</p>
+              <p className="text-xs">Balance -</p>
             </div>
             <div className="flex justify-end box">
               
 
-              <div className="absolute z-50 border w-36 bg-lagrangegraybackground">
+              <div className="absolute z-50 border w-36 bg-lagrangegraybackground rounded-xl">
                 <Listbox
                   value={formValue.inputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -176,7 +176,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   }}
                 >
                   <div className="relative mt-1">
-                    <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left rounded-lg shadow-md cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+                    <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left text-white rounded-lg shadow-md cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 text-xs">
                       {inputTokenInfo ? (
                         <Image
                           src={`${inputTokenInfo?.logoURI}`}
@@ -200,7 +200,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       <span>{inputTokenInfo?.name}</span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                         <SelectorIcon
-                          className="w-5 h-5 text-gray-500"
+                          className="w-5 h-5 text-gray-100"
                           aria-hidden="true"
                         />
                       </span>
@@ -308,7 +308,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             </div>
             
             <div className="flex justify-end box">
-              <div className="absolute border w-36 bg-lagrangegraybackground">
+              <div className="absolute border w-36 bg-lagrangegraybackground rounded-xl">
                 <Listbox
                   value={formValue.outputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -322,7 +322,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   }}
                 >
                   <div className="relative mt-1">
-                    <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left rounded-lg shadow-md cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+                    <Listbox.Button className="relative text-white w-full py-2 pl-3 pr-10 text-left rounded-lg shadow-md cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 text-xs">
                       {/* <span className="block truncate animate-bounce">{formValue.inputMint?.toBase58()}</span> */}
                       {outputTokenInfo ? (
                         <Image
@@ -333,20 +333,15 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         />
                       ) : (
                         <>
-                          <Image
-                            src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png"
-                            alt=""
-                            width={24}
-                            height={24}
-                          />{" "}
-                          <span>USD Coin</span>
+                         
+                          <span className="text-xs text-white">Select Token</span>
                         </>
                       )}
 
                       <span>{outputTokenInfo?.name}</span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                         <SelectorIcon
-                          className="w-5 h-5 text-gray-500"
+                          className="w-5 h-5 text-gray-100"
                           aria-hidden="true"
                         />
                       </span>
@@ -357,7 +352,8 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       leaveFrom="opacity-100"
                       leaveTo="opacity-0"
                     >
-                      <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                      <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto 
+                     bg-lagrangeborder rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                         {validOutputMints
                           .filter((item) =>
                             TrustedTokenAddresses.includes(item)
