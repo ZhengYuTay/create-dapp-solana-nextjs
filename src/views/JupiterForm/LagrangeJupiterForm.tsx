@@ -200,7 +200,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       <span>{inputTokenInfo?.name}</span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                         <SelectorIcon
-                          className="w-5 h-5 text-gray-100"
+                          className="w-5 h-5 text-white"
                           aria-hidden="true"
                         />
                       </span>
@@ -248,7 +248,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                 absolute inset-y-0 left-0 flex items-center pl-3`}
                                     >
                                       <CheckIcon
-                                        className="w-5 h-5"
+                                        className="w-5 h-5 text-white"
                                         aria-hidden="true"
                                       />
                                     </span>
@@ -341,7 +341,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       <span>{outputTokenInfo?.name}</span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                         <SelectorIcon
-                          className="w-5 h-5 text-gray-100"
+                          className="w-5 h-5 text-white"
                           aria-hidden="true"
                         />
                       </span>
