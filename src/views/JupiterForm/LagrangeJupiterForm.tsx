@@ -157,7 +157,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="col-span-2 col-start-2">
             <div className="flex justify-end box">
               {" "}
-              <p className="text-xs">Balance -</p>
+              <p className="text-sm">Balance -</p>
             </div>
             <div className="flex justify-end box">
               {/* <select
@@ -188,7 +188,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                 })}
             </select> */}
 
-              <div className="relative z-50 border w-36 bg-lagrangegraybackground">
+              <div className="fixed z-50 border w-96 bg-lagrangegraybackground">
                 <Listbox
                   value={formValue.inputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -203,7 +203,6 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                 >
                   <div className="relative mt-1">
                     <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left rounded-lg shadow-md cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
-                      {/* <span className="block truncate animate-bounce">{formValue.inputMint?.toBase58()}</span> */}
                       {inputTokenInfo ? (
                         <Image
                           src={`${inputTokenInfo?.logoURI}`}
@@ -224,9 +223,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         </>
                       )}
 
-                      <span className="ml-1 text-xs text-white truncate">
-                        {inputTokenInfo?.name}
-                      </span>
+                      <span>{inputTokenInfo?.name}</span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                         <SelectorIcon
                           className="w-5 h-5 text-gray-500"
@@ -363,7 +360,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               </select>
             </div> */}
             <div className="flex justify-end box">
-              <div className="relative z-40 border w-36 bg-lagrangegraybackground">
+              <div className="fixed border w-96 bg-lagrangegraybackground">
                 <Listbox
                   value={formValue.outputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -378,6 +375,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                 >
                   <div className="relative mt-1">
                     <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left rounded-lg shadow-md cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+                      {/* <span className="block truncate animate-bounce">{formValue.inputMint?.toBase58()}</span> */}
                       {outputTokenInfo ? (
                         <Image
                           src={`${outputTokenInfo?.logoURI}`}
@@ -388,18 +386,16 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       ) : (
                         <>
                           <Image
-                            src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB/logo.svg"
+                            src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png"
                             alt=""
                             width={24}
                             height={24}
                           />{" "}
-                          <span className="text-white">USDT</span>
+                          <span>USD Coin</span>
                         </>
                       )}
 
-                      <span className="ml-1 text-xs text-white truncate">
-                        {outputTokenInfo?.name}
-                      </span>
+                      <span>{outputTokenInfo?.name}</span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                         <SelectorIcon
                           className="w-5 h-5 text-gray-500"
