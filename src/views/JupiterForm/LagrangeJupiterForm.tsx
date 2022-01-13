@@ -160,35 +160,9 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               <p className="text-sm">Balance -</p>
             </div>
             <div className="flex justify-end box">
-              {/* <select
-              id="inputMint"
-              name="inputMint"
-              className="w-11/12 px-2 py-2 pr-8 text-xs leading-tight text-white border-2 border-gray-200 rounded-lg appearance-none bg-lagrangegraybackground focus:outline-none focus:bg-lagrangegraybackground focus:border-gray-500"
-              value={formValue.inputMint?.toBase58()}
-              onChange={(e) => {
-                const pbKey = new PublicKey(e.currentTarget.value);
-                if (pbKey) {
-                  setFormValue((val) => ({
-                    ...val,
-                    inputMint: pbKey,
-                  }));
-                }
-              }}
-            >
-              {allTokenMints
-                .filter((item) => TrustedTokenAddresses.includes(item))
-                .map((tokenMint) => {
-                  return (
-                    <>
-                      <option key={tokenMint} value={tokenMint}>
-                        {tokenMap.get(tokenMint)?.name || "unknown"}
-                      </option>
-                    </>
-                  );
-                })}
-            </select> */}
+              
 
-              <div className="fixed z-50 border w-96 bg-lagrangegraybackground">
+              <div className="absolute z-50 border w-36 bg-lagrangegraybackground">
                 <Listbox
                   value={formValue.inputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -219,7 +193,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                             height={24}
                             className="px-2 py-2"
                           />{" "}
-                          <span className="text-white">USD Coin</span>
+                          <span className="text-white text-xs">USD Coin</span>
                         </>
                       )}
 
@@ -237,7 +211,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       leaveFrom="opacity-100"
                       leaveTo="opacity-0"
                     >
-                      <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                      <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-lagrangegraybackground rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                         {allTokenMints
                           .filter((item) =>
                             TrustedTokenAddresses.includes(item)
@@ -260,7 +234,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                   <span
                                     className={`${
                                       selected ? "font-medium" : "font-normal"
-                                    } block truncate`}
+                                    } block truncate text-white text-xs`}
                                   >
                                     {tokenMap.get(tokenMint)?.name || "unknown"}
                                   </span>
@@ -332,35 +306,9 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               {" "}
               <p className="text-xs">Balance -</p>
             </div>
-            {/*  <div className="flex justify-end box">
-              <select
-                id="outputMint"
-                name="outputMint"
-                className="w-11/12 px-2 py-2 pr-8 text-xs leading-tight text-white border-2 border-gray-200 rounded-lg appearance-none bg-lagrangegraybackground focus:outline-none focus:bg-lagrangegraybackground focus:border-gray-500"
-                value={formValue.outputMint?.toBase58()}
-                onChange={(e) => {
-                  const pbKey = new PublicKey(e.currentTarget.value);
-                  if (pbKey) {
-                    setFormValue((val) => ({
-                      ...val,
-                      outputMint: pbKey,
-                    }));
-                  }
-                }}
-              >
-                {validOutputMints
-                  .filter((item) => TrustedTokenAddresses.includes(item))
-                  .map((tokenMint) => {
-                    return (
-                      <option key={tokenMint} value={tokenMint}>
-                        {tokenMap.get(tokenMint)?.name || "unknown"}
-                      </option>
-                    );
-                  })}
-              </select>
-            </div> */}
+            
             <div className="flex justify-end box">
-              <div className="fixed border w-96 bg-lagrangegraybackground">
+              <div className="absolute border w-36 bg-lagrangegraybackground">
                 <Listbox
                   value={formValue.outputMint?.toBase58()}
                   onChange={(e?: any) => {
