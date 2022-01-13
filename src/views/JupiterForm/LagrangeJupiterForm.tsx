@@ -376,7 +376,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                   <span
                                     className={`${
                                       selected ? "font-medium" : "font-normal"
-                                    } block truncate`}
+                                    } block truncate text-white text-xs`}
                                   >
                                     {tokenMap.get(tokenMint)?.name || "unknown"}
                                   </span>
@@ -390,7 +390,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                 absolute inset-y-0 left-0 flex items-center pl-3`}
                                     >
                                       <CheckIcon
-                                        className="w-5 h-5"
+                                        className="w-5 h-5 bg-white"
                                         aria-hidden="true"
                                       />
                                     </span>
