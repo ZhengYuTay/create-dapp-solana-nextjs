@@ -94,6 +94,8 @@ const Pools: NextPage<Props> = (props) => {
         <ContentHeader />
         <div className="py-2 text-center ">
           <h1 className="text-2xl">Pools</h1>
+          <h2 className="text-xl">Pools are in test mode please do not deposit</h2>
+          
         </div>
         <div>
           <div className="px-2 py-2"></div>
@@ -103,39 +105,3 @@ const Pools: NextPage<Props> = (props) => {
   );
 };
 export default Pools;
-/* 
-export async function getServerSideProps() {
-  const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
-  const endpoint = "https://api.currencylayer.com/live";
-  const sourceCurrencyPairs = currencies.map((source) => ({
-    ...source,
-    currencies: currencies
-      .map(({ fiatSymbol }) => fiatSymbol)
-      .filter((currency) => currency !== source.fiatSymbol),
-  }));
-
-  const pairs = await Promise.all(
-    sourceCurrencyPairs.map(async (pair) => {
-      const url = `${endpoint}?access_key=${accessKey}&source=${
-        pair.fiatSymbol
-      }&currencies=${pair.currencies.join(",")}&format=1`;
-      return {
-        ...pair,
-        quotes: (await (await fetch(url)).json()).quotes,
-      };
-    })
-  );
-
-  if (!pairs) {
-    return {
-      notFound: true,
-    };
-  }
-  return {
-    props: {
-      data: pairs,
-    },
-    // will be passed to the page component as props
-  };
-}
- */
