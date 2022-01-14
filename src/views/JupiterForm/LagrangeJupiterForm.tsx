@@ -162,7 +162,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             <div className="flex justify-center box">
               
 
-              <div className="absolute z-50 border w-36 bg-lagrangegraybackground rounded-xl">
+              <div className="absolute z-50 border w-full xs:w-32 bg-lagrangegraybackground rounded-xl">
                 <Listbox
                   value={formValue.inputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -191,13 +191,13 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                             alt=""
                             width={24}
                             height={24}
-                            className="px-2 py-2"
+                            className="px-1 py-1"
                           />{" "}
-                          <span className="text-white text-sm ml-2">USD Coin</span>
+                          <span className="text-white text-sm ml-2 mb-2">USD Coin</span>
                         </>
                       )}
 
-                      <span className="text-white text-sm ml-2">{inputTokenInfo?.name}</span>
+                      <span className="text-white text-xs ml-2">{inputTokenInfo?.name}</span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                         <SelectorIcon
                           className="w-5 h-5 text-white"
@@ -284,7 +284,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             <div>
               <p className="text-xs">To</p>
             </div>
-            <div className="w-full px-2 py-2 pr-8 text-xs leading-tight text-gray-700 bg-gray-100 border-xl appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500">
+            <div className="w-full h-12 px-2 py-2 pr-8 text-xs leading-tight text-gray-700 bg-gray-100 border-xl appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500  border-2 rounded-xl">
               {routes?.[0] &&
                 (() => {
                   const route = routes[0];
@@ -297,8 +297,10 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       </div>
                       <FeeInfo route={route} />
                     </div>
+                    
                   );
                 })()}
+                
             </div>
           </div>
           <div className="col-span-2 col-start-2 box">
