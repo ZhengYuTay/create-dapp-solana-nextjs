@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { NextPage } from "next";
 import graphicReports from "../../public/graphic-reports.png";
 import swapIcon from "../../public/swap-icon.png";
+import poolIcon from "../../public/pool.png";
 const SidebarNavigation: NextPage = (props) => {
   return (
     <nav>
@@ -46,7 +47,7 @@ const SidebarNavigation: NextPage = (props) => {
           <div className="flex">
             <div className="w-8 item">
               <Image
-                src={graphicReports}
+                src={poolIcon}
                 alt="Picture of the author"
                 width={27}
                 height={27}

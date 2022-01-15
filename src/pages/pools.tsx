@@ -94,7 +94,25 @@ const Pools: NextPage<Props> = (props) => {
         <ContentHeader />
         <div className="py-2 text-center ">
           <h1 className="text-2xl">Pools</h1>
-          <h2 className="text-xl">Pools are in test mode please do not deposit</h2>
+          {/* <h2 className="text-xl">Pools are in test mode please do not deposit</h2> */}
+          <div className="flex flex-wrap mx-1 overflow-hidden">
+
+  <div className="mx-1 my-1 w-1/4 overflow-hidden py-2 shadow-lg bg-white border border-lagrangegraybackground rounded-xl"> 
+  <div className="py-4">Total Value Locked</div>
+  <div>$7.487.195,25</div>
+  </div>
+
+  <div className="mx-1 my-1 px-1 w-1/4 overflow-hidden py-2 shadow-lg bg-white border border-lagrangegraybackground rounded-xl">
+  <div className="py-4">DFX Price Value</div>
+  <div>$1,03</div>
+  </div>
+
+  <div className="mx-1 my-1 px-1 w-1/4 overflow-hidden py-2 shadow-lg bg-white border border-lagrangegraybackground rounded-xl">
+  <div className="py-4">My Total Value</div>
+  <div>$-</div>
+  </div>
+
+</div>
           
         </div>
         <div>
