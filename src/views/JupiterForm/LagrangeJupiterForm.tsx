@@ -104,7 +104,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
     <div>
       {/*  <PoolProviders /> */}
 
-      <div className="px-2 mb-2 bg-white border-2 rounded-xl shadow-lg border-lagrangeborder">
+      <div className="px-2 mb-4 bg-white border-2 rounded-xl shadow-lg border-lagrangeborder">
         <div>
           <h1 className="text-3xl">Swap</h1>
         </div>
@@ -135,12 +135,12 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
         {/* from */}
         <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden">
-          <div className="box2">
-            <p className="text-sm text-center py-2">From ({inputTokenInfo?.symbol})</p>
+          <div className="box">
+            <p className="text-sm text-center">From ({inputTokenInfo?.symbol})</p>
             <input
               name="amount"
               id="amount"
-              className="w-11/12 mx-2 h-full px-2 py-2 pr-8 text-sm font-bold leading-tight text-gray-700 bg-gray-100 border-2 rounded-xl appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
+              className="w-11/12 mx-2 h-20 px-2 py-2 text-center text-md font-bold leading-tight text-gray-700 bg-gray-100 border-2 rounded-xl appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
               value={formValue.amount}
               type="text"
               pattern="[0-9]*"
@@ -154,15 +154,15 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               }}
             />
           </div>
-          <div className="col-span-2 col-start-2 py-2">
+          <div className="col-span-2 col-start-2">
             <div className="flex justify-center box">
             
-              <p className="text-sm py-2">Balance</p>
+              <p className="text-sm">Balance</p>
             </div>
             <div className="flex justify-center box">
               
 
-              <div className="absolute z-50 border w-full xs:w-36 bg-lagrangegraybackground rounded-xl">
+              <div className="absolute z-50 border w-full h-20 xs:w-36 bg-lagrangegraybackground rounded-xl">
                 <Listbox
                   value={formValue.inputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -280,12 +280,12 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
         {/* Button Side */}
 
-        <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden">
+        <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden px-2">
           <div className="box">
             <div>
-              <p className="text-sm text-center py-2">To</p>
+              <p className="text-sm text-center py-2">To-</p>
             </div>
-            <div className="w-11/12 h-12 px-2 py-2 pr-8 text-sm leading-tight text-gray-700 bg-gray-100 border-xl appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500 s border-2 rounded-xl">
+            <div className="w-11/12 h-20 px-2 py-2 text-center text-sm leading-tight text-gray-700 bg-gray-100 border-xl appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500 s border-2 rounded-xl">
               {routes?.[0] &&
                 (() => {
                   const route = routes[0];
@@ -311,7 +311,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             </div>
             
             <div className="flex justify-center box">
-              <div className="absolute border w-36 bg-lagrangegraybackground rounded-xl">
+              <div className="absolute border w-36 h-20 bg-lagrangegraybackground rounded-xl">
                 <Listbox
                   value={formValue.outputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -341,12 +341,13 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         </>
                       )}
 
-                      <span className="text-sm ml-2">{outputTokenInfo?.name}</span>
+                      <span className="text-xs ml-2">{outputTokenInfo?.name}</span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                         <SelectorIcon
                           className="w-5 h-5 text-white"
                           aria-hidden="true"
                         />
+                        
                       </span>
                     </Listbox.Button>
                     <Transition
@@ -370,18 +371,26 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                     ? "text-amber-900 bg-amber-100"
                                     : "text-gray-900"
                                 }
-                          cursor-default select-none relative py-2 pl-10 pr-4`
+                          cursor-default select-none relative py-2 pl-8 pr-4`
                               }
                               value={tokenMint}
                             >
                               {({ selected, active }) => (
                                 <>
-                                  <span
+                                   <span
                                     className={`${
                                       selected ? "font-medium" : "font-normal"
                                     } block truncate text-white text-xs`}
-                                  >
-                                    {tokenMap.get(tokenMint)?.name || "unknown"}
+                                  >  <Image
+                                  src={`${tokenMap.get(tokenMint)?.logoURI}`}
+                                  alt=""
+                                  width={24}
+                                  height={24}
+                                />
+                                  {tokenMap.get(tokenMint)?.name || "unknown"}
+                                    
+                                    
+                          
                                   </span>
                                   {selected ? (
                                     <span
@@ -390,12 +399,13 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                           ? "text-amber-600"
                                           : "text-amber-600"
                                       }
-                                absolute inset-y-0 left-0 flex items-center pl-3`}
-                                    >
-                                      <CheckIcon
-                                        className="w-5 h-5 bg-white"
-                                        aria-hidden="true"
-                                      />
+                                absolute inset-y-0 left-0 flex items-center pl-1`}
+                                    > <CheckIcon
+                                    className="w-5 h-5 text-white"
+                                    aria-hidden="true"
+                                  />
+                                     
+                                     
                                     </span>
                                   ) : null}
                                 </>
@@ -457,14 +467,14 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               }}
               className="inline-flex justify-center place-items-center h-20 w-full px-4 py-2 text-base font-medium text-white uppercase border-2 border-lagrangegraybackground rounded-xl shadow-sm bg-lagrangepurple hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              <p className="text-center">Swap</p>
+              <p className="text-center text-xl">Swap</p>
             </button>
           </div>
           <div className="col-span-2 col-start-2 box">
             <button
               className={`${
                 loading ? "opacity-50 cursor-not-allowed" : ""
-              } w-full uppercase inline-flex justify-center place-items-center  h-20 px-4 py-2 border-2 border-lagrangebuttongray text-base font-medium rounded-xl shadow-sm text-lagrangebuttongray bg-gray-200 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2`}
+              } w-full uppercase inline-flex justify-center place-items-center h-20 px-4 py-2 border-2 border-lagrangebuttongray text-xl font-medium rounded-xl shadow-sm text-lagrangebuttongray bg-gray-200 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2`}
               type="button"
               onClick={refresh}
               disabled={loading}
