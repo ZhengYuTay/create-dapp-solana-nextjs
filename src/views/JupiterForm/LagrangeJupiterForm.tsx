@@ -106,9 +106,9 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
       <div className="px-2 mb-4 bg-white border-2 rounded-xl shadow-lg border-lagrangeborder">
         <div>
-          <h1 className="text-3xl">Swap</h1>
+          <h1 className="text-3xl py-4">Swap</h1>
         </div>
-        <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden">
+        <div className="grid grid-cols-2 grid-rows-1 py-4 gap-2 overflow-hidden">
           <div className="box">
             <p className="text-sm">Max Slippage</p>
           </div>
@@ -120,7 +120,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden">
+        <div className="grid grid-cols-2 grid-rows-1 py-4 gap-2 overflow-hidden">
           <div className="box">
             <p className="text-sm">Transaction deadline (minutes)</p>
           </div>
@@ -134,7 +134,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
         </div>
 
         {/* from */}
-        <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden">
+        <div className="grid grid-cols-2 grid-rows-1 gap-2 overflow-hidden">
           <div className="box">
             <p className="text-sm text-center">From ({inputTokenInfo?.symbol})</p>
             <input
@@ -280,7 +280,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
         {/* Button Side */}
 
-        <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden px-2">
+        <div className="grid grid-cols-2 grid-rows-1 py-4 gap-2 overflow-hidden px-2">
           <div className="box">
             <div>
               <p className="text-sm text-center py-2">To-</p>
@@ -423,7 +423,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
         {/* end */}
 
-        <div className="grid grid-cols-2 grid-rows-2 gap-2 overflow-hidden">
+        <div className="grid grid-cols-2 grid-rows-1 gap-2 overflow-hidden py-4">
           <div className="box">
             <button
               type="button"
@@ -465,7 +465,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   }
                 }
               }}
-              className="inline-flex justify-center place-items-center h-20 w-full px-4 py-2 text-base font-medium text-white uppercase border-2 border-lagrangegraybackground rounded-xl shadow-sm bg-lagrangepurple hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="inline-flex justify-center place-items-center h-20 w-full px-2 py-2 text-base font-medium text-white uppercase border-2 border-lagrangegraybackground rounded-xl shadow-sm bg-lagrangepurple hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 animate-pulse"
             >
               <p className="text-center text-xl">Swap</p>
             </button>
@@ -490,18 +490,18 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
         </div>
         
       </div>
-      <div className="bg-white border-2 rounded-xl shadow-lg border-lagrangeborder">
-      <p className="py-1">Total routes: {routes?.length}</p>
+      <div className="bg-white border-2 rounded-xl shadow-lg border-lagrangeborder px-2 py-2">
+      <p className="py-2">Total routes: {routes?.length}</p>
       {routes?.[0] &&
         (() => {
           const route = routes[0];
           return (
             <div>
-              <div>
+              <div className="py-2">
                 Best route info :{" "}
                 {route.marketInfos.map((info) => info.marketMeta.amm.label)}
               </div>
-              <div>
+              <div className="py-2 text-sm">
                 Output:{" "}
                 {route.outAmount / 10 ** (outputTokenInfo?.decimals || 1)}{" "}
                 {outputTokenInfo?.symbol}
