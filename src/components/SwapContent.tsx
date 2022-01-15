@@ -14,7 +14,7 @@ const SwapContent: NextPage = (props) => {
       <div className="relative h-12 w-12 lg:mx-auto border-purple-500 border-2 rounded-full">
           <Avatar/>
           
-      </div><span className="text-2xs px-2">{publicKey.toBase58()}</span></>
+      </div><span className="text-xs px-2">{publicKey.toBase58()}</span></>
       } 
           
           
