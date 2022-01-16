@@ -181,8 +181,8 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         <Image
                           src={`${inputTokenInfo?.logoURI}`}
                           alt=""
-                          width={48}
-                          height={48}
+                          width={42}
+                          height={42}
                           className="px-1"
                         />
                       ) : (
@@ -191,8 +191,8 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                           <Image
                             src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png"
                             alt=""
-                            width={48}
-                            height={48}
+                            width={42}
+                            height={42}
                             className="px-1 py-1"
                           />
                         </>
@@ -235,14 +235,14 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                  <Image
                           src={`${tokenMap.get(tokenMint)?.logoURI}`}
                           alt=""
-                          width={48}
-                          height={48}
+                          width={36}
+                          height={36}
                            
                         />
                                   <span
                                     className={`${
                                       selected ? "font-medium" : "font-normal"
-                                    } block truncate text-white text-xs`}
+                                    } block truncate text-white text-base `}
                                   >
                                     {tokenMap.get(tokenMint)?.name || "unknown"}
                                   </span>
@@ -331,15 +331,15 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                     }
                   }}
                 >
-                  <div className="relative mt-1">
+                  <div className="relative mt-1 place-items-center">
                     <Listbox.Button className="relative text-white w-full py-2 pl-3 pr-10 text-left rounded-xl shadow-md cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 text-xs">
                       {/* <span className="block truncate animate-bounce">{formValue.inputMint?.toBase58()}</span> */}
                       {outputTokenInfo ? (
                         <Image
                           src={`${outputTokenInfo?.logoURI}`}
                           alt=""
-                          width={48}
-                          height={48}
+                          width={42}
+                          height={42}
                            
                         />
                       ) : (
@@ -392,8 +392,8 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                   >  <Image
                                   src={`${tokenMap.get(tokenMint)?.logoURI}`}
                                   alt=""
-                                  width={48}
-                                  height={48}
+                                  width={42}
+                                  height={42}
                                 />
                                   {tokenMap.get(tokenMint)?.name || "unknown"}
                                     
