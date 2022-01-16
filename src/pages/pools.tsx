@@ -3,6 +3,7 @@ import ContentHeader from "../components/ContentHeader";
 import SidebarLogo from "../components/SidebarLogo";
 import SidebarNavigation from "../components/SidebarNavigation";
 import MobileLogo from "../components/MobileLogo";
+import { getData } from './api/jupiter-api-example'
 import type { NextPage } from "next";
 import Image from "next/image";
 import { type } from "os";
@@ -49,12 +50,13 @@ const currencies = [
   },
 ];
 interface Props {
-  data: any;
+  swappableOutputForSol: any;
 }
 const Pools: NextPage<Props> = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
-  /*   console.log(props.data[1].quotes.USDAUD); */
-  const { data } = props;
+
+  const { swappableOutputForSol } = props;
+  console.log(swappableOutputForSol)
 
   return (
     <div className="relative min-h-screen md:flex">
@@ -95,7 +97,7 @@ const Pools: NextPage<Props> = (props) => {
         <div className="py-2 text-center ">
           <h1 className="text-2xl">Pools</h1>
           {/* <h2 className="text-xl">Pools are in test mode please do not deposit</h2> */}
-          <div className="flex flex-wrap mx-1 overflow-hidden">
+          <div className="flex flex-wrap mx-1 overflow-hidden justify-between">
 
   <div className="mx-1 my-1 w-1/4 overflow-hidden py-2 shadow-lg bg-white border border-lagrangegraybackground rounded-xl"> 
   <div className="py-4">Total Value Locked</div>
@@ -123,3 +125,12 @@ const Pools: NextPage<Props> = (props) => {
   );
 };
 export default Pools;
+export async function getServerSideProps() {
+  const swappableOutputForSol = await getData()
+  return {
+    props: {
+      swappableOutputForSol: swappableOutputForSol,
+    },
+    // will be passed to the page component as props
+  };
+}
