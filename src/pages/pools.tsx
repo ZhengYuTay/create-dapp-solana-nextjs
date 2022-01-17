@@ -3,7 +3,7 @@ import ContentHeader from "../components/ContentHeader";
 import SidebarLogo from "../components/SidebarLogo";
 import SidebarNavigation from "../components/SidebarNavigation";
 import MobileLogo from "../components/MobileLogo";
-import { getData } from './api/jupiter-api-example'
+import { getData } from "./api/jupiter-api-example";
 import type { NextPage } from "next";
 import Image from "next/image";
 import { type } from "os";
@@ -56,7 +56,7 @@ const Pools: NextPage<Props> = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
 
   const { swappableOutputForSol } = props;
-  console.log(swappableOutputForSol)
+  console.log(swappableOutputForSol);
 
   return (
     <div className="relative min-h-screen md:flex">
@@ -97,25 +97,22 @@ const Pools: NextPage<Props> = (props) => {
         <div className="py-2 text-center ">
           <h1 className="text-2xl">Pools</h1>
           {/* <h2 className="text-xl">Pools are in test mode please do not deposit</h2> */}
-          <div className="flex flex-wrap mx-1 overflow-hidden justify-between">
+          <div className="flex flex-wrap justify-between mx-1 overflow-hidden">
+            <div className="w-1/4 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded-xl">
+              <div className="py-4">Total Value Locked</div>
+              <div>$7.487.195,25</div>
+            </div>
 
-  <div className="mx-1 my-1 w-1/4 overflow-hidden py-2 shadow-lg bg-white border border-lagrangegraybackground rounded-xl"> 
-  <div className="py-4">Total Value Locked</div>
-  <div>$7.487.195,25</div>
-  </div>
+            <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded-xl">
+              <div className="py-4">DFX Price Value</div>
+              <div>$1,03</div>
+            </div>
 
-  <div className="mx-1 my-1 px-1 w-1/4 overflow-hidden py-2 shadow-lg bg-white border border-lagrangegraybackground rounded-xl">
-  <div className="py-4">DFX Price Value</div>
-  <div>$1,03</div>
-  </div>
-
-  <div className="mx-1 my-1 px-1 w-1/4 overflow-hidden py-2 shadow-lg bg-white border border-lagrangegraybackground rounded-xl">
-  <div className="py-4">My Total Value</div>
-  <div>$-</div>
-  </div>
-
-</div>
-          
+            <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded-xl">
+              <div className="py-4">My Total Value</div>
+              <div>$-</div>
+            </div>
+          </div>
         </div>
         <div>
           <div className="px-2 py-2"></div>
@@ -126,7 +123,7 @@ const Pools: NextPage<Props> = (props) => {
 };
 export default Pools;
 export async function getServerSideProps() {
-  const swappableOutputForSol = await getData()
+  const swappableOutputForSol = await getData();
   return {
     props: {
       swappableOutputForSol: swappableOutputForSol,
