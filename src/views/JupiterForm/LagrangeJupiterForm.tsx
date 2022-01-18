@@ -104,30 +104,30 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
     <div>
       {/*  <PoolProviders /> */}
 
-      <div className="px-2 mb-4 bg-white border-2 rounded-xl shadow-lg border-lagrangeborder">
+      <div className="px-2 mb-4 bg-white border-2 shadow-lg rounded-xl border-lagrangeborder">
         <div>
-          <h1 className="text-3xl py-4">Swap</h1>
+          <h1 className="py-4 text-3xl">Swap</h1>
         </div>
-        <div className="grid grid-cols-2 grid-rows-1 py-4 gap-2 overflow-hidden">
+        <div className="grid grid-cols-2 grid-rows-1 gap-2 py-4 overflow-hidden">
           <div className="box">
             <p className="text-sm">Max Slippage</p>
           </div>
           <div className="flex justify-center col-span-2 col-start-2 box">
             <input
               type="text"
-              className="w-10/12 py-2 text-center border-2 rounded-xl shadow-lg text-grey-darkest border-lagrangeborder"
+              className="w-10/12 py-2 text-center border-2 shadow-lg rounded-xl text-grey-darkest border-lagrangeborder"
               value="0.5%"
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 grid-rows-1 py-4 gap-2 overflow-hidden">
+        <div className="grid grid-cols-2 grid-rows-1 gap-2 py-4 overflow-hidden">
           <div className="box">
             <p className="text-sm">Transaction deadline (minutes)</p>
           </div>
           <div className="flex justify-center col-span-2 col-start-2 box">
             <input
               type="text"
-              className="w-10/12 py-2 text-center border-2 rounded-xl shadow-lg text-grey-darkest border-lagrangeborder"
+              className="w-10/12 py-2 text-center border-2 shadow-lg rounded-xl text-grey-darkest border-lagrangeborder"
               value="10"
             />
           </div>
@@ -136,11 +136,13 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
         {/* from */}
         <div className="grid grid-cols-2 grid-rows-1 gap-2 overflow-hidden">
           <div className="box">
-            <p className="text-sm text-center">From ({inputTokenInfo?.symbol})</p>
+            <p className="text-sm text-center">
+              From ({inputTokenInfo?.symbol})
+            </p>
             <input
               name="amount"
               id="amount"
-              className="w-11/12 mx-2 h-20 px-2 py-2 text-center text-sm font-bold leading-tight text-gray-700 bg-gray-100 border-2 rounded-xl appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
+              className="w-11/12 h-20 px-2 py-2 mx-2 text-sm font-bold leading-tight text-center text-gray-700 bg-gray-100 border-2 appearance-none rounded-xl border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
               value={formValue.amount}
               type="text"
               pattern="[0-9]*"
@@ -156,13 +158,10 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           </div>
           <div className="col-span-2 col-start-2">
             <div className="flex justify-center box">
-            
               <p className="text-sm">Balance</p>
             </div>
             <div className="flex justify-center box">
-              
-
-              <div className="absolute border w-full h-20 z-40 xs:w-36 sm:w-56 bg-lagrangegraybackground rounded-xl">
+              <div className="absolute z-40 w-full h-20 border xs:w-36 sm:w-56 bg-lagrangegraybackground rounded-xl">
                 <Listbox
                   value={formValue.inputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -176,29 +175,33 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   }}
                 >
                   <div className="relative mt-1">
-                    <Listbox.Button className="relative w-full py-2 pl-2 pr-10 text-left cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 text-xs">
+                    <Listbox.Button className="relative w-full py-2 pl-2 pr-10 text-xs text-left cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500">
                       {inputTokenInfo ? (
                         <Image
                           src={`${inputTokenInfo?.logoURI}`}
                           alt=""
-                          width={42}
-                          height={42}
+                          width={36}
+                          height={36}
                           className="px-1"
                         />
                       ) : (
                         <>
-                          <span className="text-white text-xs ml-1 mb-1">USD Coin </span>
                           <Image
                             src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png"
                             alt=""
-                            width={42}
-                            height={42}
-                            className="px-1 py-1"
+                            width={36}
+                            height={36}
+                            className="px-1 py-2"
                           />
+                          <span className="mb-1 ml-1 text-xs text-white sm:ml-6 sm:text-xl">
+                            USD Coin{" "}
+                          </span>
                         </>
                       )}
 
-                      <span className="text-white text-xs ml-2">{inputTokenInfo?.name}</span>
+                      <span className="ml-2 text-xs text-white">
+                        {inputTokenInfo?.name}
+                      </span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                         <SelectorIcon
                           className="w-5 h-5 text-white"
@@ -212,7 +215,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       leaveFrom="opacity-100"
                       leaveTo="opacity-0"
                     >
-                      <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-lagrangegraybackground rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                      <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base rounded-md shadow-lg bg-lagrangegraybackground max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                         {allTokenMints
                           .filter((item) =>
                             TrustedTokenAddresses.includes(item)
@@ -232,13 +235,12 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                             >
                               {({ selected, active }) => (
                                 <>
-                                 <Image
-                          src={`${tokenMap.get(tokenMint)?.logoURI}`}
-                          alt=""
-                          width={36}
-                          height={36}
-                           
-                        />
+                                  <Image
+                                    src={`${tokenMap.get(tokenMint)?.logoURI}`}
+                                    alt=""
+                                    width={36}
+                                    height={36}
+                                  />
                                   <span
                                     className={`${
                                       selected ? "font-medium" : "font-normal"
@@ -287,12 +289,12 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
         {/* Button Side */}
 
-        <div className="grid grid-cols-2 grid-rows-1 py-4 gap-2 overflow-hidden px-2">
+        <div className="grid grid-cols-2 grid-rows-1 gap-2 px-2 py-4 overflow-hidden">
           <div className="box">
             <div>
-              <p className="text-sm text-center py-2">To-</p>
+              <p className="py-2 text-sm text-center">To-</p>
             </div>
-            <div className="w-11/12 h-20 px-2 py-2 text-center text-sm leading-tight text-gray-700 bg-gray-100 border-xl appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500 s border-2 rounded-xl">
+            <div className="w-11/12 h-20 px-2 py-2 text-sm leading-tight text-center text-gray-700 bg-gray-100 border-2 appearance-none border-xl border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500 s rounded-xl">
               {routes?.[0] &&
                 (() => {
                   const route = routes[0];
@@ -301,24 +303,22 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       <div>
                         {route.outAmount /
                           10 ** (outputTokenInfo?.decimals || 1)}{" "}
-                        {outputTokenInfo?.symbol} 
+                        {outputTokenInfo?.symbol}
                       </div>
                       {/* <FeeInfo route={route} /> */}
                     </div>
-                    
                   );
                 })()}
-                
             </div>
           </div>
           <div className="col-span-2 col-start-2 box">
             <div className="flex justify-center box">
               {" "}
-              <p className="text-sm text-center py-2">Balance</p>
+              <p className="py-2 text-sm text-center">Balance</p>
             </div>
-            
+
             <div className="flex justify-center box">
-              <div className="absolute border w-full xs:w-36 sm:w-56 h-20 bg-lagrangegraybackground rounded-xl">
+              <div className="absolute w-full h-20 border xs:w-36 sm:w-56 bg-lagrangegraybackground rounded-xl">
                 <Listbox
                   value={formValue.outputMint?.toBase58()}
                   onChange={(e?: any) => {
@@ -332,20 +332,20 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   }}
                 >
                   <div className="relative mt-1 place-items-center">
-                    <Listbox.Button className="relative text-white w-full py-2 pl-3 pr-10 text-left rounded-xl shadow-md cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 text-xs">
+                    <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-xs text-left text-white cursor-default rounded-xl h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500">
                       {/* <span className="block truncate animate-bounce">{formValue.inputMint?.toBase58()}</span> */}
                       {outputTokenInfo ? (
                         <Image
                           src={`${outputTokenInfo?.logoURI}`}
                           alt=""
-                          width={42}
-                          height={42}
-                           
+                          width={36}
+                          height={36}
                         />
                       ) : (
                         <>
-                         
-                          <span className="text-xs text-white">Select Token</span>
+                          <span className="text-sm font-semibold text-white">
+                            Select a Token
+                          </span>
                         </>
                       )}
 
@@ -355,7 +355,6 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                           className="w-5 h-5 text-white"
                           aria-hidden="true"
                         />
-                        
                       </span>
                     </Listbox.Button>
                     <Transition
@@ -364,8 +363,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       leaveFrom="opacity-100"
                       leaveTo="opacity-0"
                     >
-                      <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto 
-                     bg-lagrangeborder rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                      <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto rounded-md shadow-lg bg-lagrangeborder max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none">
                         {validOutputMints
                           .filter((item) =>
                             TrustedTokenAddresses.includes(item)
@@ -385,20 +383,21 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                             >
                               {({ selected, active }) => (
                                 <>
-                                   <span
+                                  <span
                                     className={`${
                                       selected ? "font-medium" : "font-normal"
                                     } block truncate text-white text-xs`}
-                                  >  <Image
-                                  src={`${tokenMap.get(tokenMint)?.logoURI}`}
-                                  alt=""
-                                  width={42}
-                                  height={42}
-                                />
-                                  {tokenMap.get(tokenMint)?.name || "unknown"}
-                                    
-                                    
-                          
+                                  >
+                                    {" "}
+                                    <Image
+                                      src={`${
+                                        tokenMap.get(tokenMint)?.logoURI
+                                      }`}
+                                      alt=""
+                                      width={36}
+                                      height={36}
+                                    />
+                                    {tokenMap.get(tokenMint)?.name || "unknown"}
                                   </span>
                                   {selected ? (
                                     <span
@@ -408,12 +407,12 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                           : "text-amber-600"
                                       }
                                 absolute inset-y-0 left-0 flex items-center pl-1`}
-                                    > <CheckIcon
-                                    className="w-5 h-5 text-white"
-                                    aria-hidden="true"
-                                  />
-                                     
-                                     
+                                    >
+                                      {" "}
+                                      <CheckIcon
+                                        className="w-5 h-5 text-white"
+                                        aria-hidden="true"
+                                      />
                                     </span>
                                   ) : null}
                                 </>
@@ -431,7 +430,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
         {/* end */}
 
-        <div className="grid grid-cols-2 grid-rows-1 gap-2 overflow-hidden py-4">
+        <div className="grid grid-cols-2 grid-rows-1 gap-2 py-4 overflow-hidden">
           <div className="box">
             <button
               type="button"
@@ -473,9 +472,9 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   }
                 }
               }}
-              className="inline-flex justify-center place-items-center h-20 w-full px-2 py-2 text-base font-medium text-white uppercase border-2 border-lagrangegraybackground rounded-xl shadow-sm bg-lagrangepurple hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 animate-pulse"
+              className="inline-flex justify-center w-full h-20 px-2 py-2 text-base font-medium text-white uppercase border-2 shadow-sm place-items-center border-lagrangegraybackground rounded-xl bg-lagrangepurple hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 animate-pulse"
             >
-              <p className="text-center text-xl">Swap</p>
+              <p className="text-xl text-center">Swap</p>
             </button>
           </div>
           <div className="col-span-2 col-start-2 box">
@@ -496,35 +495,31 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             </button>
           </div>
         </div>
-        
       </div>
-      <div className="bg-white border-2 rounded-xl shadow-lg border-lagrangeborder px-2 py-2">
-      <p className="py-2">Total routes: {routes?.length}</p>
-      {routes?.[0] &&
-        (() => {
-          const route = routes[0];
-          return (
-            <div>
-              <div className="py-2">
-                Best route info :{" "}
-                {route.marketInfos.map((info) => info.marketMeta.amm.label)}
+      <div className="px-2 py-2 bg-white border-2 shadow-lg rounded-xl border-lagrangeborder">
+        <p className="py-2">Total routes: {routes?.length}</p>
+        {routes?.[0] &&
+          (() => {
+            const route = routes[0];
+            return (
+              <div>
+                <div className="py-2">
+                  Best route info :{" "}
+                  {route.marketInfos.map((info) => info.marketMeta.amm.label)}
+                </div>
+                <div className="py-2 text-sm">
+                  Output:{" "}
+                  {route.outAmount / 10 ** (outputTokenInfo?.decimals || 1)}{" "}
+                  {outputTokenInfo?.symbol}
+                </div>
+                <FeeInfo route={route} />
               </div>
-              <div className="py-2 text-sm">
-                Output:{" "}
-                {route.outAmount / 10 ** (outputTokenInfo?.decimals || 1)}{" "}
-                {outputTokenInfo?.symbol}
-              </div>
-              <FeeInfo route={route} />
-            </div>
-          );
-        })()}
-     <div>
- 
-     </div>
+            );
+          })()}
+        <div></div>
 
-      {error && <div>Error in Jupiter, try changing your intpu</div>}
+        {error && <div>Error in Jupiter, try changing your intpu</div>}
       </div>
-
     </div>
   );
 };
