@@ -127,7 +127,7 @@ const Overview: NextPage<Props> = (props) => {
                         height={32}
                         layout="fixed"
                       />
-                      <p className="py-2">EURS</p>
+                      <p className="px-2 py-2">EURS</p>
                     </div>
                   </th>
 
@@ -140,7 +140,7 @@ const Overview: NextPage<Props> = (props) => {
                         height={32}
                         layout="fixed"
                       />
-                      <p className="py-2">JPYC</p>
+                      <p className="px-2 py-2">JPYC</p>
                     </div>
                   </th>
                   <th className="text-left border bg-lagrangesidebardarkopacity">
@@ -152,7 +152,7 @@ const Overview: NextPage<Props> = (props) => {
                         height={32}
                         layout="fixed"
                       />
-                      <p className="py-2">TRYB</p>
+                      <p className="px-2 py-2">TRYB</p>
                     </div>
                   </th>
                   <th className="text-left border bg-lagrangesidebardarkopacity">
@@ -164,21 +164,23 @@ const Overview: NextPage<Props> = (props) => {
                         height={32}
                         layout="fixed"
                       />
-                      <p className="py-2">BRZ</p>
+                      <p className="px-2 py-2">BRZ</p>
                     </div>
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="grid py-2 text-left border justify-items-center bg-lagrangesidebardarkopacity">
-                    <Image
-                      src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
-                      alt="USDC"
-                      width={32}
-                      height={32}
-                    />
-                    <p className="py-2 text-center xs:text-xs">USDC</p>
+                  <td className="grid px-2 py-2 text-left border justify-items-center bg-lagrangesidebardarkopacity">
+                    <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
+                      <Image
+                        src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
+                        alt="USDC"
+                        width={32}
+                        height={32}
+                      />
+                      <p className="px-2 py-2">USDC</p>
+                    </div>
                   </td>
                   <td className="border">
                     <p className="text-center xs:text-xs">-</p>
@@ -209,8 +211,10 @@ const Overview: NextPage<Props> = (props) => {
 
                 <tr>
                   <td className="grid py-2 text-left border justify-items-center bg-lagrangesidebardarkopacity">
-                    <Image src={EURS} alt="EURS" width={32} height={32} />
-                    <p className="py-2 text-center xs:text-xs">EURS</p>
+                    <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
+                      <Image src={EURS} alt="EURS" width={32} height={32} />
+                      <p className="px-2 py-2">EURS</p>
+                    </div>
                   </td>
                   <td className="border">
                     <p className="text-center xs:text-xs">
@@ -241,8 +245,10 @@ const Overview: NextPage<Props> = (props) => {
 
                 <tr>
                   <td className="grid py-2 text-left border justify-items-center bg-lagrangesidebardarkopacity">
-                    <Image src={JPYC} alt="JPYC" width={32} height={32} />
-                    <p className="py-2 text-center xs:text-xs">JPYC</p>
+                    <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
+                      <Image src={JPYC} alt="JPYC" width={32} height={32} />
+                      <p className="px-2 py-2">JPYC</p>
+                    </div>
                   </td>
                   <td className="border">
                     <p className="text-center xs:text-xs">
@@ -272,8 +278,10 @@ const Overview: NextPage<Props> = (props) => {
                 </tr>
                 <tr>
                   <td className="grid py-2 text-left border justify-items-center bg-lagrangesidebardarkopacity">
-                    <Image src={TRYB} alt="TRYB" width={32} height={32} />
-                    <p className="py-2 text-center xs:text-xs">TRYB</p>
+                    <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
+                      <Image src={TRYB} alt="TRYB" width={32} height={32} />
+                      <p className="px-2 py-2">TRYB</p>
+                    </div>
                   </td>
                   <td className="border">
                     <p className="text-center xs:text-xs">
@@ -303,8 +311,10 @@ const Overview: NextPage<Props> = (props) => {
                 </tr>
                 <tr>
                   <td className="grid py-2 text-left border justify-items-center bg-lagrangesidebardarkopacity">
-                    <Image src={BRZ} alt="BRZ" width={32} height={32} />
-                    <p className="py-2 text-center xs:text-xs">BRZ</p>
+                    <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
+                      <Image src={BRZ} alt="BRZ" width={32} height={32} />
+                      <p className="px-2 py-2">BRZ</p>
+                    </div>
                   </td>
                   <td className="border">
                     <p className="text-center xs:text-xs">
