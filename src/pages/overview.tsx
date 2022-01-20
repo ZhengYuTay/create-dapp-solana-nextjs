@@ -97,7 +97,7 @@ const Overview: NextPage<Props> = (props) => {
       <div className="flex-1 text-xs font-bold bg-gradient-to-r from-lagrangelight to-lagrangedark">
         <ContentHeader />
         <div className="py-2 text-center ">
-          <h1 className="text-2xl">Overview</h1>
+          <h1 className="text-2xl">Market Overview</h1>
         </div>
         <div>
           <div className="px-2 py-2">
@@ -183,27 +183,27 @@ const Overview: NextPage<Props> = (props) => {
                     </div>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">-</p>
+                    <p className="text-center sm:text-xl xs:text-xs">-</p>
                   </td>
 
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[0].quotes.USDEUR.toFixed(3)}
                     </p>
                   </td>
 
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[0].quotes.USDJPY.toFixed(3)}
                     </p>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[0].quotes.USDTRY.toFixed(3)}
                     </p>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[0].quotes.USDBRL.toFixed(3)}
                     </p>
                   </td>
@@ -217,27 +217,27 @@ const Overview: NextPage<Props> = (props) => {
                     </div>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[2].quotes.EURUSD.toFixed(3)}
                     </p>
                   </td>
 
                   <td className="border">
-                    <p className="text-center xs:text-xs">-</p>
+                    <p className="text-center sm:text-xl xs:text-xs">-</p>
                   </td>
 
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[2].quotes.EURJPY.toFixed(3)}
                     </p>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[2].quotes.EURTRY.toFixed(3)}
                     </p>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[2].quotes.EURBRL.toFixed(3)}
                     </p>
                   </td>
@@ -251,27 +251,27 @@ const Overview: NextPage<Props> = (props) => {
                     </div>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[5].quotes.JPYUSD.toFixed(3)}
                     </p>
                   </td>
 
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[5].quotes.JPYEUR.toFixed(3)}
                     </p>
                   </td>
 
                   <td className="border">
-                    <p className="text-center xs:text-xs">-</p>
+                    <p className="text-center sm:text-xl xs:text-xs">-</p>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[5].quotes.JPYTRY.toFixed(3)}
                     </p>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[5].quotes.JPYBRL.toFixed(3)}
                     </p>
                   </td>
@@ -284,27 +284,27 @@ const Overview: NextPage<Props> = (props) => {
                     </div>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[6].quotes.TRYUSD.toFixed(3)}
                     </p>
                   </td>
 
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[6].quotes.TRYEUR.toFixed(3)}
                     </p>
                   </td>
 
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[6].quotes.TRYJPY.toFixed(3)}
                     </p>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">-</p>
+                    <p className="text-center sm:text-xl xs:text-xs">-</p>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[6].quotes.TRYBRL.toFixed(3)}
                     </p>
                   </td>
@@ -317,29 +317,29 @@ const Overview: NextPage<Props> = (props) => {
                     </div>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[7].quotes.BRLUSD.toFixed(3)}
                     </p>
                   </td>
 
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[7].quotes.BRLEUR.toFixed(3)}
                     </p>
                   </td>
 
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[7].quotes.BRLJPY.toFixed(3)}
                     </p>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">
+                    <p className="text-center sm:text-xl xs:text-xs">
                       {data[7].quotes.BRLTRY.toFixed(3)}
                     </p>
                   </td>
                   <td className="border">
-                    <p className="text-center xs:text-xs">-</p>
+                    <p className="text-center sm:text-xl xs:text-xs">-</p>
                   </td>
                 </tr>
               </tbody>
