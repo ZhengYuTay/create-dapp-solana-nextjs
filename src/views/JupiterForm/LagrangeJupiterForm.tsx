@@ -104,30 +104,32 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
     <div>
       {/*  <PoolProviders /> */}
 
-      <div className="px-2 mb-4 bg-white border-2 shadow-lg rounded-xl border-lagrangeborder">
+      <div className="mb-4 bg-white border-2 shadow-lg sm:px-4 xs:px-2 rounded-xl border-lagrangeborder">
         <div>
           <h1 className="py-4 text-3xl">Swap</h1>
         </div>
         <div className="grid grid-cols-2 grid-rows-1 gap-2 py-4 overflow-hidden">
           <div className="box">
-            <p className="text-sm">Max Slippage</p>
+            <p className="sm:text-lg xs:text-sm">Max Slippage</p>
           </div>
           <div className="flex justify-center col-span-2 col-start-2 box">
             <input
               type="text"
-              className="w-7/12 py-2 text-center border-2 shadow-lg rounded-xl text-grey-darkest border-lagrangeborder"
+              className="w-7/12 py-2 font-semibold text-center border-2 shadow-lg rounded-xl text-grey-darkest border-lagrangeborder"
               value="0.5%"
             />
           </div>
         </div>
         <div className="grid grid-cols-2 grid-rows-1 gap-2 py-4 overflow-hidden">
           <div className="box">
-            <p className="text-sm">Transaction deadline (minutes)</p>
+            <p className="sm:text-lg xs:text-sm">
+              Transaction deadline (minutes)
+            </p>
           </div>
           <div className="flex justify-center col-span-2 col-start-2 box">
             <input
               type="text"
-              className="w-10/12 py-2 text-center border-2 shadow-lg rounded-xl text-grey-darkest border-lagrangeborder"
+              className="w-7/12 py-2 font-semibold text-center border-2 shadow-lg rounded-xl text-grey-darkest border-lagrangeborder"
               value="10"
             />
           </div>
@@ -136,7 +138,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
         {/* from */}
         <div className="grid grid-cols-2 grid-rows-1 gap-2 overflow-hidden">
           <div className="box">
-            <p className="text-sm text-center">
+            <p className="text-center sm:text-lg xs:text-sm">
               From ({inputTokenInfo?.symbol})
             </p>
             <input
@@ -158,7 +160,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           </div>
           <div className="col-span-2 col-start-2">
             <div className="flex justify-center box">
-              <p className="text-sm">Balance</p>
+              <p className="sm:text-lg xs:text-sm">Balance</p>
             </div>
             <div className="flex justify-center box">
               <div className="absolute z-40 w-full h-20 border xs:w-36 sm:w-56 bg-lagrangegraybackground rounded-xl">
@@ -175,13 +177,13 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   }}
                 >
                   <div className="relative mt-1">
-                    <Listbox.Button className="relative w-full py-2 pl-2 pr-10 text-xs text-left cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500">
+                    <Listbox.Button className="relative w-full py-2 pl-2 pr-10 text-left cursor-default sm:text-lg xs:text-sm h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500">
                       {inputTokenInfo ? (
                         <Image
                           src={`${inputTokenInfo?.logoURI}`}
                           alt=""
-                          width={36}
-                          height={36}
+                          width={32}
+                          height={32}
                           className="px-1"
                         />
                       ) : (
@@ -189,11 +191,11 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                           <Image
                             src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png"
                             alt=""
-                            width={36}
-                            height={36}
-                            className="px-1 py-2"
+                            width={32}
+                            height={32}
+                            className="px-1 py-4"
                           />
-                          <span className="mb-1 ml-1 text-xs text-white sm:ml-6 sm:text-xl">
+                          <span className="mb-1 ml-1 text-center text-white sm:text-lg xs:text-sm">
                             USD Coin{" "}
                           </span>
                         </>
