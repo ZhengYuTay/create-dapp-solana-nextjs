@@ -102,35 +102,45 @@ const Overview: NextPage<Props> = (props) => {
         <div>
           <div className="px-2 py-2">
             <table className="w-full bg-white shadow-lg">
-              <thead>
-                <tr>
-                  <th className="text-left border bg-lagrangesidebardarkopacity"></th>
-                  <th className="text-left border bg-lagrangesidebardarkopacity">
-                    <Image
-                      src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
-                      alt="USDC"
-                      width={32}
-                      height={32}
-                    />
-                    <p className="text-xs">USDC</p>
+              <thead className="">
+                <tr className="">
+                  <th className="text-left border place-self-center bg-lagrangesidebardarkopacity"></th>
+                  <th className="py-2 text-left border place-self-center bg-lagrangesidebardarkopacity">
+                    <div className="grid place-content-center">
+                      <Image
+                        src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
+                        alt="USDC"
+                        width={32}
+                        height={32}
+                      />
+                      <p className="text-xs">USDC</p>
+                    </div>
+                  </th>
+
+                  <th className="text-left border bg-lagrangesidebardarkopacity place-self-center">
+                    <div className="grid place-content-center">
+                      <Image src={EURS} alt="EURS" width={32} height={32} />
+                      <p className="text-xs">EURS</p>
+                    </div>
                   </th>
 
                   <th className="text-left border bg-lagrangesidebardarkopacity">
-                    <Image src={EURS} alt="EURS" width={32} height={32} />
-                    <p className="text-xs">EURS</p>
-                  </th>
-
-                  <th className="text-left border bg-lagrangesidebardarkopacity">
-                    <Image src={JPYC} alt="JPYC" width={32} height={32} />
-                    <p className="text-xs">JPYC</p>
+                    <div className="grid place-content-center">
+                      <Image src={JPYC} alt="JPYC" width={32} height={32} />
+                      <p className="text-xs">JPYC</p>
+                    </div>
                   </th>
                   <th className="text-left border bg-lagrangesidebardarkopacity">
-                    <Image src={TRYB} alt="TRYB" width={32} height={32} />
-                    <p className="text-xs">TRYB</p>
+                    <div className="grid place-content-center">
+                      <Image src={TRYB} alt="TRYB" width={32} height={32} />
+                      <p className="text-xs">TRYB</p>
+                    </div>
                   </th>
                   <th className="text-left border bg-lagrangesidebardarkopacity">
-                    <Image src={BRZ} alt="BRZ" width={32} height={32} />
-                    <p className="text-xs">BRZ</p>
+                    <div className="grid place-content-center">
+                      <Image src={BRZ} alt="BRZ" width={32} height={32} />
+                      <p className="text-xs">BRZ</p>
+                    </div>
                   </th>
                 </tr>
               </thead>
