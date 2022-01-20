@@ -115,7 +115,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="flex justify-center col-span-2 col-start-2 box">
             <input
               type="text"
-              className="w-10/12 py-2 text-center border-2 shadow-lg rounded-xl text-grey-darkest border-lagrangeborder"
+              className="w-7/12 py-2 text-center border-2 shadow-lg rounded-xl text-grey-darkest border-lagrangeborder"
               value="0.5%"
             />
           </div>
