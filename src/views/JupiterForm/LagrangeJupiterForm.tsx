@@ -108,11 +108,11 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
         <div>
           <h1 className="py-4 text-3xl">Swap</h1>
         </div>
-        <div className="grid grid-cols-2 grid-rows-1 gap-2 py-4 overflow-hidden">
-          <div className="box">
+        <div className="grid grid-cols-2 grid-rows-1 gap-2 py-2 overflow-hidden">
+          <div className="flex items-center px-2">
             <p className="sm:text-lg xs:text-sm">Max Slippage</p>
           </div>
-          <div className="flex justify-center col-span-2 col-start-2 box">
+          <div className="flex col-span-2 col-start-2 box justify-end">
             <input
               type="text"
               className="w-7/12 py-2 font-semibold text-center border-2 shadow-lg rounded-xl text-grey-darkest border-lagrangeborder"
@@ -120,13 +120,13 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 grid-rows-1 gap-2 py-4 overflow-hidden">
-          <div className="box">
+        <div className="grid grid-cols-2 grid-rows-1 gap-2 py-2 overflow-hidden">
+          <div className="flex items-center px-2">
             <p className="sm:text-lg xs:text-sm">
               Transaction deadline (minutes)
             </p>
           </div>
-          <div className="flex justify-center col-span-2 col-start-2 box">
+          <div className="flex justify-end col-span-2 col-start-2 box">
             <input
               type="text"
               className="w-7/12 py-2 font-semibold text-center border-2 shadow-lg rounded-xl text-grey-darkest border-lagrangeborder"
