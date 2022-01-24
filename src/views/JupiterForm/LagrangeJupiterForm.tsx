@@ -145,7 +145,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               <input
                 name="amount"
                 id="amount"
-                className="w-11/12 h-20 px-2 py-2 mx-2 text-sm font-bold leading-tight text-center text-gray-700 bg-gray-100 border-2 appearance-none rounded-xl border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
+                className="w-10/12 h-20 px-2 py-2 mx-2 text-sm font-bold leading-tight text-center text-gray-700 bg-gray-100 border-2 appearance-none rounded-xl border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
                 value={formValue.amount}
                 type="text"
                 pattern="[0-9]*"
@@ -163,7 +163,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               <div className="flex justify-center box">
                 <p className="sm:text-lg xs:text-sm">Balance</p>
               </div>
-              <div className="flex justify-center box">
+              <div className="flex justify-end box">
                 <div className="absolute z-40 w-full h-20 border xs:w-36 sm:w-56 bg-lagrangegraybackground rounded-xl">
                   <Listbox
                     value={formValue.inputMint?.toBase58()}
@@ -299,7 +299,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               <div>
                 <p className="py-2 text-center sm:text-lg xs:text-sm">To-</p>
               </div>
-              <div className="w-11/12 h-20 px-2 py-2 leading-tight text-center text-gray-700 bg-gray-100 border-2 appearance-none sm:text-lg xs:text-sm border-xl border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500 s rounded-xl">
+              <div className="w-10/12 h-20 px-2 pt-8 leading-tight text-center text-gray-700 bg-gray-100 border-2 appearance-none sm:text-lg xs:text-sm border-xl border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500 s rounded-xl">
                 {routes?.[0] &&
                   (() => {
                     const route = routes[0];
@@ -324,7 +324,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                 </p>
               </div>
 
-              <div className="flex justify-center box">
+              <div className="flex justify-end box">
                 <div className="absolute w-full h-20 border xs:w-36 sm:w-56 bg-lagrangegraybackground rounded-xl">
                   <Listbox
                     value={formValue.outputMint?.toBase58()}
@@ -437,9 +437,8 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
           {/* end */}
 
-          <div className="grid grid-cols-2 grid-rows-1 gap-2 py-4 overflow-hidden">
-            <div className="box">
-              <button
+          <div className="grid grid-cols-2 grid-rows-1 gap-2 py-4 overflow-hidden place-content-around px-2">
+          <button
                 type="button"
                 disabled={loading}
                 onClick={async () => {
@@ -479,12 +478,11 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                     }
                   }
                 }}
-                className="inline-flex justify-center w-full h-20 px-2 py-2 text-base font-medium text-white uppercase border-2 shadow-sm place-items-center border-lagrangegraybackground rounded-xl bg-lagrangepurple hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 animate-pulse"
+                className="inline-flex justify-center w-11/12 h-20 px-2 py-2 text-base font-medium text-white uppercase border-2 shadow-sm place-items-center border-lagrangegraybackground rounded-xl bg-lagrangepurple hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 animate-pulse"
               >
                 <p className="text-xl text-center">Swap</p>
               </button>
-            </div>
-            <div className="col-span-2 col-start-2 box">
+          
               <button
                 className={`${
                   loading ? "opacity-50 cursor-not-allowed" : ""
@@ -500,7 +498,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                 )}
                 Refresh rate
               </button>
-            </div>
+         
           </div>
         </div>
         <div className="h-4"></div>
