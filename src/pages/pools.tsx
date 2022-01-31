@@ -11,7 +11,7 @@ import EURS from "../../public/coin/2989.png";
 import JPYC from "../../public/coin/9045.png";
 import TRYB from "../../public/coin/5181.png";
 import BRZ from "../../public/coin/4139.png";
-
+import { useWallet } from "@solana/wallet-adapter-react";
 const currencies = [
   {
     fiatSymbol: "USD",
@@ -124,7 +124,7 @@ const Pools: NextPage<Props> = (props) => {
         </div>
         <h1 className="text-lg text-center">Account Balance</h1>
         <div className="flex justify-center p-2">
-          <div className="flex justify-center w-10/12 px-2 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded-xl">
+          <div className="flex justify-center w-11/12 px-2 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded-xl">
             <table className="text-lg table-auto">
               <thead>
                 <tr>
