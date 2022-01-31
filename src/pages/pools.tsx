@@ -11,7 +11,8 @@ import EURS from "../../public/coin/2989.png";
 import JPYC from "../../public/coin/9045.png";
 import TRYB from "../../public/coin/5181.png";
 import BRZ from "../../public/coin/4139.png";
-import { useWallet } from "@solana/wallet-adapter-react";
+const solanaWeb3 = require("@solana/web3.js");
+console.log(solanaWeb3);
 const currencies = [
   {
     fiatSymbol: "USD",
