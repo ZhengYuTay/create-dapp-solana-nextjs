@@ -11,8 +11,8 @@ import EURS from "../../public/coin/2989.png";
 import JPYC from "../../public/coin/9045.png";
 import TRYB from "../../public/coin/5181.png";
 import BRZ from "../../public/coin/4139.png";
-const solanaWeb3 = require("@solana/web3.js");
-console.log(solanaWeb3);
+import { useConnection, useWallet } from '@solana/wallet-adapter-react';
+
 const currencies = [
   {
     fiatSymbol: "USD",
@@ -66,6 +66,11 @@ const Pools: NextPage<Props> = (props) => {
   const { data } = props;
   const { swappableOutputForSol } = props;
   console.log(swappableOutputForSol);
+
+  const { connection } = useConnection();
+  console.log(connection)
+  const { publicKey } = useWallet();
+  console.log(publicKey?.toBase58())
 
   return (
     <div className="relative min-h-screen md:flex">
