@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useCallback } from "react";
 import ContentHeader from "../components/ContentHeader";
 import SidebarLogo from "../components/SidebarLogo";
 import SidebarNavigation from "../components/SidebarNavigation";
@@ -12,7 +12,8 @@ import JPYC from "../../public/coin/9045.png";
 import TRYB from "../../public/coin/5181.png";
 import BRZ from "../../public/coin/4139.png";
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-
+import { WalletError, WalletNotConnectedError } from '@solana/wallet-adapter-base';
+import { Keypair, SystemProgram, Transaction, LAMPORTS_PER_SOL } from '@solana/web3.js';
 const currencies = [
   {
     fiatSymbol: "USD",
@@ -71,7 +72,20 @@ const Pools: NextPage<Props> = (props) => {
   console.log(connection)
   const { publicKey } = useWallet();
   console.log(publicKey?.toBase58())
+  const _publicKey = publicKey?.toBase58();
+  console.log(_publicKey)
 
+
+  const checkBalance = useCallback(async () => {
+    if (!publicKey) {
+        throw new WalletNotConnectedError() && console.log('Wallet not connected');
+    }
+    const walletBalance = await connection.getBalance(publicKey, 'confirmed');
+    const walletBalanceSOL = (walletBalance / LAMPORTS_PER_SOL).toFixed(2);
+    console.log(walletBalanceSOL)
+    
+}, [connection, publicKey]);
+checkBalance()
   return (
     <div className="relative min-h-screen md:flex">
       <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
