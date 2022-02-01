@@ -208,12 +208,12 @@ const Pools: NextPage<Props> = (props) => {
                     <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
                       <Image
                         src={EURS}
-                        alt="EURS"
+                        alt="agEUR"
                         width={32}
                         height={32}
                         layout="fixed"
                       />
-                      <p className="px-2 py-2">EURS</p>
+                      <p className="px-2 py-2">agEUR</p>
                     </div>
                   </td>
                   <td>{data[2].quotes.EURUSD.toFixed(3)}</td>

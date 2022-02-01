@@ -188,7 +188,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                             className="px-1"
                           />
                         ) : (
-                          <div className="flex items-center">
+                          <div className="flex items-center pl-2">
                             <Image
                               src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png"
                               alt=""

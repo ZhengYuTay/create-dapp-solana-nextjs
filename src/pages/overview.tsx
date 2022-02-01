@@ -122,12 +122,12 @@ const Overview: NextPage<Props> = (props) => {
                     <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
                       <Image
                         src={EURS}
-                        alt="EURS"
+                        alt="agEUR"
                         width={32}
                         height={32}
                         layout="fixed"
                       />
-                      <p className="px-2 py-2">EURS</p>
+                      <p className="px-2 py-2">agEUR</p>
                     </div>
                   </th>
 
@@ -212,8 +212,8 @@ const Overview: NextPage<Props> = (props) => {
                 <tr>
                   <td className="grid py-2 text-left border justify-items-center bg-lagrangesidebardarkopacity">
                     <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
-                      <Image src={EURS} alt="EURS" width={32} height={32} />
-                      <p className="px-2 py-2">EURS</p>
+                      <Image src={EURS} alt="agEUR" width={32} height={32} />
+                      <p className="px-2 py-2">agEUR</p>
                     </div>
                   </td>
                   <td className="border">
