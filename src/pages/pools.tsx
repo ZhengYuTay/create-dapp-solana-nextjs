@@ -73,21 +73,18 @@ interface Props {
 const Pools: NextPage<Props> = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
   const { data } = props;
-  const [mybalance, setMybalance] = useState(0);
+  const [mybalance, setMybalance] = useState(null);
 
   const { swappableOutputForSol } = props;
-  console.log(swappableOutputForSol);
-
   const { connection } = useConnection();
-
-  console.log(connection);
   const { wallet } = useWallet();
-  console.log(connection);
   const { publicKey } = useWallet();
-  console.log(publicKey?.toBase58());
   const _publicKey = publicKey?.toBase58();
-  console.log(_publicKey);
-  console.log(wallet);
+  const gelsolbalance = async () => {};
+  useEffect(() => {
+    gelsolbalance();
+    checkBalance();
+  }, []);
 
   const checkBalance = useCallback(async () => {
     if (!publicKey) {
@@ -95,11 +92,11 @@ const Pools: NextPage<Props> = (props) => {
         new WalletNotConnectedError() && console.log("Wallet not connected")
       );
     }
+
     const walletBalance = await connection.getBalance(publicKey, "confirmed");
 
     const walletBalanceSOL = (walletBalance / LAMPORTS_PER_SOL).toFixed(2);
-
-    setMybalance(Number(walletBalanceSOL));
+    setMybalance(walletBalanceSOL);
   }, [connection, publicKey]);
   checkBalance();
   return (
@@ -154,7 +151,9 @@ const Pools: NextPage<Props> = (props) => {
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded-xl">
               <div className="py-4 text-lg">My Total Value</div>
-              <div>$ {mybalance}</div>
+              <div>
+                $ {console.log(_publicKey)} {mybalance}
+              </div>
             </div>
           </div>
         </div>
