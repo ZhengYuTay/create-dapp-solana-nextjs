@@ -3,18 +3,29 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import type { NextPage } from "next";
 import graphicReports from "../../public/graphic-reports.png";
+import graphicReportsLight from "../../public/graphic-reports_light.png";
+
 import swapIcon from "../../public/swap-icon.png";
+import swapIconLight from "../../public/swap-icon_white.png";
+
 import poolIcon from "../../public/poolicon_black.png";
+import poolIconLight from "../../public/poolicon_white.png";
 const SidebarNavigation: NextPage = (props) => {
   const router = useRouter();
   return (
     <nav>
       <Link href="/swap">
-        <a className="block px-2 py-3 transition duration-200 rounded-lg hover:bg-gray-600 hover:text-white focus:outline-none focus:ring focus:ring-violet-300">
+        <a
+          className={
+            router.pathname == "/swap"
+              ? "block px-2 py-3 transition duration-200 rounded-lg bg-gray-600 text-white focus:outline-none focus:ring focus:ring-violet-300"
+              : "block px-2 py-3 transition duration-200 rounded-lg hover:bg-gray-600 hover:text-white"
+          }
+        >
           <div className="flex">
             <div className="w-8 item">
               <Image
-                src={swapIcon}
+                src={router.pathname == "/swap" ? swapIconLight : swapIcon}
                 alt="Picture of the author"
                 width={27}
                 height={27}
@@ -38,7 +49,11 @@ const SidebarNavigation: NextPage = (props) => {
           <div className="flex">
             <div className="w-8 item">
               <Image
-                src={graphicReports}
+                src={
+                  router.pathname == "/overview"
+                    ? graphicReportsLight
+                    : graphicReports
+                }
                 alt="Picture of the author"
                 width={27}
                 height={27}
@@ -51,11 +66,17 @@ const SidebarNavigation: NextPage = (props) => {
         </a>
       </Link>
       <Link href="/pools">
-        <a className="block px-2 py-3 transition duration-200 rounded-lg hover:bg-gray-600 hover:text-white">
+        <a
+          className={
+            router.pathname == "/pools"
+              ? "block px-2 py-3 transition duration-200 rounded-lg bg-gray-600 text-white focus:outline-none focus:ring focus:ring-violet-300"
+              : "block px-2 py-3 transition duration-200 rounded-lg hover:bg-gray-600 hover:text-white"
+          }
+        >
           <div className="flex">
             <div className="w-8 item">
               <Image
-                src={poolIcon}
+                src={router.pathname == "/pools" ? poolIconLight : poolIcon}
                 alt="Picture of the author"
                 width={27}
                 height={27}
