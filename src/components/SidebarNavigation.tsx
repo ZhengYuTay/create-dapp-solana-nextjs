@@ -4,7 +4,7 @@ import Image from "next/image";
 import type { NextPage } from "next";
 import graphicReports from "../../public/graphic-reports.png";
 import swapIcon from "../../public/swap-icon.png";
-import poolIcon from "../../public/pool.png";
+import poolIcon from "../../public/poolicon_black.png";
 const SidebarNavigation: NextPage = (props) => {
   return (
     <nav>
