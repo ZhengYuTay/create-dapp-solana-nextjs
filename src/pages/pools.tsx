@@ -73,7 +73,7 @@ interface Props {
 const Pools: NextPage<Props> = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
   const { data } = props;
-  const [mybalance, setMybalance] = useState(null);
+  const [mybalance, setMybalance] = useState(String);
 
   const { swappableOutputForSol } = props;
   const { connection } = useConnection();
