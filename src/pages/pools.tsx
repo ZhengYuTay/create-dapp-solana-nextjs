@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import ContentHeader from "../components/ContentHeader";
 import SidebarLogo from "../components/SidebarLogo";
 import SidebarNavigation from "../components/SidebarNavigation";
@@ -11,9 +11,17 @@ import EURS from "../../public/coin/2989.png";
 import JPYC from "../../public/coin/9045.png";
 import TRYB from "../../public/coin/5181.png";
 import BRZ from "../../public/coin/4139.png";
-import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { WalletError, WalletNotConnectedError } from '@solana/wallet-adapter-base';
-import { Keypair, SystemProgram, Transaction, LAMPORTS_PER_SOL } from '@solana/web3.js';
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import {
+  WalletError,
+  WalletNotConnectedError,
+} from "@solana/wallet-adapter-base";
+import {
+  Keypair,
+  SystemProgram,
+  Transaction,
+  LAMPORTS_PER_SOL,
+} from "@solana/web3.js";
 const currencies = [
   {
     fiatSymbol: "USD",
@@ -65,27 +73,35 @@ interface Props {
 const Pools: NextPage<Props> = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
   const { data } = props;
+  const [mybalance, setMybalance] = useState(0);
+
   const { swappableOutputForSol } = props;
   console.log(swappableOutputForSol);
 
   const { connection } = useConnection();
-  console.log(connection)
-  const { publicKey } = useWallet();
-  console.log(publicKey?.toBase58())
-  const _publicKey = publicKey?.toBase58();
-  console.log(_publicKey)
 
+  console.log(connection);
+  const { wallet } = useWallet();
+  console.log(connection);
+  const { publicKey } = useWallet();
+  console.log(publicKey?.toBase58());
+  const _publicKey = publicKey?.toBase58();
+  console.log(_publicKey);
+  console.log(wallet);
 
   const checkBalance = useCallback(async () => {
     if (!publicKey) {
-        throw new WalletNotConnectedError() && console.log('Wallet not connected');
+      throw (
+        new WalletNotConnectedError() && console.log("Wallet not connected")
+      );
     }
-    const walletBalance = await connection.getBalance(publicKey, 'confirmed');
+    const walletBalance = await connection.getBalance(publicKey, "confirmed");
+
     const walletBalanceSOL = (walletBalance / LAMPORTS_PER_SOL).toFixed(2);
-    console.log(walletBalanceSOL)
-    
-}, [connection, publicKey]);
-checkBalance()
+
+    setMybalance(Number(walletBalanceSOL));
+  }, [connection, publicKey]);
+  checkBalance();
   return (
     <div className="relative min-h-screen md:flex">
       <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
@@ -132,13 +148,13 @@ checkBalance()
             </div>
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded-xl">
-              <div className="py-4 text-lg">DFX Price Value</div>
-              <div>$1,03</div>
+              <div className="py-4 text-lg">LAG Price Value</div>
+              <div>$--</div>
             </div>
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded-xl">
               <div className="py-4 text-lg">My Total Value</div>
-              <div>$-</div>
+              <div>$ {mybalance}</div>
             </div>
           </div>
         </div>
@@ -168,9 +184,9 @@ checkBalance()
                       <p className="px-2 py-2">USDC</p>
                     </div>
                   </td>
-                  <td>$ 1.000000</td>
-                  <td>0</td>
-                  <td>$ 0.000000</td>
+                  <td>$ 1.00</td>
+                  <td className="text-center">0</td>
+                  <td className="text-center">$ 0.00</td>
                 </tr>
                 <tr>
                   <td>
@@ -185,9 +201,9 @@ checkBalance()
                       <p className="px-2 py-2">EURS</p>
                     </div>
                   </td>
-                  <td>$ 1.000000</td>
-                  <td>0</td>
-                  <td>$ 0.000000</td>
+                  <td>{data[2].quotes.EURUSD.toFixed(3)}</td>
+                  <td className="text-center">0</td>
+                  <td className="text-center">$ 0.00</td>
                 </tr>
                 <tr>
                   <td>
@@ -202,9 +218,9 @@ checkBalance()
                       <p className="px-2 py-2">JPYC</p>
                     </div>
                   </td>
-                  <td>$ 1.000000</td>
-                  <td>0</td>
-                  <td>$ 0.000000</td>
+                  <td>$ {data[5].quotes.JPYUSD.toFixed(3)}</td>
+                  <td className="text-center">0</td>
+                  <td className="text-center">$ 0.00</td>
                 </tr>
                 <tr>
                   <td>
@@ -219,9 +235,9 @@ checkBalance()
                       <p className="px-2 py-2">TRYB</p>
                     </div>
                   </td>
-                  <td>$ 1.000000</td>
-                  <td>0</td>
-                  <td>$ 0.000000</td>
+                  <td>$ {data[6].quotes.TRYUSD.toFixed(3)}</td>
+                  <td className="text-center">0</td>
+                  <td className="text-center">$ 0.00</td>
                 </tr>
                 <tr>
                   <td>
@@ -236,9 +252,9 @@ checkBalance()
                       <p className="px-2 py-2">BRZ</p>
                     </div>
                   </td>
-                  <td>$ 1.000000</td>
-                  <td>0</td>
-                  <td>$ 0.000000</td>
+                  <td>$ {data[7].quotes.BRLUSD.toFixed(3)}</td>
+                  <td className="text-center">0</td>
+                  <td className="text-center">$ 0.00</td>
                 </tr>
               </tbody>
             </table>
