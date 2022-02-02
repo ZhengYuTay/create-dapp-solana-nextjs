@@ -37,6 +37,7 @@ const SidebarNavigation: NextPage = (props) => {
           </div>
         </a>
       </Link>
+      <div className=" h-4"></div>
       <Link href="/overview">
         <a
           className={
@@ -65,6 +66,7 @@ const SidebarNavigation: NextPage = (props) => {
           </div>
         </a>
       </Link>
+      <div className=" h-4"></div>
       <Link href="/pools">
         <a
           className={
