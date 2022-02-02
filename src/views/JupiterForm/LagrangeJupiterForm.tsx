@@ -106,7 +106,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
       <div className="mb-4 bg-white border-2 rounded shadow-lg sm:px-4 xs:px-2 border-lagrangeborder">
         <div>
-          <h1 className="py-4 text-3xl">Swap</h1>
+          <h1 className="py-4 text-4xl font-normal">Swap</h1>
         </div>
         <div className="grid grid-cols-2 grid-rows-1 gap-2 py-2 overflow-hidden">
           <div className="flex items-center px-2">
