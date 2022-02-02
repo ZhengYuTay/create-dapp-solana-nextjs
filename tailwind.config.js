@@ -12,13 +12,13 @@ module.exports = {
       'md': '1024px',
       'lg': '1280px',
       'xl': '1920px',
-   
+
 
     },
-    
+
     fontFamily: {
 
-      'body': ['Roboto','sans-serif']
+      'body': ['Roboto', 'sans-serif']
       // serif: ['Merriweather', 'thin'],
     },
     extend: {
@@ -30,13 +30,14 @@ module.exports = {
         'lagrangepurple': '#4D54F9',
         'lagrangepurpledark': '#2B30B9',
         'lagrangesidebarmobile': '#E1F0FF',
-       
+        'lagrangered': '#D70000',
+        'lagrangechartcolor': '#7459D91A',
         'lagrangesidebarlightopacity': '#1A8BFD26',
         'lagrangesidebardarkopacity': '#30D6B126',
         'lagrangegraybackground': '#373737',
         'lagrangebuttondarkblue': '#0F1262',
         'lagrangebuttongray': '#373737'
-        
+
 
       },
       // spacing: {
