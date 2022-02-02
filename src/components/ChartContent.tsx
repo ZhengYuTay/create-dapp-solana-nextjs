@@ -34,9 +34,9 @@ const ChartContent: NextPage<Props> = (props) => {
     <div className="p-2 mx-2 mt-4 bg-white border-2 shadow-lg border-lagrangeborder">
       <div>
         <div>
-          <p>MNG / USDC</p>
-          <p>0.20407-12.80%</p>
-          <p>
+          <p>USDC / USDT</p>
+          <p>1.00 - 0.00 %</p>
+          <p className="text-base">
             {" "}
             {new Date().getDate()}
             {"/"}
@@ -63,7 +63,7 @@ const ChartContent: NextPage<Props> = (props) => {
               height={32}
               layout="fixed"
             />
-            <p className="px-2 py-2">USDC</p>
+            <p className="px-2 py-2 text-white">USDC</p>
           </div>
           <div className="flex items-center space-x-2">
             <p className="pr-2 text-white">0.20555$</p>{" "}
