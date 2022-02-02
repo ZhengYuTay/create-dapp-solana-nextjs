@@ -36,7 +36,8 @@ module.exports = {
         'lagrangesidebardarkopacity': '#30D6B126',
         'lagrangegraybackground': '#373737',
         'lagrangebuttondarkblue': '#0F1262',
-        'lagrangebuttongray': '#373737'
+        'lagrangebuttongray': '#373737',
+        'lagrangeswapbutton' : '#2B30B9'
 
 
       },

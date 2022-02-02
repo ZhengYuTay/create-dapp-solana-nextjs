@@ -19,7 +19,7 @@ const ChartContent: NextPage<Props> = (props) => {
       const response = coinGecko.get(`/coins/markets`, {
         params: {
           vs_currency: "usd",
-          ids: "solana,",
+          ids: "lagrange",
         },
       });
       console.log(await (await response).data);
