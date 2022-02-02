@@ -50,7 +50,7 @@ const Swap: NextPage = (props) => {
             <SwapContent />
           </div>
           <div>
-           {/*  <ChartContent coinList={props} data={props} /> */}
+          <ChartContent coinList={props} data={props} />
           </div>
         </div>
       </div>
