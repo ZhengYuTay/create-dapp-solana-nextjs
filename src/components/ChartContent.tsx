@@ -34,7 +34,7 @@ const ChartContent: NextPage<Props> = (props) => {
     <div className="p-2 mx-2 mt-4 bg-white border-2 shadow-lg border-lagrangeborder">
       <div>
         <div>
-          <p>MNG / USDT</p>
+          <p>USDC / USDT</p>
           <p>1.00 - 0.00 %</p>
           <p className="text-base">
             {" "}
