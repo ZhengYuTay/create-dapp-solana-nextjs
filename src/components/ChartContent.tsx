@@ -63,11 +63,11 @@ const ChartContent: NextPage<Props> = (props) => {
               height={32}
               layout="fixed"
             />
-            <p className="px-2 py-2 text-white">USDC</p>
+            <p className="px-2 py-2 text-white">USDT</p>
           </div>
           <div className="flex items-center space-x-2">
-            <p className="pr-2 text-white">0.20555$</p>{" "}
-            <p className="pr-2 text-lagrangered">-0.25</p>
+            <p className="pr-2 text-white">1.00$</p>{" "}
+            <p className="pr-2 text-lagrangered">0.00</p>
             <Image
               src={SelectDownIcon}
               alt="Select Down"
@@ -89,8 +89,8 @@ const ChartContent: NextPage<Props> = (props) => {
             <p className="px-2 py-2 text-white">USDC</p>
           </div>
           <div className="flex items-center space-x-2">
-            <p className="pr-2 text-white">0.20555$</p>{" "}
-            <p className="pr-2 text-green-700">1.24</p>
+            <p className="pr-2 text-white">1.00$</p>{" "}
+            <p className="pr-2 text-green-700">0.00</p>
             <Image
               src={SelectDownIcon}
               alt="Select Down"
