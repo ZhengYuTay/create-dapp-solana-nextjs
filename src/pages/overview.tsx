@@ -88,7 +88,7 @@ const Overview: NextPage<Props> = (props) => {
       <div
         className={`${
           isExpanded ? `-translate-x-full` : `translate-x-0`
-        } sidebar bg-white xs:bg-gray-100 text-gray-700 w-80 xs:w-52 space-y-6 px-2 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
+        } sidebar bg-white xs:bg-gray-100 text-gray-700 w-80 space-y-6 px-2 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
       >
         <SidebarLogo />
 

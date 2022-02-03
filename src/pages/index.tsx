@@ -35,7 +35,7 @@ const [isExpanded, toggleExpansion] = useState(true);
       </div>
       <div className={`${
             isExpanded ? `-translate-x-full` : `translate-x-0`
-          } sidebar bg-gray-100 text-gray-700 w-64 space-y-6 px-2 py-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out`}>
+          } sidebar bg-gray-100 text-gray-700 w-80 space-y-6 px-2 py-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out`}>
        <SidebarLogo/>
 
         <SidebarNavigation />

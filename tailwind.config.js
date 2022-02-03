@@ -38,9 +38,10 @@ module.exports = {
         'lagrangebuttondarkblue': '#0F1262',
         'lagrangebuttongray': '#373737',
         'lagrangeswapbutton' : '#2B30B9',
-        'lagrangesidebarpoolmenucolor': '#343A400D'
+        'lagrangesidebarpoolmenucolor': '#343A400D',
+        'lagrangesidebarbuttonbackgroundcolor' : '#1C1C1C'
 
-
+        
       },
       // spacing: {
       //   '128': '32rem',

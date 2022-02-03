@@ -13,41 +13,41 @@ import poolIconLight from "../../public/poolicon_white.png";
 const SidebarNavigation: NextPage = (props) => {
   const router = useRouter();
   return (
-    <nav>
+    <nav className="p-6">
       <Link href="/swap">
         <a
           className={
             router.pathname == "/swap"
-              ? "block px-2 py-3 transition duration-200 rounded-lg bg-gray-600 text-white focus:outline-none focus:ring focus:ring-violet-300"
-              : "block px-2 py-3 transition duration-200 rounded-lg hover:bg-gray-600 hover:text-white"
+              ? " block px-2 transition duration-200 rounded-lg bg-lagrangesidebarbuttonbackgroundcolor text-white focus:outline-none focus:ring focus:ring-violet-300"
+              : "block px-2 transition duration-200 rounded-lg hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
           }
         >
-          <div className="flex">
+          <div className="flex border border-black p-6">
             <div className="w-8 item">
               <Image
                 src={router.pathname == "/swap" ? swapIconLight : swapIcon}
-                alt="Picture of the author"
+                alt="Swap Nutton"
                 width={27}
                 height={27}
               />
             </div>
             <div className="w-32 item">
-              <p>Swap</p>
+              <p className="text-lg font-normal">Swap</p>
             </div>
           </div>
         </a>
       </Link>
-      <div className=" h-4"></div>
+      <div className="h-2"></div>
       <Link href="/overview">
         <a
           className={
             router.pathname == "/overview"
-              ? "block px-2 py-3 transition duration-200 rounded-lg bg-gray-600 text-white focus:outline-none focus:ring focus:ring-violet-300"
-              : "block px-2 py-3 transition duration-200 rounded-lg hover:bg-gray-600 hover:text-white"
+              ? "block px-2 transition duration-200 rounded-lg bg-lagrangesidebarbuttonbackgroundcolor text-white focus:outline-none focus:ring focus:ring-violet-300"
+              : "block px-2 transition duration-200 rounded-lg hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
           }
         >
           {/* <a className="block px-2 py-3 transition duration-200 rounded-lg hover:bg-gray-600 hover:text-white"> */}
-          <div className="flex">
+          <div className="flex border border-black p-4">
             <div className="w-8 item">
               <Image
                 src={
@@ -61,21 +61,21 @@ const SidebarNavigation: NextPage = (props) => {
               />
             </div>
             <div className="w-36 item">
-              <p>Market Overview</p>
+              <p className="text-lg font-normal">Market Overview</p>
             </div>
           </div>
         </a>
       </Link>
-      <div className=" h-4"></div>
+      <div className=" h-2"></div>
       <Link href="/pools">
         <a
           className={
             router.pathname == "/pools"
-              ? "block px-2 py-3 transition duration-200 rounded-lg bg-gray-600 text-white focus:outline-none focus:ring focus:ring-violet-300"
-              : "block px-2 py-3 transition duration-200 rounded-lg hover:bg-gray-600 hover:text-white"
+              ? "block px-2 py-3 transition duration-200 rounded-lg bg-lagrangesidebarbuttonbackgroundcolor text-white focus:outline-none focus:ring focus:ring-violet-300"
+              : "block px-2 py-3 transition duration-200 rounded-lg hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
           }
         >
-          <div className="flex">
+          <div className="flex border border-black p-4">
             <div className="w-8 item">
               <Image
                 src={router.pathname == "/pools" ? poolIconLight : poolIcon}
@@ -85,7 +85,7 @@ const SidebarNavigation: NextPage = (props) => {
               />
             </div>
             <div className="w-36 item">
-              <p>Pools</p>
+              <p className="text-lg font-normal">Pools</p>
             </div>
           </div>
         </a>
