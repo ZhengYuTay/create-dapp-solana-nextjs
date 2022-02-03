@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import ChartLine from "../../public/Chartstabil.png";
+/* import ChartLine from "../../public/Chartstabil.png"; */
 import SelectDownIcon from "../../public/select-down.png";
 
 import type { NextPage } from "next";
@@ -50,11 +50,7 @@ const ChartContent: NextPage<Props> = (props) => {
 
 </div>
         <div className="">
-          <Image
-            src={ChartLine}
-            alt="Chart"
-            className="bg-lagrangechartcolor"
-          />
+          <hr className=" bg-gray-900"/>
         </div>
         <div className="h-20">
 
