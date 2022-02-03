@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import ChartLine from "../../public/Chart.png";
+import ChartLine from "../../public/ChartStabilLine.png";
 import SelectDownIcon from "../../public/select-down.png";
 
 import type { NextPage } from "next";
@@ -46,12 +46,18 @@ const ChartContent: NextPage<Props> = (props) => {
             {new Date().getMinutes()}
           </p>
         </div>
+        <div className="h-20">
+
+</div>
         <div className="">
           <Image
             src={ChartLine}
             alt="Chart"
             className="bg-lagrangechartcolor"
           />
+        </div>
+        <div className="h-20">
+
         </div>
         <div className="flex items-center justify-between p-2 rounded bg-lagrangegraybackground">
           {" "}
