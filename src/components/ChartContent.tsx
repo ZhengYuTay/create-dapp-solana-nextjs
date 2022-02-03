@@ -22,14 +22,14 @@ const ChartContent: NextPage<Props> = (props) => {
           ids: "bilira",
         },
       });
-      console.log(await (await response).data);
+
     };
 
     fetchData();
   }, []);
 
   const { coinList } = props;
-  console.log(coinList);
+
   return (
     <div className="p-2 mx-2 mt-4 bg-white border-2 shadow-lg border-lagrangeborder">
       <div>
@@ -108,7 +108,7 @@ export async function getServerSideProps() {
   const CoinGecko = require("coingecko-api");
   const CoinGeckoClient = new CoinGecko();
   const coinList = await CoinGeckoClient.coins.fetch("bitcoin", {});
-  console.log(CoinGecko);
+
   return {
     props: {
       coinList: coinList,

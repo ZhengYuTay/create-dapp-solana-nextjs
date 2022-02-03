@@ -53,7 +53,7 @@ interface Props {
 }
 const Overview: NextPage<Props> = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
-  /*   console.log(props.data[1].quotes.USDAUD); */
+
   const { data } = props;
 
   return (

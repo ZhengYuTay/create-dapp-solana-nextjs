@@ -102,19 +102,19 @@ const Pools: NextPage<Props> = (props) => {
   }, [connection, publicKey]);
   checkBalance();
   let fromKeypair = Keypair.generate();
-  console.log("-----------------");
+
 
   const connectiontestnet = useRef(new Connection(clusterApiUrl("devnet")));
 
-  console.log(connectiontestnet);
+
   const testnetbalance = async () => {
     const testnetBalance = await connectiontestnet.current.getBalanceAndContext(
       fromKeypair.publicKey,
       "confirmed"
     );
-    console.log(testnetBalance);
+
   };
-  console.log("-----------------");
+
   return (
     <div className="relative min-h-screen md:flex">
       <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
@@ -168,7 +168,7 @@ const Pools: NextPage<Props> = (props) => {
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded-xl">
               <div className="py-4 text-lg">My Total Value</div>
               <div>
-                $ {console.log(_publicKey)} {mybalance}
+                $ {mybalance}
               </div>
             </div>
           </div>
