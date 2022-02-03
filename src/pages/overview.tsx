@@ -96,11 +96,13 @@ const Overview: NextPage<Props> = (props) => {
       </div>
       <div className="flex-1 text-xs font-bold bg-gradient-to-r from-lagrangelight to-lagrangedark">
         <ContentHeader />
-        <div className="p-5">
+     
+        <div className="p-5 ">
+     
+          <div className="p-5">
+          <div className=" bg-white">
           <h1 className="text-2xl font-normal p-2">Market Overview</h1>
         </div>
-        <div>
-          <div className="p-5">
             <table className="w-full bg-white shadow-lg">
               <thead>
                 <tr >
