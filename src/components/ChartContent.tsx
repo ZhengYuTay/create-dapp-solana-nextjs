@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import ChartLine from "../../public/ChartStabil.png";
+import ChartLine from "../../public/Chartstabil.png";
 import SelectDownIcon from "../../public/select-down.png";
 
 import type { NextPage } from "next";
