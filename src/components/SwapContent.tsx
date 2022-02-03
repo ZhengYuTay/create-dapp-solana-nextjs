@@ -11,7 +11,7 @@ const SwapContent: NextPage = (props) => {
 
       
       {!publicKey ? <></> : <>
-      <div className="relative py-2 h-14 w-14 lg:mx-auto border-purple-500 border-2 rounded-full">
+      <div className="relative py-2 h-14 w-14 lg:mx-auto border-purple-500 rounded-full">
           <Avatar/>
           
       </div>

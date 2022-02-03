@@ -10,7 +10,7 @@ const ContentMain: NextPage = (props) => {
       <div className="flex justify-center">
         <Link href="/swap">
           <a>
-            <button className="px-4 py-4 mx-4 my-4 text-2xl transition duration-200 border-2 rounded-full bg-gradient-to-r from-lagrangedark to-lagrangelight hover:from-lagrangelight hover:to-lagrangedark">
+            <button className="px-4 py-4 mx-4 my-4 text-2xl transition duration-200 rounded-full bg-gradient-to-r from-lagrangedark to-lagrangelight hover:from-lagrangelight hover:to-lagrangedark">
               Direct to Swap
             </button>
           </a>
