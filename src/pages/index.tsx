@@ -9,7 +9,7 @@ const [isExpanded, toggleExpansion] = useState(true);
 
   return (
     
-    <div className="h-screen w-auto p-10 bg-fixed bg-cover bg-earth">
+    <div className="h-screen w-auto p-10 xs:p-2 bg-fixed bg-cover bg-earth">
      
                   <div className='flex items-center justify-between'>
                     <div>
@@ -18,30 +18,32 @@ const [isExpanded, toggleExpansion] = useState(true);
                         src={LagrangeMobileLogo}
                         width={202}
                         height={83}
-                        alt="Logo"
+                        alt="Lagrange Logo"
                       />
                     </div>
 
                     <div className='flex  items-center text-white'>
-                      <p className=' mr-9 '>Demo Video</p>
-                      <p className='ml-9'>Pitchdeck</p>
+                      <p className=' mr-9 xs:mr-2'>Demo Video</p>
+                      <p className='ml-9 xs:ml-2'>Pitchdeck</p>
 
                     </div>
                     </div>
-                    <div>
+
+                    
+                    <div className='flex items-center'>
 
 
-                    <div className='h-full ml-12'>
-                      <div className='text-white text-5xl'>
+                    <div className='h-full ml-12 xs:ml-6 mt-12'>
+                      <div className='text-white text-5xl xs:text-lg'>
                         <p>Lagrange offers a fully decentralized</p>
                         <p>24/7 FX market that does not require</p>
                         <p>any broker or settlement periods.</p></div>
                       <div>
                         <div className='h-4'></div>
-                        <button className='w-44 text-white h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple rounded'>
+                        <button className='w-44 xs:w-36 text-white h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple rounded'>
                           <p className=' text-4xl font-normal'>PRO</p> 
                         </button>
-                        <button className='w-44 text-white font-normal h-14 border-2 border-lagrange-buttonpro-blue rounded ml-4'>
+                        <button className='w-44 xs:w-36 text-white font-normal h-14 border-2 border-lagrange-buttonpro-blue rounded ml-4'>
                         <p className='text-4xl font-normal'>LITE</p> </button>
                       </div>
                       
@@ -53,7 +55,7 @@ const [isExpanded, toggleExpansion] = useState(true);
 
 
 
-                    <div className='grid grid-cols-4 gap-4 place-content-center h-48 place-items-center p-72'>
+                    <div className='grid grid-cols-4 gap-4 place-content-center h-48 place-items-center p-72 xs:p-12'>
   <div>
   <svg width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.00267 0L0 13.8587L8.00267 27.7067H23.9973L32 13.8587L23.9973 0H8.00267ZM10.1267 5.44533H15.3893C20.196 5.44533 23.7573 7.70533 23.7573 13.8587C23.7573 19.7733 19.4773 22.2613 15.1493 22.2613H10.1267V5.44533ZM13.4827 8.71067V18.996H15.1373C18.6653 18.996 20.2867 16.9293 20.2867 13.848C20.2987 10.4227 18.8253 8.71067 15.264 8.71067H13.4827Z" fill="#BCBCBC"/>
