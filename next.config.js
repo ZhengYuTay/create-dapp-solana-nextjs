@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const withPlugins = require("next-compose-plugins");
 
 /** eslint-disable @typescript-eslint/no-var-requires */
@@ -48,6 +49,24 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback.fs = false;
+      config.module.rules.push({
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              typescript: true,
+              icon: true,
+  
+            },
+          },
+        ],
+  
+      });
+    }
+    if (!isServer) {
+      config.resolve.fallback.fs = false
     }
     return config;
   },

@@ -26,7 +26,8 @@ module.exports = {
         'earth':
           "url('https://relaxed-newton-b77a1a.netlify.app/earth.svg')",
       },
-    
+      /* background: linear-gradient(180deg, #7BFCC5 0%, #9844FE 100%); */
+
       colors: {
         'lagrangelight': '#29E1AA26',
         'lagrangedark': '#1A8BFD26',
@@ -44,7 +45,9 @@ module.exports = {
         'lagrangebuttongray': '#373737',
         'lagrangeswapbutton' : '#2B30B9',
         'lagrangesidebarpoolmenucolor': '#343A400D',
-        'lagrangesidebarbuttonbackgroundcolor' : '#1C1C1C'
+        'lagrangesidebarbuttonbackgroundcolor' : '#1C1C1C',
+        'lagrange-buttonpro-blue' : '#7BFCC5',
+        'lagrange-buttonpro-purple' : '#9844FE'
 
         
       },
