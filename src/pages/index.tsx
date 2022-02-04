@@ -2,9 +2,7 @@ import React, { useEffect,useState } from 'react';
 import Link from 'next/link'
 import type { NextPage } from "next";
 import Image from "next/image";
-
 import LagrangeMobileLogo from "../../public/Lagrange_new_logo-05.png";
-import Iconone from '~/svg/Iconone.svg';
 const Index: NextPage = (props) => {
 
 const [isExpanded, toggleExpansion] = useState(true);
@@ -16,7 +14,7 @@ const [isExpanded, toggleExpansion] = useState(true);
                   <div className='flex items-center justify-between'>
                     <div>
                     <Image
-                        className="cursor-pointer hover:opacity-75"
+                        className="cursor-pointer"
                         src={LagrangeMobileLogo}
                         width={202}
                         height={83}
