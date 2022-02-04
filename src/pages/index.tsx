@@ -10,7 +10,7 @@ const Index: NextPage = (props) => {
 const [isExpanded, toggleExpansion] = useState(true);
 
   return (
-    <div className="h-screen w-full p-10 bg-fixed bg-cover bg-black">
+    <div className="h-screen -mx-2 w-full p-10 bg-fixed bg-cover bg-earth">
      
      <div className='flex items-center justify-between'>
        <div>
@@ -33,7 +33,7 @@ const [isExpanded, toggleExpansion] = useState(true);
 
 
        <div className='flex item center h-full ml-12'>
-         <div className='text-white text-5xl w-3/4'>
+         <div className='text-white text-5xl'>
            <p>Lagrange offers a fully decentralized</p>
            <p>24/7 FX market that does not require</p>
            <p>any broker or settlement periods.</p></div>

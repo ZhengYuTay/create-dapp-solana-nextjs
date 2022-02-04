@@ -24,7 +24,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'earth':
-          "url('https://relaxed-newton-b77a1a.netlify.app/img/earth.svg)",
+          "url('https://relaxed-newton-b77a1a.netlify.app/img/earth.png)",
       },
     
       colors: {

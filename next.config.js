@@ -37,7 +37,7 @@ const plugins = [
       webpack5: true,
       reactStrictMode: true,
       images: {
-        domains: ['avatars.dicebear.com', 'raw.githubusercontent.com', 's2.coinmarketcap.com', 'images.unsplash.com', 'avatars.githubusercontent.com'],
+        domains: ['avatars.dicebear.com', 'raw.githubusercontent.com', 's2.coinmarketcap.com', 'images.unsplash.com', 'relaxed-newton-b77a1a.netlify.app'],
       },
     },
   ],
