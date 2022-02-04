@@ -185,17 +185,17 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                             alt=""
                             width={32}
                             height={32}
-                            className="px-1"
+                            className=""
                           />
                         ) : (
-                          <div className="flex items-center pl-2">
+                          <div className="flex items-center">
                             <Image
                               src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png"
                               alt=""
                               width={32}
                               height={32}
                             />
-                            <span className="ml-4 text-white sm:text-lg xs:text-sm">
+                            <span className="text-white text-sm">
                               USDT
                             </span>
                           </div>
@@ -204,12 +204,12 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         <span className="ml-2 text-white sm:text-lg xs:text-sm">
                           {inputTokenInfo?.name}
                         </span>
-                        <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                      {/*   <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                           <SelectorIcon
                             className="w-10 h-10 text-white"
                             aria-hidden="true"
                           />
-                        </span>
+                        </span> */}
                       </Listbox.Button>
                       <Transition
                         as={Fragment}
@@ -296,7 +296,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               <div>
                 <p className="px-2 py-2 text-left sm:text-lg xs:text-sm font-normal">To-</p>
               </div>
-              <div className="w-292 h-12 border pt-2 leading-tight text-center text-gray-700 bg-gray-100  rounded appearance-none sm:px-2 xs:px-1 sm:text-lg xs:text-sm border-xl border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500 s">
+              <div className="w-292 h-12 border leading-tight text-center text-gray-700 bg-gray-100  rounded appearance-none sm:text-lg xs:text-sm border-xl border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500 s">
                 {routes?.[0] &&
                   (() => {
                     const route = routes[0];
@@ -335,7 +335,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       }
                     }}
                   >
-                    <div className="relative mt-1 place-items-start">
+                    <div className="relative place-items-start">
                       <Listbox.Button className="relative w-full text-white rounded cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500">
                         {outputTokenInfo ? (
                           <Image
@@ -347,7 +347,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                           />
                         ) : (
                           <>
-                            <span className="ml-2 text-white sm:text-lg xs:text-sm">
+                            <span className="text-white text-sm">
                               Select a Token
                             </span>
                           </>
@@ -356,12 +356,12 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         <span className="px-2 sm:text-lg xs:text-sm">
                           {outputTokenInfo?.name}
                         </span>
-                        <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                       {/*  <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                           <SelectorIcon
                             className="w-10 h-10 text-white"
                             aria-hidden="true"
                           />
-                        </span>
+                        </span> */}
                       </Listbox.Button>
                       <Transition
                         as={Fragment}
