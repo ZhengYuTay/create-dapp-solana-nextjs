@@ -25,6 +25,7 @@ module.exports = {
       width: {
         '128': '33.4rem',
         '112': '31.8rem',
+        '292': '18.25rem',
       },
       backgroundImage: {
         'earth':
