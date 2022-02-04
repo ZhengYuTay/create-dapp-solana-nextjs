@@ -22,6 +22,11 @@ module.exports = {
       // serif: ['Merriweather', 'thin'],
     },
     extend: {
+      backgroundImage: {
+        'earth':
+          "url('https://relaxed-newton-b77a1a.netlify.app/img/earth.svg')",
+      },
+    
       colors: {
         'lagrangelight': '#29E1AA26',
         'lagrangedark': '#1A8BFD26',
@@ -60,6 +65,7 @@ module.exports = {
   daisyui: {
     styled: true,
     themes: [
+      
       // first one will be the default theme
 
       // uncomment to enable
