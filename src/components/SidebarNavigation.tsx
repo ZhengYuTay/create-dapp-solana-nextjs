@@ -18,11 +18,11 @@ const SidebarNavigation: NextPage = (props) => {
         <a
           className={
             router.pathname == "/swap"
-              ? " block px-2 transition duration-200 rounded-lg bg-lagrangesidebarbuttonbackgroundcolor text-white focus:outline-none focus:ring focus:ring-violet-300"
-              : "block px-2 transition duration-200 rounded-lg hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
+              ? " block px-2 transition duration-200 rounded bg-lagrangesidebarbuttonbackgroundcolor text-white focus:outline-none focus:ring focus:ring-violet-300"
+              : "block px-2 transition duration-200 rounded hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
           }
         >
-          <div className="flex border border-black p-4">
+          <div className="flex border border-black p-2">
             <div className="w-8 item">
               <Image
                 src={router.pathname == "/swap" ? swapIconLight : swapIcon}
@@ -42,12 +42,12 @@ const SidebarNavigation: NextPage = (props) => {
         <a
           className={
             router.pathname == "/overview"
-              ? "block px-2 transition duration-200 rounded-lg bg-lagrangesidebarbuttonbackgroundcolor text-white focus:outline-none focus:ring focus:ring-violet-300"
-              : "block px-2 transition duration-200 rounded-lg hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
+              ? "block px-2 transition duration-200 rounded bg-lagrangesidebarbuttonbackgroundcolor text-white focus:outline-none focus:ring focus:ring-violet-300"
+              : "block px-2 transition duration-200 rounded hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
           }
         >
           {/* <a className="block px-2 py-3 transition duration-200 rounded-lg hover:bg-gray-600 hover:text-white"> */}
-          <div className="flex border border-black p-4">
+          <div className="flex border border-black p-2">
             <div className="w-8 item">
               <Image
                 src={
@@ -71,11 +71,11 @@ const SidebarNavigation: NextPage = (props) => {
         <a
           className={
             router.pathname == "/pools"
-              ? "block px-2 py-3 transition duration-200 rounded-lg bg-lagrangesidebarbuttonbackgroundcolor text-white focus:outline-none focus:ring focus:ring-violet-300"
-              : "block px-2 py-3 transition duration-200 rounded-lg hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
+              ? "block px-2 transition duration-200 rounded bg-lagrangesidebarbuttonbackgroundcolor text-white focus:outline-none focus:ring focus:ring-violet-300"
+              : "block px-2 transition duration-200 rounded hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
           }
         >
-          <div className="flex border border-black p-4">
+          <div className="flex border border-black p-2">
             <div className="w-8 item">
               <Image
                 src={router.pathname == "/pools" ? poolIconLight : poolIcon}
