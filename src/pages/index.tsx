@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import Link from 'next/link'
 import type { NextPage } from "next";
 import Image from "next/image";
-import Earth from '../../public/img/earth.png';
+
 import LagrangeMobileLogo from "../../public/Lagrange_new_logo-05.png";
 
 const Index: NextPage = (props) => {
@@ -32,8 +32,11 @@ const [isExpanded, toggleExpansion] = useState(true);
 
 
 
-       <div>
-         <div className='text-white'>Lagrange offers a fully decentralized 24/7 FX market that does not require any broker or settlement periods.</div>
+       <div className='flex item center h-full ml-12'>
+         <div className='text-white text-5xl w-3/4'>
+           <p>Lagrange offers a fully decentralized</p>
+           <p>24/7 FX market that does not require</p>
+           <p>any broker or settlement periods.</p></div>
          <div>
            <button>
              PRO
