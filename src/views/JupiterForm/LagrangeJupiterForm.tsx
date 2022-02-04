@@ -129,7 +129,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="flex justify-end col-span-2 col-start-2 mr-4 box">
             <input
               type="text"
-              className="w-40 py-2 font-normal text-center border rounded shadow-lg text-grey-darkest border-lagrangeborder border"
+              className="w-40 py-2 font-normal text-center rounded shadow-lg text-grey-darkest border-lagrangeborder border"
               value="10"
             />
           </div>
@@ -164,7 +164,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                 <p className="py-2 mr-2 sm:text-lg xs:text-sm font-normal">Balance</p>
               </div>
               <div className="flex justify-end">
-                <div className="absolute z-40 w-full h-12 border rounded xs:w-40 sm:w-36 bg-lagrangegraybackground">
+                <div className="absolute z-40 h-12 border rounded xs:w-40 sm:w-40 bg-lagrangegraybackground">
                   <Listbox
                     value={formValue.inputMint?.toBase58()}
                     onChange={(e?: any) => {
@@ -322,7 +322,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               </div>
 
               <div className="flex justify-end">
-                <div className="absolute h-12 border rounded xs:w-40 sm:w-40 bg-lagrangegraybackground">
+                <div className="absolute h-12 border rounded xs:w-40 sm:w-40 bg-lagrangegraybackground ml-2">
                   <Listbox
                     value={formValue.outputMint?.toBase58()}
                     onChange={(e?: any) => {
