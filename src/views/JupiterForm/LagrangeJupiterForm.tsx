@@ -30,7 +30,6 @@ const TrustedTokenAddresses = [
   "FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD", // BRZ
   "3uXMgtaMRBcyEtEChgiLMdHDjb5Azr17SQWwQo3ppEH8", // Wrapped BRZ
   "CbNYA9n3927uXUukee2Hf4tm3xxkffJPPZvGazc2EAH1", // agEUR
-  "7g166TuBmnoHKvS2PEkZx6kREZtbfjUxCHGWjCqoDXZv", // acEUR
 ];
 
 interface IJupiterFormProps {}
