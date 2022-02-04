@@ -104,32 +104,32 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
     <div>
       {/*  <PoolProviders /> */}
 
-      <div className="mb-4 bg-white rounded shadow-lg sm:px-4 xs:px-2 border-lagrangeborder">
+      <div className="mb-4 bg-white rounded shadow-lg sm:px-4 xs:px-2 border-lagrangeborder w-128">
         <div>
           <h1 className="py-4 text-4xl font-normal">Swap</h1>
         </div>
         <div className="grid grid-cols-2 grid-rows-1 gap-2 py-2 overflow-hidden">
           <div className="flex items-center px-2">
-            <p className="sm:text-lg xs:text-sm">Max Slippage</p>
+            <p className="sm:text-lg xs:text-sm font-normal">Max Slippage</p>
           </div>
           <div className="flex justify-end col-span-2 col-start-2 mr-4 box">
             <input
               type="text"
-              className="w-6/12 py-2 font-semibold text-center rounded shadow-lg text-grey-darkest border-lagrangeborder"
+              className=" w-40 py-2 font-normal text-center rounded shadow-lg text-grey-darkest border-lagrangeborder border"
               value="0.5%"
             />
           </div>
         </div>
         <div className="grid grid-cols-2 grid-rows-1 gap-2 py-2 overflow-hidden">
           <div className="flex items-center px-2">
-            <p className="sm:text-lg xs:text-sm">
+            <p className="sm:text-lg xs:text-sm font-normal">
               Transaction deadline (minutes)
             </p>
           </div>
           <div className="flex justify-end col-span-2 col-start-2 mr-4 box">
             <input
               type="text"
-              className="w-6/12 py-2 font-semibold text-center border rounded shadow-lg text-grey-darkest border-lagrangeborder"
+              className="w-40 py-2 font-normal text-center border rounded shadow-lg text-grey-darkest border-lagrangeborder border"
               value="10"
             />
           </div>
@@ -145,7 +145,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               <input
                 name="amount"
                 id="amount"
-                className="w-10/12 h-12 py-2 text-sm font-bold leading-tight text-center text-gray-700 bg-gray-100 rounded appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
+                className="w-10/12 h-12 py-2 text-sm font-normal leading-tight text-center text-gray-700 bg-gray-100 rounded appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
                 value={formValue.amount}
                 type="text"
                 pattern="[0-9]*"
@@ -476,7 +476,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   }
                 }
               }}
-              className="inline-flex justify-center h-11 px-2 py-2 text-base font-medium text-white uppercase rounded shadow-sm xs:w-full sm:w-10/12 place-items-center border-lagrangegraybackground bg-lagrangeswapbutton hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 animate-pulse"
+              className="inline-flex justify-center h-11 px-2 py-2 text-base font-normal text-white uppercase rounded shadow-sm xs:w-full sm:w-10/12 place-items-center border-lagrangegraybackground bg-lagrangeswapbutton hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 animate-pulse"
             >
               <p className="text-xl text-center">Swap</p>
             </button>
@@ -484,7 +484,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             <button
               className={`${
                 loading ? "opacity-50 cursor-not-allowed" : ""
-              } xs:w-full sm:w-10/12 uppercase inline-flex justify-center place-self-end h-11 px-2 pt-2 border-lagrangebuttongray text-xl font-medium rounded shadow-sm text-lagrangebuttongray bg-gray-200 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2`}
+              } xs:w-full sm:w-10/12 uppercase inline-flex justify-center place-self-end h-11 px-2 pt-2 border-lagrangebuttongray text-xl font-normal rounded shadow-sm text-lagrangebuttongray bg-gray-200 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2`}
               type="button"
               onClick={refresh}
               disabled={loading}

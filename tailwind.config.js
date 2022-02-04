@@ -22,6 +22,10 @@ module.exports = {
       // serif: ['Merriweather', 'thin'],
     },
     extend: {
+      width: {
+        '128': '33.4rem',
+        '112': '31.8rem',
+      },
       backgroundImage: {
         'earth':
           "url('https://relaxed-newton-b77a1a.netlify.app/earth.svg')",

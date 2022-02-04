@@ -36,7 +36,7 @@ const Swap: NextPage = (props) => {
       <div
         className={`${
           isExpanded ? `-translate-x-full` : `translate-x-0`
-        } sidebar bg-white text-gray-700 w-80 xs:w-80 space-y-6 px-1 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
+        } sidebar bg-white text-gray-700 w-80 space-y-6 px-1 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
       >
         <SidebarLogo />
 
@@ -45,7 +45,7 @@ const Swap: NextPage = (props) => {
 
       <div className="flex-1 px-1 text-xl font-bold bg-gradient-to-r from-lagrangelight to-lagrangedark">
         <ContentHeader />
-        <div className="items-start lg:flex">
+        <div className="items-start sm:flex">
           <div>
             <SwapContent />
           </div>
