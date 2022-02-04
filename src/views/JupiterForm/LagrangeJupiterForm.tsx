@@ -30,6 +30,7 @@ const TrustedTokenAddresses = [
   "FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD", // BRZ
   "3uXMgtaMRBcyEtEChgiLMdHDjb5Azr17SQWwQo3ppEH8", // Wrapped BRZ
   "CbNYA9n3927uXUukee2Hf4tm3xxkffJPPZvGazc2EAH1", // agEUR
+
 ];
 
 interface IJupiterFormProps {}
@@ -483,7 +484,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             <button
               className={`${
                 loading ? "opacity-50 cursor-not-allowed" : ""
-              } xs:w-full sm:w-10/12 uppercase inline-flex justify-center place-self-end h-11 px-2 pt-2 border-lagrangebuttongray text-xl font-normal rounded shadow-sm text-lagrangebuttongray bg-gray-200 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2`}
+              } xs:w-full sm:w-10/12 uppercase inline-flex justify-center place-self-end h-11 px-2 pt-2 border-lagrangebuttongray text-xl font-normal rounded shadow-sm text-lagrangebuttongray bg-gray-200 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 border`}
               type="button"
               onClick={refresh}
               disabled={loading}
