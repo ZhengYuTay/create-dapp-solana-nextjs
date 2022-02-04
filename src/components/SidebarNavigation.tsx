@@ -22,7 +22,7 @@ const SidebarNavigation: NextPage = (props) => {
               : "block px-2 transition duration-200 rounded-lg hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
           }
         >
-          <div className="flex border border-black p-6">
+          <div className="flex border border-black p-4">
             <div className="w-8 item">
               <Image
                 src={router.pathname == "/swap" ? swapIconLight : swapIcon}
