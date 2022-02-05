@@ -43,12 +43,12 @@ const Index: NextPage = (props) => {
 
       <div className="flex items-center">
         <div className="h-full ml-12 mt-12">
-          <div className="text-white text-5xl">
+          <div className="text-white lg:text-5xl xs:text-xl">
             <p>Lagrange offers a fully decentralized</p>
             <p>24/7 FX market that does not require</p>
             <p>any broker or settlement periods.</p>
           </div>
-          <div>
+          <div className="mt-4">
             <div className="h-4"></div>
             <button className="w-44 text-white h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple rounded">
               <p className=" text-4xl font-normal">PRO</p>
