@@ -42,7 +42,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
   const [tokenMap, setTokenMap] = useState<Map<string, TokenInfo>>(new Map());
 
   const [formValue, setFormValue] = useState<UseJupiterProps>({
-    amount: 0 * 10 ** 6, // unit in lamports (Decimals)
+    amount: 1 * 10 ** 6, // unit in lamports (Decimals)
     inputMint: new PublicKey(INPUT_MINT_ADDRESS),
     outputMint: new PublicKey(OUTPUT_MINT_ADDRESS),
     slippage: 1, // 0.1%
