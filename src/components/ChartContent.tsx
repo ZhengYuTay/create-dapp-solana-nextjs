@@ -31,7 +31,7 @@ const ChartContent: NextPage<Props> = (props) => {
   const { coinList } = props;
 
   return (
-    <div className="p-2 mx-2 mt-4 bg-white shadow-lg border-lagrangeborder w-112">
+    <div className="p-2 mx-2 mt-4 bg-white shadow-lg border-lagrangeborder w-112 xs:w-96">
       <div>
         <div>
           <p className="font-normal">USDT / USDC</p>

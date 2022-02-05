@@ -104,7 +104,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
     <div>
       {/*  <PoolProviders /> */}
 
-      <div className="mb-4 bg-white rounded shadow-lg sm:px-4 xs:px-2 border-lagrangeborder w-128">
+      <div className="mb-4 bg-white rounded shadow-lg sm:px-4 xs:px-2 border-lagrangeborder w-128 xs:w-96">
         <div>
           <h1 className="py-4 text-4xl font-normal">Swap</h1>
         </div>
