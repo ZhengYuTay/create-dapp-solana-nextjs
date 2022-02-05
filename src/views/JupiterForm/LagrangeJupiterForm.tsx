@@ -20,7 +20,7 @@ import {
 
 import styles from "./JupiterForm.module.css";
 import FeeInfo from "./FeeInfo";
-import PoolProviders from "../../components/PoolProviders";
+
 const TrustedTokenAddresses = [
   "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", // USDC
   "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB", // USDT
@@ -30,13 +30,13 @@ const TrustedTokenAddresses = [
   "FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD", // BRZ
   "3uXMgtaMRBcyEtEChgiLMdHDjb5Azr17SQWwQo3ppEH8", // Wrapped BRZ
   "CbNYA9n3927uXUukee2Hf4tm3xxkffJPPZvGazc2EAH1", // agEUR
-
 ];
 
 interface IJupiterFormProps {}
 type UseJupiterProps = Parameters<typeof useJupiter>[0];
+
 const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
-  const { publicKey } = useWallet();
+ /*  const { publicKey } = useWallet(); */
   const wallet = useWallet();
   const { connection } = useConnection();
   const [tokenMap, setTokenMap] = useState<Map<string, TokenInfo>>(new Map());
