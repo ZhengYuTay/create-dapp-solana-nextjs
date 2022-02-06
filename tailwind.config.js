@@ -51,8 +51,10 @@ module.exports = {
         'lagrangesidebarpoolmenucolor': '#343A400D',
         'lagrangesidebarbuttonbackgroundcolor' : '#1C1C1C',
         'lagrange-buttonpro-blue' : '#7BFCC5',
-        'lagrange-buttonpro-purple' : '#9844FE'
+        'lagrange-buttonpro-purple' : '#9844FE',
+        'lagrangeswapbuttoncolor' : '#0F1262'
 
+ 
         
       },
       // spacing: {

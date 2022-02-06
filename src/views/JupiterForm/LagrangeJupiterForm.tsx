@@ -493,7 +493,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   }
                 }
               }}
-              className="inline-flex justify-center h-11 px-2 py-2 text-base font-normal text-white uppercase rounded shadow-sm xs:w-full sm:w-10/12 place-items-center border-lagrangegraybackground bg-lagrangeswapbutton hover:bg-lagrangepurpledark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 animate-pulse"
+              className="inline-flex justify-center h-11 px-2 py-2 text-base font-normal text-white uppercase rounded shadow-sm xs:w-full sm:w-10/12 place-items-center border-lagrangegraybackground bg-lagrangeswapbuttoncolor hover:bg-lagrangeswapbutton focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <p className="text-xl text-center">Swap</p>
             </button>
