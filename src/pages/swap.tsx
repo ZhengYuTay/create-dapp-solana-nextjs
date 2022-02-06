@@ -6,8 +6,12 @@ import SwapContent from "../components/SwapContent";
 import ChartContent from "../components/ChartContent";
 import SidebarLogo from "../components/SidebarLogo";
 import MobileLogo from "../components/MobileLogo";
+import  $ from 'jquery'
+
 const Swap: NextPage = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
+ 
+
 
   return (
     <div className="relative min-h-screen md:flex">
