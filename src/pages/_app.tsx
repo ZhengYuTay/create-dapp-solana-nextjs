@@ -8,7 +8,7 @@ import {
 } from "@solana/wallet-adapter-react";
 import { clusterApiUrl } from "@solana/web3.js";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
-
+import '../styles/walletbutton.css'
 import "tailwindcss/tailwind.css";
 import "../styles/globals.css";
 import "../styles/App.css";
