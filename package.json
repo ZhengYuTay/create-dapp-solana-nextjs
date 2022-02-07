@@ -29,6 +29,7 @@
     "daisyui": "^1.16.2",
     "dotenv": "^10.0.0",
     "jayson": "^3.6.6",
+    "jquery": "^3.6.0",
     "next": "^12.0.7",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",
@@ -38,6 +39,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.2.0",
+    "@types/jquery": "^3.5.13",
     "@types/node": "16.11.7",
     "@types/react": "17.0.34",
     "autoprefixer": "^10.4.0",
@@ -49,6 +51,5 @@
   },
   "resolutions": {
     "**/@saberhq/token-utils/**/@solana/buffer-layout": "^3.0.0"
-
   }
 }

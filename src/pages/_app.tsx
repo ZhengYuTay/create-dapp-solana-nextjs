@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
 import type { AppProps } from "next/app";
 import dynamic from "next/dynamic";
 import {
@@ -8,7 +8,7 @@ import {
 } from "@solana/wallet-adapter-react";
 import { clusterApiUrl } from "@solana/web3.js";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
-import '../styles/walletbutton.css'
+import "../styles/walletbutton.css";
 import "tailwindcss/tailwind.css";
 import "../styles/globals.css";
 import "../styles/App.css";
@@ -26,8 +26,8 @@ const WalletProvider = dynamic(
 );
 
 function MyApp({ Component, pageProps }: AppProps) {
-  /* const endpoint = useMemo(() => "https://solana-api.projectserum.com", []); */
-  const endpoint = useMemo(() => "https://api.mainnet-beta.solana.com", []);
+  const endpoint = useMemo(() => "https://solana-api.projectserum.com", []);
+  /* const endpoint = useMemo(() => "https://api.mainnet-beta.solana.com", []); */
 
   return (
     <ConnectionProvider endpoint={endpoint}>
