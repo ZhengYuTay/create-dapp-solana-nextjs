@@ -7,7 +7,7 @@ const Index: NextPage = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
 
   return (
-    <div className="h-screen w-auto p-10 bg-fixed bg-cover bg-earth">
+    <div className="w-auto h-screen p-10 bg-fixed bg-cover bg-earthanimated">
       <div className="flex items-center justify-between">
         <div>
           <Image
@@ -19,8 +19,8 @@ const Index: NextPage = (props) => {
           />
         </div>
 
-        <div className="flex  items-center text-white">
-          <p className=" mr-9 ">
+        <div className="flex items-center text-white">
+          <p className=" mr-9">
             <a
               href="https://youtu.be/xm4qJmwNx4w"
               target="_blank"
@@ -30,11 +30,7 @@ const Index: NextPage = (props) => {
             </a>
           </p>
           <p className="ml-9">
-            <a
-              href="#"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="#" target="_blank" rel="noreferrer">
               Pitchdeck
             </a>
           </p>
@@ -42,7 +38,7 @@ const Index: NextPage = (props) => {
       </div>
 
       <div className="flex items-center">
-        <div className="h-full ml-12 mt-12">
+        <div className="h-full mt-12 ml-12">
           <div className="text-white lg:text-5xl xs:text-xl">
             <p>Lagrange offers a fully decentralized</p>
             <p>24/7 FX market that does not require</p>
@@ -50,12 +46,12 @@ const Index: NextPage = (props) => {
           </div>
           <div className="mt-4">
             <div className="h-4"></div>
-            <button className="w-44 text-white h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple rounded">
-              <p className=" text-4xl font-normal">PRO</p>
+            <button className="text-white rounded w-44 h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple">
+              <p className="text-4xl font-normal ">PRO</p>
             </button>
             <Link href="/swap">
               <a>
-                <button className="w-44 text-white font-normal h-14 border-2 border-lagrange-buttonpro-blue rounded ml-4">
+                <button className="ml-4 font-normal text-white border-2 rounded w-44 h-14 border-lagrange-buttonpro-blue">
                   <p className="text-4xl font-normal">LITE</p>{" "}
                 </button>
               </a>
@@ -64,7 +60,7 @@ const Index: NextPage = (props) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 place-content-center h-48 place-items-center p-72 xs:p-10">
+      <div className="grid h-48 grid-cols-4 gap-4 place-content-center place-items-center p-72 xs:p-10">
         <div>
           <svg
             width="32"
