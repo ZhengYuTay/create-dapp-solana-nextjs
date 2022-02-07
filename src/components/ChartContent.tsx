@@ -1,0 +1,121 @@
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+
+/* import ChartLine from "../../public/Chartstabil.png"; */
+import SelectDownIcon from "../../public/select-down.png";
+
+import type { NextPage } from "next";
+import coinGecko from "../pages/api/coinGecko";
+interface Props {
+  coinList: any;
+  data: any;
+}
+const ChartContent: NextPage<Props> = (props) => {
+  const [coinData, setCoinData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = coinGecko.get(`/coins/markets`, {
+        params: {
+          vs_currency: "usd",
+          ids: "bilira",
+        },
+      });
+
+    };
+
+    fetchData();
+  }, []);
+
+  const { coinList } = props;
+
+  return (
+    <div className="p-2 mx-2 mt-4 bg-white shadow-lg border-lagrangeborder w-112">
+      <div>
+        <div>
+          <p className="font-normal">USDT / USDC</p>
+{/*           <p className="font-normal">1.00 - 0.00 %</p> */}
+          <p className="font-normal">
+            {" "}
+            {new Date().getDate()}
+            {"/"}
+            {new Date().getMonth()}
+            {"/"}
+            {new Date().getFullYear()}, {new Date().getHours()}:
+            {new Date().getMinutes()}
+          </p>
+        </div>
+        <div className="h-20">
+
+</div>
+        <div className="">
+          <hr className=" bg-gray-900"/>
+        </div>
+        <div className="h-20">
+
+        </div>
+        <div className="flex items-center justify-between p-2 rounded bg-lagrangegraybackground">
+          {" "}
+          <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs font-normal">
+            <Image
+              src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
+              alt="USDC"
+              width={32}
+              height={32}
+              layout="fixed"
+            />
+            <p className="px-2 py-2 text-white">USDT</p>
+          </div>
+          <div className="flex items-center space-x-2 font-normal">
+            <p className="pr-2 text-white font-normal">1.00$</p>{" "}
+            <p className="pr-2 text-lagrangered font-normal">0.00</p>
+            <Image
+              src={SelectDownIcon}
+              alt="Select Down"
+              className="w-8 h-82"
+            />
+          </div>
+        </div>
+        <div className="h-4"></div>
+        <div className="flex items-center justify-between p-2 rounded bg-lagrangegraybackground">
+          {" "}
+          <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs font-normal">
+            <Image
+              src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
+              alt="USDC"
+              width={32}
+              height={32}
+              layout="fixed"
+            />
+            <p className="px-2 py-2 text-white font-normal">USDC</p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <p className="pr-2 text-white font-normal">1.00$</p>{" "}
+            <p className="pr-2 text-green-700 font-normal">0.00</p>
+            <Image
+              src={SelectDownIcon}
+              alt="Select Down"
+              className="w-8 h-82"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default ChartContent;
+
+export async function getServerSideProps() {
+  const CoinGecko = require("coingecko-api");
+  const CoinGeckoClient = new CoinGecko();
+  const coinList = await CoinGeckoClient.coins.fetch("bitcoin", {});
+
+  return {
+    props: {
+      coinList: coinList,
+    },
+  };
+
+  
+}

@@ -1,25 +1,26 @@
 .loader {
-    border-top-color: #3498db;
-    -webkit-animation: spinner 1.5s linear infinite;
-    animation: spinner 1.5s linear infinite;
-    width: 24px;
-    height: 24px;
-  }
+  border-top-color: #3493da;
+  background-image: "./swap-icon.png";
+  -webkit-animation: spinner 1.5s linear infinite;
+  animation: spinner 1.5s linear infinite;
+  width: 36px;
+  height: 36px;
+}
 
-  @-webkit-keyframes spinner {
-    0% {
-      -webkit-transform: rotate(0deg);
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-    }
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
   }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
 
-  @keyframes spinner {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}

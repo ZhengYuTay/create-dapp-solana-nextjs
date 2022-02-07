@@ -12,8 +12,8 @@ import {
 import { useMemo } from "react";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 
-import('@solana/wallet-adapter-react-ui/styles.css' as any) ;
-
+/* import('@solana/wallet-adapter-react-ui/styles.css' as any) ; */
+/* import('../styles/walletbutton.css' as any) ; */
 export function ClientWalletProvider(
   props: Omit<WalletProviderProps, "wallets">
 ): JSX.Element {
