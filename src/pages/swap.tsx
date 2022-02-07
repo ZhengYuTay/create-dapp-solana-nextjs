@@ -45,7 +45,7 @@ const Swap: NextPage = (props) => {
 
       <div className="flex-1 px-1 text-xl font-bold bg-gradient-to-r from-lagrangelight to-lagrangedark">
         <ContentHeader />
-        <div className="flex">
+        <div className="flex xs:flex-wrap xs:justify-center">
           <div>
             <SwapContent />
           </div>

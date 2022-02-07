@@ -8,6 +8,25 @@ import SelectDownIcon from "../../public/select-down.png";
 
 import type { NextPage } from "next";
 import coinGecko from "../pages/api/coinGecko";
+
+const currencies = [
+  {
+    fiatSymbol: "USD",
+    cryptoSymbol: "USDC",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+  },
+  {
+    fiatSymbol: "USDT",
+    cryptoSymbol: "USDT",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+  },
+
+
+
+
+
+];
+
 interface Props {
   coinList: any;
   data: any;
@@ -29,12 +48,15 @@ const ChartContent: NextPage<Props> = (props) => {
   }, []);
 
   const { coinList } = props;
+  const { data } = props;
+
 
   return (
-    <div className="p-2 mx-2 mt-4 bg-white shadow-lg border-lagrangeborder w-112">
+    <div className="p-2 mx-2 mt-4 bg-white shadow-lg border-lagrangeborder xxl:w-112 lg:w-112 md:w-112  sm:w-112 xs:w-96">
       <div>
         <div>
           <p className="font-normal">USDT / USDC</p>
+          {  console.log(data)}
 {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
           <p className="font-normal">
             {" "}
@@ -106,16 +128,43 @@ const ChartContent: NextPage<Props> = (props) => {
 };
 export default ChartContent;
 
+
+
 export async function getServerSideProps() {
   const CoinGecko = require("coingecko-api");
   const CoinGeckoClient = new CoinGecko();
-  const coinList = await CoinGeckoClient.coins.fetch("bitcoin", {});
+  const coinList = await CoinGeckoClient.coins.fetch("solana", {});
+  const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
+  const endpoint = "https://api.currencylayer.com/live";
+  const sourceCurrencyPairs = currencies.map((source) => ({
+    ...source,
+    currencies: currencies
+      .map(({ fiatSymbol }) => fiatSymbol)
+      .filter((currency) => currency !== source.fiatSymbol),
+  }));
 
+  const pairs = await Promise.all(
+    sourceCurrencyPairs.map(async (pair) => {
+      const url = `${endpoint}?access_key=${accessKey}&source=${
+        pair.fiatSymbol
+      }&currencies=${pair.currencies.join(",")}&format=1`;
+      return {
+        ...pair,
+        quotes: (await (await fetch(url)).json()).quotes,
+      };
+    })
+  );
+
+  if (!pairs) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
+      data: pairs,
       coinList: coinList,
     },
+    // will be passed to the page component as props
   };
-
-  
 }
