@@ -8,11 +8,12 @@ module.exports = {
   theme: {
     screens: {
       'xs': '320px',
-      'sm': '780px',
+      'sm': '768px',
       'md': '1024px',
       'lg': '1440px',
-      'xl': '1440px',
-      'xxl': '1920px',
+      'xl': '1920px',
+      'xxl': '2560px',
+
     },
 
     fontFamily: {
