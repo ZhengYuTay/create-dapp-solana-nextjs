@@ -45,7 +45,7 @@ const Index: NextPage = (props) => {
      </div>
 
      <div className="flex items-center">
-       <div className="h-full mt-36 ml-12">
+       <div className="h-full mt-36 ml-12 sm:ml-2 xs:ml-2">
          <div className="text-white xxl:text-5xl  lg:text-5xl xs:text-xl">
            <p>Lagrange offers a fully decentralized</p>
            <p>24/7 FX market that does not require</p>
