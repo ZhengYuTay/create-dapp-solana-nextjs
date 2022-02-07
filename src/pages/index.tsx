@@ -11,7 +11,7 @@ const Index: NextPage = (props) => {
 {/*   <div className="relative z-30  text-2xl text-white ">
     Welcome to my site!
   </div> */}
-  <div className="w-full h-screen p-10 bg-local z-40">
+  <div className="w-full h-screen p-10 xs:p-5 bg-local z-40">
      
   
      <div className="flex items-center justify-between">
@@ -19,8 +19,8 @@ const Index: NextPage = (props) => {
          <Image
            className="cursor-pointer"
            src={LagrangeMobileLogo}
-           width={202}
-           height={83}
+           width={227}
+           height={61}
            alt="Logo"
          />
        </div>
@@ -32,12 +32,13 @@ const Index: NextPage = (props) => {
              target="_blank"
              rel="noreferrer"
            >
-             Demo Video
+             <p className="text-base font-normal">Demo Video</p>
            </a>
          </p>
-         <p className="ml-9">
+         <p className="ml-9 xs:ml-2">
            <a href="#" target="_blank" rel="noreferrer">
-             Pitchdeck
+             
+             <p className="text-base font-normal">Pitchdeck</p>
            </a>
          </p>
        </div>
@@ -45,19 +46,19 @@ const Index: NextPage = (props) => {
 
      <div className="flex items-center">
        <div className="h-full mt-36 ml-12">
-         <div className="text-white lg:text-5xl xs:text-xl">
+         <div className="text-white xxl:text-5xl  lg:text-5xl xs:text-xl">
            <p>Lagrange offers a fully decentralized</p>
            <p>24/7 FX market that does not require</p>
            <p>any broker or settlement periods.</p>
          </div>
          <div className="mt-4">
            <div className="h-4"></div>
-           <button className="text-white rounded w-44 h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple">
+           <button className="text-white rounded w-40 h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple">
              <p className="text-4xl font-normal ">PRO</p>
            </button>
            <Link href="/swap">
              <a>
-               <button className="ml-4 font-normal text-white border-2 rounded w-44 h-14 border-lagrange-buttonpro-blue">
+               <button className="ml-4 font-normal text-white border-2 rounded w-40 h-14 border-lagrange-buttonpro-blue">
                  <p className="text-4xl font-normal">LITE</p>{" "}
                </button>
              </a>
