@@ -11,7 +11,7 @@ const Index: NextPage = (props) => {
 {/*   <div className="relative z-30  text-2xl text-white ">
     Welcome to my site!
   </div> */}
-  <div className="w-full h-screen p-10 xs:p-5 bg-local z-40">
+  <div className="w-full h-screen p-10 xs:p-2 bg-local z-40">
      
   
      <div className="flex items-center justify-between">
@@ -26,7 +26,7 @@ const Index: NextPage = (props) => {
        </div>
 
        <div className="flex items-center text-white">
-         <p className=" mr-9">
+         <p className=" mr-9 xxl:r-9 xl:r-9 lg:mr-9   md:mr-9 sm:mr-9 xs:mr-0">
            <a
              href="https://youtu.be/xm4qJmwNx4w"
              target="_blank"
@@ -35,7 +35,7 @@ const Index: NextPage = (props) => {
              <p className="text-base font-normal">Demo Video</p>
            </a>
          </p>
-         <p className="ml-9 xs:ml-2">
+         <p className="ml-9 xs:ml-0">
            <a href="#" target="_blank" rel="noreferrer">
              
              <p className="text-base font-normal">Pitchdeck</p>
@@ -53,12 +53,12 @@ const Index: NextPage = (props) => {
          </div>
          <div className="mt-4">
            <div className="h-4"></div>
-           <button className="text-white rounded w-40 h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple">
+           <button className="text-white rounded w-40 xs:w-32 h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple">
              <p className="text-4xl font-normal ">PRO</p>
            </button>
            <Link href="/swap">
              <a>
-               <button className="ml-4 font-normal text-white border-2 rounded w-40 h-14 border-lagrange-buttonpro-blue">
+               <button className="ml-4 font-normal text-white border-2 rounded w-40 xs:w-32 h-14 border-lagrange-buttonpro-blue">
                  <p className="text-4xl font-normal">LITE</p>{" "}
                </button>
              </a>
