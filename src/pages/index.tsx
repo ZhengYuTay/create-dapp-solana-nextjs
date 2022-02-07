@@ -15,7 +15,7 @@ const Index: NextPage = (props) => {
      
   
      <div className="flex items-center justify-between">
-       <div className="xxl:w-96 xl:w-96 sm:w-96 xs:w-32">
+       <div className="2xl:w-96 xl:w-96 md:w-96 sm:w-96 xs:w-32">
          <Image
            className="cursor-pointer"
            src={LagrangeMobileLogo}
@@ -26,7 +26,7 @@ const Index: NextPage = (props) => {
        </div>
 
        <div className="flex items-center text-white">
-         <p className=" mr-9 xxl:r-9 xl:r-9 lg:mr-9  md:mr-9 sm:mr-9 xs:mr-0">
+         <p className=" mr-9 2xl:r-9 xl:r-9 lg:mr-9  md:mr-9 sm:mr-9 xs:mr-0">
            <a
              href="https://youtu.be/xm4qJmwNx4w"
              target="_blank"
@@ -67,7 +67,7 @@ const Index: NextPage = (props) => {
        </div>
      </div>
 
-     <div className="grid h-48 grid-cols-4 gap-4 place-content-center place-items-center p-72 xs:p-10 mt-20">
+     <div className="grid h-48 grid-cols-4 gap-4 place-content-center place-items-center p-72 xs:p-10 mt-8">
        <div>
          <svg
            width="32"

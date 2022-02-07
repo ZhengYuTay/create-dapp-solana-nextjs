@@ -145,7 +145,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               <input
                 name="amount"
                 id="amount"
-                className="w-292 h-12 border py-2 text-sm font-normal leading-tight text-center text-gray-700 bg-gray-100 rounded appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
+                className="sm:w-292 xs:w-auto h-12 border py-2 text-sm font-normal leading-tight text-center text-gray-700 rounded appearance-none border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
                 value={formValue.amount}
                 type="text"
                 pattern="[0-9]*"
@@ -313,7 +313,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               <div>
                 <p className="px-2 py-2 text-left sm:text-lg xs:text-sm font-normal">To-</p>
               </div>
-              <div className="w-292 h-12 border leading-tight text-center text-gray-700 bg-gray-100  rounded appearance-none sm:text-lg xs:text-sm border-xl border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500">
+              <div className="sm:w-292 xs:w-auto h-12 border leading-tight text-center text-gray-700  rounded appearance-none sm:text-lg xs:text-sm border-xl border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500">
                 {routes?.[0] &&
                   (() => {
                     const route = routes[0];
