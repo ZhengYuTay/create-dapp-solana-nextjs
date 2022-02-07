@@ -29,6 +29,8 @@ module.exports = {
       backgroundImage: {
         'earth':
           "url('https://relaxed-newton-b77a1a.netlify.app/earth.svg')",
+        'earthanimated':
+          "url('https://firebasestorage.googleapis.com/v0/b/bodrum-7e4c9.appspot.com/o/earthanimated.gif?alt=media&token=c38283d1-f4d7-4d9a-8448-414bfd8c4ff0')",
       },
       /* background: linear-gradient(180deg, #7BFCC5 0%, #9844FE 100%); */
 
@@ -47,15 +49,15 @@ module.exports = {
         'lagrangegraybackground': '#373737',
         'lagrangebuttondarkblue': '#0F1262',
         'lagrangebuttongray': '#373737',
-        'lagrangeswapbutton' : '#2B30B9',
+        'lagrangeswapbutton': '#2B30B9',
         'lagrangesidebarpoolmenucolor': '#343A400D',
-        'lagrangesidebarbuttonbackgroundcolor' : '#1C1C1C',
-        'lagrange-buttonpro-blue' : '#7BFCC5',
-        'lagrange-buttonpro-purple' : '#9844FE',
-        'lagrangeswapbuttoncolor' : '#0F1262'
+        'lagrangesidebarbuttonbackgroundcolor': '#1C1C1C',
+        'lagrange-buttonpro-blue': '#7BFCC5',
+        'lagrange-buttonpro-purple': '#9844FE',
+        'lagrangeswapbuttoncolor': '#0F1262'
 
- 
-        
+
+
       },
       // spacing: {
       //   '128': '32rem',
@@ -74,7 +76,7 @@ module.exports = {
   daisyui: {
     styled: true,
     themes: [
-      
+
       // first one will be the default theme
 
       // uncomment to enable
