@@ -104,7 +104,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
     <div>
       {/*  <PoolProviders /> */}
 
-      <div className="mb-4 bg-white rounded shadow-lg sm:px-4 xs:px-2 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-96">
+      <div className="mb-4 bg-white rounded shadow-lg sm:px-4 xs:px-2 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-72">
         <div>
           <h1 className="py-4 text-4xl font-normal">Swap</h1>
         </div>
@@ -115,7 +115,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="flex justify-end col-span-2 col-start-2 mr-4 box">
             <input
               type="text"
-              className=" w-40 py-2 font-normal text-center rounded shadow-lg text-grey-darkest border-lagrangeborder border"
+              className="sm:w-40 xs:w-32  py-2 font-normal text-center rounded shadow-lg text-grey-darkest border-lagrangeborder border"
               value="0.5%"
             />
           </div>
@@ -129,7 +129,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="flex justify-end col-span-2 col-start-2 mr-4 box">
             <input
               type="text"
-              className="w-40 py-2 font-normal text-center rounded shadow-lg text-grey-darkest border-lagrangeborder border"
+              className="sm:w-40 xs:w-32 py-2 font-normal text-center rounded shadow-lg text-grey-darkest border-lagrangeborder border"
               value="10"
             />
           </div>
