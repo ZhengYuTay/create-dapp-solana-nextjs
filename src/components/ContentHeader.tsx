@@ -1,18 +1,11 @@
 import type { NextPage } from "next";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-// import { useEffect } from 'react'
-// import $ from "jquery"
 import { FaSearch } from "react-icons/fa";
 import { ENV } from "../constants";
 const ContentHeader: NextPage = (props) => {
   const { publicKey } = useWallet();
-// useEffect(() =>  {
 
-//     $(".btn-ghost").html("Connect Wallet")
-    
- 
-//  },[])
 
   return (
     <div className="bg-white px-2 py-2 flex justify-between shadow-xl">
