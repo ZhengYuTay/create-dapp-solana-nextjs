@@ -15,7 +15,7 @@ const Index: NextPage = (props) => {
      
   
      <div className="flex items-center justify-between">
-       <div className="xxl:w-96 xl:w-96 sm:w-96 xs:w-28  ">
+       <div className="xxl:w-96 xl:w-96 sm:w-96 xs:w-32">
          <Image
            className="cursor-pointer"
            src={LagrangeMobileLogo}
@@ -26,7 +26,7 @@ const Index: NextPage = (props) => {
        </div>
 
        <div className="flex items-center text-white">
-         <p className=" mr-9 xxl:r-9 xl:r-9 lg:mr-9  md:mr-9 sm:mr-9 xs:mr-2">
+         <p className=" mr-9 xxl:r-9 xl:r-9 lg:mr-9  md:mr-9 sm:mr-9 xs:mr-0">
            <a
              href="https://youtu.be/xm4qJmwNx4w"
              target="_blank"
@@ -35,7 +35,7 @@ const Index: NextPage = (props) => {
              <p className="text-base xs:text-sm sm:text-lg font-normal">Demo Video</p>
            </a>
          </p>
-         <p className="ml-9 xs:ml-2 mr-2">
+         <p className="ml-9 xs:ml-2 mr-2 xs:mr-0">
            <a href="#" target="_blank" rel="noreferrer">
              
              <p className="text-base xs:text-sm sm:text-lg font-normal">Pitchdeck</p>
@@ -46,7 +46,7 @@ const Index: NextPage = (props) => {
 
      <div className="flex items-center">
        <div className="h-full mt-36 xs:mt-16 ml-12 sm:ml-2 xs:ml-2">
-         <div className="text-white xxl:text-5xl  lg:text-5xl xs:text-base font-normal">
+         <div className="text-white xl:text-5xl lg:text-5xl sm:text-4xl xs:text-base font-normal">
            <p>Lagrange offers a fully decentralized</p>
            <p>24/7 FX market that does not require</p>
            <p>any broker or settlement periods.</p>
