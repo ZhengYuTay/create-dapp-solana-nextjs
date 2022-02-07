@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import type { NextPage } from "next";
-import $ from "jquery";
 import SidebarNavigation from "../components/SidebarNavigation";
 import ContentHeader from "../components/ContentHeader";
 import SwapContent from "../components/SwapContent";
