@@ -7,7 +7,13 @@ const Index: NextPage = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
 
   return (
-    <div className="w-auto h-screen p-10 bg-fixed bg-cover bg-earthanimated">
+<header className="flex items-center justify-items-stretch h-screen mb-12 overflow-hidden">
+    <video autoPlay loop muted className="absolute z-0 w-auto min-w-full min-h-full max-w-none">
+    <source src="https://relaxed-newton-b77a1a.netlify.app/Earth.mp4" type="video/mp4" />Your browser does not support the video tag.
+    </video>
+    <div className="w-full h-screen p-10 bg-fixed z-40">
+     
+  
       <div className="flex items-center justify-between">
         <div>
           <Image
@@ -60,7 +66,7 @@ const Index: NextPage = (props) => {
         </div>
       </div>
 
-      <div className="grid h-48 grid-cols-4 gap-4 place-content-center place-items-center p-72 xs:p-10 bg-gray-600">
+      <div className="grid h-48 grid-cols-4 gap-4 place-content-center place-items-center p-72 xs:p-10 mt-20">
         <div>
           <svg
             width="32"
@@ -130,6 +136,7 @@ const Index: NextPage = (props) => {
         </div>
       </div>
     </div>
+    </header> 
   );
 };
 
