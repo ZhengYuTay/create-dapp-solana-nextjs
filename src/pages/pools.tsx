@@ -244,14 +244,14 @@ const Pools: NextPage<Props> = (props) => {
               {/* {usd}<br />
               {brz}*/}
               <div className="xl:text-2xl lg:text-2xl md:text-xl sm:text-2xl xs:text-base">
-                ${" "}
-                {Number(
+                ${" "}0.00
+                {/* {Number(
                   Number(usd) +
                     Number(brz) +
                     Number(bilira) +
                     Number(jpyc) +
                     Number(ageur)
-                ).toLocaleString()}
+                ).toLocaleString()} */}
               </div>
             </div>
 
@@ -323,7 +323,7 @@ const Pools: NextPage<Props> = (props) => {
                           <p className="px-2 py-2">agEUR</p>
                         </div>
                       </td>
-                      <td>{data[2].quotes.EURUSD.toFixed(3)}</td>
+                      <td>$ {data[2].quotes.EURUSD.toFixed(3)}</td>
                       <td className="text-center">0</td>
                       <td className="text-center">$ 0.00</td>
                     </tr>
