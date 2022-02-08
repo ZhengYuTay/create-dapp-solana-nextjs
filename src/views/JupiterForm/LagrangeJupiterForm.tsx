@@ -115,7 +115,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="flex justify-end col-span-2 col-start-2 mr-4 box">
             <input
               type="text"
-              className="py-2 font-normal text-center border rounded shadow-lg sm:w-40 xs:w-32 text-grey-darkest border-lagrangeborder"
+              className="py-2 font-normal text-center border rounded sm:w-40 xs:w-32 text-grey-darkest border-lagrangeborder"
               value="0.5%"
             />
           </div>
@@ -129,7 +129,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="flex justify-end col-span-2 col-start-2 mr-4 box">
             <input
               type="text"
-              className="py-2 font-normal text-center border rounded shadow-lg sm:w-40 xs:w-32 text-grey-darkest border-lagrangeborder"
+              className="py-2 font-normal text-center border rounded sm:w-40 xs:w-32 text-grey-darkest border-lagrangeborder"
               value="10"
             />
           </div>
@@ -162,7 +162,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             <div className="col-span-2 col-start-2">
               <div className="flex justify-end box">
                 <p className="py-2 mr-2 font-normal sm:text-lg xs:text-sm">
-                  Balance
+                  Balance:--
                 </p>
               </div>
               <div className="flex justify-end">
@@ -358,7 +358,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               <div className="flex justify-end box">
                 {" "}
                 <p className="py-2 mr-2 font-normal text-center sm:text-lg xs:text-sm">
-                  Balance
+                  Balance:--
                 </p>
               </div>
 
