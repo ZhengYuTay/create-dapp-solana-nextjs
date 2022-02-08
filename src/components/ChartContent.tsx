@@ -45,7 +45,7 @@ const ChartContent: NextPage<Props> = (props) => {
   const { data } = props;
 
   return (
-    <div className="p-2 mx-2 mt-4 bg-white rounded shadow-lg border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-72">
+    <div className="p-2 mx-2 mt-4 bg-white rounded shadow-lg border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-96">
       <div>
         <div>
           <p className="font-normal">USDT / USDC</p>
