@@ -44,19 +44,19 @@ const Index: NextPage = (props) => {
 
         <div className="flex items-center">
           <div className="h-full ml-12 mt-36 sm:mt-16 sm:ml-12 xs:ml-2">
-            <div className="text-white xl:text-5xl lg:text-4xl sm:text-4xl xs:text-md font-display">
+            <div className="font-normal text-white xl:text-5xl lg:text-4xl sm:text-4xl xs:text-md font-display">
               <p>Lagrange offers a fully decentralized</p>
               <p>24/7 FX market that does not require</p>
               <p>any broker or settlement periods.</p>
             </div>
             <div className="mt-8">
               <button className="w-48 text-white rounded sm:w-48 xs:w-32 h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple">
-                <p className="text-4xl font-display ">PRO</p>
+                <p className="text-4xl font-normal font-display ">PRO</p>
               </button>
               <Link href="/swap">
                 <a>
                   <button className="w-48 ml-4 text-white border-2 rounded font-display sm:w-40 xs:w-32 h-14 border-lagrange-buttonpro-blue">
-                    <p className="text-4xl font-display">LITE</p>{" "}
+                    <p className="text-4xl font-normal font-display">LITE</p>{" "}
                   </button>
                 </a>
               </Link>
