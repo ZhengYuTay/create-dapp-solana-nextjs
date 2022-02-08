@@ -88,7 +88,7 @@ const Overview: NextPage<Props> = (props) => {
       <div
         className={`${
           isExpanded ? `-translate-x-full` : `translate-x-0`
-        } sidebar bg-white xs:bg-gray-100 text-gray-700 w-80 space-y-6 px-2 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
+        } sidebar bg-white xs:bg-gray-100 text-gray-700 w-80 space-y-6 px-6 py-4 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
       >
         <SidebarLogo />
 
@@ -96,16 +96,15 @@ const Overview: NextPage<Props> = (props) => {
       </div>
       <div className="flex-1 text-xs font-bold bg-gradient-to-r from-lagrangelight to-lagrangedark">
         <ContentHeader />
-     
+
         <div className="p-5 ">
-     
           <div className="p-5">
-          <div className=" bg-white">
-          <h1 className="text-2xl font-normal p-2">Market Overview</h1>
-        </div>
+            <div className="bg-white ">
+              <h1 className="p-2 text-2xl font-normal">Market Overview</h1>
+            </div>
             <table className="w-full bg-white shadow-lg">
               <thead>
-                <tr >
+                <tr>
                   <th className="text-left border place-self-center"></th>
                   <th className="py-2 text-left border place-self-center">
                     <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">

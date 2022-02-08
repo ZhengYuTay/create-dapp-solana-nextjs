@@ -11,7 +11,7 @@ const Swap: NextPage = (props) => {
 
   return (
     <div className="relative min-h-screen md:flex">
-      <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
+      <div className="flex justify-between px-4 py-2 text-gray-100 bg-gray-800 md:hidden">
         <MobileLogo />
         <button
           onClick={() => toggleExpansion(!isExpanded)}
@@ -36,7 +36,7 @@ const Swap: NextPage = (props) => {
       <div
         className={`${
           isExpanded ? `-translate-x-full` : `translate-x-0`
-        } sidebar bg-white text-gray-700 w-80 space-y-6 px-1 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
+        } sidebar bg-white text-gray-700 w-80 space-y-6 px-6 py-4 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
       >
         <SidebarLogo />
 

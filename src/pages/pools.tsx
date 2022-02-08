@@ -140,7 +140,7 @@ const Pools: NextPage<Props> = (props) => {
       <div
         className={`${
           isExpanded ? `-translate-x-full` : `translate-x-0`
-        } sidebar bg-white xs:bg-white text-gray-700 w-80 xs:w-80 space-y-6 px-1 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
+        } sidebar bg-white xs:bg-white text-gray-700 w-80 xs:w-80 space-y-6 px-6 py-4 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
       >
         <SidebarLogo />
 
@@ -156,21 +156,21 @@ const Pools: NextPage<Props> = (props) => {
               <div className="py-4 text-lg font-normal xs:text-base">
                 Total Value Locked
               </div>
-              <div className="text-3xl  xs:text-xl">$0.00</div>
+              <div className="text-3xl xs:text-xl">$0.00</div>
             </div>
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
               <div className="py-4 text-lg font-normal xs:text-base">
                 LAG Price Value
               </div>
-              <div className="text-3xl  xs:text-xl">$0.00</div>
+              <div className="text-3xl xs:text-xl">$0.00</div>
             </div>
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
               <div className="py-4 text-lg font-normal xs:text-base">
                 My Total Value
               </div>
-              <div className="text-3xl  xs:text-xl">$ {mybalance}</div>
+              <div className="text-3xl xs:text-xl">$ {mybalance}</div>
             </div>
           </div>
         </div>
