@@ -203,7 +203,7 @@ const Pools: NextPage<Props> = (props) => {
       <div
         className={`${
           isExpanded ? `-translate-x-full` : `translate-x-0`
-        } sidebar bg-white xs:bg-white text-gray-700 w-80 xs:w-80 space-y-6 px-1 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
+        } sidebar bg-white xs:bg-white text-gray-700 w-80 xs:w-80 space-y-6 px-6 py-4 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
       >
         <SidebarLogo />
 
@@ -212,16 +212,14 @@ const Pools: NextPage<Props> = (props) => {
       <div className="flex-1 text-xs font-bold bg-gradient-to-r from-lagrangelight to-lagrangedark">
         <ContentHeader />
         <div className="py-2 text-center ">
-          {/*    <h1 className="text-2xl">Pools</h1> */}
-          {/* <h2 className="text-xl">Pools are in test mode please do not deposit</h2> */}
-          <div className="flex flex-wrap justify-between p-2 mx-1 overflow-hidden">
+          <div className="flex flex-wrap justify-between p-1 mx-1 overflow-hidden first-letter:">
             <div className="w-1/4 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
               <div className="py-4 text-lg font-normal xs:text-base">
                 Total Value Locked
               </div>
               {/* {usd}<br />
               {brz}*/}
-              <div className="xl:text-3xl lg:text-3xl md:text-3xl sm:text-3xl xs:text-xl">
+              <div className="xl:text-2xl lg:text-2xl md:text-xl sm:text-2xl xs:text-base">
                 ${" "}
                 {Number(
                   Number(usd) +
@@ -234,7 +232,7 @@ const Pools: NextPage<Props> = (props) => {
             </div>
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
-              <div className="py-4 text-lg font-normal xs:text-base">
+              <div className="py-4 font-normal xl:text-xl xs:text-base">
                 LAG Price Value
               </div>
               <div className="text-3xl xs:text-xl">$0.00</div>

@@ -180,7 +180,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                     }}
                   >
                     <div className="relative">
-                      <Listbox.Button className="relative w-full h-12 py-2 cursor-default sm:text-lg xs:text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500">
+                      <Listbox.Button className="flex items-center justify-start w-full h-12 py-2 ml-2 cursor-default sm:text-lg xs:text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500">
                         {inputTokenInfo ? (
                           <Image
                             src={`${inputTokenInfo?.logoURI}`}
@@ -203,7 +203,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                           </div>
                         )}
 
-                        <span className="ml-2 text-white sm:text-lg xs:text-sm">
+                        <span className="ml-2 text-white truncate sm:text-lg xs:text-sm">
                           {inputTokenInfo?.name}
                         </span>
                         <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -251,7 +251,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                     <span
                                       className={`${
                                         selected ? "font-medium" : "font-normal"
-                                      } block truncate text-white text-base ml-4`}
+                                      } block truncate text-white text-base ml-2`}
                                     >
                                       {tokenMap.get(tokenMint)?.name ||
                                         "unknown"}
