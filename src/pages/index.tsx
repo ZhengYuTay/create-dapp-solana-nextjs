@@ -54,20 +54,22 @@ const Index: NextPage = (props) => {
               <p>24/7 FX market that does not require</p>
               <p>any broker or settlement periods.</p>
             </div>
-            <div className="mt-8">
+            <div className="mt-8"><Link href="/swap"><a>
               <button className="w-48 text-white rounded sm:w-48 xs:w-32 h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple">
-                <p className="text-4xl font-normal font-display ">PRO</p>
+                <p className="text-4xl font-normal font-display ">LITE</p>
                 
               </button>
-              <Link href="/swap">
+              </a>
+              </Link>
+              
                 <a>
                   <button className="w-48 ml-4 text-white border-2 rounded font-display sm:w-40 xs:w-32 h-14 border-lagrange-buttonpro-blue">
-                    <p className="text-4xl font-normal font-display">LITE</p>{" "}
+                    <p className="text-4xl font-normal font-display">PRO <span className="text-xs FONT-B">SOON</span></p>{" "}
                   </button>
                 </a>
-              </Link>
+              
             </div>
-            <div className="text-white ml-16 mt-2">Soon</div>
+            
           </div>
         </div>
         <div className=" h-56"></div>
