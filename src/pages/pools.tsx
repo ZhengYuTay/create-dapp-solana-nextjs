@@ -79,6 +79,7 @@ const Pools: NextPage<Props> = (props) => {
   const [brz, setBrz] = useState();
   const [jpyc, setJpyc] = useState();
   const [bilira, setBilira] = useState();
+  const [changeUsdBalance, setChangeUsdBalance] = useState();
 
   const [isExpanded, toggleExpansion] = useState(true);
   const { data } = props;
@@ -146,6 +147,16 @@ const Pools: NextPage<Props> = (props) => {
     }
     fetchBilira();
 
+    async function changeUsd() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd"
+      );
+      const datasol = await response.json();
+      console.log(datasol.solana.usd);
+      setChangeUsdBalance(datasol.solana.usd);
+    }
+    changeUsd();
+
     gelsolbalance();
     checkBalance();
   }, []);
@@ -159,7 +170,10 @@ const Pools: NextPage<Props> = (props) => {
 
     const walletBalance = await connection.getBalance(publicKey, "confirmed");
 
-    const walletBalanceSOL = (walletBalance / LAMPORTS_PER_SOL).toFixed(2);
+    /* const walletBalanceSOL = (walletBalance / LAMPORTS_PER_SOL).toFixed(2); */
+    const walletBalanceSOL = (
+      walletBalance / LAMPORTS_PER_SOL
+    ).toLocaleString();
     setMybalance(walletBalanceSOL);
   }, [connection, publicKey]);
   checkBalance();
@@ -244,7 +258,9 @@ const Pools: NextPage<Props> = (props) => {
               <div className="py-4 text-lg font-normal xs:text-base">
                 My Total Value
               </div>
-              <div className="text-3xl xs:text-xl">$ {mybalance}</div>
+              <div className="text-3xl xs:text-xl">
+                $ {Number(Number(mybalance) * Number(changeUsdBalance))}
+              </div>
             </div>
           </div>
         </div>
