@@ -4,14 +4,18 @@ import { useRouter } from "next/router";
 import type { NextPage } from "next";
 import graphicReports from "../../public/graphic-reports.png";
 import graphicReportsLight from "../../public/graphic-reports_light.png";
-
+import React, { useState } from 'react';
 import swapIcon from "../../public/swap-icon.png";
 import swapIconLight from "../../public/swap-icon_white.png";
 
 import poolIcon from "../../public/poolicon_black.png";
 import poolIconLight from "../../public/poolicon_white.png";
 const SidebarNavigation: NextPage = (props) => {
+
   const router = useRouter();
+  const [isHovering, setIsHovered] = useState(false);
+  const onMouseEnter = () => setIsHovered(true);
+  const onMouseLeave = () => setIsHovered(false);
   return (
     <nav className="p-1">
       <Link href="/swap">
@@ -25,7 +29,7 @@ const SidebarNavigation: NextPage = (props) => {
           <div className="flex p-2 border border-black">
             <div className="w-8 item">
               <Image
-                src={router.pathname == "/swap" ? swapIconLight : swapIcon}
+                src={router.pathname == "/swap" ? swapIconLight : swapIcon && isHovering ? swapIcon  : swapIconLight} 
                 alt="Swap Nutton"
                 width={27}
                 height={27}
@@ -53,7 +57,7 @@ const SidebarNavigation: NextPage = (props) => {
                 src={
                   router.pathname == "/overview"
                     ? graphicReportsLight
-                    : graphicReports
+                    : graphicReports && isHovering ? graphicReports  : graphicReportsLight
                 }
                 alt="Picture of the author"
                 width={27}
@@ -78,7 +82,7 @@ const SidebarNavigation: NextPage = (props) => {
           <div className="flex p-2 border border-black">
             <div className="w-8 item">
               <Image
-                src={router.pathname == "/pools" ? poolIconLight : poolIcon}
+                src={router.pathname == "/pools" ? poolIconLight : poolIcon && isHovering ? poolIcon  : poolIconLight}
                 alt="Picture of the author"
                 width={27}
                 height={27}
