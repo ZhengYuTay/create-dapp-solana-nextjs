@@ -169,6 +169,11 @@ const Pools: NextPage<Props> = (props) => {
     }
 
     const walletBalance = await connection.getBalance(publicKey, "confirmed");
+    const tokenAccountsByOwner = await connection.getTokenAccountsByOwner(
+      publicKey
+    );
+
+    console.log(tokenAccountsByOwner);
 
     /* const walletBalanceSOL = (walletBalance / LAMPORTS_PER_SOL).toFixed(2); */
     const walletBalanceSOL = (
@@ -259,7 +264,8 @@ const Pools: NextPage<Props> = (props) => {
                 My Total Value
               </div>
               <div className="text-3xl xs:text-xl">
-                $ {Number(Number(mybalance) * Number(changeUsdBalance))}
+                {console.log(mybalance)}$ {console.log(changeUsdBalance)}${" "}
+                {Number(Number(mybalance) * Number(changeUsdBalance))}
               </div>
             </div>
           </div>
