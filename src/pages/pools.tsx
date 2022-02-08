@@ -24,13 +24,9 @@ import {
   clusterApiUrl,
   Connection,
 } from "@solana/web3.js";
-///   api //////
-import fetchCoin1 from "../Api/ageur";
-import fetchCoin2 from "../Api/usdcoin";
-import fetchCoin3 from "../Api/bilira";
-import fetchCoin4 from "../Api/jpyc";
-import fetchCoin5 from "../Api/brz";
-import { useQuery } from "react-query";
+
+
+
 const currencies = [
   {
     fiatSymbol: "USD",
