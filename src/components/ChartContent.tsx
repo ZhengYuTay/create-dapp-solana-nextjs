@@ -20,11 +20,6 @@ const currencies = [
     cryptoSymbol: "USDT",
     image: "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
   },
-
-
-
-
-
 ];
 
 interface Props {
@@ -41,7 +36,6 @@ const ChartContent: NextPage<Props> = (props) => {
           ids: "bilira",
         },
       });
-
     };
 
     fetchData();
@@ -50,14 +44,13 @@ const ChartContent: NextPage<Props> = (props) => {
   const { coinList } = props;
   const { data } = props;
 
-
   return (
-    <div className="p-2 mx-2 mt-4 bg-white shadow-lg border-lagrangeborder xxl:w-112 lg:w-112 md:w-112  sm:w-112 xs:w-72">
+    <div className="p-2 mx-2 mt-4 bg-white rounded shadow-lg border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-72">
       <div>
         <div>
           <p className="font-normal">USDT / USDC</p>
-          {  console.log(data)}
-{/*           <p className="font-normal">1.00 - 0.00 %</p> */}
+          {console.log(data)}
+          {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
           <p className="font-normal">
             {" "}
             {new Date().getDate()}
@@ -68,18 +61,14 @@ const ChartContent: NextPage<Props> = (props) => {
             {new Date().getMinutes()}
           </p>
         </div>
-        <div className="h-20">
-
-</div>
+        <div className="h-20"></div>
         <div className="">
-          <hr className=" bg-gray-900"/>
+          <hr className="bg-gray-900 " />
         </div>
-        <div className="h-20">
-
-        </div>
+        <div className="h-20"></div>
         <div className="flex items-center justify-between p-2 rounded bg-lagrangegraybackground">
           {" "}
-          <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs font-normal">
+          <div className="flex flex-wrap items-center self-center justify-center font-normal sm:text-2xl xs:text-xs">
             <Image
               src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
               alt="USDC"
@@ -90,8 +79,8 @@ const ChartContent: NextPage<Props> = (props) => {
             <p className="px-2 py-2 text-white">USDT</p>
           </div>
           <div className="flex items-center space-x-2 font-normal">
-            <p className="pr-2 text-white font-normal">1.00$</p>{" "}
-            <p className="pr-2 text-lagrangered font-normal">0.00</p>
+            <p className="pr-2 font-normal text-white">1.00$</p>{" "}
+            <p className="pr-2 font-normal text-lagrangered">0.00</p>
             <Image
               src={SelectDownIcon}
               alt="Select Down"
@@ -102,7 +91,7 @@ const ChartContent: NextPage<Props> = (props) => {
         <div className="h-4"></div>
         <div className="flex items-center justify-between p-2 rounded bg-lagrangegraybackground">
           {" "}
-          <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs font-normal">
+          <div className="flex flex-wrap items-center self-center justify-center font-normal sm:text-2xl xs:text-xs">
             <Image
               src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
               alt="USDC"
@@ -110,11 +99,11 @@ const ChartContent: NextPage<Props> = (props) => {
               height={32}
               layout="fixed"
             />
-            <p className="px-2 py-2 text-white font-normal">USDC</p>
+            <p className="px-2 py-2 font-normal text-white">USDC</p>
           </div>
           <div className="flex items-center space-x-2">
-            <p className="pr-2 text-white font-normal">1.00$</p>{" "}
-            <p className="pr-2 text-green-700 font-normal">0.00</p>
+            <p className="pr-2 font-normal text-white">1.00$</p>{" "}
+            <p className="pr-2 font-normal text-green-700">0.00</p>
             <Image
               src={SelectDownIcon}
               alt="Select Down"
@@ -127,8 +116,6 @@ const ChartContent: NextPage<Props> = (props) => {
   );
 };
 export default ChartContent;
-
-
 
 export async function getServerSideProps() {
   const CoinGecko = require("coingecko-api");
