@@ -66,7 +66,7 @@ const ChartContent: NextPage<Props> = (props) => {
           <hr className="bg-gray-900 " />
         </div>
         <div className="h-20"></div>
-        <div className="flex items-center justify-between p-2 rounded bg-lagrangegraybackground">
+        <div className="flex items-center justify-between p-2 ml-4 mr-4 rounded bg-lagrangegraybackground">
           {" "}
           <div className="flex flex-wrap items-center self-center justify-center font-normal sm:text-2xl xs:text-xs">
             <Image
@@ -88,8 +88,8 @@ const ChartContent: NextPage<Props> = (props) => {
             />
           </div>
         </div>
-        <div className="h-4"></div>
-        <div className="flex items-center justify-between p-2 rounded bg-lagrangegraybackground">
+        <div className="h-6"></div>
+        <div className="flex items-center justify-between p-2 ml-4 mr-4 rounded bg-lagrangegraybackground">
           {" "}
           <div className="flex flex-wrap items-center self-center justify-center font-normal sm:text-2xl xs:text-xs">
             <Image
