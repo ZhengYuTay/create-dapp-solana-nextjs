@@ -109,34 +109,35 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <h1 className="py-4 text-4xl font-normal">Swap</h1>
         </div>
         <div className="grid grid-cols-2 grid-rows-1 gap-2 py-2 overflow-hidden">
-          <div className="flex items-center px-2">
+          <div className="flex items-center">
             <p className="font-normal sm:text-lg xs:text-sm">Max Slippage</p>
           </div>
-          <div className="flex justify-end col-span-2 col-start-2 mr-4 box">
+          <div className="flex justify-end col-span-2 col-start-2 box">
             <input
               type="text"
-              className="py-2 font-normal text-center border rounded sm:w-40 xs:w-32 text-grey-darkest border-lagrangeborder"
+              className="py-2 font-normal text-center border rounded sm:w-40 xs:w-32 h-9 text-grey-darkest border-lagrangeborder"
               value="0.5%"
             />
           </div>
         </div>
         <div className="grid grid-cols-2 grid-rows-1 gap-2 py-2 overflow-hidden">
-          <div className="flex items-center px-2">
+          <div className="flex items-center">
             <p className="font-normal sm:text-lg xs:text-sm">
               Transaction deadline (min)
             </p>
           </div>
-          <div className="flex justify-end col-span-2 col-start-2 mr-4 box">
+          <div className="flex justify-end col-span-2 col-start-2 box">
             <input
               type="text"
-              className="py-2 font-normal text-center border rounded sm:w-40 xs:w-32 text-grey-darkest border-lagrangeborder"
+              className="py-2 font-normal text-center border rounded sm:w-40 xs:w-32 h-9 text-grey-darkest border-lagrangeborder"
               value="10"
             />
           </div>
         </div>
+        <div className="h-6"></div>
 
         {/* from */}
-        <div className="py-4 rounded sm:px-2 xs:px-1 border-lagrangegraybackground">
+        <div className="py-4 border rounded sm:px-2 xs:px-1 border-lagrangegraybackground">
           <div className="grid grid-cols-2 grid-rows-1 gap-2 px-2 overflow-hidden">
             <div className="box">
               <p className="px-2 py-2 font-normal text-left sm:text-lg xs:text-sm">
@@ -145,7 +146,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               <input
                 name="amount"
                 id="amount"
-                className="h-12 py-2 text-sm font-normal leading-tight text-center text-gray-700 border rounded appearance-none sm:w-292 xs:w-auto border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
+                className="h-12 py-2 text-lg font-normal leading-tight text-center text-gray-700 border rounded appearance-none sm:w-292 xs:w-auto border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
                 value={formValue.amount}
                 type="text"
                 pattern="[0-9]*"
@@ -338,7 +339,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   To-
                 </p>
               </div>
-              <div className="items-center h-12 pt-4 leading-tight text-center text-gray-700 border rounded appearance-none sm:w-292 xs:w-auto sm:text-lg xs:text-sm border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500">
+              <div className="items-center h-12 pt-2 font-normal leading-tight text-center text-gray-700 border rounded appearance-none sm:w-292 xs:w-auto sm:text-base xs:text-sm border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500">
                 {routes?.[0] &&
                   (() => {
                     const route = routes[0];
