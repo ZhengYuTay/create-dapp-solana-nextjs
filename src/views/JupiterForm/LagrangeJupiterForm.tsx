@@ -263,7 +263,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                             ? "text-amber-600"
                                             : "text-amber-600"
                                         }
-                                 inset-y-0 flex items-center pl-2`}
+                                 inset-y-0 flex items-center ml-2`}
                                       >
                                         <CheckIcon
                                           className="w-5 h-5 text-white"
@@ -376,8 +376,8 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                       }
                     }}
                   >
-                    <div className="relative place-items-center">
-                      <Listbox.Button className="relative w-full text-white rounded cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500">
+                    <div className="relative">
+                      <Listbox.Button className="flex items-center justify-start w-full py-2 ml-2 text-white rounded cursor-default h-18 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500">
                         {outputTokenInfo ? (
                           <Image
                             src={`${outputTokenInfo?.logoURI}`}
@@ -388,13 +388,13 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                           />
                         ) : (
                           <>
-                            <span className="text-sm text-white">
+                            <span className="text-sm text-center text-white">
                               Select a Token
                             </span>
                           </>
                         )}
 
-                        <span className="px-2 sm:text-lg xs:text-sm">
+                        <span className="px-2 text-white truncate sm:text-lg xs:text-sm">
                           {outputTokenInfo?.name}
                         </span>
                         <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -454,7 +454,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                             ? "text-amber-600"
                                             : "text-amber-600"
                                         }
-                                absolute inset-y-0 left-0 flex items-center ml-2`}
+                                 inset-y-0 flex items-center ml-2`}
                                       >
                                         {" "}
                                         <CheckIcon

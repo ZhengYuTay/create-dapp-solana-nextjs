@@ -165,7 +165,9 @@ const Pools: NextPage<Props> = (props) => {
   checkBalance();
   let fromKeypair = Keypair.generate();
 
-  const connectiontestnet = useRef(new Connection(clusterApiUrl("devnet")));
+  const connectiontestnet = useRef(
+    new Connection(clusterApiUrl("mainnet-beta"))
+  );
 
   const testnetbalance = async () => {
     const testnetBalance = await connectiontestnet.current.getBalanceAndContext(
