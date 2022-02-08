@@ -104,7 +104,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
     <div>
       {/*  <PoolProviders /> */}
 
-      <div className="mb-4 bg-white rounded shadow-lg sm:px-4 xs:px-2 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-96">
+      <div className="mb-4 bg-white rounded shadow-lg sm:px-4 xs:px-2 border-lagrangeborder xxl:w-128 xl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-96">
         <div>
           <h1 className="py-4 text-4xl font-normal">Swap</h1>
         </div>
@@ -140,13 +140,13 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
         <div className="py-4 border rounded sm:px-2 xs:px-1 border-lagrangegraybackground">
           <div className="grid grid-cols-2 grid-rows-1 gap-2 px-2 overflow-hidden">
             <div className="box">
-              <p className="px-2 py-2 font-normal text-left sm:text-lg xs:text-sm">
+              <p className="py-2 font-normal text-left sm:text-lg xs:text-sm">
                 From ({inputTokenInfo?.symbol})
               </p>
               <input
                 name="amount"
                 id="amount"
-                className="h-12 py-2 text-lg font-normal leading-tight text-center text-gray-700 border rounded appearance-none sm:w-292 xs:w-auto border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
+                className="h-12 py-2 text-lg font-normal leading-tight text-center text-gray-700 border rounded appearance-none sm:w-292 xs:w-40 border-lagrangeborder focus:outline-none focus:bg-white focus:border-gray-500"
                 value={formValue.amount}
                 type="text"
                 pattern="[0-9]*"
@@ -286,7 +286,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             </div>
           </div>
           {/* refresh */}
-          <div className="grid mt-4 ml-2 justify-items-center w-72 ">
+          <div className="grid mt-4 ml-2 md:w-72 sm:w-40 xs:w-32 justify-items-center ">
             <div>
               {loading && (
                 <>
@@ -335,7 +335,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
           <div className="grid grid-cols-2 grid-rows-1 gap-2 px-2 py-4 overflow-hidden">
             <div className="box">
               <div>
-                <p className="px-2 py-2 font-normal text-left sm:text-lg xs:text-sm">
+                <p className="py-2 font-normal text-left sm:text-lg xs:text-sm">
                   To-
                 </p>
               </div>
