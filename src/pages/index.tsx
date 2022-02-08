@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from 'next/head'
 import Link from "next/link";
 import type { NextPage } from "next";
 import Image from "next/image";
@@ -8,6 +9,10 @@ const Index: NextPage = (props) => {
 
   return (
     <header className="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
+      <Head>
+        <title>Lagrange.fi - Market Overview</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className="z-40 w-full h-screen p-10 bg-local sm:p-5 xs:p-2">
         <div className="flex items-center justify-between">
           <div className="2xl:w-96 xl:w-96 md:w-96 sm:w-96 xs:w-40">

@@ -5,6 +5,7 @@ import SidebarNavigation from "../components/SidebarNavigation";
 import MobileLogo from "../components/MobileLogo";
 import { getData } from "./api/jupiter-api-example";
 import type { NextPage } from "next";
+import Head from 'next/head'
 import Image from "next/image";
 import { type } from "os";
 import EURS from "../../public/coin/2989.png";
@@ -169,11 +170,9 @@ const Pools: NextPage<Props> = (props) => {
     }
 
     const walletBalance = await connection.getBalance(publicKey, "confirmed");
-    const tokenAccountsByOwner = await connection.getTokenAccountsByOwner(
-      publicKey
-    );
+ /*    const tokenAccountsByOwner = await connection.getTokenAccountsByOwner( publicKey, "confirmed"); */
 
-    console.log(tokenAccountsByOwner);
+    console.log(connection.getTokenAccountsByOwner);
 
     /* const walletBalanceSOL = (walletBalance / LAMPORTS_PER_SOL).toFixed(2); */
     const walletBalanceSOL = (
@@ -197,6 +196,10 @@ const Pools: NextPage<Props> = (props) => {
 
   return (
     <div className="relative min-h-screen md:flex">
+      <Head>
+        <title>Lagrange.fi - Market Overview</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
         <MobileLogo />
 
@@ -264,7 +267,7 @@ const Pools: NextPage<Props> = (props) => {
                 My Total Value
               </div>
               <div className="text-3xl xs:text-xl">
-                {console.log(mybalance)}$ {console.log(changeUsdBalance)}${" "}
+               ${" "}
                 {Number(Number(mybalance) * Number(changeUsdBalance))}
               </div>
             </div>
