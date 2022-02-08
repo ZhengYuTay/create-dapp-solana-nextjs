@@ -13,7 +13,7 @@ import poolIconLight from "../../public/poolicon_white.png";
 const SidebarNavigation: NextPage = (props) => {
   const router = useRouter();
   return (
-    <nav className="p-6">
+    <nav className="p-1">
       <Link href="/swap">
         <a
           className={
@@ -22,7 +22,7 @@ const SidebarNavigation: NextPage = (props) => {
               : "block px-2 transition duration-200 rounded hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
           }
         >
-          <div className="flex border border-black p-2">
+          <div className="flex p-2 border border-black">
             <div className="w-8 item">
               <Image
                 src={router.pathname == "/swap" ? swapIconLight : swapIcon}
@@ -47,7 +47,7 @@ const SidebarNavigation: NextPage = (props) => {
           }
         >
           {/* <a className="block px-2 py-3 transition duration-200 rounded-lg hover:bg-gray-600 hover:text-white"> */}
-          <div className="flex border border-black p-2">
+          <div className="flex p-2 border border-black">
             <div className="w-8 item">
               <Image
                 src={
@@ -66,7 +66,7 @@ const SidebarNavigation: NextPage = (props) => {
           </div>
         </a>
       </Link>
-      <div className=" h-2"></div>
+      <div className="h-2 "></div>
       <Link href="/pools">
         <a
           className={
@@ -75,7 +75,7 @@ const SidebarNavigation: NextPage = (props) => {
               : "block px-2 transition duration-200 rounded hover:bg-lagrangesidebarbuttonbackgroundcolor hover:text-white"
           }
         >
-          <div className="flex border border-black p-2">
+          <div className="flex p-2 border border-black">
             <div className="w-8 item">
               <Image
                 src={router.pathname == "/pools" ? poolIconLight : poolIcon}

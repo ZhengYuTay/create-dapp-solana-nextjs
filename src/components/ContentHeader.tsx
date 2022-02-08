@@ -12,7 +12,7 @@ const ContentHeader: NextPage = (props) => {
         <input
           type="text"
           placeholder="Search Data"
-          className="w-2/3 px-2 py-2 text-xs"
+          className="w-2/3 px-2 py-2 text-sm"
         ></input>
       </div>
 
