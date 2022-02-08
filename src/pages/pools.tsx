@@ -24,6 +24,13 @@ import {
   clusterApiUrl,
   Connection,
 } from "@solana/web3.js";
+///   api //////
+import fetchCoin1 from "../Api/ageur";
+import fetchCoin2 from "../Api/usdcoin";
+import fetchCoin3 from "../Api/bilira";
+import fetchCoin4 from "../Api/jpyc";
+import fetchCoin5 from "../Api/brz";
+import { useQuery } from "react-query";
 const currencies = [
   {
     fiatSymbol: "USD",
@@ -73,6 +80,17 @@ interface Props {
   swappableOutputForSol: any;
 }
 const Pools: NextPage<Props> = (props) => {
+  const [usd, setUsd] = useState();
+  const [ageur, setAgeur] = useState();
+  const [brz, setBrz] = useState();
+  const [jpyc, setJpyc] = useState();
+  const [bilira, setBilira] = useState();
+  
+
+  
+
+
+
   const [isExpanded, toggleExpansion] = useState(true);
   const { data } = props;
   const [mybalance, setMybalance] = useState(String);
@@ -84,6 +102,56 @@ const Pools: NextPage<Props> = (props) => {
   const _publicKey = publicKey?.toBase58();
   const gelsolbalance = async () => {};
   useEffect(() => {
+
+//-----------------usd-----------------//
+async function fetchUsd() {
+  const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=usd-coin&order=market_cap_desc&per_page=100&page=1&sparkline=false');
+  const data = await response.json();
+  console.log(data.map((d) => d.total_volume ))
+  setUsd(data.map((d) => d.total_volume))
+}
+fetchUsd()
+
+//-----------------ageur-----------------//
+async function fetchAgeur() {
+  const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=ageur&order=market_cap_desc&per_page=100&page=1&sparkline=false');
+  const data = await response.json();
+  console.log(data.map((d) => d.total_volume ))
+  setAgeur(data.map((d) => d.total_volume))
+}
+fetchAgeur()
+
+//-----------------JPYC-----------------//
+async function fetchJpyc() {
+  const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=jpyc&order=market_cap_desc&per_page=100&page=1&sparkline=false');
+  const data = await response.json();
+  console.log(data.map((d) => d.total_volume ))
+  setJpyc(data.map((d) => d.total_volume))
+}
+fetchJpyc()
+
+//-----------------brz-----------------//
+async function fetchBrz() {
+  const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=brz&order=market_cap_desc&per_page=100&page=1&sparkline=false');
+  const data = await response.json();
+  console.log(data.map((d) => d.total_volume ))
+  setBrz(data.map((d) => d.total_volume))
+}
+fetchBrz()
+
+//-----------------brz-----------------//
+async function fetchBilira() {
+  const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bilira&order=market_cap_desc&per_page=100&page=1&sparkline=false');
+  const data = await response.json();
+  console.log(data.map((d) => d.total_volume ))
+  setBilira(data.map((d) => d.total_volume))
+}
+fetchBilira()
+   
+
+
+
+
     gelsolbalance();
     checkBalance();
   }, []);
@@ -117,8 +185,10 @@ const Pools: NextPage<Props> = (props) => {
 
   return (
     <div className="relative min-h-screen md:flex">
+
       <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
         <MobileLogo />
+
         <button
           onClick={() => toggleExpansion(!isExpanded)}
           className="p-4 mobile-menu-button focus:outline-none focus:bg-gray-700"
@@ -157,7 +227,9 @@ const Pools: NextPage<Props> = (props) => {
           <div className="flex flex-wrap justify-between p-2 mx-1 overflow-hidden">
             <div className="w-1/4 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded">
               <div className="py-4 text-lg xs:text-base font-normal">Total Value Locked</div>
-              <div className=" text-3xl xs:text-xl">$0.00</div>
+             {/* {usd}<br />
+              {brz}*/}
+              <div className=" text-3xl xs:text-xl"> {Number(Number(usd) + Number(brz) + Number(bilira) + Number(jpyc) + Number(ageur)).toLocaleString()}</div>
             </div>
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded">

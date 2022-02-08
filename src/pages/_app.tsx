@@ -9,6 +9,7 @@ import {
 } from "@solana/wallet-adapter-react";
 import { clusterApiUrl } from "@solana/web3.js";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+
 import '../styles/walletbutton.css'
 import "tailwindcss/tailwind.css";
 import "../styles/globals.css";
@@ -19,6 +20,7 @@ import { JupiterProvider } from "@jup-ag/react-hook";
 const SOLANA_NETWORK = WalletAdapterNetwork.Mainnet;
 // const SOLANA_NETWORK = WalletAdapterNetwork.Devnet;
 const network = SOLANA_NETWORK;
+
 
 const WalletProvider = dynamic(
   () => import("../contexts/ClientWalletProvider"),
@@ -33,6 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const endpoint = useMemo(() => "https://api.mainnet-beta.solana.com", []);
 
   return (
+    
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider>
         <JupiterWrapper>
@@ -40,6 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </JupiterWrapper>
       </WalletProvider>
     </ConnectionProvider>
+
   );
 }
 
