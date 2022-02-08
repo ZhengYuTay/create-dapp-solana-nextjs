@@ -18,7 +18,8 @@ module.exports = {
 
     fontFamily: {
 
-      'body': ['Roboto', 'sans-serif']
+      'body': ['Roboto', 'sans-serif'],
+      'display': ['Montserrat', 'sans-serif'],
       // serif: ['Merriweather', 'thin'],
     },
     extend: {
@@ -30,7 +31,7 @@ module.exports = {
       backgroundImage: {
         'earth':
           "url('https://relaxed-newton-b77a1a.netlify.app/earth.svg')",
-          'earthvideo':
+        'earthvideo':
           "url('https://relaxed-newton-b77a1a.netlify.app/Earth.mp4')",
         'earthanimated':
           "url('https://firebasestorage.googleapis.com/v0/b/bodrum-7e4c9.appspot.com/o/earthanimated.gif?alt=media&token=c38283d1-f4d7-4d9a-8448-414bfd8c4ff0')",
