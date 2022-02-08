@@ -72,8 +72,8 @@ const Index: NextPage = (props) => {
         </div>
         <div className=" h-56"></div>
 
-        <div className="grid h-48 grid-cols-4 gap-4 mt-8 place-content-center place-items-center p-72 xs:p-10">
-          <div>
+        <div className="flex justify-center h-48 mt-8 p-72 xs:p-10">
+          <div className="mr-8">
             <svg
               width="32"
               height="28"
@@ -87,7 +87,7 @@ const Index: NextPage = (props) => {
               />
             </svg>
           </div>
-          <div>
+          <div className="mr-8">
             <a
               href="https://discord.gg/8rDcX2SQ"
               target="_blank"
@@ -106,7 +106,7 @@ const Index: NextPage = (props) => {
               />
             </svg>
           </div>
-          <div>
+          <div className="mr-8">
             <svg
               width="32"
               height="27"
@@ -120,7 +120,7 @@ const Index: NextPage = (props) => {
               />
             </svg>
           </div>
-          <div>
+          <div className="mr-8">
             <a
               href="https://twitter.com/Lagrange_fi"
               target="_blank"
