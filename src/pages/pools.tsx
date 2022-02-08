@@ -221,8 +221,8 @@ const Pools: NextPage<Props> = (props) => {
               </div>
               {/* {usd}<br />
               {brz}*/}
-              <div className="text-3xl xs:text-xl">
-                {" "}
+              <div className="xl:text-3xl lg:text-3xl md:text-3xl sm:text-3xl xs:text-xl">
+                ${" "}
                 {Number(
                   Number(usd) +
                     Number(brz) +
