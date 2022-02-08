@@ -259,7 +259,7 @@ const Pools: NextPage<Props> = (props) => {
               <div className="py-4 font-normal xl:text-xl xs:text-base">
                 LAG Price Value
               </div>
-              <div className="text-3xl xs:text-xl">$0.00</div>
+              <div className="text-3xl xs:text-xl">$ 0.00</div>
             </div>
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
