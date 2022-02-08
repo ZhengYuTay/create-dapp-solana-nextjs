@@ -10,7 +10,7 @@ const Index: NextPage = (props) => {
     <header className="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
       <div className="z-40 w-full h-screen p-10 bg-local sm:p-5 xs:p-2">
         <div className="flex items-center justify-between">
-          <div className="2xl:w-96 xl:w-96 md:w-96 sm:w-96 xs:w-32">
+          <div className="2xl:w-96 xl:w-96 md:w-96 sm:w-96 xs:w-40">
             <Image
               className="cursor-pointer"
               src={LagrangeMobileLogo}
@@ -44,7 +44,7 @@ const Index: NextPage = (props) => {
 
         <div className="flex items-center">
           <div className="h-full ml-12 mt-36 sm:mt-16 sm:ml-12 xs:ml-2">
-            <div className="text-white xl:text-5xl lg:text-5xl sm:text-4xl xs:text-sm font-display">
+            <div className="text-white xl:text-5xl lg:text-4xl sm:text-4xl xs:text-md font-display">
               <p>Lagrange offers a fully decentralized</p>
               <p>24/7 FX market that does not require</p>
               <p>any broker or settlement periods.</p>
