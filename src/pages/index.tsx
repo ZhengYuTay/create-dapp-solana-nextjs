@@ -68,6 +68,7 @@ const Index: NextPage = (props) => {
             </div>
           </div>
         </div>
+        <div className=" h-56"></div>
 
         <div className="grid h-48 grid-cols-4 gap-4 mt-8 place-content-center place-items-center p-72 xs:p-10">
           <div>
