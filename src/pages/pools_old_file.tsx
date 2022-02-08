@@ -24,7 +24,6 @@ import {
   clusterApiUrl,
   Connection,
 } from "@solana/web3.js";
-
 const currencies = [
   {
     fiatSymbol: "USD",
@@ -74,12 +73,6 @@ interface Props {
   swappableOutputForSol: any;
 }
 const Pools: NextPage<Props> = (props) => {
-  const [usd, setUsd] = useState();
-  const [ageur, setAgeur] = useState();
-  const [brz, setBrz] = useState();
-  const [jpyc, setJpyc] = useState();
-  const [bilira, setBilira] = useState();
-
   const [isExpanded, toggleExpansion] = useState(true);
   const { data } = props;
   const [mybalance, setMybalance] = useState(String);
@@ -91,61 +84,6 @@ const Pools: NextPage<Props> = (props) => {
   const _publicKey = publicKey?.toBase58();
   const gelsolbalance = async () => {};
   useEffect(() => {
-    //-----------------usd-----------------//
-    async function fetchUsd() {
-      const response = await fetch(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=usd-coin&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      );
-      const data = await response.json();
-      console.log(data.map((d: { total_volume: any }) => d.total_volume));
-      setUsd(data.map((d: { total_volume: any }) => d.total_volume));
-    }
-    fetchUsd();
-
-    //-----------------ageur-----------------//
-    async function fetchAgeur() {
-      const response = await fetch(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=ageur&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      );
-      const data = await response.json();
-      console.log(data.map((d: { total_volume: any }) => d.total_volume));
-      setAgeur(data.map((d: { total_volume: any }) => d.total_volume));
-    }
-    fetchAgeur();
-
-    //-----------------JPYC-----------------//
-    async function fetchJpyc() {
-      const response = await fetch(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=jpyc&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      );
-      const data = await response.json();
-      console.log(data.map((d: { total_volume: any }) => d.total_volume));
-      setJpyc(data.map((d: { total_volume: any }) => d.total_volume));
-    }
-    fetchJpyc();
-
-    //-----------------brz-----------------//
-    async function fetchBrz() {
-      const response = await fetch(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=brz&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      );
-      const data = await response.json();
-      console.log(data.map((d: { total_volume: any }) => d.total_volume));
-      setBrz(data.map((d: { total_volume: any }) => d.total_volume));
-    }
-    fetchBrz();
-
-    //-----------------brz-----------------//
-    async function fetchBilira() {
-      const response = await fetch(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bilira&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      );
-      const data = await response.json();
-      console.log(data.map((d: { total_volume: any }) => d.total_volume));
-      setBilira(data.map((d: { total_volume: any }) => d.total_volume));
-    }
-    fetchBilira();
-
     gelsolbalance();
     checkBalance();
   }, []);
@@ -178,7 +116,6 @@ const Pools: NextPage<Props> = (props) => {
     <div className="relative min-h-screen md:flex">
       <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
         <MobileLogo />
-
         <button
           onClick={() => toggleExpansion(!isExpanded)}
           className="p-4 mobile-menu-button focus:outline-none focus:bg-gray-700"
@@ -203,7 +140,7 @@ const Pools: NextPage<Props> = (props) => {
       <div
         className={`${
           isExpanded ? `-translate-x-full` : `translate-x-0`
-        } sidebar bg-white xs:bg-white text-gray-700 w-80 xs:w-80 space-y-6 px-1 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
+        } sidebar bg-white xs:bg-white text-gray-700 w-80 xs:w-80 space-y-6 px-6 py-4 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
       >
         <SidebarLogo />
 
@@ -219,18 +156,7 @@ const Pools: NextPage<Props> = (props) => {
               <div className="py-4 text-lg font-normal xs:text-base">
                 Total Value Locked
               </div>
-              {/* {usd}<br />
-              {brz}*/}
-              <div className="text-3xl xs:text-xl">
-                {" "}
-                {Number(
-                  Number(usd) +
-                    Number(brz) +
-                    Number(bilira) +
-                    Number(jpyc) +
-                    Number(ageur)
-                ).toLocaleString()}
-              </div>
+              <div className="text-3xl xs:text-xl">$0.00</div>
             </div>
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
@@ -298,7 +224,7 @@ const Pools: NextPage<Props> = (props) => {
                           <p className="px-2 py-2">agEUR</p>
                         </div>
                       </td>
-                      <td>{data[2].quotes.EURUSD.toFixed(3)}</td>
+                      <td>$ {data[2].quotes.EURUSD.toFixed(3)}</td>
                       <td className="text-center">0</td>
                       <td className="text-center">$ 0.00</td>
                     </tr>

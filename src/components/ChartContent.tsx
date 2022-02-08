@@ -48,10 +48,10 @@ const ChartContent: NextPage<Props> = (props) => {
     <div className="p-2 mx-2 mt-4 bg-white rounded shadow-lg border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-96">
       <div>
         <div>
-          <p className="font-normal">USDT / USDC</p>
-          {console.log(data)}
+          <p className="font-normal text-lg">USDT / USDC</p>
+          {/*  {console.log(data)} */}
           {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
-          <p className="font-normal">
+          <p className="font-normal text-base">
             {" "}
             {new Date().getDate()}
             {"/"}
