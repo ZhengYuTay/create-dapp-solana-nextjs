@@ -81,6 +81,8 @@ const Pools: NextPage<Props> = (props) => {
   const [brz, setBrz] = useState();
   const [jpyc, setJpyc] = useState();
   const [bilira, setBilira] = useState();
+
+  const [changeUsdBalance, setChangeUsdBalance] = useState();
   
 
   
@@ -143,6 +145,15 @@ async function fetchBilira() {
   setBilira(data.map((d) => d.total_volume))
 }
 fetchBilira()
+
+//------------sol change usd------------///
+async function changeUsd() {
+  const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd');
+  const data = await response.json();
+  console.log(data.solana.usd)
+ setChangeUsdBalance(data.solana.usd)
+}
+changeUsd()
    
 
 
@@ -161,14 +172,14 @@ fetchBilira()
 
     const walletBalance = await connection.getBalance(publicKey, "confirmed");
 
-    const walletBalanceSOL = (walletBalance / LAMPORTS_PER_SOL).toFixed(2);
+    const walletBalanceSOL = (walletBalance / LAMPORTS_PER_SOL).toLocaleString();
     setMybalance(walletBalanceSOL);
   }, [connection, publicKey]);
   checkBalance();
   let fromKeypair = Keypair.generate();
 
 
-  const connectiontestnet = useRef(new Connection(clusterApiUrl("devnet")));
+  const connectiontestnet = useRef(new Connection(clusterApiUrl("mainnet-beta")));
 
 
   const testnetbalance = async () => {
@@ -236,7 +247,8 @@ fetchBilira()
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded">
               <div className="py-4 text-lg xs:text-base font-normal">My Total Value</div>
               <div className=" text-3xl xs:text-xl">
-                $ {mybalance}
+                $ {Number(Number(mybalance) * Number(changeUsdBalance))}
+
               </div>
             </div>
           </div>
