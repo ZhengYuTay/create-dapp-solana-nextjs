@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import type { NextPage } from "next";
-import Head from 'next/head'
+import Head from "next/head";
 import SidebarNavigation from "../components/SidebarNavigation";
 import ContentHeader from "../components/ContentHeader";
 import SwapContent from "../components/SwapContent";
@@ -12,7 +12,7 @@ const Swap: NextPage = (props) => {
 
   return (
     <div className="relative min-h-screen md:flex">
-       <Head>
+      <Head>
         <title>Lagrange.fi - Market Overview</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
@@ -50,7 +50,7 @@ const Swap: NextPage = (props) => {
 
       <div className="flex-1 text-xl font-bold bg-gradient-to-r from-lagrangelight to-lagrangedark">
         <ContentHeader />
-        <div className="flex xs:flex-wrap md:justify-start sm:justify-center xs:justify-center">
+        <div className="flex p-6 xs:flex-wrap md:justify-start sm:justify-center xs:justify-center">
           <div>
             <SwapContent />
           </div>

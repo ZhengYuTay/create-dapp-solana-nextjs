@@ -10,7 +10,7 @@ import EURS from "../../public/coin/2989.png";
 import JPYC from "../../public/coin/9045.png";
 import TRYB from "../../public/coin/5181.png";
 import BRZ from "../../public/coin/4139.png";
-import Head from 'next/head'
+import Head from "next/head";
 const currencies = [
   {
     fiatSymbol: "USD",
@@ -63,7 +63,7 @@ const Overview: NextPage<Props> = (props) => {
 
   return (
     <div className="relative min-h-screen md:flex">
-       <Head>
+      <Head>
         <title>Lagrange.fi</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
@@ -102,8 +102,8 @@ const Overview: NextPage<Props> = (props) => {
       <div className="flex-1 text-xs font-bold bg-gradient-to-r from-lagrangelight to-lagrangedark">
         <ContentHeader />
 
-        <div className="p-5 ">
-          <div className="p-5">
+        <div className="p-6 ">
+          <div className="">
             <div className="bg-white ">
               <h1 className="p-2 text-2xl font-normal">Market Overview</h1>
             </div>
