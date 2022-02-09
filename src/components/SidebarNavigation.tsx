@@ -47,7 +47,7 @@ const SidebarNavigation: NextPage = (props) => {
                 />
               </div>
               <div className="w-32 item">
-                <p className="text-base font-bold">Swap</p>
+                <p className="ml-4 text-base font-normal">Swap</p>
               </div>
             </div>
           </a>
@@ -84,7 +84,7 @@ const SidebarNavigation: NextPage = (props) => {
                 />
               </div>
               <div className="w-36 item">
-                <p className="text-base font-bold">Market Overview</p>
+                <p className="ml-4 text-base font-normal">Market Overview</p>
               </div>
             </div>
           </a>
@@ -119,7 +119,7 @@ const SidebarNavigation: NextPage = (props) => {
                 />
               </div>
               <div className="w-36 item">
-                <p className="text-base font-bold ">Pools</p>
+                <p className="ml-4 text-base font-normal ">Pools</p>
               </div>
             </div>
           </a>
