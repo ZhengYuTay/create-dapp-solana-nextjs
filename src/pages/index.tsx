@@ -37,7 +37,7 @@ const Index: NextPage = (props) => {
                 </p>
               </a>
             </p>
-            <p className="mr-2 ml-9 xs:ml-2 xs:mr-0">
+            <p className="mr-2 xxl:ml-9 xl:ml-9 lg:ml-9 mdl:ml-9 sm:ml-9 xs:ml-2 xs:mr-0">
               <a href="#" target="_blank" rel="noreferrer">
                 <p className="text-base font-display xs:text-sm sm:text-lg">
                   Pitchdeck
