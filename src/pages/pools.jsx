@@ -261,7 +261,7 @@ changeBilira()
 //----USDC balance -----/// 
 
 const getUSDCBalance = async ( ) => {
-  const walletAddress = "2r2mYQyFC3qqSbwVK3Cn4qMSnqBCA21roMP3mqEjHPBb"
+  const walletAddress = publicKey
   const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
   const response = await axios({
     url: `https://api.mainnet-beta.solana.com`,
@@ -306,7 +306,7 @@ getUSDCBalance()
 //----USDT balance -----/// 
 
 const getUSDTBalance = async ( ) => {
-  const walletAddress = "2r2mYQyFC3qqSbwVK3Cn4qMSnqBCA21roMP3mqEjHPBb"
+  const walletAddress = publicKey
   const tokenMintAddress = "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
   const response = await axios({
     url: `https://api.mainnet-beta.solana.com`,
@@ -351,7 +351,7 @@ getUSDTBalance()
 //----Ageur balance -----/// 
 
 const getAgeurBalance = async ( ) => {
-  const walletAddress = "2r2mYQyFC3qqSbwVK3Cn4qMSnqBCA21roMP3mqEjHPBb"
+  const walletAddress = publicKey
   const tokenMintAddress = "CbNYA9n3927uXUukee2Hf4tm3xxkffJPPZvGazc2EAH1"
   const response = await axios({
     url: `https://api.mainnet-beta.solana.com`,
@@ -397,7 +397,7 @@ getAgeurBalance()
 //----Brz balance -----/// 
 
 const getBrzBalance = async ( ) => {
-  const walletAddress = "2r2mYQyFC3qqSbwVK3Cn4qMSnqBCA21roMP3mqEjHPBb"
+  const walletAddress = publicKey
   const tokenMintAddress = "FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD"
   const response = await axios({
     url: `https://api.mainnet-beta.solana.com`,
@@ -444,7 +444,7 @@ getBrzBalance()
 //----BiLira balance -----/// 
 
 const getBiliraBalance = async ( ) => {
-  const walletAddress = "2r2mYQyFC3qqSbwVK3Cn4qMSnqBCA21roMP3mqEjHPBb"
+  const walletAddress =  publicKey
   const tokenMintAddress = "A94X2fRy3wydNShU4dRaDyap2UuoeWJGWyATtyp61WZf"
   const response = await axios({
     url: `https://api.mainnet-beta.solana.com`,
@@ -486,10 +486,17 @@ getBiliraBalance()
 
 ///--- BiLira Balance FINISH ---- /////
     
+    
+  
+  }, [publicKey]);
 
+
+useEffect(() => {
     gelsolbalance();
     checkBalance();
-  }, []);
+},[])
+
+
 
 
 
