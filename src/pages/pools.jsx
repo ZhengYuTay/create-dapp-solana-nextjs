@@ -579,12 +579,12 @@ getBiliraBalance()
               <div className="py-4 text-lg xs:text-base font-normal">My Total Value</div>
               <div className=" text-3xl xs:text-xl">
               {/*  $ {Number(Number(mybalance) * Number(changeUsdBalance))}*/}
-                 $ {
+                 $ 0.00 {/* {
                      Number(usdcbalance$c) + Number(ageurbalance$c) + Number(brzbalance$c) + Number(usdtbalance$c) + Number(bilirabalance$c)
                      +  Number(Number(mybalance) * Number(changeUsdBalance))
 
                  }
-
+ */}
 
               </div>
             </div>
