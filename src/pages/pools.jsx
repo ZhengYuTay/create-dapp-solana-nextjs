@@ -567,7 +567,9 @@ getBiliraBalance()
               <div className="py-4 text-lg xs:text-base font-normal">Total Value Locked</div>
              {/* {usd}<br />
               {brz}*/}
-              <div className=" text-3xl xs:text-xl"> {Number(Number(usd) + Number(brz) + Number(bilira) + Number(jpyc) + Number(ageur)).toLocaleString()}</div>
+              <div className=" text-3xl xs:text-xl"> $ 0.00
+                 {/* {Number(Number(usd) + Number(brz) + Number(bilira) + Number(jpyc) + Number(ageur)).toLocaleString()} */}
+                 </div>
             </div>
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded">
