@@ -23,6 +23,7 @@
     "@solana/wallet-adapter-wallets": "^0.11.3",
     "@solana/web3.js": "^1.31.0",
     "@tailwindcss/typography": "^0.4.1",
+    "axios": "^0.25.0",
     "bs58": "^4.0.1",
     "coingecko-api": "^1.0.10",
     "cross-fetch": "^3.1.4",
@@ -46,8 +47,5 @@
     "postcss": "^8.3.11",
     "tailwindcss": "^2.2.19",
     "typescript": "4.4.4"
-  },
-  "resolutions": {
-    "**/@saberhq/token-utils/**/@solana/buffer-layout": "^3.0.0"
   }
 }
