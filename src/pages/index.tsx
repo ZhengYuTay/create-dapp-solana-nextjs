@@ -72,9 +72,9 @@ const Index: NextPage = (props) => {
             
           </div>
         </div>
-        <div className=" h-56"></div>
+        <div className=" h-96"></div>
 
-        <div className="flex justify-center h-48 mt-8 p-72 xs:p-10">
+        <div className="flex justify-center h-48 mt-8 p-72 xs:p-10 place-items-end">
           <div className="mr-8">
             <svg
               width="32"
