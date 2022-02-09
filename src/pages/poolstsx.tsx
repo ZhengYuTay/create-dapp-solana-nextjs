@@ -128,7 +128,8 @@ const Pools: NextPage<Props> = (props) => {
   const gelsolbalance = async () => {};
 
   useEffect(() => {
-  setUsdcbalance$c(Number(usdbalance * usdcbalance$).toFixed(2))
+    const a: Number = Number(usdbalance * usdcbalance$).toFixed(2)
+  setUsdcbalance$c(a)
   },[usd,usdbalance,usdcbalance$])
 
   useEffect(() => {
