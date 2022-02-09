@@ -24,6 +24,8 @@ import {
   clusterApiUrl,
   Connection,
 } from "@solana/web3.js";
+import  axios from "axios";
+
 
 
 
@@ -51,12 +53,12 @@ const currencies = [
   {
     fiatSymbol: "NZD",
     cryptoSymbol: "NZDs",
-    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/5494.png",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
   },
   {
     fiatSymbol: "JPY",
     cryptoSymbol: "JPYC",
-    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/9045.png",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
   },
   {
     fiatSymbol: "TRY",
@@ -82,13 +84,38 @@ const Pools: NextPage<Props> = (props) => {
   const [jpyc, setJpyc] = useState();
   const [bilira, setBilira] = useState();
 
+
+//// FOR solana ////
   const [changeUsdBalance, setChangeUsdBalance] = useState();
+
+
+  //////-----  token balance ------/////////
+  const [usdbalance, setUsdbalance] = useState();
+  const [ageurbalance, setAgeurbalance] = useState();
+  const [brzbalance, setBrzbalance] = useState();
+  const [usdtbalance, setUsdtbalance] = useState();
+  const [bilirabalance, setBilirabalance] = useState();
+  ////////////-----finish-----//////////////////////
   
 
-  
+  //////-----  token balance USD ------/////////
+  const [usdcbalance$, setUsdcbalance$] = useState();
+  const [ageurbalance$, setAgeurbalance$] = useState();
+  const [brzbalance$, setBrzbalance$] = useState();
+  const [usdtbalance$, setUsdtbalance$] = useState();
+  const [bilirabalance$, setBilirabalance$] = useState();
+  ////////////-----finish-----//////////////////////
 
 
+   //////----- current token balance USD ------/////////
+  const [usdcbalance$c, setUsdcbalance$c] = useState();
+  const [ageurbalance$c, setAgeurbalance$c] = useState();
+  const [brzbalance$c, setBrzbalance$c] = useState();
+  const [usdtbalance$c, setUsdtbalance$c] = useState();
+  const [bilirabalance$c, setBilirabalance$c] = useState();
+  ////////////-----finish-----//////////////////////
 
+  const [mytotalvalue, setMytotalvalue] = useState();
   const [isExpanded, toggleExpansion] = useState(true);
   const { data } = props;
   const [mybalance, setMybalance] = useState(String);
@@ -99,7 +126,37 @@ const Pools: NextPage<Props> = (props) => {
   const { publicKey } = useWallet();
   const _publicKey = publicKey?.toBase58();
   const gelsolbalance = async () => {};
+
   useEffect(() => {
+  setUsdcbalance$c(Number(usdbalance * usdcbalance$).toFixed(2))
+  },[usd,usdbalance,usdcbalance$])
+
+  useEffect(() => {
+  setAgeurbalance$c(Number(ageurbalance * ageurbalance$).toFixed(2))
+  },[ageur,ageurbalance,ageurbalance$])
+
+  useEffect(() => {
+  setBrzbalance$c(Number(brzbalance * brzbalance$).toFixed(2))
+  },[brz,brzbalance,brzbalance$])
+
+  useEffect(() => {
+  setUsdtbalance$c(Number(usdtbalance * usdtbalance$).toFixed(2))
+  },[jpyc,usdtbalance,usdcbalance$])
+  
+  useEffect(() => {
+  setBilirabalance$c(Number(bilirabalance * bilirabalance$).toFixed(2))
+  },[bilirabalance,bilirabalance$])
+
+  useEffect(() => {
+  setMytotalvalue(Number(usdcbalance$ + ageurbalance$ + brzbalance$ + usdtbalance$ + bilirabalance$).toFixed(2))
+  })
+ 
+ 
+
+
+
+  useEffect(() => {
+
 
 //-----------------usd-----------------//
 async function fetchUsd() {
@@ -150,18 +207,296 @@ fetchBilira()
 async function changeUsd() {
   const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd');
   const data = await response.json();
-  console.log(data.solana.usd)
- setChangeUsdBalance(data.solana.usd)
+  console.log("sol usd " + data.solana.usd)
+  setChangeUsdBalance(data.solana.usd)
 }
 changeUsd()
-   
+
+
+//------------USDC change usd------------///
+async function changeUsdc() {
+  const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=usd-coin&vs_currencies=usd');
+  const data = await response.json();
+  console.log("usdc usd  " + data["usd-coin"].usd)
+  setUsdcbalance$(data["usd-coin"].usd.toFixed(2))
+}
+changeUsdc()
+
+//------------USDT change usd------------///
+async function changeUsdt() {
+  const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd');
+  const data = await response.json();
+  console.log("usdt usd  " + data.tether.usd)
+  setUsdtbalance$(data.tether.usd.toFixed(2))
+}
+changeUsdt()
+
+
+//------------Ageur change usd------------///
+async function changeAgeur() {
+  const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ageur&vs_currencies=usd');
+  const data = await response.json();
+  console.log("ageur usd  " + data.ageur.usd)
+  setAgeurbalance$(data.ageur.usd.toFixed(2))
+}
+changeAgeur()
+
+
+//------------Brz change usd------------///
+async function changeBrz() {
+  const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=brz&vs_currencies=usd');
+  const data = await response.json();
+  console.log("brz usd  " + data.brz.usd)
+  setBrzbalance$(data.brz.usd.toFixed(2))
+}
+changeBrz()
+
+
+//------------Brz change usd------------///
+async function changeBilira() {
+  const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bilira&vs_currencies=usd');
+  const data = await response.json();
+  console.log("bilira usd  " + data.bilira.usd)
+  setBilirabalance$(data.bilira.usd.toFixed(2))
+}
+changeBilira()
 
 
 
+//----USDC balance -----/// 
+
+const getUSDCBalance = async ( ) => {
+  const walletAddress = "2r2mYQyFC3qqSbwVK3Cn4qMSnqBCA21roMP3mqEjHPBb"
+  const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+  const response = await axios({
+    url: `https://api.mainnet-beta.solana.com`,
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    data: {
+      jsonrpc: "2.0",
+      id: 1,
+      method: "getTokenAccountsByOwner",
+      params: [
+        walletAddress,
+        {
+          mint: tokenMintAddress,
+        },
+        {
+          encoding: "jsonParsed",
+        },
+      ],
+    },
+  });
+
+
+  if (
+    Array.isArray(response?.data?.result?.value) &&
+    response?.data?.result?.value?.length > 0 &&
+    response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount
+      ?.amount > 0
+  ) {
+    Number(response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+    setUsdbalance(response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+      console.log("USDC Balance:   " + response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+  } else {
+    setUsdbalance(0)
+      console.log("USDC Balance:   " + response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+  }
+};  
+getUSDCBalance()
+
+///--- USDC Balance FINISH ---- /////
+
+
+//----USDT balance -----/// 
+
+const getUSDTBalance = async ( ) => {
+  const walletAddress = "2r2mYQyFC3qqSbwVK3Cn4qMSnqBCA21roMP3mqEjHPBb"
+  const tokenMintAddress = "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
+  const response = await axios({
+    url: `https://api.mainnet-beta.solana.com`,
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    data: {
+      jsonrpc: "2.0",
+      id: 1,
+      method: "getTokenAccountsByOwner",
+      params: [
+        walletAddress,
+        {
+          mint: tokenMintAddress,
+        },
+        {
+          encoding: "jsonParsed",
+        },
+      ],
+    },
+  });
+
+  // console.log(response.data.result.value[0].account.data.parsed.info.tokenAmount)
+ 
+  if (
+    Array.isArray(response?.data?.result?.value) &&
+    response?.data?.result?.value?.length > 0 &&
+    response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount
+      ?.amount > 0
+  ) {
+    Number(response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+    setUsdtbalance(response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+     console.log("USDT Balance:   " + response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+  } else {
+   setUsdtbalance(0)
+    console.log("USDT Balance:   " + response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+  }
+};  
+getUSDTBalance()
+
+///--- USDT Balance FINISH ---- /////
+
+//----Ageur balance -----/// 
+
+const getAgeurBalance = async ( ) => {
+  const walletAddress = "2r2mYQyFC3qqSbwVK3Cn4qMSnqBCA21roMP3mqEjHPBb"
+  const tokenMintAddress = "CbNYA9n3927uXUukee2Hf4tm3xxkffJPPZvGazc2EAH1"
+  const response = await axios({
+    url: `https://api.mainnet-beta.solana.com`,
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    data: {
+      jsonrpc: "2.0",
+      id: 1,
+      method: "getTokenAccountsByOwner",
+      params: [
+        walletAddress,
+        {
+          mint: tokenMintAddress,
+        },
+        {
+          encoding: "jsonParsed",
+        },
+      ],
+    },
+  });
+
+  
+
+  if (
+    Array.isArray(response?.data?.result?.value) &&
+    response?.data?.result?.value?.length > 0 &&
+    response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount
+      ?.amount > 0
+  ) {
+    Number(response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+    setAgeurbalance(response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+      console.log("Ageur Balance:   " + response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+  } else {
+   setAgeurbalance(0)
+    console.log("Ageur Balance:   " + response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+  }
+};  
+getAgeurBalance()
+
+///--- Ageur Balance FINISH ---- /////
+
+
+//----Brz balance -----/// 
+
+const getBrzBalance = async ( ) => {
+  const walletAddress = "2r2mYQyFC3qqSbwVK3Cn4qMSnqBCA21roMP3mqEjHPBb"
+  const tokenMintAddress = "FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD"
+  const response = await axios({
+    url: `https://api.mainnet-beta.solana.com`,
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    data: {
+      jsonrpc: "2.0",
+      id: 1,
+      method: "getTokenAccountsByOwner",
+      params: [
+        walletAddress,
+        {
+          mint: tokenMintAddress,
+        },
+        {
+          encoding: "jsonParsed",
+        },
+      ],
+    },
+  });
+
+  // console.log(response.data.result.value[0].account.data.parsed.info.tokenAmount)
+
+  if (
+    Array.isArray(response?.data?.result?.value) &&
+    response?.data?.result?.value?.length > 0 &&
+    response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount
+      ?.amount > 0
+  ) {
+    Number(response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+    setBrzbalance(response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+      console.log("BRZ Balance:   " + response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+  } else {
+   setBrzbalance(0)
+     console.log("BRZ Balance:   " + 0)
+  }
+};  
+getBrzBalance()
+
+///--- Brz Balance FINISH ---- /////
+
+
+
+//----BiLira balance -----/// 
+
+const getBiliraBalance = async ( ) => {
+  const walletAddress = "2r2mYQyFC3qqSbwVK3Cn4qMSnqBCA21roMP3mqEjHPBb"
+  const tokenMintAddress = "A94X2fRy3wydNShU4dRaDyap2UuoeWJGWyATtyp61WZf"
+  const response = await axios({
+    url: `https://api.mainnet-beta.solana.com`,
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    data: {
+      jsonrpc: "2.0",
+      id: 1,
+      method: "getTokenAccountsByOwner",
+      params: [
+        walletAddress,
+        {
+          mint: tokenMintAddress,
+        },
+        {
+          encoding: "jsonParsed",
+        },
+      ],
+    },
+  });
+
+  // console.log(response.data.result.value[0].account.data.parsed.info.tokenAmount)
+
+  if (
+    Array.isArray(response?.data?.result?.value) &&
+    response?.data?.result?.value?.length > 0 &&
+    response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount
+      ?.amount > 0
+  ) {
+    Number(response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+    setBilirabalance(response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+      console.log("BiLira Balance:   " + response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+  } else {
+   setBilirabalance(0)
+     console.log("BiLira Balance:   " + response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(5))
+  }
+};  
+getBiliraBalance()
+
+///--- BiLira Balance FINISH ---- /////
+    
 
     gelsolbalance();
     checkBalance();
   }, []);
+
+
 
   const checkBalance = useCallback(async () => {
     if (!publicKey) {
@@ -172,7 +507,7 @@ changeUsd()
 
     const walletBalance = await connection.getBalance(publicKey, "confirmed");
 
-    const walletBalanceSOL = (walletBalance / LAMPORTS_PER_SOL).toLocaleString();
+    const walletBalanceSOL = (walletBalance / LAMPORTS_PER_SOL ).toLocaleString();
     setMybalance(walletBalanceSOL);
   }, [connection, publicKey]);
   checkBalance();
@@ -240,14 +575,20 @@ changeUsd()
             </div>
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded">
-              <div className="py-4 text-lg xs:text-base font-normal">LAG Price Value</div>
+              <div className="py-4 text-lg xs:text-base font-normal" >LAG Price Value</div>
               <div className=" text-3xl xs:text-xl">$0.00</div>
             </div>
 
             <div className="w-1/4 px-1 py-2 mx-1 my-1 overflow-hidden bg-white border shadow-lg border-lagrangegraybackground rounded">
               <div className="py-4 text-lg xs:text-base font-normal">My Total Value</div>
               <div className=" text-3xl xs:text-xl">
-                $ {Number(Number(mybalance) * Number(changeUsdBalance))}
+              {/*  $ {Number(Number(mybalance) * Number(changeUsdBalance))}*/}
+                 $ {
+                     Number(usdcbalance$c) + Number(ageurbalance$c) + Number(brzbalance$c) + Number(usdtbalance$c) + Number(bilirabalance$c)
+                     +  Number(Number(mybalance) * Number(changeUsdBalance))
+
+                 }
+
 
               </div>
             </div>
@@ -291,9 +632,9 @@ changeUsd()
                       <p className="px-2 py-2">USDC</p>
                     </div>
                   </td>
-                  <td>$ 1.00</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">$ 0.00</td>
+                  <td>$ {usdcbalance$}</td>
+                  <td className="text-center">{usdbalance}</td>
+                  <td className="text-center">$ {usdcbalance$c}</td>
                 </tr>
                 <tr>
                   <td>
@@ -308,9 +649,9 @@ changeUsd()
                       <p className="px-2 py-2">agEUR</p>
                     </div>
                   </td>
-                  <td>{data[2].quotes.EURUSD.toFixed(3)}</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">$ 0.00</td>
+                  <td>$ {ageurbalance$}</td>
+                  <td className="text-center">{ageurbalance == undefined ? 0 : ageurbalance  }</td>
+                  <td className="text-center">$ {ageurbalance$c}</td>
                 </tr>
                 <tr>
                   <td>
@@ -322,18 +663,18 @@ changeUsd()
                         height={32}
                         layout="fixed"
                       />
-                      <p className="px-2 py-2">JPYC</p>
+                      <p className="px-2 py-2">USDT</p>
                     </div>
                   </td>
-                  <td>$ {data[5].quotes.JPYUSD.toFixed(3)}</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">$ 0.00</td>
+                  <td>$ {usdcbalance$}</td>
+                  <td className="text-center">{usdtbalance}</td>
+                  <td className="text-center">$ {usdtbalance$c}</td>
                 </tr>
                 <tr>
                   <td>
                     <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
                       <Image
-                        src={TRYB}
+                        src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png"
                         alt="TRYB"
                         width={32}
                         height={32}
@@ -342,9 +683,9 @@ changeUsd()
                       <p className="px-2 py-2">TRYB</p>
                     </div>
                   </td>
-                  <td>$ {data[6].quotes.TRYUSD.toFixed(3)}</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">$ 0.00</td>
+                  <td>$ {bilirabalance$}</td>
+                  <td className="text-center">{bilirabalance == undefined ? 0 : bilirabalance  }</td>
+                  <td className="text-center">$ { bilirabalance$c}</td>
                 </tr>
                 <tr>
                   <td>
@@ -359,9 +700,9 @@ changeUsd()
                       <p className="px-2 py-2">BRZ</p>
                     </div>
                   </td>
-                  <td>$ {data[7].quotes.BRLUSD.toFixed(3)}</td>
-                  <td className="text-center">0</td>
-                  <td className="text-center">$ 0.00</td>
+                  <td>$ {brzbalance$}</td>
+                  <td className="text-center">{brzbalance == undefined ? 0 : brzbalance  }</td>
+                  <td className="text-center">$ { brzbalance$c}</td>
                 </tr>
               </tbody>
             </table>
@@ -384,37 +725,3 @@ changeUsd()
 };
 export default Pools;
 
-export async function getServerSideProps() {
-  const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
-  const endpoint = "https://api.currencylayer.com/live";
-  const sourceCurrencyPairs = currencies.map((source) => ({
-    ...source,
-    currencies: currencies
-      .map(({ fiatSymbol }) => fiatSymbol)
-      .filter((currency) => currency !== source.fiatSymbol),
-  }));
-
-  const pairs = await Promise.all(
-    sourceCurrencyPairs.map(async (pair) => {
-      const url = `${endpoint}?access_key=${accessKey}&source=${
-        pair.fiatSymbol
-      }&currencies=${pair.currencies.join(",")}&format=1`;
-      return {
-        ...pair,
-        quotes: (await (await fetch(url)).json()).quotes,
-      };
-    })
-  );
-
-  if (!pairs) {
-    return {
-      notFound: true,
-    };
-  }
-  return {
-    props: {
-      data: pairs,
-    },
-    // will be passed to the page component as props
-  };
-}
