@@ -123,7 +123,6 @@ const Pools = (props) => {
   const gelsolbalance = async () => {};
 
   useEffect(() => {
- 
   setUsdcbalance$c(Number(usdbalance * usdcbalance$).toFixed(2))
   },[usd,usdbalance,usdcbalance$])
 
