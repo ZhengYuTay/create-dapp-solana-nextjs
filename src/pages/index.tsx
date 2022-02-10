@@ -54,7 +54,10 @@ const Index: NextPage = (props) => {
         <div className="flex items-center">
           <div className="h-full ml-12 mt-36 sm:mt-16 sm:ml-12 xs:ml-2">
             <div className="font-normal text-white xl:text-5xl lg:text-4xl sm:text-4xl xs:text-md font-display">
-              <p>Lagrange offers a fully decentralized</p>
+              <p>
+                <span className="font-bold">Lagrange</span> offers a fully
+                decentralized
+              </p>
               <p>24/7 FX market that does not require</p>
               <p>any broker or settlement periods.</p>
             </div>
@@ -81,7 +84,11 @@ const Index: NextPage = (props) => {
 
         <div className="flex justify-center h-48 mt-8 p-72 xs:p-10 place-items-stretch">
           <div className="mr-8">
-            <a href="https://t.me/lagrange_fi" target="_blank" rel="noreferrer">
+            <a
+              href="https://devpost.com/software/lagrange"
+              target="_blank"
+              rel="noreferrer"
+            >
               <svg
                 width="32"
                 height="28"
