@@ -11,7 +11,7 @@ import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import "../styles/walletbutton.css";
 import "tailwindcss/tailwind.css";
 import "../styles/globals.css";
-import "../styles/App.css";
+/* import "../styles/App.css"; */
 import { JupiterProvider } from "@jup-ag/react-hook";
 
 const SOLANA_NETWORK = WalletAdapterNetwork.Mainnet;

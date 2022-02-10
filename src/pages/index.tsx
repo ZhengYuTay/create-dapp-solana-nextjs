@@ -15,7 +15,7 @@ const Index: NextPage = (props) => {
       </Head>
       <div className="z-40 w-full h-screen p-10 bg-cover sm:p-5 xs:p-2">
         <div className="flex items-center justify-between">
-          <div className="2xl:w-96 xl:w-96 md:w-96 sm:w-96 xs:w-40">
+          <div className="xxl:w-96 xl:w-96 md:w-96 sm:w-96 xs:w-40">
             <Image
               className="cursor-pointer"
               src={LagrangeMobileLogo}
@@ -26,7 +26,7 @@ const Index: NextPage = (props) => {
           </div>
 
           <div className="flex items-center text-white">
-            <p className=" mr-9 2xl:r-9 xl:r-9 lg:mr-9 md:mr-9 sm:mr-9 xs:mr-0">
+            <p className=" mr-9 xxl:r-9 xl:r-9 lg:mr-9 md:mr-9 sm:mr-9 xs:mr-0">
               <a
                 href="https://www.youtube.com/watch?v=7Pa9LKa_IQM"
                 target="_blank"
@@ -53,17 +53,13 @@ const Index: NextPage = (props) => {
 
         <div className="flex items-center">
           <div className="h-full ml-12 mt-36 sm:mt-16 sm:ml-12 xs:ml-2">
-            <div className="font-normal text-white xl:text-5xl lg:text-4xl sm:text-4xl xs:text-lg font-display">
-              <p className="font-normal">
+            <div className="font-normal text-white xxl:text-5xl xl:text-5xl lg:text-4xl sm:text-4xl xs:text-lg font-display">
+              <p className="">
                 <span className="font-medium">Lagrange</span> offers a fully
                 decentralized
               </p>
-              <p className="mt-2 font-normal">
-                24/7 FX market that does not require
-              </p>
-              <p className="mt-2 font-normal">
-                any broker or settlement periods.
-              </p>
+              <p className="mt-2">24/7 FX market that does not require</p>
+              <p className="mt-2">any broker or settlement periods.</p>
             </div>
             <div className="mt-8">
               <Link href="/swap">
