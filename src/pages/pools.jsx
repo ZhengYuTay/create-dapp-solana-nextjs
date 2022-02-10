@@ -7,6 +7,8 @@ import { getData } from "./api/jupiter-api-example";
 import Image from "next/image";
 import { type } from "os";
 import EURS from "../../public/coin/2989.png";
+import USDC from "../../public/coin/3408.png";
+import USDT from "../../public/coin/825.png";
 import JPYC from "../../public/coin/9045.png";
 import TRYB from "../../public/coin/5181.png";
 import BRZ from "../../public/coin/4139.png";
@@ -706,7 +708,7 @@ const Pools = (props) => {
                       <td>
                         <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
                           <Image
-                            src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
+                            src={USDC}
                             alt="USDC"
                             width={32}
                             height={32}
@@ -742,8 +744,8 @@ const Pools = (props) => {
                       <td>
                         <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
                           <Image
-                            src={JPYC}
-                            alt="JPYC"
+                            src={USDT}
+                            alt="USDT"
                             width={32}
                             height={32}
                             layout="fixed"
@@ -759,7 +761,7 @@ const Pools = (props) => {
                       <td>
                         <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
                           <Image
-                            src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png"
+                            src={TRYB}
                             alt="TRYB"
                             width={32}
                             height={32}
@@ -776,7 +778,7 @@ const Pools = (props) => {
                     </tr>
                     <tr>
                       <td>
-                        <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
+                        <div className="flex flex-wrap items-center self-center sm:text-2xl xs:text-xs">
                           <Image
                             src={BRZ}
                             alt="BRZ"
