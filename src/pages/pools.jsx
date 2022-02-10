@@ -663,14 +663,14 @@ const Pools = (props) => {
               {brz}*/}
               <div className="text-3xl xs:text-xl">
                 {" "}
-                ${" "}
-                {Number(
+                ${" "} 0.00
+                {/* {Number(
                   Number(usd) +
                     Number(brz) +
                     Number(bilira) +
                     Number(jpyc) +
                     Number(ageur)
-                ).toLocaleString()}
+                ).toLocaleString()} */}
                 {/* {Number(Number(usd) + Number(brz) + Number(bilira) + Number(jpyc) + Number(ageur)).toLocaleString()} */}
               </div>
             </div>
