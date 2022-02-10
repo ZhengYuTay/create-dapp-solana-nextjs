@@ -55,7 +55,7 @@ const Index: NextPage = (props) => {
           <div className="h-full ml-12 mt-36 sm:mt-16 sm:ml-12 xs:ml-2">
             <div className="font-normal text-white xl:text-5xl lg:text-4xl sm:text-4xl xs:text-md font-display">
               <p>
-                <span className="font-bold">Lagrange</span> offers a fully
+                <span className="font-medium">Lagrange</span> offers a fully
                 decentralized
               </p>
               <p>24/7 FX market that does not require</p>
