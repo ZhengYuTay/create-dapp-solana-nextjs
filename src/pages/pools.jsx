@@ -644,7 +644,7 @@ const Pools = (props) => {
         <div className="py-2 text-center ">
           {/*    <h1 className="text-2xl">Pools</h1> */}
           {/* <h2 className="text-xl">Pools are in test mode please do not deposit</h2> */}
-          <div className="flex flex-wrap justify-between p-2 mx-1 overflow-hidden">
+          <div className="flex flex-wrap justify-between p-6 mx-1 overflow-hidden">
             <div className="w-1/4 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
               <div className="py-4 text-lg font-normal xs:text-base">
                 Total Value Locked
@@ -692,7 +692,7 @@ const Pools = (props) => {
 
         <div>
           <div className="flex justify-center px-2">
-            <div className="w-11/12 px-2 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
+            <div className="w-11/12 px-2 py-2 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
               <div className="text-2xl font-normal"> Account Balance</div>
             </div>
           </div>
@@ -822,7 +822,7 @@ const Pools = (props) => {
         </div>
 
         <div className="flex justify-center p-2">
-          <div className="w-11/12 px-2 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
+          <div className="w-11/12 px-2 py-2 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
             <div className="text-xl font-normal"> Pools</div>
             <div className="text-lg font-normal">
               Pools are in testing. Please do not deposit
