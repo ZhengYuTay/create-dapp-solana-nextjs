@@ -9,7 +9,7 @@ const FeeInfo: FunctionComponent<{ route: RouteInfo }> = ({ route }: { route: Ro
         route.getDepositAndFee().then(setState);
     }, [route]);
     return (
-        <div>
+        <div className="font-normal">
             {state && (
                 <div>
                     <br />
