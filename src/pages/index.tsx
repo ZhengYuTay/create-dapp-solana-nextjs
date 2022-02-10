@@ -80,7 +80,7 @@ const Index: NextPage = (props) => {
             </div>
           </div>
         </div>
-        <div className=" h-80"></div>
+        <div className=" h-96"></div>
 
         <div className="flex items-end justify-center h-24 mt-8 p-72 xs:p-10 ">
           <div className="mr-8">

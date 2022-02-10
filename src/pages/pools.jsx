@@ -809,8 +809,8 @@ const Pools = (props) => {
 
         <div className="flex justify-center p-2">
           <div className="w-11/12 px-2 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
-            <div className="text-xl"> Pools</div>
-            <div className="text-lg">
+            <div className="text-xl font-normal"> Pools</div>
+            <div className="text-lg font-normal">
               Pools are in testing. Please do not deposit
             </div>
           </div>
