@@ -574,16 +574,19 @@ const Pools = (props) => {
     getBiliraBalance();
 
     /* BiLira Balance FINISH */
-
+    if (publicKey == null) {
+      setMybalance(0);
+    }
     gelsolbalance();
     checkBalance();
-  }, []);
+  }, [publicKey]);
 
   const checkBalance = useCallback(async () => {
     if (!publicKey) {
       throw (
         new WalletNotConnectedError() && console.log("Wallet not connected")
       );
+      setMybalance(0);
     }
 
     const walletBalance = await connection.getBalance(publicKey, "confirmed");
@@ -677,8 +680,8 @@ const Pools = (props) => {
                 My Total Value
               </div>
               <div className="text-3xl xs:text-xl">
-                {/*  $ {Number(Number(mybalance) * Number(changeUsdBalance))}*/}
-                ${" "}
+                {" "}
+                $
                 {Number(usdcbalance$c) +
                   Number(ageurbalance$c) +
                   Number(brzbalance$c) +
@@ -723,8 +726,12 @@ const Pools = (props) => {
                         </div>
                       </td>
                       <td className="text-center">$ {usdcbalance$}</td>
-                      <td className="text-center">{usdbalance}</td>
-                      <td className="text-center">$ {usdcbalance$c}</td>
+                      <td className="text-center">
+                        {usdbalance == undefined ? 0 : usdbalance}
+                      </td>
+                      <td className="text-center">
+                        $ {usdcbalance$c == undefined ? 0 : usdcbalance$c}
+                      </td>
                     </tr>
                     <tr>
                       <td>
@@ -743,7 +750,9 @@ const Pools = (props) => {
                       <td className="text-center">
                         {ageurbalance == undefined ? 0 : ageurbalance}
                       </td>
-                      <td className="text-center">$ {ageurbalance$c}</td>
+                      <td className="text-center">
+                        $ {ageurbalance$c == undefined ? 0 : ageurbalance$c}
+                      </td>
                     </tr>
                     <tr>
                       <td>
@@ -759,8 +768,12 @@ const Pools = (props) => {
                         </div>
                       </td>
                       <td className="text-center">$ {usdcbalance$}</td>
-                      <td className="text-center">{usdtbalance}</td>
-                      <td className="text-center">$ {usdtbalance$c}</td>
+                      <td className="text-center">
+                        {usdtbalance == undefined ? 0 : usdtbalance}
+                      </td>
+                      <td className="text-center">
+                        $ {usdtbalance$c == undefined ? 0 : usdtbalance$c}
+                      </td>
                     </tr>
                     <tr>
                       <td>
@@ -779,7 +792,9 @@ const Pools = (props) => {
                       <td className="text-center">
                         {bilirabalance == undefined ? 0 : bilirabalance}
                       </td>
-                      <td className="text-center">$ {bilirabalance$c}</td>
+                      <td className="text-center">
+                        $ {bilirabalance$c == undefined ? 0 : bilirabalance$c}
+                      </td>
                     </tr>
                     <tr>
                       <td>
@@ -798,7 +813,9 @@ const Pools = (props) => {
                       <td className="text-center">
                         {brzbalance == undefined ? 0 : brzbalance}
                       </td>
-                      <td className="text-center">$ {brzbalance$c}</td>
+                      <td className="text-center">
+                        $ {brzbalance$c == undefined ? 0 : brzbalance$c}
+                      </td>
                     </tr>
                   </tbody>
                 </table>

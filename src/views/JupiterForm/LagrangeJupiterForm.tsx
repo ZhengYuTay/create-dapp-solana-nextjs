@@ -26,10 +26,9 @@ const TrustedTokenAddresses = [
   "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB", // USDT
   "A94X2fRy3wydNShU4dRaDyap2UuoeWJGWyATtyp61WZf", // BILIRA
   "5trVBqv1LvHxiSPMsHtEZuf8iN82wbpDcR5Zaw7sWC3s", // soJPYC
- 
   "FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD", // BRZ
-  "3uXMgtaMRBcyEtEChgiLMdHDjb5Azr17SQWwQo3ppEH8", // Wrapped BRZ
   "CbNYA9n3927uXUukee2Hf4tm3xxkffJPPZvGazc2EAH1", // agEUR
+  "3uXMgtaMRBcyEtEChgiLMdHDjb5Azr17SQWwQo3ppEH8", // Wrapped BRZ
 ];
 
 interface IJupiterFormProps {}
@@ -410,10 +409,12 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         leaveTo="opacity-0"
                       >
                         <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto rounded-md shadow-lg bg-lagrangeborder max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          {console.log(validOutputMints)}
                           {validOutputMints
                             .filter((item) =>
                               TrustedTokenAddresses.includes(item)
                             )
+                            .reverse()
                             .map((tokenMint) => (
                               <Listbox.Option
                                 key={tokenMint}
