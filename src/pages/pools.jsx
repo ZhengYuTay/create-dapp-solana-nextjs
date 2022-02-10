@@ -673,15 +673,13 @@ const Pools = (props) => {
               </div>
               <div className="text-3xl xs:text-xl">
                 {/*  $ {Number(Number(mybalance) * Number(changeUsdBalance))}*/}
-                ${" "}
-                {Number(usdcbalance$c) +
+                $ 0.00
+                {/* {Number(usdcbalance$c) +
                   Number(ageurbalance$c) +
                   Number(brzbalance$c) +
                   Number(usdtbalance$c) +
                   Number(bilirabalance$c) +
-                  Number(Number(mybalance) * Number(changeUsdBalance))}
-                {/*
-                 */}
+                  Number(Number(mybalance) * Number(changeUsdBalance))} */}
               </div>
             </div>
           </div>
@@ -696,7 +694,7 @@ const Pools = (props) => {
           <div>
             <div className="flex justify-center px-2">
               <div className="flex justify-center w-11/12 px-2 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
-                <table className="text-lg table-auto">
+                <table className="w-full text-lg table-auto">
                   <thead>
                     <tr>
                       <th></th>
@@ -719,7 +717,7 @@ const Pools = (props) => {
                           <p className="px-2 py-2">USDC</p>
                         </div>
                       </td>
-                      <td>$ {usdcbalance$}</td>
+                      <td className="text-center">$ {usdcbalance$}</td>
                       <td className="text-center">{usdbalance}</td>
                       <td className="text-center">$ {usdcbalance$c}</td>
                     </tr>
@@ -736,7 +734,7 @@ const Pools = (props) => {
                           <p className="px-2 py-2">agEUR</p>
                         </div>
                       </td>
-                      <td>$ {ageurbalance$}</td>
+                      <td className="text-center">$ {ageurbalance$}</td>
                       <td className="text-center">
                         {ageurbalance == undefined ? 0 : ageurbalance}
                       </td>
@@ -755,7 +753,7 @@ const Pools = (props) => {
                           <p className="px-2 py-2">USDT</p>
                         </div>
                       </td>
-                      <td>$ {usdcbalance$}</td>
+                      <td className="text-center">$ {usdcbalance$}</td>
                       <td className="text-center">{usdtbalance}</td>
                       <td className="text-center">$ {usdtbalance$c}</td>
                     </tr>
@@ -772,7 +770,7 @@ const Pools = (props) => {
                           <p className="px-2 py-2">TRYB</p>
                         </div>
                       </td>
-                      <td>$ {bilirabalance$}</td>
+                      <td className="text-center">$ {bilirabalance$}</td>
                       <td className="text-center">
                         {bilirabalance == undefined ? 0 : bilirabalance}
                       </td>
@@ -780,7 +778,7 @@ const Pools = (props) => {
                     </tr>
                     <tr>
                       <td>
-                        <div className="flex flex-wrap items-center self-center sm:text-2xl xs:text-xs">
+                        <div className="flex flex-wrap items-center self-center justify-center sm:text-2xl xs:text-xs">
                           <Image
                             src={BRZ}
                             alt="BRZ"
@@ -791,7 +789,7 @@ const Pools = (props) => {
                           <p className="px-2 py-2">BRZ</p>
                         </div>
                       </td>
-                      <td>$ {brzbalance$}</td>
+                      <td className="text-center">$ {brzbalance$}</td>
                       <td className="text-center">
                         {brzbalance == undefined ? 0 : brzbalance}
                       </td>
