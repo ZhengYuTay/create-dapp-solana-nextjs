@@ -79,7 +79,7 @@ const JupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
   }, [formValue.inputMint?.toBase58(), formValue.outputMint?.toBase58()]);
 
   return (
-    <div className="max-w-full md:max-w-lg">
+    <div className="max-w-full md:max-w-lg bg-gray-100">
       <div className="mb-2">
         <label htmlFor="inputMint" className="block text-sm font-medium">
           Input token

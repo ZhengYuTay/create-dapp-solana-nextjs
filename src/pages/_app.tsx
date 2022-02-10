@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+import React, { useMemo,useEffect } from "react";
+
 import type { AppProps } from "next/app";
 import dynamic from "next/dynamic";
 import {
@@ -9,14 +10,17 @@ import {
 import { clusterApiUrl } from "@solana/web3.js";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 
+import '../styles/walletbutton.css'
 import "tailwindcss/tailwind.css";
 import "../styles/globals.css";
 import "../styles/App.css";
+
 import { JupiterProvider } from "@jup-ag/react-hook";
 
 const SOLANA_NETWORK = WalletAdapterNetwork.Mainnet;
 // const SOLANA_NETWORK = WalletAdapterNetwork.Devnet;
 const network = SOLANA_NETWORK;
+
 
 const WalletProvider = dynamic(
   () => import("../contexts/ClientWalletProvider"),
@@ -26,9 +30,12 @@ const WalletProvider = dynamic(
 );
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const endpoint = useMemo(() => "https://solana-api.projectserum.com", []);
+
+  /* const endpoint = useMemo(() => "https://solana-api.projectserum.com", []); */
+  const endpoint = useMemo(() => "https://api.mainnet-beta.solana.com", []);
 
   return (
+    
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider>
         <JupiterWrapper>
@@ -36,6 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </JupiterWrapper>
       </WalletProvider>
     </ConnectionProvider>
+
   );
 }
 
