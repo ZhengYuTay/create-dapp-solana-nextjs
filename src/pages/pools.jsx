@@ -694,7 +694,7 @@ const Pools = (props) => {
                   Number(brzbalance$c) +
                   Number(usdtbalance$c) +
                   Number(bilirabalance$c) +
-                  Number(Number(mybalance) * Number(changeUsdBalance))}
+                  Number(parseFloat(mybalance) * Number(changeUsdBalance))}
               </div>
             </div>
           </div>
