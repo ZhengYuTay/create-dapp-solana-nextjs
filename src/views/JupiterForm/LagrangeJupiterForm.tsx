@@ -365,6 +365,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   <Listbox
                     value={formValue.outputMint?.toBase58()}
                     onChange={(e?: any) => {
+                      console.log(e);
                       const pbKey = new PublicKey(e);
                       if (pbKey) {
                         setFormValue((val) => ({
@@ -409,7 +410,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         leaveTo="opacity-0"
                       >
                         <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto rounded-md shadow-lg bg-lagrangeborder max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                          {console.log(validOutputMints)}
+                      
                           {validOutputMints
                             .filter((item) =>
                               TrustedTokenAddresses.includes(item)

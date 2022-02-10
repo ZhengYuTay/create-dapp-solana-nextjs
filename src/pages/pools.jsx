@@ -555,20 +555,10 @@ const Pools = (props) => {
             5
           )
         );
-        console.log(
-          "BiLira Balance:   " +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
-        );
+       
       } else {
         setBilirabalance(0);
-        console.log(
-          "BiLira Balance:   " +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
-        );
+     
       }
     };
     getBiliraBalance();

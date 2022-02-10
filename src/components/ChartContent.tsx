@@ -49,7 +49,7 @@ const ChartContent: NextPage<Props> = (props) => {
       <div className="">
         <div className="">
           <p className="pt-4 ml-5 text-lg font-normal">USDT / USDC</p>
-          {/*  {console.log(data)} */}
+      
           {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
           <p className="mt-4 ml-5 text-base font-normal">
             {" "}
