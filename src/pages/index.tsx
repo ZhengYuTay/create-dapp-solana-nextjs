@@ -8,7 +8,7 @@ const Index: NextPage = (props) => {
   const [isExpanded, toggleExpansion] = useState(true);
 
   return (
-    <header className="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
+    <header className="relative flex items-center justify-center h-screen overflow-hidden">
       <Head>
         <title>Lagrange.fi - Homepage</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
