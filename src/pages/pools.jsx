@@ -12,6 +12,7 @@ import USDT from "../../public/coin/825.png";
 import JPYC from "../../public/coin/9045.png";
 import TRYB from "../../public/coin/5181.png";
 import BRZ from "../../public/coin/4139.png";
+import Head from "next/head";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import {
   WalletError,
@@ -608,6 +609,10 @@ const Pools = (props) => {
 
   return (
     <div className="relative min-h-screen md:flex">
+      <Head>
+        <title>Lagrange.fi</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className="flex justify-between px-2 py-2 text-gray-100 bg-gray-800 md:hidden">
         <MobileLogo />
 
@@ -635,7 +640,7 @@ const Pools = (props) => {
       <div
         className={`${
           isExpanded ? `-translate-x-full` : `translate-x-0`
-        } sidebar bg-white xs:bg-white text-gray-700 w-80 xs:w-80 space-y-6 px-1 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
+        } sidebar bg-white xs:bg-white text-gray-700 w-80 xs:w-80 space-y-6 px-6 py-4 z-50 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out shadow-xl`}
       >
         <SidebarLogo />
 
@@ -694,7 +699,7 @@ const Pools = (props) => {
           <div>
             <div className="flex justify-center px-2">
               <div className="flex justify-center w-11/12 px-2 py-2 mx-1 my-1 overflow-hidden bg-white border rounded shadow-lg border-lagrangegraybackground">
-                <table className="w-full text-lg table-auto">
+                <table className="w-11/12 text-lg table-auto">
                   <thead>
                     <tr>
                       <th></th>
