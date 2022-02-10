@@ -53,7 +53,7 @@ const Index: NextPage = (props) => {
 
         <div className="flex items-center">
           <div className="h-full ml-12 mt-36 sm:mt-16 sm:ml-12 xs:ml-2">
-            <div className="font-normal text-white xxl:text-5xl xl:text-5xl lg:text-4xl sm:text-4xl xs:text-lg font-display">
+            <div className="font-normal text-white xxl:text-{43px} xl:text-{43} lg:text-{43} sm:text-{43} xs:text-{43} font-display">
             <div className="flex item-center"><p className="font-medium">Lagrange{" "}</p>
               <p className="font-normal ml-3">
                  offers a fully
