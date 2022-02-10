@@ -13,7 +13,7 @@ const Index: NextPage = (props) => {
         <title>Lagrange.fi - Homepage</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="z-40 w-full h-screen p-10 bg-local sm:p-5 xs:p-2">
+      <div className="z-40 w-full h-screen p-10 bg-fixed sm:p-5 xs:p-2">
         <div className="flex items-center justify-between">
           <div className="2xl:w-96 xl:w-96 md:w-96 sm:w-96 xs:w-40">
             <Image
@@ -79,7 +79,7 @@ const Index: NextPage = (props) => {
         </div>
         <div className=" h-96"></div>
 
-        <div className="flex justify-center h-48 mt-8 p-72 xs:p-10 place-items-end">
+        <div className="flex justify-center h-48 mt-8 p-72 xs:p-10 place-items-stretch">
           <div className="mr-8">
             <a href="https://t.me/lagrange_fi" target="_blank" rel="noreferrer">
               <svg
