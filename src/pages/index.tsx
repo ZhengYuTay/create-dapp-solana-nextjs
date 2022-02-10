@@ -53,25 +53,29 @@ const Index: NextPage = (props) => {
 
         <div className="flex items-center">
           <div className="h-full ml-12 mt-36 sm:mt-16 sm:ml-12 xs:ml-2">
-            <div className="font-[400] text-white xl:text-5xl lg:text-4xl sm:text-4xl xs:text-md font-display">
-              <p>
-                <span className="font-[500]">Lagrange</span> offers a fully
+            <div className="font-normal text-white xl:text-5xl lg:text-4xl sm:text-4xl xs:text-lg font-display">
+              <p className="font-normal">
+                <span className="font-medium">Lagrange</span> offers a fully
                 decentralized
               </p>
-              <p className="mt-2">24/7 FX market that does not require</p>
-              <p className="mt-2">any broker or settlement periods.</p>
+              <p className="mt-2 font-normal">
+                24/7 FX market that does not require
+              </p>
+              <p className="mt-2 font-normal">
+                any broker or settlement periods.
+              </p>
             </div>
             <div className="mt-8">
               <Link href="/swap">
                 <a>
-                  <button className="w-48 text-white rounded sm:w-48 xs:w-32 h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple">
+                  <button className="w-48 text-white rounded sm:w-48 xs:w-36 h-14 bg-gradient-to-b from-lagrange-buttonpro-blue to-lagrange-buttonpro-purple">
                     <p className="text-4xl font-normal font-display ">LITE</p>
                   </button>
                 </a>
               </Link>
 
               <a>
-                <button className="w-48 ml-4 text-white border-2 rounded font-display sm:w-40 xs:w-32 h-14 border-lagrange-buttonpro-blue">
+                <button className="w-48 ml-4 text-white border-2 rounded font-display sm:w-40 xs:w-36 h-14 border-lagrange-buttonpro-blue">
                   <p className="text-4xl font-normal font-display">
                     PRO <span className="text-xs FONT-B">SOON</span>
                   </p>{" "}
