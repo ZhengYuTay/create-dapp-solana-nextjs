@@ -202,7 +202,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         )}
 
                         <span className="ml-2 text-white truncate sm:text-lg xs:text-sm">
-                          {inputTokenInfo?.name}
+                          {inputTokenInfo?.symbol}
                         </span>
                         <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                           <SelectorIcon
@@ -251,7 +251,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                         selected ? "font-medium" : "font-normal"
                                       } block truncate text-white text-base ml-2`}
                                     >
-                                      {tokenMap.get(tokenMint)?.name ||
+                                      {tokenMap.get(tokenMint)?.symbol ||
                                         "unknown"}
                                     </span>
                                     {selected ? (
@@ -365,7 +365,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   <Listbox
                     value={formValue.outputMint?.toBase58()}
                     onChange={(e?: any) => {
-                      console.log(e);
+                     
                       const pbKey = new PublicKey(e);
                       if (pbKey) {
                         setFormValue((val) => ({
@@ -387,14 +387,15 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                           />
                         ) : (
                           <>
-                            <span className="text-sm text-center text-white">
+                            <span className="text-sm text-center text-white ml-2">
                               Select a Token
                             </span>
                           </>
                         )}
 
                         <span className="px-2 text-white truncate sm:text-lg xs:text-sm">
-                          {outputTokenInfo?.name}
+                          {outputTokenInfo?.symbol}
+                          {/* {outputTokenInfo?.name} */}
                         </span>
                         <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                           <SelectorIcon
@@ -445,7 +446,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                       } block truncate text-white text-base ml-4`}
                                     >
                                       {" "}
-                                      {tokenMap.get(tokenMint)?.name ||
+                                      {tokenMap.get(tokenMint)?.symbol ||
                                         "unknown"}
                                     </span>
                                     {selected ? (
