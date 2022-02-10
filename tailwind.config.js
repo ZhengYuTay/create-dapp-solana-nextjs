@@ -15,6 +15,11 @@ module.exports = {
       'xxl': '2560px',
 
     },
+    fontSize: {
+
+      'lagrange': '2.6875rem',
+      'lagrangesmallscreen': '2.2675rem',
+    },
 
     fontFamily: {
 
