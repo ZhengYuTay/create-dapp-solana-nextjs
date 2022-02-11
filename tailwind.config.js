@@ -51,6 +51,7 @@ module.exports = {
     },
     extend: {
       width: {
+        '90': '23rem',
         '128': '33.4rem',
         '112': '31.8rem',
         '270': '16.87rem',

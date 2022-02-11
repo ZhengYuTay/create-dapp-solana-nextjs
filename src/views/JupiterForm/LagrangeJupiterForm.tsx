@@ -101,7 +101,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
   return (
     <div>
-      <div className="mb-2 bg-white rounded shadow-lg xxl:px-5 xl:px-5 lg:px-5 md:px-5 sm:px-5 xs:px-2 border-lagrangeborder xxl:w-128 xl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-96">
+      <div className="mb-2 bg-white rounded shadow-lg xxl:px-5 xl:px-5 lg:px-5 md:px-5 sm:px-5 xs:px-2 border-lagrangeborder xxl:w-128 xl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-90">
         <div>
           <h1 className="py-4 text-4xl font-normal">Swap</h1>
         </div>
@@ -365,7 +365,6 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                   <Listbox
                     value={formValue.outputMint?.toBase58()}
                     onChange={(e?: any) => {
-                     
                       const pbKey = new PublicKey(e);
                       if (pbKey) {
                         setFormValue((val) => ({
@@ -387,7 +386,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                           />
                         ) : (
                           <>
-                            <span className="text-sm text-center text-white ml-2">
+                            <span className="ml-2 text-sm text-center text-white">
                               Select a Token
                             </span>
                           </>
@@ -411,7 +410,6 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         leaveTo="opacity-0"
                       >
                         <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto rounded-md shadow-lg bg-lagrangeborder max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      
                           {validOutputMints
                             .filter((item) =>
                               TrustedTokenAddresses.includes(item)

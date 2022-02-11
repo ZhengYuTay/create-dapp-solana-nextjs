@@ -45,11 +45,11 @@ const ChartContent: NextPage<Props> = (props) => {
   const { data } = props;
 
   return (
-    <div className="pb-5 ml-6 bg-white rounded shadow-lg border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-96">
+    <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-90">
       <div className="">
         <div className="">
           <p className="pt-4 ml-5 text-lg font-normal">USDT / USDC</p>
-      
+
           {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
           <p className="mt-4 ml-5 text-base font-normal">
             {" "}
