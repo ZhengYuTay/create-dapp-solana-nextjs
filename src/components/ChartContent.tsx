@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/router";
+/* import { useRouter } from "next/router"; */
 import { useEffect, useState } from "react";
 
 /* import ChartLine from "../../public/Chartstabil.png"; */
@@ -8,7 +8,9 @@ import SelectDownIcon from "../../public/select-down.png";
 
 import type { NextPage } from "next";
 import coinGecko from "../pages/api/coinGecko";
+const API = require("kucoin-node-sdk");
 
+API.init(require("./config.tpl"));
 const currencies = [
   {
     fiatSymbol: "USD",
@@ -26,7 +28,10 @@ interface Props {
   coinList: any;
   data: any;
 }
-const ChartContent: NextPage<Props> = (props) => {
+const ChartContent: NextPage<Props> = (props: {
+  coinList?: any;
+  data?: any;
+}) => {
   const [coinData, setCoinData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +48,10 @@ const ChartContent: NextPage<Props> = (props) => {
 
   const { coinList } = props;
   const { data } = props;
-
+  const chartdata = async () => {
+    const getTimestampRl = await API.rest.Others.getTimestamp();
+    console.log(getTimestampRl.data);
+  };
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-90">
       <div className="">
@@ -118,6 +126,12 @@ const ChartContent: NextPage<Props> = (props) => {
 export default ChartContent;
 
 export async function getServerSideProps() {
+  /*   const kucoinapikey = "2643abd9-4a14-4feb-82f0-03458508adbb";
+  const kucoinendpoint = "https://api.currencylayer.com/live";
+
+  const reskucoin = await fetch(`${kucoinendpoint}/${kucoinapikey}`);
+  const kucoindata = await reskucoin.json(); */
+
   const CoinGecko = require("coingecko-api");
   const CoinGeckoClient = new CoinGecko();
   const coinList = await CoinGeckoClient.coins.fetch("solana", {});

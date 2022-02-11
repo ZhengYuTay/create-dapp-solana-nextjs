@@ -29,6 +29,7 @@
     "daisyui": "^1.16.2",
     "dotenv": "^10.0.0",
     "jayson": "^3.6.6",
+    "kucoin-node-sdk": "^1.0.4",
     "next": "^12.0.7",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",
