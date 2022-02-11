@@ -56,7 +56,10 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
   useEffect(() => {
     new TokenListProvider().resolve().then((tokens) => {
-      const tokenList = tokens.filterByChainId(CHAIN_ID).getList();
+      const tokenList = tokens
+        .filterByChainId(CHAIN_ID)
+        .excludeByTag("wrapped-sollet")
+        .getList();
       /* const tokenList = tokens.filterByChainId(CHAIN_ID).filterByTag('stablecoin').getList(); */
 
       setTokenMap(
@@ -346,6 +349,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                           {route.outAmount /
                             10 ** (outputTokenInfo?.decimals || 1)}{" "}
                           {outputTokenInfo?.symbol}
+                          {console.log(outputTokenInfo)}
                         </div>
                       </div>
                     );
