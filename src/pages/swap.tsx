@@ -108,7 +108,7 @@ const Swap: NextPage<Props> = (props) => {
           </div>
           <div>
           
-            <ChartContent datacurrencies={props} sentence={""}/>
+            <ChartContent datacurrencies={props.datacurrencies} sentence={""}/>
           </div>
         </div>
       </div>
