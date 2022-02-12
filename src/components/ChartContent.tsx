@@ -54,10 +54,36 @@ interface Props {
       },
     },
   };
+  const bugun = new Date();
+  bugun.setDate(bugun.getDate() );
+  const yarin = new Date();
+  yarin.setDate(yarin.getDate() + 1);
+console.log(bugun)
 
+
+
+function getDateItems(hours: number) {
+  var toDate = new Date();
+  var fromDate = new Date();
+  fromDate.setTime(fromDate.getTime() - (hours * 60 * 60 * 1000));
+  var result = [];
+  
+  while (toDate >= fromDate) {
+    result.push(toDate.getFullYear() + "-" + ("00" + (toDate.getMonth() + 1)).slice(-2) + "-" + ("00" + toDate.getDate()).slice(-2) + " " + ("00" + toDate.getHours()).slice(-2) + ":" + ("00" + toDate.getMinutes()).slice(-2) + ":" + ("00" + toDate.getSeconds()).slice(-2));
+    // consider using moment.js library to format date
+    
+    toDate.setTime(toDate.getTime() - (1 * 60 * 60 * 1000));
+  }
+
+  return result;
+}
+
+var labels = getDateItems(24);
+var datesFrom48Hours = getDateItems(48);
+console.log(labels);
   const rakamlarx : any = [];
   const rakamlary : any= [];
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const labelsold = [bugun.toLocaleDateString("en-US", { day: 'numeric', month: 'short' }), yarin.toLocaleDateString("en-US", { day: 'numeric', month: 'short' }), 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const usdtnumber = [1, 1, 1.1, 1,1,1, 1,1.1, 1, 1, 1.1,1];
   const usdcnumber = [1, 1.1, 1.1, 1,1,1, 1,1.1, 1, 1, 1.1,1];
   
@@ -70,6 +96,8 @@ interface Props {
     
     
   }
+
+
   /* https://docs.google.com/spreadsheets/d/e/2PACX-1vTFdDx6GqM9bFDv_GsJEX90DUOYImOKx7h5M4rVw7TD9sB59g5rRLfK0TlokXdtgJMuD50foANzxBCy/pub?gid=573999951&single=true&output=csv */
   
 
@@ -85,7 +113,7 @@ interface Props {
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
-        label: 'USD',
+        label: 'USDC',
         data: labels.map(() => usdcnumber),
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
@@ -104,6 +132,7 @@ const ChartContent: NextPage<Props> = (props: {
 
 
 console.log(props.datacurrencies);
+const usdc = props.datacurrencies
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-90">
       <div className="">

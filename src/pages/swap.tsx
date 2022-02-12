@@ -122,7 +122,7 @@ export default Swap;
 
 export async function getServerSideProps() {
   const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
-  const endpoint = "https://api.currencylayer.com/live";
+  const endpoint = "https://api.currencylayer.com/historical";
   const sourceCurrencyPairs = currencies.map((source) => ({
     ...source,
     currencies: currencies
@@ -132,9 +132,8 @@ export async function getServerSideProps() {
 
   const pairs = await Promise.all(
     sourceCurrencyPairs.map(async (pair) => {
-      const url = `${endpoint}?access_key=${accessKey}&source=${
-        pair.fiatSymbol
-      }&date=2010-08-01&currencies=${pair.currencies.join(",")}&format=1`;
+      const url = `${endpoint}?access_key=${accessKey}&date=2021-08-01&currencies=${pair.currencies.join(",")}`;
+  
       return {
         ...pair,
         quotes: (await (await fetch(url)).json()).quotes,
