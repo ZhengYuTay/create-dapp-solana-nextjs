@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import * as cheerio from 'cheerio';
+import Nomics from "nomics";
 /* import { useRouter } from "next/router"; */
 import {  ReactNode, useEffect, useState } from "react";
 import {
@@ -22,6 +23,9 @@ import SelectDownIcon from "../../public/select-down.png";
 
 import type { NextPage } from "next";
 import { randomInt } from "crypto";
+const nomics = new Nomics({
+  apiKey: "f5b3378230993f0291d6455887fae08ad928666d"
+});
 
 ChartJS.register(
   CategoryScale,
@@ -35,8 +39,9 @@ ChartJS.register(
 interface Props {
 
   sentence: string;
-
+  coinList?: Array<undefined>;
   datacurrencies?: Array<undefined>;
+  currencies?: Array<undefined>;
   }
 
 
@@ -92,13 +97,12 @@ var datesFrom48Hours = getDateItems(48);
   
     
   }
-  console.log(usdtnumber);
+
   for (let i = 0; i < 24; i++) {
     usdcnumber.push(chance.integer({ min: 0.99, max: 1.1}))
 
     
-  }console.log("------------");
-  console.log(usdtnumber);
+  }
 
 
   /* https://docs.google.com/spreadsheets/d/e/2PACX-1vTFdDx6GqM9bFDv_GsJEX90DUOYImOKx7h5M4rVw7TD9sB59g5rRLfK0TlokXdtgJMuD50foANzxBCy/pub?gid=573999951&single=true&output=csv */
@@ -130,12 +134,13 @@ var datesFrom48Hours = getDateItems(48);
 const ChartContent: NextPage<Props> = (props: {
 
   sentence: string;  
- 
+  coinList?: Array<undefined>;
   datacurrencies?: Array<undefined>;
+  currencies?: Array<undefined>;
   
 }) => {
 
-
+console.log(props);
 
 
   return (
@@ -143,7 +148,7 @@ const ChartContent: NextPage<Props> = (props: {
       <div className="">
         <div className="">
           <p className="pt-4 ml-5 text-lg font-normal">USDT / USDC</p>
-          {console.log(props.datacurrencies?.length)} 
+  
 
 
           {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
@@ -212,24 +217,3 @@ const ChartContent: NextPage<Props> = (props: {
   );
 };
 export default ChartContent;
-
-export async function getServerSideProps(context: any) {
-/* 
-  const coinList = await fetch('https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', { 
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'X-CMC_PRO_API_KEY': '134ef0ef-be0e-44a4-8b21-ed45afc54cdb'
-    }
-  
-  }).then((res) => res.json()); */
-  
-    return {
-      props: {
-        
-      }
-    }
-  
-    
-  }
-  
