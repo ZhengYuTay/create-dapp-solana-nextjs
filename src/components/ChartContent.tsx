@@ -2,17 +2,77 @@ import Link from "next/link";
 import Image from "next/image";
 /* import { useRouter } from "next/router"; */
 import { useEffect, useState } from "react";
-
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
 
 /* import ChartLine from "../../public/Chartstabil.png"; */
 import SelectDownIcon from "../../public/select-down.png";
 
 import type { NextPage } from "next";
+import { randomInt } from "crypto";
 
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 interface Props {
   coinList: Array<any>;
+  sentence: string;
 
   }
+
+
+
+
+
+  export const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top' as const,
+      },
+      title: {
+        display: true,
+        text: 'Chart.js Line Chart',
+      },
+    },
+  };
+
+  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const rakamlar = [12, 15, 20, 55, 34, 24, 20];
+  export const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: labels.map(() => rakamlar),
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+      {
+        label: 'Dataset 2',
+        data: labels.map(() => rakamlar),
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
+    ],
+  };
+
+
 const ChartContent: NextPage<Props> = (props: {
 
 }) => {
@@ -36,11 +96,11 @@ const ChartContent: NextPage<Props> = (props: {
             {new Date().getMinutes()}
           </p>
         </div>
-        <div className="h-20"></div>
-        <div className="">
   
+     
+        <div className=" h-72">
+        <Line options={options} data={data} />
         </div>
-        <div className="h-20"></div>
         <div className="flex items-center justify-between p-2 ml-4 mr-4 rounded bg-lagrangegraybackground">
           {" "}
           <div className="flex flex-wrap items-center self-center justify-center font-normal sm:text-2xl xs:text-xs">

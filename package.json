@@ -26,6 +26,7 @@
     "@types/cheerio": "^0.22.31",
     "axios": "^0.25.0",
     "bs58": "^4.0.1",
+    "casual": "^1.6.2",
     "chart.js": "^3.7.0",
     "cheerio": "^1.0.0-rc.10",
     "coingecko-api": "^1.0.10",
