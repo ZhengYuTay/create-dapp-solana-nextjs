@@ -54,28 +54,31 @@ interface Props {
       },
     },
   };
-  const rakamlar: any[] = [];
+  const rakamlarx: any= [];
+  const rakamlary: any = [];
   const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   for (let i = 0; i < 12; i++) {
     chance.integer({ min: 0, max: 100})
     
-    rakamlar.push(chance.integer({ min: 0, max: 100}));
+    rakamlarx.push(Number(chance.integer({ min: 0, max: 100 })));
+    rakamlary.push(Number(chance.integer({ min: 0, max: 100 })));
     console.log ("no." + chance.integer({ min: 0, max: 100}));
+    
   }
-  document.write(arr.join(", "));
-  console.log(rakamlar);
+  console.log (rakamlarx);
+
   export const data = {
     labels,
     datasets: [
       {
         label: 'Dataset 1',
-        data: labels.map(() => rakamlar),
+        data: labels.map(() => rakamlary),
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
         label: 'Dataset 2',
-        data: labels.map(() => rakamlar),
+        data: labels.map(() => rakamlary),
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },

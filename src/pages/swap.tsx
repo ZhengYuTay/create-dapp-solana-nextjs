@@ -55,7 +55,7 @@ const Swap: NextPage = (props) => {
             <SwapContent />
           </div>
           <div>
-            <ChartContent/>
+            <ChartContent sentence={""}/>
           </div>
         </div>
       </div>
