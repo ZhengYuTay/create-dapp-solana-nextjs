@@ -73,7 +73,7 @@ function getDateItems(hours: number) {
     result.push(("00" + toDate.getDate()).slice(-2) + " " +("00" + (toDate.getMonth() + 1)).slice(-2) + "-" + ("00" + toDate.getHours()).slice(-2) + ":" + ("00" + toDate.getMinutes()).slice(-2) + ":" + ("00" + toDate.getSeconds()).slice(-2));
     // consider using moment.js library to format date
     
-    toDate.setTime(toDate.getTime() - (1 * 60 * 60 * 1000));
+    toDate.setTime(toDate.getTime() - (1 * 60 * 60 ));
   }
 
   return result;
@@ -135,7 +135,7 @@ const ChartContent: NextPage<Props> = (props: {
 console.log(props.datacurrencies);
 const usdc = props.datacurrencies
   return (
-    <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-90">
+    <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-90">
       <div className="">
         <div className="">
           <p className="pt-4 ml-5 text-lg font-normal">USDT / USDC</p>
