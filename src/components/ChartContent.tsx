@@ -1,31 +1,23 @@
 import Link from "next/link";
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import Image from "next/image";
 /* import { useRouter } from "next/router"; */
 import { useEffect, useState } from "react";
-import cheerio from 'cheerio'
-import axios from 'axios'
+
 
 /* import ChartLine from "../../public/Chartstabil.png"; */
 import SelectDownIcon from "../../public/select-down.png";
 
 import type { NextPage } from "next";
-import Coins from "./Coins";
 
 interface Props {
-
- title: string;
- lastScraped: string;
+  coinList: Array<any>;
 
   }
 const ChartContent: NextPage<Props> = (props: {
 
-  title: string;
-  lastScraped: string;
-
 }) => {
 
-console.log(props.title)
+
 
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-90">
@@ -44,8 +36,11 @@ console.log(props.title)
             {new Date().getMinutes()}
           </p>
         </div>
-      {console.log(props)}
-        <div className=""><Coins data={props.title} /></div>
+        <div className="h-20"></div>
+        <div className="">
+  
+        </div>
+        <div className="h-20"></div>
         <div className="flex items-center justify-between p-2 ml-4 mr-4 rounded bg-lagrangegraybackground">
           {" "}
           <div className="flex flex-wrap items-center self-center justify-center font-normal sm:text-2xl xs:text-xs">
@@ -96,7 +91,7 @@ console.log(props.title)
   );
 };
 export default ChartContent;
-/* 
+
 export async function getServerSideProps(context: any) {
 
   const coinList = await fetch('https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', { 
@@ -107,26 +102,13 @@ export async function getServerSideProps(context: any) {
     }
   
   }).then((res) => res.json());
-  console.log(coinList);
+  
     return {
       props: {
-        coinLists : coinList
+        coinLists : coinList.data
       }
     }
   
     
   }
-   */
-
-/*   export const getStaticProps: GetStaticProps = async (context) => {
-    const { data } = await axios.get('https://xkcd.com/')
-    const $ = cheerio.load(data)
-    
-    const title = $('#ctitle').text()
-    const lastScraped = new Date().toISOString()
-    return {
-      props: { title, lastScraped },
-      revalidate: 10,
-    }
-  }
- */
+  
