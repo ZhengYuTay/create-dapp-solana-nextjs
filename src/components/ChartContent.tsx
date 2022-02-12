@@ -1,57 +1,32 @@
 import Link from "next/link";
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import Image from "next/image";
 /* import { useRouter } from "next/router"; */
 import { useEffect, useState } from "react";
+import cheerio from 'cheerio'
+import axios from 'axios'
 
 /* import ChartLine from "../../public/Chartstabil.png"; */
 import SelectDownIcon from "../../public/select-down.png";
 
 import type { NextPage } from "next";
-import coinGecko from "../pages/api/coinGecko";
-const API = require("kucoin-node-sdk");
-
-API.init(require("./config.tpl"));
-const currencies = [
-  {
-    fiatSymbol: "USD",
-    cryptoSymbol: "USDC",
-    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
-  },
-  {
-    fiatSymbol: "USDT",
-    cryptoSymbol: "USDT",
-    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
-  },
-];
+import Coins from "./Coins";
 
 interface Props {
-  coinList: any;
-  data: any;
-}
+
+ title: string;
+ lastScraped: string;
+
+  }
 const ChartContent: NextPage<Props> = (props: {
-  coinList?: any;
-  data?: any;
+
+  title: string;
+  lastScraped: string;
+
 }) => {
-  const [coinData, setCoinData] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = coinGecko.get(`/coins/markets`, {
-        params: {
-          vs_currency: "usd",
-          ids: "bilira",
-        },
-      });
-    };
 
-    fetchData();
-  }, []);
+console.log(props.title)
 
-  const { coinList } = props;
-  const { data } = props;
-  const chartdata = async () => {
-    const getTimestampRl = await API.rest.Others.getTimestamp();
-    console.log(getTimestampRl.data);
-  };
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-90">
       <div className="">
@@ -69,11 +44,8 @@ const ChartContent: NextPage<Props> = (props: {
             {new Date().getMinutes()}
           </p>
         </div>
-        <div className="h-20"></div>
-        <div className="">
-          <hr className="bg-gray-900 " />
-        </div>
-        <div className="h-20"></div>
+      {console.log(props)}
+        <div className=""><Coins data={props.title} /></div>
         <div className="flex items-center justify-between p-2 ml-4 mr-4 rounded bg-lagrangegraybackground">
           {" "}
           <div className="flex flex-wrap items-center self-center justify-center font-normal sm:text-2xl xs:text-xs">
@@ -124,48 +96,37 @@ const ChartContent: NextPage<Props> = (props: {
   );
 };
 export default ChartContent;
+/* 
+export async function getServerSideProps(context: any) {
 
-export async function getServerSideProps() {
-  /*   const kucoinapikey = "2643abd9-4a14-4feb-82f0-03458508adbb";
-  const kucoinendpoint = "https://api.currencylayer.com/live";
-
-  const reskucoin = await fetch(`${kucoinendpoint}/${kucoinapikey}`);
-  const kucoindata = await reskucoin.json(); */
-
-  const CoinGecko = require("coingecko-api");
-  const CoinGeckoClient = new CoinGecko();
-  const coinList = await CoinGeckoClient.coins.fetch("solana", {});
-  const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
-  const endpoint = "https://api.currencylayer.com/live";
-  const sourceCurrencyPairs = currencies.map((source) => ({
-    ...source,
-    currencies: currencies
-      .map(({ fiatSymbol }) => fiatSymbol)
-      .filter((currency) => currency !== source.fiatSymbol),
-  }));
-
-  const pairs = await Promise.all(
-    sourceCurrencyPairs.map(async (pair) => {
-      const url = `${endpoint}?access_key=${accessKey}&source=${
-        pair.fiatSymbol
-      }&currencies=${pair.currencies.join(",")}&format=1`;
-      return {
-        ...pair,
-        quotes: (await (await fetch(url)).json()).quotes,
-      };
-    })
-  );
-
-  if (!pairs) {
+  const coinList = await fetch('https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', { 
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'X-CMC_PRO_API_KEY': '134ef0ef-be0e-44a4-8b21-ed45afc54cdb'
+    }
+  
+  }).then((res) => res.json());
+  console.log(coinList);
     return {
-      notFound: true,
-    };
+      props: {
+        coinLists : coinList
+      }
+    }
+  
+    
   }
-  return {
-    props: {
-      data: pairs,
-      coinList: coinList,
-    },
-    // will be passed to the page component as props
-  };
-}
+   */
+
+/*   export const getStaticProps: GetStaticProps = async (context) => {
+    const { data } = await axios.get('https://xkcd.com/')
+    const $ = cheerio.load(data)
+    
+    const title = $('#ctitle').text()
+    const lastScraped = new Date().toISOString()
+    return {
+      props: { title, lastScraped },
+      revalidate: 10,
+    }
+  }
+ */
