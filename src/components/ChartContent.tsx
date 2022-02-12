@@ -13,7 +13,10 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-
+var Chance = require('chance');
+var chance = new Chance();
+var my_random_string = chance.integer({ min: -20, max: 20 })
+console.log(my_random_string);
 /* import ChartLine from "../../public/Chartstabil.png"; */
 import SelectDownIcon from "../../public/select-down.png";
 
@@ -51,9 +54,16 @@ interface Props {
       },
     },
   };
-
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  const rakamlar = [12, 15, 20, 55, 34, 24, 20];
+  const rakamlar: any[] = [];
+  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  for (let i = 0; i < 12; i++) {
+    chance.integer({ min: 0, max: 100})
+    
+    rakamlar.push(chance.integer({ min: 0, max: 100}));
+    console.log ("no." + chance.integer({ min: 0, max: 100}));
+  }
+ 
+  console.log(rakamlar);
   export const data = {
     labels,
     datasets: [

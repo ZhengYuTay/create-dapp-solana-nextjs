@@ -55,7 +55,7 @@ const Swap: NextPage = (props) => {
             <SwapContent />
           </div>
           <div>
-            <ChartContent coinList={[]} />
+            <ChartContent/>
           </div>
         </div>
       </div>
