@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+import * as cheerio from 'cheerio';
 /* import { useRouter } from "next/router"; */
-import { PropsWithChildren, useEffect, useState } from "react";
+import {  ReactNode, useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -34,8 +35,8 @@ ChartJS.register(
 interface Props {
 
   sentence: string;
-  datacurrencies: any;
 
+  datacurrencies?: Array<undefined>;
   }
 
 
@@ -50,16 +51,12 @@ interface Props {
       },
       title: {
         display: true,
-        text: 'Chart.js Line Chart',
+        text: 'Daily Price Chart',
       },
     },
   };
   const bugun = new Date();
   bugun.setDate(bugun.getDate() );
-  const yarin = new Date();
-  yarin.setDate(yarin.getDate() + 1);
-console.log(bugun)
-
 
 
 function getDateItems(hours: number) {
@@ -69,34 +66,39 @@ function getDateItems(hours: number) {
   var result = [];
   
   while (toDate >= fromDate) {
-    /* result.push(toDate.getFullYear() + "-" + ("00" + (toDate.getMonth() + 1)).slice(-2) + "-" + ("00" + toDate.getDate()).slice(-2) + " " + ("00" + toDate.getHours()).slice(-2) + ":" + ("00" + toDate.getMinutes()).slice(-2) + ":" + ("00" + toDate.getSeconds()).slice(-2)); */
-    result.push(("00" + toDate.getDate()).slice(-2) + " " +("00" + (toDate.getMonth() + 1)).slice(-2) + "-" + ("00" + toDate.getHours()).slice(-2) + ":" + ("00" + toDate.getMinutes()).slice(-2) + ":" + ("00" + toDate.getSeconds()).slice(-2));
+     result.push(toDate.getFullYear() + "-" + ("00" + (toDate.getMonth() + 1)).slice(-2) + "-" + ("00" + toDate.getDate()).slice(-2) + " " + ("00" + toDate.getHours()).slice(-2) + ":" + ("00" + toDate.getMinutes()).slice(-2) + ":" + ("00" + toDate.getSeconds()).slice(-2)); 
+    //-result.push(("00" + toDate.getDate()).slice(-2) + " " +("00" + (toDate.getMonth() + 1)).slice(-2) + "-" + ("00" + toDate.getHours()).slice(-2) + ":" + ("00" + toDate.getMinutes()).slice(-2) + ":" + ("00" + toDate.getSeconds()).slice(-2));
     // consider using moment.js library to format date
     
-    toDate.setTime(toDate.getTime() - (1 * 60 * 60 ));
+    toDate.setTime(toDate.getTime() - (1 * 60 * 60  *1000));
   }
 
   return result;
 }
 
-var labels = getDateItems(24);
+var labels = getDateItems(24).reverse();
 var datesFrom48Hours = getDateItems(48);
-console.log(labels);
   const rakamlarx : any = [];
   const rakamlary : any= [];
-  const labelsold = [bugun.toLocaleDateString("en-US", { day: 'numeric', month: 'short' }), yarin.toLocaleDateString("en-US", { day: 'numeric', month: 'short' }), 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  const usdtnumber = [1, 1, 1.1, 1,1,1, 1,1.1, 1, 1, 1.1,1];
-  const usdcnumber = [1, 1.1, 1.1, 1,1,1, 1,1.1, 1, 1, 1.1,1];
-  
-  for (let i = 0; i < 12; i++) {
-    chance.integer({ min: 0, max: 100})
-    
-    rakamlarx.push(Number(chance.integer({ min: 0, max: 100 })));
-    rakamlary.push(Number(chance.integer({ min: 0, max: 100 })));
 
+  const usdtnumber: Array<Number> = [];
+
+  const usdcnumber:Array<Number>  = [];
+  
+  for (let i = 0; i < 24; i++) {
     
+    usdtnumber.push(chance.integer({ min:1, max: 5}));
+
+  
     
   }
+  console.log(usdtnumber);
+  for (let i = 0; i < 24; i++) {
+    usdcnumber.push(chance.integer({ min: 0.99, max: 1.3}))
+
+    
+  }console.log("------------");
+  console.log(usdtnumber);
 
 
   /* https://docs.google.com/spreadsheets/d/e/2PACX-1vTFdDx6GqM9bFDv_GsJEX90DUOYImOKx7h5M4rVw7TD9sB59g5rRLfK0TlokXdtgJMuD50foANzxBCy/pub?gid=573999951&single=true&output=csv */
@@ -113,32 +115,29 @@ console.log(labels);
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
-      {
-        label: 'USDC',
-        data: labels.map(() => usdcnumber),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
+ 
     ],
   };
 
 
 const ChartContent: NextPage<Props> = (props: {
 
-
-  datacurrencies: PropsWithChildren<Props>;
-  sentence: string;
+  sentence: string;  
+ 
+  datacurrencies?: Array<undefined>;
   
 }) => {
 
 
-console.log(props.datacurrencies);
-const usdc = props.datacurrencies
+
+
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-90">
       <div className="">
         <div className="">
           <p className="pt-4 ml-5 text-lg font-normal">USDT / USDC</p>
+          {console.log(props.datacurrencies?.length)} 
+
 
           {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
           <p className="mt-4 ml-5 text-base font-normal">
