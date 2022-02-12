@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { PropsWithChildren, useEffect, useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import SidebarNavigation from "../components/SidebarNavigation";
@@ -7,8 +7,60 @@ import SwapContent from "../components/SwapContent";
 import ChartContent from "../components/ChartContent";
 import SidebarLogo from "../components/SidebarLogo";
 import MobileLogo from "../components/MobileLogo";
-const Swap: NextPage = (props) => {
+import { data } from "cheerio/lib/api/attributes";
+interface Props {
+  sentence: string;
+  datacurrencies: any;
+}
+
+const currencies = [
+  {
+    fiatSymbol: "USD",
+    cryptoSymbol: "USDC",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+  },
+  {
+    fiatSymbol: "AUD",
+    cryptoSymbol: "AUDT",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/8123.png",
+  },
+  {
+    fiatSymbol: "EUR",
+    cryptoSymbol: "EURS",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/2989.png",
+  },
+  {
+    fiatSymbol: "CHF",
+    cryptoSymbol: "XCHF",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/4075.png",
+  },
+  {
+    fiatSymbol: "NZD",
+    cryptoSymbol: "NZDs",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/5494.png",
+  },
+  {
+    fiatSymbol: "JPY",
+    cryptoSymbol: "JPYC",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/9045.png",
+  },
+  {
+    fiatSymbol: "TRY",
+    cryptoSymbol: "TRYB",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/5181.png",
+  },
+  {
+    fiatSymbol: "BRL",
+    cryptoSymbol: "BRZ",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/4139.png",
+  },
+];
+
+
+const Swap: NextPage<Props> = (props) => {
+  
   const [isExpanded, toggleExpansion] = useState(true);
+  const { datacurrencies } = props;
 
   return (
     <div className="relative min-h-screen md:flex">
@@ -55,7 +107,8 @@ const Swap: NextPage = (props) => {
             <SwapContent />
           </div>
           <div>
-            <ChartContent sentence={""}/>
+          
+            <ChartContent datacurrencies={props} sentence={""}/>
           </div>
         </div>
       </div>
@@ -64,3 +117,40 @@ const Swap: NextPage = (props) => {
 };
 
 export default Swap;
+
+
+
+export async function getServerSideProps() {
+  const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
+  const endpoint = "https://api.currencylayer.com/live";
+  const sourceCurrencyPairs = currencies.map((source) => ({
+    ...source,
+    currencies: currencies
+      .map(({ fiatSymbol }) => fiatSymbol)
+      .filter((currency) => currency !== source.fiatSymbol),
+  }));
+
+  const pairs = await Promise.all(
+    sourceCurrencyPairs.map(async (pair) => {
+      const url = `${endpoint}?access_key=${accessKey}&source=${
+        pair.fiatSymbol
+      }&date=2010-08-01&currencies=${pair.currencies.join(",")}&format=1`;
+      return {
+        ...pair,
+        quotes: (await (await fetch(url)).json()).quotes,
+      };
+    })
+  );
+
+  if (!pairs) {
+    return {
+      notFound: true,
+    };
+  }
+  return {
+    props: {
+      data: pairs,
+    },
+    // will be passed to the page component as props
+  };
+}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 /* import { useRouter } from "next/router"; */
-import { useEffect, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -34,6 +34,7 @@ ChartJS.register(
 interface Props {
 
   sentence: string;
+  datacurrencies: any;
 
   }
 
@@ -53,6 +54,7 @@ interface Props {
       },
     },
   };
+
   const rakamlarx : any = [];
   const rakamlary : any= [];
   const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -64,24 +66,26 @@ interface Props {
     
     rakamlarx.push(Number(chance.integer({ min: 0, max: 100 })));
     rakamlary.push(Number(chance.integer({ min: 0, max: 100 })));
-    console.log ("no." + chance.integer({ min: 0, max: 100}));
+
+    
     
   }
   /* https://docs.google.com/spreadsheets/d/e/2PACX-1vTFdDx6GqM9bFDv_GsJEX90DUOYImOKx7h5M4rVw7TD9sB59g5rRLfK0TlokXdtgJMuD50foANzxBCy/pub?gid=573999951&single=true&output=csv */
   
-  console.log (rakamlarx);
 
-  export const data = {
+  
+
+  export const datachart = {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'USDT',
         data: labels.map(() => usdtnumber),
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
-        label: 'Dataset 2',
+        label: 'USD',
         data: labels.map(() => usdcnumber),
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
@@ -92,10 +96,14 @@ interface Props {
 
 const ChartContent: NextPage<Props> = (props: {
 
+
+  datacurrencies: PropsWithChildren<Props>;
+  sentence: string;
+  
 }) => {
 
 
-
+console.log(props.datacurrencies);
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-112 lg:w-112 md:w-112 sm:w-112 xs:w-90">
       <div className="">
@@ -116,7 +124,7 @@ const ChartContent: NextPage<Props> = (props: {
   
      
         <div className=" h-72">
-        <Line options={options} data={data} />
+        <Line options={options} data={datachart} />
         </div>
         <div className="flex items-center justify-between p-2 ml-4 mr-4 rounded bg-lagrangegraybackground">
           {" "}
