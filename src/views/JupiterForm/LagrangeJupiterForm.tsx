@@ -220,7 +220,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                       >
-                        <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base rounded-md shadow-lg bg-lagrangegraybackground max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                        <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto rounded-md shadow-lg bg-lagrangeborder max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                           {allTokenMints
                             .filter((item) =>
                               TrustedTokenAddresses.includes(item)
@@ -252,7 +252,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                     <span
                                       className={`${
                                         selected ? "font-medium" : "font-normal"
-                                      } block truncate text-white text-base ml-2`}
+                                      } block truncate text-white text-sm ml-2`}
                                     >
                                       {tokenMap.get(tokenMint)?.symbol ||
                                         "unknown"}
@@ -396,7 +396,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                           </>
                         )}
 
-                        <span className="px-2 text-white truncate sm:text-lg xs:text-sm">
+                        <span className="px-2  text-white truncate sm:text-base xs:text-sm">
                           {outputTokenInfo?.symbol}
                           {/* {outputTokenInfo?.name} */}
                         </span>
@@ -433,7 +433,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                 value={tokenMint}
                               >
                                 {({ selected, active }) => (
-                                  <div className="flex items-center">
+                                  <div className="flex justify-self-center">
                                     <Image
                                       src={`${
                                         tokenMap.get(tokenMint)?.logoURI
@@ -445,7 +445,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                                     <span
                                       className={`${
                                         selected ? "font-medium" : "font-normal"
-                                      } block truncate text-white text-base ml-4`}
+                                      } block truncate text-white text-sm ml-2`}
                                     >
                                       {" "}
                                       {tokenMap.get(tokenMint)?.symbol ||

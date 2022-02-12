@@ -15,8 +15,7 @@ import {
 import { Line } from 'react-chartjs-2';
 var Chance = require('chance');
 var chance = new Chance();
-var my_random_string = chance.integer({ min: -20, max: 20 })
-console.log(my_random_string);
+
 /* import ChartLine from "../../public/Chartstabil.png"; */
 import SelectDownIcon from "../../public/select-down.png";
 
@@ -54,9 +53,12 @@ interface Props {
       },
     },
   };
-  const rakamlarx: any= [];
-  const rakamlary: any = [];
+  const rakamlarx : any = [];
+  const rakamlary : any= [];
   const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const usdtnumber = [1, 1, 1.1, 1,1,1, 1,1.1, 1, 1, 1.1,1];
+  const usdcnumber = [1, 1.1, 1.1, 1,1,1, 1,1.1, 1, 1, 1.1,1];
+  
   for (let i = 0; i < 12; i++) {
     chance.integer({ min: 0, max: 100})
     
@@ -65,6 +67,8 @@ interface Props {
     console.log ("no." + chance.integer({ min: 0, max: 100}));
     
   }
+  /* https://docs.google.com/spreadsheets/d/e/2PACX-1vTFdDx6GqM9bFDv_GsJEX90DUOYImOKx7h5M4rVw7TD9sB59g5rRLfK0TlokXdtgJMuD50foANzxBCy/pub?gid=573999951&single=true&output=csv */
+  
   console.log (rakamlarx);
 
   export const data = {
@@ -72,13 +76,13 @@ interface Props {
     datasets: [
       {
         label: 'Dataset 1',
-        data: labels.map(() => rakamlary),
+        data: labels.map(() => usdtnumber),
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
         label: 'Dataset 2',
-        data: labels.map(() => rakamlary),
+        data: labels.map(() => usdcnumber),
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
