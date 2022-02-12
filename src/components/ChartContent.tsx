@@ -33,7 +33,7 @@ ChartJS.register(
   Legend
 );
 interface Props {
-  coinList: Array<any>;
+
   sentence: string;
 
   }
@@ -62,7 +62,7 @@ interface Props {
     rakamlar.push(chance.integer({ min: 0, max: 100}));
     console.log ("no." + chance.integer({ min: 0, max: 100}));
   }
- 
+  document.write(arr.join(", "));
   console.log(rakamlar);
   export const data = {
     labels,
@@ -163,7 +163,7 @@ const ChartContent: NextPage<Props> = (props: {
 export default ChartContent;
 
 export async function getServerSideProps(context: any) {
-
+/* 
   const coinList = await fetch('https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', { 
     method: 'GET',
     headers: {
@@ -171,11 +171,11 @@ export async function getServerSideProps(context: any) {
       'X-CMC_PRO_API_KEY': '134ef0ef-be0e-44a4-8b21-ed45afc54cdb'
     }
   
-  }).then((res) => res.json());
+  }).then((res) => res.json()); */
   
     return {
       props: {
-        coinLists : coinList.data
+        
       }
     }
   
