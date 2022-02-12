@@ -66,7 +66,7 @@ function getDateItems(hours: number) {
   var result = [];
   
   while (toDate >= fromDate) {
-     result.push(toDate.getFullYear() + "-" + ("00" + (toDate.getMonth() + 1)).slice(-2) + "-" + ("00" + toDate.getDate()).slice(-2) + " " + ("00" + toDate.getHours()).slice(-2) + ":" + ("00" + toDate.getMinutes()).slice(-2) + ":" + ("00" + toDate.getSeconds()).slice(-2)); 
+     result.push(("00" + (toDate.getMonth() + 1)).slice(-2) + "-" + ("00" + toDate.getDate()).slice(-2) + " " + ("00" + toDate.getHours()).slice(-2) + ":" + ("00" + toDate.getMinutes()).slice(-2) + ":" + ("00" + toDate.getSeconds()).slice(-2)); 
     //-result.push(("00" + toDate.getDate()).slice(-2) + " " +("00" + (toDate.getMonth() + 1)).slice(-2) + "-" + ("00" + toDate.getHours()).slice(-2) + ":" + ("00" + toDate.getMinutes()).slice(-2) + ":" + ("00" + toDate.getSeconds()).slice(-2));
     // consider using moment.js library to format date
     
@@ -87,14 +87,14 @@ var datesFrom48Hours = getDateItems(48);
   
   for (let i = 0; i < 24; i++) {
     
-    usdtnumber.push(chance.integer({ min:1, max: 1.1}));
+    usdtnumber.push(chance.integer({ min:0.95, max: 1.1}));
 
   
     
   }
   console.log(usdtnumber);
   for (let i = 0; i < 24; i++) {
-    usdcnumber.push(chance.integer({ min: 0.99, max: 1.3}))
+    usdcnumber.push(chance.integer({ min: 0.99, max: 1.1}))
 
     
   }console.log("------------");
@@ -112,13 +112,13 @@ var datesFrom48Hours = getDateItems(48);
 
       {
         label: 'USDT',
-        data: labels.map(() => Number(chance.floating({ min: 0.9, max: 1.1 }))),
+        data: labels.map(() => Number(chance.floating({ min: 0.95, max: 1.1 }))),
         borderColor: 'rgba(43, 48, 185, 1)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
         label: 'USDc',
-        data: labels.map(() => Number(chance.floating({ min: 0.9, max: 1.1 }))),
+        data: labels.map(() => Number(chance.floating({ min: 0.95, max: 1.1 }))),
         borderColor: 'rgba(46, 218, 175, 1)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
