@@ -87,7 +87,7 @@ var datesFrom48Hours = getDateItems(48);
   
   for (let i = 0; i < 24; i++) {
     
-    usdtnumber.push(chance.integer({ min:1, max: 5}));
+    usdtnumber.push(chance.integer({ min:1, max: 1.1}));
 
   
     
@@ -109,10 +109,17 @@ var datesFrom48Hours = getDateItems(48);
   export const datachart = {
     labels,
     datasets: [
+
       {
         label: 'USDT',
-        data: labels.map(() => usdtnumber),
-        borderColor: 'rgb(255, 99, 132)',
+        data: labels.map(() => Number(chance.floating({ min: 0.9, max: 1.1 }))),
+        borderColor: 'rgba(43, 48, 185, 1)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+      {
+        label: 'USDc',
+        data: labels.map(() => Number(chance.floating({ min: 0.9, max: 1.1 }))),
+        borderColor: 'rgba(46, 218, 175, 1)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
  
