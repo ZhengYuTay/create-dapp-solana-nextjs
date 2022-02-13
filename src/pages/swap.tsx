@@ -181,7 +181,7 @@ export async function getServerSideProps() {
   }
 
 
-  const responseusdt = await fetch(`http://localhost:3000/api/usdt`);
+  const responseusdt = await fetch(`https://lagrange.fi/api/usdt`);
   const usdt = await responseusdt.json();
 
 
