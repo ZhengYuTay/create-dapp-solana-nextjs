@@ -65,12 +65,14 @@ interface Props {
 
 
 const Swap: NextPage<Props> = (props) => {
+  const [parentName, setParentName] = useState<string>('John Obi')
   
   const [isExpanded, toggleExpansion] = useState(true);
 
-
-
-
+  const [chartData, setChartData] = useState([]);
+  const changeChartData = (arg: React.SetStateAction<never[]>) => {
+    setChartData(arg);
+  };
   return (
     <div className="relative min-h-screen md:flex">
       <Head>
@@ -113,7 +115,8 @@ const Swap: NextPage<Props> = (props) => {
         <ContentHeader />
         <div className="flex xxl:pl-5 pt-5  xl:pl-5 lg:pl-5 md:pl-5 xs:pl-0 xs:flex-wrap md:justify-start sm:justify-center xs:justify-center">
           <div>
-            <SwapContent />
+
+            <SwapContent/>
           </div>
           <div className="xxl:pl-5 xl:pl-5 lg:pl-5 md:pl-0">
           
@@ -190,6 +193,7 @@ export async function getServerSideProps() {
       /* data: pairs, */
       historicaldata: nomiccurrencies,
       usdt: usdt,
+      
       
     },
     // will be passed to the page component as props

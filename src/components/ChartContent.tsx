@@ -14,15 +14,15 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-var Chance = require("chance");
-var chance = new Chance();
+
 
 /* import ChartLine from "../../public/Chartstabil.png"; */
 import SelectDownIcon from "../../public/select-down.png";
 
 import type { NextPage } from "next";
 import { randomInt } from "crypto";
-
+var Chance = require("chance");
+var chance = new Chance();
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -85,7 +85,27 @@ function getDateItems(hours: number) {
   return result;
 }
 
-var labels = getDateItems(24).reverse();
+
+
+function Last7Days () {
+  return '0123456'.split('').map(function(n: any) {
+      var d = new Date();
+      d.setDate(d.getDate() - n);
+      
+      return (function(day, month, year) {
+          return [day<10 ? '0'+day : day, month<10 ? '0'+month : month, year].join('/');
+      })(d.getDate(), d.getMonth(), d.getFullYear());
+  }).join(',');
+}
+
+
+const yedigun = Last7Days();
+console.log(yedigun)
+
+/* var labels = getDateItems(24).reverse(); */
+
+var labels = [ 7, 6, 5, 4, 3, 2, 1, 0];
+
 var datesFrom48Hours = getDateItems(48);
 const rakamlarx: any = [];
 const rakamlary: any = [];
@@ -94,11 +114,11 @@ const usdtnumber: Array<Number> = [];
 
 const usdcnumber: Array<Number> = [];
 
-for (let i = 0; i < 24; i++) {
+for (let i = 0; i < 7; i++) {
   usdtnumber.push(chance.integer({ min: 0.95, max: 1.1 }));
 }
 
-for (let i = 0; i < 24; i++) {
+for (let i = 0; i < 7; i++) {
   usdcnumber.push(chance.integer({ min: 0.99, max: 1.1 }));
 }
 
@@ -116,7 +136,7 @@ const ChartContent: NextPage<Props> = (props: {
   usdt?: Array<undefined>;
   
 }) => {
-  console.log(props.usdt);
+
   const datachart = {
   labels,
   datasets: [
@@ -166,7 +186,7 @@ const ChartContent: NextPage<Props> = (props: {
 
           </div>
           
-          {console.log(props.usdt)}
+      
 
           {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
           <p className="mt-4 ml-5 text-xs font-normal">
