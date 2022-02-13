@@ -263,7 +263,7 @@ const ChartContent: NextPage<Props> = (props: {
               
               return item["1d"].price_change > 0 ? (
                 <>
-                  <p className="pr-2 font-normal text-lagrange-buttonpro-blue sm:text-lgs xs:text-xs">
+                  <p className="pr-2 font-normal text-lagrange-buttonpro-blue sm:text-lg xs:text-xs">
                   %  {item["1d"].price_change}
                   </p>
                 </>
