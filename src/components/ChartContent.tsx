@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 /* import { useRouter } from "next/router"; */
 import { ReactNode, useEffect, useState } from "react";
 import {
@@ -40,6 +40,7 @@ interface Props {
   exchangedata?: Array<undefined>;
   historicprice?: Array<undefined>;
   hi?: Array<undefined>;
+  usdt?: Array<undefined>;
 }
 
 export const options = {
@@ -129,6 +130,8 @@ const ChartContent: NextPage<Props> = (props: {
   exchangedata?: Array<undefined>;
   historicprice?: Array<undefined>;
   hi?: Array<undefined>;
+  usdt?: Array<undefined>;
+  
 }) => {
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-90">
@@ -161,7 +164,7 @@ const ChartContent: NextPage<Props> = (props: {
 
           </div>
           
-          {console.log(props.sentence)}
+          {console.log(props.usdt)}
 
           {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
           <p className="mt-4 ml-5 text-xs font-normal">
@@ -241,7 +244,7 @@ const ChartContent: NextPage<Props> = (props: {
           <div className="flex items-center space-x-2">
 
           {props.sentence?.slice(1, 2)?.map((item: any, index: any) => {
-              console.log(item);
+            
               return item.price > 0 ? (
                 <>
                  <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">{item.price}$</p>
@@ -280,3 +283,5 @@ const ChartContent: NextPage<Props> = (props: {
   );
 };
 export default ChartContent;
+
+

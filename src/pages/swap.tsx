@@ -18,6 +18,7 @@ interface Props {
   datacurrencies: any;
   historicprice: any;
   hi: any;
+  usdt: any;
  
 }let currencieslocal = [
   {
@@ -116,7 +117,7 @@ const Swap: NextPage<Props> = (props) => {
           </div>
           <div className="xxl:pl-5 xl:pl-5 lg:pl-5 md:pl-0">
           
-            <ChartContent datacurrencies={props.data} sentence={props.historicaldata} exchangedata={props.exchangedata} hi={props.hi} />
+            <ChartContent datacurrencies={props.data} sentence={props.historicaldata} exchangedata={props.exchangedata} hi={props.hi} usdt={props.usdt} />
           </div>
         </div>
       </div>
@@ -180,26 +181,19 @@ export async function getServerSideProps() {
   }
 
 
-  /* https://api.nomics.com/v1/exchange-rates/history?key=f5b3378230993f0291d6455887fae08ad928666d&currency=USDT&start=2021-05-02T00%3A00%3A00Z&end=2021-05-14T00%3A00%3A00Z */
+  const responseusdt = await fetch(`http://localhost:3000/api/usdt`);
+  const usdt = await responseusdt.json();
 
-/*   if (!pairs) {
-    return {
-      notFound: true,
-    };
-  } */
-
-
-  console.log(historicprice);
 
   return {
     props: {
       /* data: pairs, */
       historicaldata: nomiccurrencies,
+      usdt: usdt,
       
     },
     // will be passed to the page component as props
   };
 }
-
 
 

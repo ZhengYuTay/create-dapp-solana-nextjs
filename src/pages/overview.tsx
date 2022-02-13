@@ -5,7 +5,7 @@ import SidebarNavigation from "../components/SidebarNavigation";
 import MobileLogo from "../components/MobileLogo";
 import type { NextPage } from "next";
 import Image from "next/image";
-import { type } from "os";
+
 import EURS from "../../public/coin/2989.png";
 import JPYC from "../../public/coin/9045.png";
 import TRYB from "../../public/coin/5181.png";
