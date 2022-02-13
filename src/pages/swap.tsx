@@ -118,11 +118,11 @@ const Swap: NextPage<Props> = (props) => {
 
       <div className="flex-1 text-xl font-bold bg-gradient-to-r from-lagrangelight to-lagrangedark">
         <ContentHeader />
-        <div className="flex p-6 xs:flex-wrap md:justify-start sm:justify-center xs:justify-center">
+        <div className="flex xxl:pl-5 pt-5  xl:pl-5 lg:pl-5 md:pl-5 xs:pl-0 xs:flex-wrap md:justify-start sm:justify-center xs:justify-center">
           <div>
             <SwapContent />
           </div>
-          <div className="pl-5">
+          <div className="xxl:pl-5 xl:pl-5 lg:pl-5 md:pl-0">
           
             <ChartContent datacurrencies={props.data} sentence={props.historicaldata} exchangedata={props.exchangedata} />
           </div>
