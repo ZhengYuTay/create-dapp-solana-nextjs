@@ -131,11 +131,36 @@ const ChartContent: NextPage<Props> = (props: {
       <div className="">
         <div className="">
           <p className="pt-4 ml-5 text-lg font-normal">USDT / USDC</p>
+          <div className="flex items-center">
 
+          {props.sentence?.slice(0, 1)?.map((item: any, index: any) => {
+              
+              return item.price > 0 ? (
+                <>
+                 <p className="pl-5 font-normal text-xs">{item.price} $</p>
+                </>
+              ) : (
+                <>
+                </>
+              );
+            })}  {props.sentence?.slice(1, 2)?.map((item: any, index: any) => {
+     
+              return item.price > 0 ? (
+                <>
+                 <p className="pl-1 font-normal text-xs"> / {item.price} $</p>
+                </>
+              ) : (
+                <>
+                </>
+              );
+            })}
+
+          </div>
+          
           {console.log(props.sentence)}
 
           {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
-          <p className="mt-4 ml-5 text-base font-normal">
+          <p className="mt-4 ml-5 text-xs font-normal">
             {" "}
             {new Date().getDate()}
             {"/"}
@@ -146,7 +171,7 @@ const ChartContent: NextPage<Props> = (props: {
           </p>
         </div>
 
-        <div className=" h-72">
+        <div className=" h-auto">
           <Line options={options} data={datachart} />
         </div>
         <div className="flex items-center justify-between p-2 ml-4 mr-4 rounded bg-lagrangegraybackground">
@@ -167,10 +192,10 @@ const ChartContent: NextPage<Props> = (props: {
               console.log(item);
               return item.price > 0 ? (
                 <>
-                 <p className="pr-2 font-normal text-white">{item.price}$</p>
+                 <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">{item.price} $</p>
                 </>
               ) : (
-                <p className="pr-2 font-normal text-white">{item.price}$</p>
+                <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">{item.price} $</p>
               );
             })}
 
@@ -179,13 +204,13 @@ const ChartContent: NextPage<Props> = (props: {
               console.log(item["1d"].price_change);
               return item["1d"].price_change > 0 ? (
                 <>
-                  <p className="pr-2 font-normal text-lagrange-buttonpro-blue">
-                    {item["1d"].price_change}
+                  <p className="pr-2 font-normal text-lagrange-buttonpro-blue sm:text-lg xs:text-xs">
+                    % {item["1d"].price_change}
                   </p>
                 </>
               ) : (
-                <p className="pr-2 font-normal text-lagrangered">
-                  {item["1d"].price_change}
+                <p className="pr-2 font-normal text-lagrangered sm:text-lg xs:text-xs">
+                  %{item["1d"].price_change}
                 </p>
               );
             })}
@@ -215,10 +240,10 @@ const ChartContent: NextPage<Props> = (props: {
               console.log(item);
               return item.price > 0 ? (
                 <>
-                 <p className="pr-2 font-normal text-white">{item.price}$</p>
+                 <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">{item.price}$</p>
                 </>
               ) : (
-                <p className="pr-2 font-normal text-white">{item.price}$</p>
+                <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">{item.price} $</p>
               );
             })}
 
@@ -229,13 +254,13 @@ const ChartContent: NextPage<Props> = (props: {
               console.log(item["1d"].price_change);
               return item["1d"].price_change > 0 ? (
                 <>
-                  <p className="pr-2 font-normal text-lagrange-buttonpro-blue">
-                    {item["1d"].price_change}
+                  <p className="pr-2 font-normal text-lagrange-buttonpro-blue sm:text-lgs xs:text-xs">
+                  %  {item["1d"].price_change}
                   </p>
                 </>
               ) : (
-                <p className="pr-2 font-normal text-lagrangered">
-                  {item["1d"].price_change}
+                <p className="pr-2 font-normal text-lagrangered sm:text-lg xs:text-xs">
+                 % {item["1d"].price_change}
                 </p>
               );
             })}

@@ -122,7 +122,7 @@ const Swap: NextPage<Props> = (props) => {
           <div>
             <SwapContent />
           </div>
-          <div className="p-0 pt-2">
+          <div className="pl-5">
           
             <ChartContent datacurrencies={props.data} sentence={props.historicaldata} exchangedata={props.exchangedata} />
           </div>
@@ -169,7 +169,7 @@ export async function getServerSideProps() {
       Limit the returned currencies to the ones in the following array. If not
       specified, **all** will be returned
     */
-    ids: ['USDT','USDC','AUDT','EURS','XCHF','NZDs','JPYC','TRYB','BRZ'],
+    ids: ['USDT','USDC','EURS','TRYB','BRZ'],
     /*
       Specify the currency to quote all returned prices in
     */
@@ -202,10 +202,4 @@ export async function getServerSideProps() {
 }
 
 
-
-
-
-function nomiccurrencies(nomiccurrencies: any) {
-  throw new Error("Function not implemented.");
-}
 
