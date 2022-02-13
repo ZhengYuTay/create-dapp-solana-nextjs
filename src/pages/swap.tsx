@@ -67,14 +67,7 @@ interface Props {
 const Swap: NextPage<Props> = (props) => {
   
   const [isExpanded, toggleExpansion] = useState(true);
-  const [currencies, setCurrencies] = useState(currencieslocal);
-  const [historicaldata, setHistoricaldata] = useState([]);
-  const [exchangedata, setExchangedata] = useState([]);
-  const [data, setData] = useState([]);
-  const [sentence, setSentence] = useState([]);
-  const [coinList, setCoinList] = useState([]);
-  const [datacurrencies, setDatacurrencies] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+
 
 
 
@@ -137,7 +130,7 @@ export default Swap;
 
 
 export async function getServerSideProps() {
-  const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
+  /* const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
   const endpoint = "https://api.currencylayer.com/historical";
   const sourceCurrencyPairs = currencieslocal.map((source) => ({
     ...source,
@@ -155,7 +148,9 @@ export async function getServerSideProps() {
         quotes: (await (await fetch(url)).json()).quotes,
       };
     })
-  );
+  ); */
+
+
   const nomics = new Nomics({
     apiKey: "f5b3378230993f0291d6455887fae08ad928666d"
   });let nomiccurrencies : any = await nomics.currenciesTicker({
@@ -173,10 +168,12 @@ export async function getServerSideProps() {
     /*
       Specify the currency to quote all returned prices in
     */
-    quoteCurrency: "USD", // [DEPRECATED] use "convert" below instead
+// [DEPRECATED] use "convert" below instead
     convert: "USD", // defaults to "USD"
   }).then(nomiccurrencies => (nomiccurrencies));
+  
 
+  
   
   if (!nomiccurrencies) {
     return {
@@ -185,16 +182,21 @@ export async function getServerSideProps() {
   }
 
 
-  if (!pairs) {
+  /* https://api.nomics.com/v1/exchange-rates/history?key=f5b3378230993f0291d6455887fae08ad928666d&currency=USDT&start=2021-05-02T00%3A00%3A00Z&end=2021-05-14T00%3A00%3A00Z */
+
+/*   if (!pairs) {
     return {
       notFound: true,
     };
-  }
+  } */
+
+
+  
+
   return {
     props: {
-      data: pairs,
+      /* data: pairs, */
       historicaldata: nomiccurrencies,
- 
       
     },
     // will be passed to the page component as props

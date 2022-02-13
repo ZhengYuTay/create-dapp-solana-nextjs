@@ -189,7 +189,7 @@ const ChartContent: NextPage<Props> = (props: {
           <div className="flex items-center space-x-2 font-normal">
             
           {props.sentence?.slice(0, 1)?.map((item: any, index: any) => {
-              console.log(item);
+            
               return item.price > 0 ? (
                 <>
                  <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">{item.price} $</p>
@@ -201,7 +201,7 @@ const ChartContent: NextPage<Props> = (props: {
 
 
             {props.sentence?.slice(0, 1)?.map((item: any, index: any) => {
-              console.log(item["1d"].price_change);
+              
               return item["1d"].price_change > 0 ? (
                 <>
                   <p className="pr-2 font-normal text-lagrange-buttonpro-blue sm:text-lg xs:text-xs">
@@ -251,7 +251,7 @@ const ChartContent: NextPage<Props> = (props: {
 
             
             {props.sentence?.slice(1, 2)?.map((item: any, index: any) => {
-              console.log(item["1d"].price_change);
+              
               return item["1d"].price_change > 0 ? (
                 <>
                   <p className="pr-2 font-normal text-lagrange-buttonpro-blue sm:text-lgs xs:text-xs">

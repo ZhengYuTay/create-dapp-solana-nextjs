@@ -5422,6 +5422,11 @@ svgo@^2.5.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
+swr@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-1.2.1.tgz#c21a4fe2139cb1c4630450589b5b5add947a9d41"
+  integrity sha512-1cuWXqJqXcFwbgONGCY4PHZ8v05009JdHsC3CIC6u7d00kgbMswNr1sHnnhseOBxtzVqcCNpOHEgVDciRer45w==
+
 table@^6.0.9:
   version "6.8.0"
   resolved "https://registry.npmjs.org/table/-/table-6.8.0.tgz"
