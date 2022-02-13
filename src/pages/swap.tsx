@@ -7,16 +7,20 @@ import SwapContent from "../components/SwapContent";
 import ChartContent from "../components/ChartContent";
 import SidebarLogo from "../components/SidebarLogo";
 import MobileLogo from "../components/MobileLogo";
-import Nomics, { IRawCurrencyTicker } from "nomics";
-import { useRouter } from "next/router";
+import Nomics from "nomics";
+import { Console } from "console";
+
 
 
 interface Props {
-  sentence: string;
+  sentence: any;
   data: any;
   historicaldata: any;  
+  exchangedata: any;
+  coinList: any;
+  datacurrencies: any;
  
-}let currencies = [
+}let currencieslocal = [
   {
     fiatSymbol: "USD",
     cryptoSymbol: "USDC",
@@ -63,9 +67,14 @@ interface Props {
 const Swap: NextPage<Props> = (props) => {
   
   const [isExpanded, toggleExpansion] = useState(true);
-  const { data } = props.data;
-
-
+  const [currencies, setCurrencies] = useState(currencieslocal);
+  const [historicaldata, setHistoricaldata] = useState([]);
+  const [exchangedata, setExchangedata] = useState([]);
+  const [data, setData] = useState([]);
+  const [sentence, setSentence] = useState([]);
+  const [coinList, setCoinList] = useState([]);
+  const [datacurrencies, setDatacurrencies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
 
 
@@ -115,7 +124,7 @@ const Swap: NextPage<Props> = (props) => {
           </div>
           <div className="p-0 pt-2">
           
-            <ChartContent datacurrencies={props.data} sentence={props.historicaldata}/>
+            <ChartContent datacurrencies={props.data} sentence={props.historicaldata} exchangedata={props.exchangedata} />
           </div>
         </div>
       </div>
@@ -130,16 +139,16 @@ export default Swap;
 export async function getServerSideProps() {
   const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
   const endpoint = "https://api.currencylayer.com/historical";
-  const sourceCurrencyPairs = currencies.map((source) => ({
+  const sourceCurrencyPairs = currencieslocal.map((source) => ({
     ...source,
-    currencies: currencies
+    currencieslocal: currencieslocal
       .map(({ fiatSymbol }) => fiatSymbol)
       .filter((currency) => currency !== source.fiatSymbol),
   }));
 
   const pairs = await Promise.all(
     sourceCurrencyPairs.map(async (pair) => {
-      const url = `${endpoint}?access_key=${accessKey}&date=2021-08-01&currencies=${pair.currencies.join(",")}`;
+      const url = `${endpoint}?access_key=${accessKey}&date=2021-08-01&currencies=${pair.currencieslocal.join(",")}`;
   
       return {
         ...pair,
@@ -166,27 +175,15 @@ export async function getServerSideProps() {
     */
     quoteCurrency: "USD", // [DEPRECATED] use "convert" below instead
     convert: "USD", // defaults to "USD"
-  }).then(nomiccurrencies => (nomiccurrencies));;
+  }).then(nomiccurrencies => (nomiccurrencies));
 
- /*  const client = await Promise.all( 
-
-    const nomiccurrencies: IRawCurrencyTicker[];
-  nomics.currenciesTicker({
   
-    interval: ['1d'], // '1d', '7d', '30d', '365d', 'ytd'
-    ids: ['BTC', 'ETH'],
-    quoteCurrency: "EUR", // [DEPRECATED] use "convert" below instead
-    convert: "EUR", // defaults to "USD"
-  }).then(ticker => (nomiccurrencies = ticker));
-  );
- */
-  
-
   if (!nomiccurrencies) {
     return {
       notFound: true,
     };
   }
+
 
   if (!pairs) {
     return {
@@ -197,8 +194,8 @@ export async function getServerSideProps() {
     props: {
       data: pairs,
       historicaldata: nomiccurrencies,
-     
-
+ 
+      
     },
     // will be passed to the page component as props
   };
