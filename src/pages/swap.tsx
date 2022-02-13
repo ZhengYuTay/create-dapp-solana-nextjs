@@ -8,9 +8,6 @@ import ChartContent from "../components/ChartContent";
 import SidebarLogo from "../components/SidebarLogo";
 import MobileLogo from "../components/MobileLogo";
 import Nomics from "nomics";
-import { Console } from "console";
-
-
 
 interface Props {
   sentence: any;
@@ -19,6 +16,8 @@ interface Props {
   exchangedata: any;
   coinList: any;
   datacurrencies: any;
+  historicprice: any;
+  hi: any;
  
 }let currencieslocal = [
   {
@@ -117,7 +116,7 @@ const Swap: NextPage<Props> = (props) => {
           </div>
           <div className="xxl:pl-5 xl:pl-5 lg:pl-5 md:pl-0">
           
-            <ChartContent datacurrencies={props.data} sentence={props.historicaldata} exchangedata={props.exchangedata} />
+            <ChartContent datacurrencies={props.data} sentence={props.historicaldata} exchangedata={props.exchangedata} hi={props.hi} />
           </div>
         </div>
       </div>
@@ -153,7 +152,8 @@ export async function getServerSideProps() {
 
   const nomics = new Nomics({
     apiKey: "f5b3378230993f0291d6455887fae08ad928666d"
-  });let nomiccurrencies : any = await nomics.currenciesTicker({
+  });
+  let nomiccurrencies : any = await nomics.currenciesTicker({
     /*
       Specify the interval for interval data in return
       One or more strings can be provided. If not provided, **all** are used.
@@ -172,8 +172,6 @@ export async function getServerSideProps() {
     convert: "USD", // defaults to "USD"
   }).then(nomiccurrencies => (nomiccurrencies));
   
-
-  
   
   if (!nomiccurrencies) {
     return {
@@ -191,7 +189,7 @@ export async function getServerSideProps() {
   } */
 
 
-  
+  console.log(historicprice);
 
   return {
     props: {

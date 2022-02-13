@@ -38,6 +38,8 @@ interface Props {
   datacurrencies?: Array<undefined>;
   historicaldata?: Array<undefined>;
   exchangedata?: Array<undefined>;
+  historicprice?: Array<undefined>;
+  hi?: Array<undefined>;
 }
 
 export const options = {
@@ -125,6 +127,8 @@ const ChartContent: NextPage<Props> = (props: {
   datacurrencies?: Array<undefined>;
   historicaldata?: Array<undefined>;
   exchangedata?: Array<undefined>;
+  historicprice?: Array<undefined>;
+  hi?: Array<undefined>;
 }) => {
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-90">
