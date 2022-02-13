@@ -7,13 +7,16 @@ import SwapContent from "../components/SwapContent";
 import ChartContent from "../components/ChartContent";
 import SidebarLogo from "../components/SidebarLogo";
 import MobileLogo from "../components/MobileLogo";
-import { data } from "cheerio/lib/api/attributes";
+import Nomics, { IRawCurrencyTicker } from "nomics";
+import { useRouter } from "next/router";
+
+
 interface Props {
   sentence: string;
-  datacurrencies: any;
-}
-
-const currencies = [
+  data: any;
+  historicaldata: any;  
+ 
+}let currencies = [
   {
     fiatSymbol: "USD",
     cryptoSymbol: "USDC",
@@ -60,7 +63,11 @@ const currencies = [
 const Swap: NextPage<Props> = (props) => {
   
   const [isExpanded, toggleExpansion] = useState(true);
-  const { datacurrencies } = props;
+  const { data } = props.data;
+
+
+
+
 
   return (
     <div className="relative min-h-screen md:flex">
@@ -108,7 +115,7 @@ const Swap: NextPage<Props> = (props) => {
           </div>
           <div className="p-0 pt-2">
           
-            <ChartContent datacurrencies={props.datacurrencies} sentence={""}/>
+            <ChartContent datacurrencies={props.data} sentence={props.historicaldata}/>
           </div>
         </div>
       </div>
@@ -140,6 +147,46 @@ export async function getServerSideProps() {
       };
     })
   );
+  const nomics = new Nomics({
+    apiKey: "f5b3378230993f0291d6455887fae08ad928666d"
+  });let nomiccurrencies : any = await nomics.currenciesTicker({
+    /*
+      Specify the interval for interval data in return
+      One or more strings can be provided. If not provided, **all** are used.
+      The intervals specified will affect what is returned in the response (see below)
+    */
+    interval: ['1h','1d','7d'], // '1d', '7d', '30d', '365d', 'ytd'
+    /*
+      Limit the returned currencies to the ones in the following array. If not
+      specified, **all** will be returned
+    */
+    ids: ['USDT','USDC','AUDT','EURS','XCHF','NZDs','JPYC','TRYB','BRZ'],
+    /*
+      Specify the currency to quote all returned prices in
+    */
+    quoteCurrency: "USD", // [DEPRECATED] use "convert" below instead
+    convert: "USD", // defaults to "USD"
+  }).then(nomiccurrencies => (nomiccurrencies));;
+
+ /*  const client = await Promise.all( 
+
+    const nomiccurrencies: IRawCurrencyTicker[];
+  nomics.currenciesTicker({
+  
+    interval: ['1d'], // '1d', '7d', '30d', '365d', 'ytd'
+    ids: ['BTC', 'ETH'],
+    quoteCurrency: "EUR", // [DEPRECATED] use "convert" below instead
+    convert: "EUR", // defaults to "USD"
+  }).then(ticker => (nomiccurrencies = ticker));
+  );
+ */
+  
+
+  if (!nomiccurrencies) {
+    return {
+      notFound: true,
+    };
+  }
 
   if (!pairs) {
     return {
@@ -149,7 +196,19 @@ export async function getServerSideProps() {
   return {
     props: {
       data: pairs,
+      historicaldata: nomiccurrencies,
+     
+
     },
     // will be passed to the page component as props
   };
 }
+
+
+
+
+
+function nomiccurrencies(nomiccurrencies: any) {
+  throw new Error("Function not implemented.");
+}
+

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import * as cheerio from 'cheerio';
-import Nomics from "nomics";
+
+
 /* import { useRouter } from "next/router"; */
 import {  ReactNode, useEffect, useState } from "react";
 import {
@@ -23,9 +23,6 @@ import SelectDownIcon from "../../public/select-down.png";
 
 import type { NextPage } from "next";
 import { randomInt } from "crypto";
-const nomics = new Nomics({
-  apiKey: "f5b3378230993f0291d6455887fae08ad928666d"
-});
 
 ChartJS.register(
   CategoryScale,
@@ -38,10 +35,11 @@ ChartJS.register(
 );
 interface Props {
 
-  sentence: string;
+  sentence?: Array<undefined>;
   coinList?: Array<undefined>;
   datacurrencies?: Array<undefined>;
-  currencies?: Array<undefined>;
+  historicaldata?: Array<undefined>;
+
   }
 
 
@@ -62,7 +60,7 @@ interface Props {
   };
   const bugun = new Date();
   bugun.setDate(bugun.getDate() );
-
+  
 
 function getDateItems(hours: number) {
   var toDate = new Date();
@@ -89,6 +87,8 @@ var datesFrom48Hours = getDateItems(48);
   const usdtnumber: Array<Number> = [];
 
   const usdcnumber:Array<Number>  = [];
+  
+
   
   for (let i = 0; i < 24; i++) {
     
@@ -121,7 +121,7 @@ var datesFrom48Hours = getDateItems(48);
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
-        label: 'USDc',
+        label: 'USDC',
         data: labels.map(() => Number(chance.floating({ min: 0.95, max: 1.1 }))),
         borderColor: 'rgba(46, 218, 175, 1)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
@@ -133,15 +133,13 @@ var datesFrom48Hours = getDateItems(48);
 
 const ChartContent: NextPage<Props> = (props: {
 
-  sentence: string;  
+  sentence?: Array<undefined>;  
   coinList?: Array<undefined>;
   datacurrencies?: Array<undefined>;
-  currencies?: Array<undefined>;
   
 }) => {
 
-console.log(props);
-
+ 
 
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-90">
@@ -149,7 +147,7 @@ console.log(props);
         <div className="">
           <p className="pt-4 ml-5 text-lg font-normal">USDT / USDC</p>
   
-
+{console.log(props.sentence)}
 
           {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
           <p className="mt-4 ml-5 text-base font-normal">
@@ -217,3 +215,4 @@ console.log(props);
   );
 };
 export default ChartContent;
+
