@@ -104,7 +104,20 @@ for (let i = 0; i < 24; i++) {
 
 /* https://docs.google.com/spreadsheets/d/e/2PACX-1vTFdDx6GqM9bFDv_GsJEX90DUOYImOKx7h5M4rVw7TD9sB59g5rRLfK0TlokXdtgJMuD50foANzxBCy/pub?gid=573999951&single=true&output=csv */
 
-export const datachart = {
+
+const ChartContent: NextPage<Props> = (props: {
+  sentence?: Array<undefined>;
+  coinList?: Array<undefined>;
+  datacurrencies?: Array<undefined>;
+  historicaldata?: Array<undefined>;
+  exchangedata?: Array<undefined>;
+  historicprice?: Array<undefined>;
+  hi?: Array<undefined>;
+  usdt?: Array<undefined>;
+  
+}) => {
+  console.log(props.usdt);
+  const datachart = {
   labels,
   datasets: [
     {
@@ -122,17 +135,6 @@ export const datachart = {
   ],
 };
 
-const ChartContent: NextPage<Props> = (props: {
-  sentence?: Array<undefined>;
-  coinList?: Array<undefined>;
-  datacurrencies?: Array<undefined>;
-  historicaldata?: Array<undefined>;
-  exchangedata?: Array<undefined>;
-  historicprice?: Array<undefined>;
-  hi?: Array<undefined>;
-  usdt?: Array<undefined>;
-  
-}) => {
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-90">
       <div className="">
