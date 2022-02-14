@@ -223,7 +223,7 @@ const ChartContent: NextPage<Props> = (props: {
           {" "}
           <div className="flex flex-wrap items-center self-center justify-center font-normal sm:text-2xl xs:text-xs">
             <Image
-              src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png"
+              src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
               alt="USDC"
               width={32}
               height={32}
@@ -271,7 +271,7 @@ const ChartContent: NextPage<Props> = (props: {
           {" "}
           <div className="flex flex-wrap items-center self-center justify-center font-normal sm:text-2xl xs:text-xs">
             <Image
-              src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
+              src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png"
               alt="USDC"
               width={32}
               height={32}
