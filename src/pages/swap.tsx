@@ -12,15 +12,16 @@ import Nomics from "nomics";
 interface Props {
   sentence: any;
   data: any;
-  historicaldata: any;  
+  historicaldata: any;
   exchangedata: any;
   coinList: any;
   datacurrencies: any;
   historicprice: any;
   hi: any;
   usdt: any;
- 
-}let currencieslocal = [
+  usdc: any;
+}
+let currencieslocal = [
   {
     fiatSymbol: "USD",
     cryptoSymbol: "USDC",
@@ -63,10 +64,9 @@ interface Props {
   },
 ];
 
-
 const Swap: NextPage<Props> = (props) => {
-  const [parentName, setParentName] = useState<string>('John Obi')
-  
+  const [parentName, setParentName] = useState<string>("John Obi");
+
   const [isExpanded, toggleExpansion] = useState(true);
 
   const [chartData, setChartData] = useState([]);
@@ -113,14 +113,19 @@ const Swap: NextPage<Props> = (props) => {
 
       <div className="flex-1 text-xl font-bold bg-gradient-to-r from-lagrangelight to-lagrangedark">
         <ContentHeader />
-        <div className="flex xxl:pl-5 pt-5  xl:pl-5 lg:pl-5 md:pl-5 xs:pl-0 xs:flex-wrap md:justify-start sm:justify-center xs:justify-center">
+        <div className="flex pt-5 xxl:pl-5 xl:pl-5 lg:pl-5 md:pl-5 xs:pl-0 xs:flex-wrap md:justify-start sm:justify-center xs:justify-center">
           <div>
-
-            <SwapContent/>
+            <SwapContent />
           </div>
           <div className="xxl:pl-5 xl:pl-5 lg:pl-5 md:pl-0">
-          
-            <ChartContent datacurrencies={props.data} sentence={props.historicaldata} exchangedata={props.exchangedata} hi={props.hi} usdt={props.usdt} />
+            <ChartContent
+              datacurrencies={props.data}
+              sentence={props.historicaldata}
+              exchangedata={props.exchangedata}
+              hi={props.hi}
+              usdt={props.usdt}
+              usdc={props.usdc}
+            />
           </div>
         </div>
       </div>
@@ -129,8 +134,6 @@ const Swap: NextPage<Props> = (props) => {
 };
 
 export default Swap;
-
-
 
 export async function getServerSideProps() {
   /* const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
@@ -153,51 +156,48 @@ export async function getServerSideProps() {
     })
   ); */
 
-
   const nomics = new Nomics({
-    apiKey: "f5b3378230993f0291d6455887fae08ad928666d"
+    apiKey: "f5b3378230993f0291d6455887fae08ad928666d",
   });
-  let nomiccurrencies : any = await nomics.currenciesTicker({
-    /*
+  let nomiccurrencies: any = await nomics
+    .currenciesTicker({
+      /*
       Specify the interval for interval data in return
       One or more strings can be provided. If not provided, **all** are used.
       The intervals specified will affect what is returned in the response (see below)
     */
-    interval: ['1h','1d','7d'], // '1d', '7d', '30d', '365d', 'ytd'
-    /*
+      interval: ["1h", "1d", "7d"], // '1d', '7d', '30d', '365d', 'ytd'
+      /*
       Limit the returned currencies to the ones in the following array. If not
       specified, **all** will be returned
     */
-    ids: ['USDT','USDC','EURS','TRYB','BRZ'],
-    /*
+      ids: ["USDT", "USDC", "EURS", "TRYB", "BRZ"],
+      /*
       Specify the currency to quote all returned prices in
     */
-// [DEPRECATED] use "convert" below instead
-    convert: "USD", // defaults to "USD"
-  }).then(nomiccurrencies => (nomiccurrencies));
-  
-  
+      // [DEPRECATED] use "convert" below instead
+      convert: "USD", // defaults to "USD"
+    })
+    .then((nomiccurrencies) => nomiccurrencies);
+
   if (!nomiccurrencies) {
     return {
       notFound: true,
     };
   }
 
-
   const responseusdt = await fetch(`https://lagrange.fi/api/usdt`);
   const usdt = await responseusdt.json();
 
-
+  const responseusdc = await fetch(`https://lagrange.fi/api/usdt`);
+  const usdc = await responseusdc.json();
   return {
     props: {
       /* data: pairs, */
       historicaldata: nomiccurrencies,
       usdt: usdt,
-      
-      
+      usdc: usdc,
     },
     // will be passed to the page component as props
   };
 }
-
-

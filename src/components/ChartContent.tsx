@@ -40,6 +40,7 @@ interface Props {
   historicprice?: Array<undefined>;
   hi?: Array<undefined>;
   usdt?: Array<undefined>;
+  usdc?: Array<undefined>;
 }
 
 export const options = {
@@ -148,13 +149,19 @@ const ChartContent: NextPage<Props> = (props: {
   historicprice?: Array<undefined>;
   hi?: Array<undefined>;
   usdt?: any;
+  usdc?: any;
 }) => {
   const usdtweekday: any = [];
-  console.log(props.usdt?.data.slice(-7));
+
   props.usdt?.data.slice(-7).map((_item: any) => {
     usdtweekday.push(Number(_item.rate));
   });
-  console.log(usdtweekday);
+
+  console.log(props);
+  /*   props.usdc?.data.slice(-7).map((_item: any) => {
+    usdcweekday.push(Number(_item.rate));
+  }); */
+
   const datachart = {
     labels,
     datasets: [
