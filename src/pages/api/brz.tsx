@@ -22,7 +22,7 @@ export default (_req: NextApiRequest, res: NextApiResponse<Data>) => {
   axios
     .get(
       `https://api.nomics.com/v1/exchange-rates/history?key=f5b3378230993f0291d6455887fae08ad928666d&currency=${encodeURIComponent(
-        "USDT"
+        "EURS"
       )}&start=${encodeURIComponent(
         weekago.toISOString()
       )}&end=${encodeURIComponent(bugun.toISOString())}`

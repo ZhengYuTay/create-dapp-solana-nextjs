@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 /* import { useRouter } from "next/router"; */
 import { ReactNode, useEffect, useState } from "react";
 import {
@@ -14,7 +14,6 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-
 
 /* import ChartLine from "../../public/Chartstabil.png"; */
 import SelectDownIcon from "../../public/select-down.png";
@@ -58,13 +57,13 @@ export const options = {
 const bugun = new Date();
 bugun.setDate(bugun.getDate());
 
-function getDateItems(hours: number) {
+/* function getDateItems(hours: number) {
   var toDate = new Date();
   var fromDate = new Date();
   fromDate.setTime(fromDate.getTime() - hours * 60 * 60 * 1000);
-  var result = [];
+  var result = []; */
 
-  while (toDate >= fromDate) {
+/*   while (toDate >= fromDate) {
     result.push(
       ("00" + (toDate.getMonth() + 1)).slice(-2) +
         "-" +
@@ -80,33 +79,49 @@ function getDateItems(hours: number) {
     // consider using moment.js library to format date
 
     toDate.setTime(toDate.getTime() - 1 * 60 * 60 * 1000);
-  }
+  } */
 
-  return result;
-}
+/*  return result;
+} */
 
-
-
-function Last7Days () {
-  return '0123456'.split('').map(function(n: any) {
+/* function Last7Days() {
+  return "0123456"
+    .split("")
+    .map(function (n: any) {
       var d = new Date();
       d.setDate(d.getDate() - n);
-      
-      return (function(day, month, year) {
-          return [day<10 ? '0'+day : day, month<10 ? '0'+month : month, year].join('/');
+
+      return (function (day, month, year) {
+        return [
+          day < 10 ? "0" + day : day,
+          month < 10 ? "0" + month : month,
+          year,
+        ].join("/");
       })(d.getDate(), d.getMonth(), d.getFullYear());
-  }).join(',');
+    })
+    .join(",");
 }
 
-
-const yedigun = Last7Days();
-console.log(yedigun)
+const yedigun = Last7Days(); */
+/* console.log(yedigun); */
 
 /* var labels = getDateItems(24).reverse(); */
 
-var labels = [ 7, 6, 5, 4, 3, 2, 1, 0];
+var weekday: any = [];
 
-var datesFrom48Hours = getDateItems(48);
+for (let i = 0; i < 7; i++) {
+  weekday.push(
+    "0" +
+      (bugun.getMonth() + 1) +
+      "-" +
+      ("00" + (bugun.getDate() - i)).slice(-2) +
+      " "
+  );
+}
+
+var labels: any = weekday.reverse();
+
+/* var datesFrom48Hours = getDateItems(48); */
 const rakamlarx: any = [];
 const rakamlary: any = [];
 
@@ -124,7 +139,6 @@ for (let i = 0; i < 7; i++) {
 
 /* https://docs.google.com/spreadsheets/d/e/2PACX-1vTFdDx6GqM9bFDv_GsJEX90DUOYImOKx7h5M4rVw7TD9sB59g5rRLfK0TlokXdtgJMuD50foANzxBCy/pub?gid=573999951&single=true&output=csv */
 
-
 const ChartContent: NextPage<Props> = (props: {
   sentence?: Array<undefined>;
   coinList?: Array<undefined>;
@@ -133,27 +147,31 @@ const ChartContent: NextPage<Props> = (props: {
   exchangedata?: Array<undefined>;
   historicprice?: Array<undefined>;
   hi?: Array<undefined>;
-  usdt?: Array<undefined>;
-  
+  usdt?: any;
 }) => {
-
+  const usdtweekday: any = [];
+  console.log(props.usdt?.data.slice(-7));
+  props.usdt?.data.slice(-7).map((_item: any) => {
+    usdtweekday.push(Number(_item.rate));
+  });
+  console.log(usdtweekday);
   const datachart = {
-  labels,
-  datasets: [
-    {
-      label: "USDT",
-      data: labels.map(() => Number(chance.floating({ min: 0.95, max: 1.1 }))),
-      borderColor: "rgba(43, 48, 185, 1)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-    {
-      label: "USDC",
-      data: labels.map(() => Number(chance.floating({ min: 0.95, max: 1.1 }))),
-      borderColor: "rgba(46, 218, 175, 1)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-  ],
-};
+    labels,
+    datasets: [
+      {
+        label: "USDT",
+        data: labels.map(() => usdtweekday),
+        borderColor: "rgba(43, 48, 185, 1)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+      {
+        label: "USDC",
+        data: labels.map(() => usdtweekday),
+        borderColor: "rgba(46, 218, 175, 1)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
 
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-90">
@@ -161,32 +179,25 @@ const ChartContent: NextPage<Props> = (props: {
         <div className="">
           <p className="pt-4 ml-5 text-lg font-normal">USDT / USDC</p>
           <div className="flex items-center">
-
-          {props.sentence?.slice(0, 1)?.map((item: any, index: any) => {
-              
+            {props.sentence?.slice(0, 1)?.map((item: any, index: any) => {
               return item.price > 0 ? (
                 <>
-                 <p className="pl-5 font-normal text-xs">{item.price} $</p>
+                  <p className="pl-5 text-xs font-normal">{item.price} $</p>
                 </>
               ) : (
-                <>
-                </>
+                <></>
               );
-            })}  {props.sentence?.slice(1, 2)?.map((item: any, index: any) => {
-     
+            })}{" "}
+            {props.sentence?.slice(1, 2)?.map((item: any, index: any) => {
               return item.price > 0 ? (
                 <>
-                 <p className="pl-1 font-normal text-xs"> / {item.price} $</p>
+                  <p className="pl-1 text-xs font-normal"> / {item.price} $</p>
                 </>
               ) : (
-                <>
-                </>
+                <></>
               );
             })}
-
           </div>
-          
-      
 
           {/*           <p className="font-normal">1.00 - 0.00 %</p> */}
           <p className="mt-4 ml-5 text-xs font-normal">
@@ -200,7 +211,7 @@ const ChartContent: NextPage<Props> = (props: {
           </p>
         </div>
 
-        <div className=" h-auto">
+        <div className="h-auto ">
           <Line options={options} data={datachart} />
         </div>
         <div className="flex items-center justify-between p-2 ml-4 mr-4 rounded bg-lagrangegraybackground">
@@ -216,21 +227,21 @@ const ChartContent: NextPage<Props> = (props: {
             <p className="px-2 py-2 text-white">USDT</p>
           </div>
           <div className="flex items-center space-x-2 font-normal">
-            
-          {props.sentence?.slice(0, 1)?.map((item: any, index: any) => {
-            
+            {props.sentence?.slice(0, 1)?.map((item: any, index: any) => {
               return item.price > 0 ? (
                 <>
-                 <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">{item.price} $</p>
+                  <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">
+                    {item.price} $
+                  </p>
                 </>
               ) : (
-                <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">{item.price} $</p>
+                <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">
+                  {item.price} $
+                </p>
               );
             })}
 
-
             {props.sentence?.slice(0, 1)?.map((item: any, index: any) => {
-              
               return item["1d"].price_change > 0 ? (
                 <>
                   <p className="pr-2 font-normal text-lagrange-buttonpro-blue sm:text-lg xs:text-xs">
@@ -264,32 +275,30 @@ const ChartContent: NextPage<Props> = (props: {
             <p className="px-2 py-2 font-normal text-white">USDC</p>
           </div>
           <div className="flex items-center space-x-2">
-
-          {props.sentence?.slice(1, 2)?.map((item: any, index: any) => {
-            
+            {props.sentence?.slice(1, 2)?.map((item: any, index: any) => {
               return item.price > 0 ? (
                 <>
-                 <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">{item.price}$</p>
+                  <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">
+                    {item.price}$
+                  </p>
                 </>
               ) : (
-                <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">{item.price} $</p>
+                <p className="pr-2 font-normal text-white sm:text-xl xs:text-sm">
+                  {item.price} $
+                </p>
               );
             })}
 
-
-
-            
             {props.sentence?.slice(1, 2)?.map((item: any, index: any) => {
-              
               return item["1d"].price_change > 0 ? (
                 <>
                   <p className="pr-2 font-normal text-lagrange-buttonpro-blue sm:text-lg xs:text-xs">
-                  %  {item["1d"].price_change}
+                    % {item["1d"].price_change}
                   </p>
                 </>
               ) : (
                 <p className="pr-2 font-normal text-lagrangered sm:text-lg xs:text-xs">
-                 % {item["1d"].price_change}
+                  % {item["1d"].price_change}
                 </p>
               );
             })}
@@ -305,5 +314,3 @@ const ChartContent: NextPage<Props> = (props: {
   );
 };
 export default ChartContent;
-
-
