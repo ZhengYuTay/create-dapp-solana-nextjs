@@ -189,7 +189,7 @@ export async function getServerSideProps() {
   const responseusdt = await fetch(`https://lagrange.fi/api/usdt`);
   const usdt = await responseusdt.json();
 
-  const responseusdc = await fetch(`https://lagrange.fi/api/usdt`);
+  const responseusdc = await fetch(`https://lagrange.fi/api/usdc`);
   const usdc = await responseusdc.json();
   return {
     props: {

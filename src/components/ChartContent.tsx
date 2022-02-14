@@ -152,15 +152,13 @@ const ChartContent: NextPage<Props> = (props: {
   usdc?: any;
 }) => {
   const usdtweekday: any = [];
-
+  const usdcweekday: any = [];
   props.usdt?.data.slice(-7).map((_item: any) => {
     usdtweekday.push(Number(_item.rate));
   });
-
-  console.log(props);
-  /*   props.usdc?.data.slice(-7).map((_item: any) => {
+  props.usdc?.data.slice(-7).map((_item: any) => {
     usdcweekday.push(Number(_item.rate));
-  }); */
+  });
 
   const datachart = {
     labels,
@@ -173,7 +171,7 @@ const ChartContent: NextPage<Props> = (props: {
       },
       {
         label: "USDC",
-        data: labels.map(() => usdtweekday),
+        data: labels.map(() => usdcweekday),
         borderColor: "rgba(46, 218, 175, 1)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
