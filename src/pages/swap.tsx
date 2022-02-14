@@ -136,46 +136,15 @@ const Swap: NextPage<Props> = (props) => {
 export default Swap;
 
 export async function getServerSideProps() {
-  /* const accessKey = "74676f0feb3ce4f81eda70c39b1eeaf9";
-  const endpoint = "https://api.currencylayer.com/historical";
-  const sourceCurrencyPairs = currencieslocal.map((source) => ({
-    ...source,
-    currencieslocal: currencieslocal
-      .map(({ fiatSymbol }) => fiatSymbol)
-      .filter((currency) => currency !== source.fiatSymbol),
-  }));
-
-  const pairs = await Promise.all(
-    sourceCurrencyPairs.map(async (pair) => {
-      const url = `${endpoint}?access_key=${accessKey}&date=2021-08-01&currencies=${pair.currencieslocal.join(",")}`;
-  
-      return {
-        ...pair,
-        quotes: (await (await fetch(url)).json()).quotes,
-      };
-    })
-  ); */
-
   const nomics = new Nomics({
     apiKey: "f5b3378230993f0291d6455887fae08ad928666d",
   });
   let nomiccurrencies: any = await nomics
     .currenciesTicker({
-      /*
-      Specify the interval for interval data in return
-      One or more strings can be provided. If not provided, **all** are used.
-      The intervals specified will affect what is returned in the response (see below)
-    */
       interval: ["1h", "1d", "7d"], // '1d', '7d', '30d', '365d', 'ytd'
-      /*
-      Limit the returned currencies to the ones in the following array. If not
-      specified, **all** will be returned
-    */
+
       ids: ["USDT", "USDC", "EURS", "TRYB", "BRZ"],
-      /*
-      Specify the currency to quote all returned prices in
-    */
-      // [DEPRECATED] use "convert" below instead
+
       convert: "USD", // defaults to "USD"
     })
     .then((nomiccurrencies) => nomiccurrencies);
@@ -187,10 +156,10 @@ export async function getServerSideProps() {
   }
 
   const responseusdt = await fetch(`https://lagrange.fi/api/usdt`);
-  const usdt = await responseusdt.json();
+  let usdt = await responseusdt.json();
 
   const responseusdc = await fetch(`https://lagrange.fi/api/usdc`);
-  const usdc = await responseusdc.json();
+  let usdc = await responseusdc.json();
   return {
     props: {
       /* data: pairs, */
