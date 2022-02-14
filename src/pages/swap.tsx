@@ -69,10 +69,6 @@ const Swap: NextPage<Props> = (props) => {
 
   const [isExpanded, toggleExpansion] = useState(true);
 
-  const [chartData, setChartData] = useState([]);
-  const changeChartData = (arg: React.SetStateAction<never[]>) => {
-    setChartData(arg);
-  };
   return (
     <div className="relative min-h-screen md:flex">
       <Head>
@@ -118,7 +114,11 @@ const Swap: NextPage<Props> = (props) => {
             <SwapContent />
           </div>
           <div className="xxl:pl-5 xl:pl-5 lg:pl-5 md:pl-0">
-            <ChartContent sentence={props.historicaldata} usdt={props.usdt} />
+            <ChartContent
+              sentence={props.historicaldata}
+              usdt={props.usdt}
+              usdc={props.usdc}
+            />
           </div>
         </div>
       </div>
@@ -147,12 +147,28 @@ export async function getServerSideProps() {
       notFound: true,
     };
   }
-
-  const responseusdt = await fetch(`https://lagrange.fi/api/usdt`);
+  function delay(time: number | undefined) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
+  let responseusdt = await fetch(`https://lagrange.fi/api/usdt`);
+  await delay(2000);
   let usdt = await responseusdt.json();
 
-  const responseusdc = await fetch(`https://lagrange.fi/api/usdc`);
+  if (!usdt) {
+    return {
+      notFound: true,
+    };
+  }
+
+  let responseusdc = await fetch(`https://lagrange.fi/api/usdc`);
+  await delay(2000);
   let usdc = await responseusdc.json();
+
+  if (!usdc) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
       /* data: pairs, */

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
-/* import { useRouter } from "next/router"; */
 import { ReactNode, useEffect, useState } from "react";
 import {
   Chart as ChartJS,
@@ -14,12 +13,9 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-
-/* import ChartLine from "../../public/Chartstabil.png"; */
 import SelectDownIcon from "../../public/select-down.png";
-
 import type { NextPage } from "next";
-import { randomInt } from "crypto";
+
 var Chance = require("chance");
 var chance = new Chance();
 ChartJS.register(
@@ -34,6 +30,7 @@ ChartJS.register(
 interface Props {
   sentence?: Array<undefined>;
   usdt?: Array<undefined>;
+  usdc?: Array<undefined>;
 }
 
 export const options = {
@@ -66,35 +63,35 @@ for (let i = 0; i < 7; i++) {
 var labels: any = weekday.reverse();
 
 /* var datesFrom48Hours = getDateItems(48); */
-const rakamlarx: any = [];
+/* const rakamlarx: any = [];
 const rakamlary: any = [];
 
-const usdtnumber: Array<any> = [];
-
-for (let i = 0; i < 7; i++) {
-  usdtnumber.push(chance.integer({ min: 0.95, max: 1.1 }));
-}
+const usdtnumber: Array<any> = []; */
 
 /* https://docs.google.com/spreadsheets/d/e/2PACX-1vTFdDx6GqM9bFDv_GsJEX90DUOYImOKx7h5M4rVw7TD9sB59g5rRLfK0TlokXdtgJMuD50foANzxBCy/pub?gid=573999951&single=true&output=csv */
 
 const ChartContent: NextPage<Props> = (props: {
   sentence?: Array<undefined>;
   usdt?: Array<undefined>;
+  usdc?: Array<undefined>;
 }) => {
-  const usdtweekday = [];
+  const [usdtnumber, setUsdtnumber] = useState(props.usdt);
+  console.log(usdtnumber);
+  const [usdcnumber, setUsdcnumber] = useState(props.usdc);
+  console.log(usdcnumber);
 
   const datachart = {
     labels,
     datasets: [
       {
         label: "USDT",
-        data: labels.map(() => usdtnumber),
+        data: labels.map(() => chance.floating({ min: 0, max: 100 })),
         borderColor: "rgba(43, 48, 185, 1)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
       {
         label: "USDC",
-        data: labels.map(() => usdtnumber),
+        data: labels.map(() => chance.floating({ min: 0, max: 100 })),
         borderColor: "rgba(46, 218, 175, 1)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
