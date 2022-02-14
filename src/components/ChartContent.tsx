@@ -33,14 +33,7 @@ ChartJS.register(
 );
 interface Props {
   sentence?: Array<undefined>;
-  coinList?: Array<undefined>;
-  datacurrencies?: Array<undefined>;
-  historicaldata?: Array<undefined>;
-  exchangedata?: Array<undefined>;
-  historicprice?: Array<undefined>;
-  hi?: Array<undefined>;
   usdt?: Array<undefined>;
-  usdc?: Array<undefined>;
 }
 
 export const options = {
@@ -57,56 +50,6 @@ export const options = {
 };
 const bugun = new Date();
 bugun.setDate(bugun.getDate());
-
-/* function getDateItems(hours: number) {
-  var toDate = new Date();
-  var fromDate = new Date();
-  fromDate.setTime(fromDate.getTime() - hours * 60 * 60 * 1000);
-  var result = []; */
-
-/*   while (toDate >= fromDate) {
-    result.push(
-      ("00" + (toDate.getMonth() + 1)).slice(-2) +
-        "-" +
-        ("00" + toDate.getDate()).slice(-2) +
-        " " +
-        ("00" + toDate.getHours()).slice(-2) +
-        ":" +
-        ("00" + toDate.getMinutes()).slice(-2) +
-        ":" +
-        ("00" + toDate.getSeconds()).slice(-2)
-    );
-    //-result.push(("00" + toDate.getDate()).slice(-2) + " " +("00" + (toDate.getMonth() + 1)).slice(-2) + "-" + ("00" + toDate.getHours()).slice(-2) + ":" + ("00" + toDate.getMinutes()).slice(-2) + ":" + ("00" + toDate.getSeconds()).slice(-2));
-    // consider using moment.js library to format date
-
-    toDate.setTime(toDate.getTime() - 1 * 60 * 60 * 1000);
-  } */
-
-/*  return result;
-} */
-
-/* function Last7Days() {
-  return "0123456"
-    .split("")
-    .map(function (n: any) {
-      var d = new Date();
-      d.setDate(d.getDate() - n);
-
-      return (function (day, month, year) {
-        return [
-          day < 10 ? "0" + day : day,
-          month < 10 ? "0" + month : month,
-          year,
-        ].join("/");
-      })(d.getDate(), d.getMonth(), d.getFullYear());
-    })
-    .join(",");
-}
-
-const yedigun = Last7Days(); */
-/* console.log(yedigun); */
-
-/* var labels = getDateItems(24).reverse(); */
 
 var weekday: any = [];
 
@@ -126,52 +69,32 @@ var labels: any = weekday.reverse();
 const rakamlarx: any = [];
 const rakamlary: any = [];
 
-const usdtnumber: Array<Number> = [];
-
-const usdcnumber: Array<Number> = [];
+const usdtnumber: Array<any> = [];
 
 for (let i = 0; i < 7; i++) {
   usdtnumber.push(chance.integer({ min: 0.95, max: 1.1 }));
-}
-
-for (let i = 0; i < 7; i++) {
-  usdcnumber.push(chance.integer({ min: 0.99, max: 1.1 }));
 }
 
 /* https://docs.google.com/spreadsheets/d/e/2PACX-1vTFdDx6GqM9bFDv_GsJEX90DUOYImOKx7h5M4rVw7TD9sB59g5rRLfK0TlokXdtgJMuD50foANzxBCy/pub?gid=573999951&single=true&output=csv */
 
 const ChartContent: NextPage<Props> = (props: {
   sentence?: Array<undefined>;
-  coinList?: Array<undefined>;
-  datacurrencies?: Array<undefined>;
-  historicaldata?: Array<undefined>;
-  exchangedata?: Array<undefined>;
-  historicprice?: Array<undefined>;
-  hi?: Array<undefined>;
-  usdt?: any;
-  usdc?: any;
+  usdt?: Array<undefined>;
 }) => {
-  const usdtweekday: any = [];
-  const usdcweekday: any = [];
-  props.usdt?.data.slice(-7).map((_item: any) => {
-    usdtweekday.push(Number(_item.rate));
-  });
-  props.usdc?.data.slice(-7).map((_item: any) => {
-    usdcweekday.push(Number(_item.rate));
-  });
+  const usdtweekday = [];
 
   const datachart = {
     labels,
     datasets: [
       {
         label: "USDT",
-        data: labels.map(() => usdtweekday),
+        data: labels.map(() => usdtnumber),
         borderColor: "rgba(43, 48, 185, 1)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
       {
         label: "USDC",
-        data: labels.map(() => usdcweekday),
+        data: labels.map(() => usdtnumber),
         borderColor: "rgba(46, 218, 175, 1)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
@@ -180,26 +103,24 @@ const ChartContent: NextPage<Props> = (props: {
 
   return (
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-90">
-      <div className="">
-        <div className="">
+      <div>
+        <div>
           <p className="pt-4 ml-5 text-lg font-normal">USDT / USDC</p>
           <div className="flex items-center">
             {props.sentence?.slice(0, 1)?.map((item: any, index: any) => {
-              return item.price > 0 ? (
+              return (
                 <>
+                  {" "}
                   <p className="pl-5 text-xs font-normal">{item.price} $</p>
                 </>
-              ) : (
-                <></>
               );
             })}{" "}
             {props.sentence?.slice(1, 2)?.map((item: any, index: any) => {
-              return item.price > 0 ? (
+              return (
                 <>
-                  <p className="pl-1 text-xs font-normal"> / {item.price} $</p>
+                  {" "}
+                  <p className="pl-1 text-xs font-normal">{item.price} $</p>
                 </>
-              ) : (
-                <></>
               );
             })}
           </div>

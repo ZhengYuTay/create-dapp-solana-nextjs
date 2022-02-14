@@ -118,14 +118,7 @@ const Swap: NextPage<Props> = (props) => {
             <SwapContent />
           </div>
           <div className="xxl:pl-5 xl:pl-5 lg:pl-5 md:pl-0">
-            <ChartContent
-              datacurrencies={props.data}
-              sentence={props.historicaldata}
-              exchangedata={props.exchangedata}
-              hi={props.hi}
-              usdt={props.usdt}
-              usdc={props.usdc}
-            />
+            <ChartContent sentence={props.historicaldata} usdt={props.usdt} />
           </div>
         </div>
       </div>
