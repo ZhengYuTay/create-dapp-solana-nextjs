@@ -29,7 +29,7 @@ export default (_req: NextApiRequest, res: NextApiResponse<Data>) => {
     )
     .then((response) => response)
     .then((response) => {
-      res.status(200).json({ data: response.data });
+      res.status(200).json(response.data);
     });
 };
 

@@ -85,13 +85,13 @@ const ChartContent: NextPage<Props> = (props: {
     datasets: [
       {
         label: "USDT",
-        data: labels.map(() => chance.floating({ min: 0, max: 100 })),
+        data: labels.map(() => chance.floating({ min: 0.9999, max: 1.0001 })),
         borderColor: "rgba(43, 48, 185, 1)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
       {
         label: "USDC",
-        data: labels.map(() => chance.floating({ min: 0, max: 100 })),
+        data: labels.map(() => chance.floating({ min: 0.9999, max: 1.0001 })),
         borderColor: "rgba(46, 218, 175, 1)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
