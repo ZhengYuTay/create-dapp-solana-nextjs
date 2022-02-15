@@ -10,7 +10,8 @@ import SwapContent from "../components/SwapContent";
 import SidebarLogo from "../components/SidebarLogo";
 import MobileLogo from "../components/MobileLogo";
 import Nomics from "nomics";
-import {
+
+/* import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
@@ -19,13 +20,14 @@ import {
   Title,
   Tooltip,
   Legend,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
+} from "chart.js"; */
+/* import { Line } from "react-chartjs-2"; */
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import SelectDownIcon from "../../public/select-down.png";
 
 var Chance = require("chance");
 var chance = new Chance();
-ChartJS.register(
+/* ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
@@ -33,7 +35,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend
-);
+); */
 interface Props {
   sentence: any;
   data: any;
@@ -118,6 +120,21 @@ for (let i = 0; i < 7; i++) {
 
 var labels: any = weekday.reverse();
 
+const RenderLineChart: NextPage<Props> = (props: {
+  sentence?: Array<undefined>;
+  usdt?: Array<undefined>;
+  usdc?: Array<undefined>;
+}) => (
+  <LineChart width={320} height={240} data={props.usdc?.slice(0,7)}>
+    
+    <Line type="monotone" dataKey="rate" stroke="#8884d8" />
+    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+    <XAxis dataKey="timestamp" tick={{ fontFamily: 'sans-serif', fontSize: '10px' }}  />
+    <YAxis tick={{ fontFamily: 'sans-serif', fontSize: '10px' }}  />
+    <Tooltip />
+  </LineChart>
+);
+
 const ChartContentInside: NextPage<Props> = (props: {
   sentence?: Array<undefined>;
   usdt?: Array<undefined>;
@@ -183,7 +200,9 @@ const ChartContentInside: NextPage<Props> = (props: {
         </div>
 
         <div className="h-auto ">
-          <Line options={options} data={datachart} />
+          {/* <Line options={options} data={datachart} /> */}
+          <RenderLineChart sentence={props.sentence} data={undefined} historicaldata={undefined} exchangedata={undefined} coinList={undefined} datacurrencies={undefined} historicprice={undefined} hi={undefined} usdt={props.usdt} usdc={props.usdc} />
+          
         </div>
         <div className="flex items-center justify-between p-2 ml-4 mr-4 rounded bg-lagrangegraybackground">
           {" "}
