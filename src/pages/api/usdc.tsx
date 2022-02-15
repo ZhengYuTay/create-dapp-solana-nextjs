@@ -12,7 +12,7 @@ export default (_req: NextApiRequest, res: NextApiResponse<Data>) => {
   const bugun = new Date();
   bugun.setDate(bugun.getDate());
   const weekago = new Date();
-  weekago.setDate(weekago.getDate() - 31);
+  weekago.setDate(weekago.getDate() - 7);
 
   console.log(encodeURIComponent(bugun.toISOString()));
   console.log("-------");

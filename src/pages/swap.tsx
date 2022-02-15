@@ -22,7 +22,7 @@ import Nomics from "nomics";
   Legend,
 } from "chart.js"; */
 /* import { Line } from "react-chartjs-2"; */
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import SelectDownIcon from "../../public/select-down.png";
 
 var Chance = require("chance");
@@ -125,14 +125,17 @@ const RenderLineChart: NextPage<Props> = (props: {
   usdt?: Array<undefined>;
   usdc?: Array<undefined>;
 }) => (
-  <LineChart width={320} height={240} data={props.usdc?.slice(0,7)}>
-    
+  <div className="w-full h-96">
+  <ResponsiveContainer width="90%" height="90%">
+  <LineChart  data={props.usdc?.slice(0,7)}>
+
     <Line type="monotone" dataKey="rate" stroke="#8884d8" />
+
     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
     <XAxis dataKey="timestamp" tick={{ fontFamily: 'sans-serif', fontSize: '10px' }}  />
     <YAxis tick={{ fontFamily: 'sans-serif', fontSize: '10px' }}  />
     <Tooltip />
-  </LineChart>
+  </LineChart></ResponsiveContainer></div>
 );
 
 const ChartContentInside: NextPage<Props> = (props: {
