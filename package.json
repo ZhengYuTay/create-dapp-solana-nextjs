@@ -60,5 +60,6 @@
   },
   "resolutions": {
     "**/@saberhq/token-utils/**/@solana/buffer-layout": "^3.0.0"
+    
   }
 }
