@@ -1957,6 +1957,8 @@
     "wrap-ansi" "^7.0.0"
 
 "coingecko-api@^1.0.10":
+  "integrity" "sha512-7YLLC85+daxAw5QlBWoHVBVpJRwoPr4HtwanCr8V/WRjoyHTa1Lb9DQAvv4MDJZHiz4no6HGnDQnddtjV35oRA=="
+  "resolved" "https://registry.npmjs.org/coingecko-api/-/coingecko-api-1.0.10.tgz"
   "version" "1.0.10"
 
 "color-convert@^1.9.0":
