@@ -6,9 +6,9 @@ import JupiterForm from "../JupiterForm/JupiterForm";
 
 import styles from "./index.module.css";
 
-const Home: FC = ({ }) => {
+const Home: FC = ({}) => {
   return (
-    <div className="container mx-auto max-w-6xl p-8 2xl:px-0">
+    <div className="container max-w-6xl p-8 mx-auto xxl:px-0">
       <div className={styles.container}>
         <Header />
         <SiteDescription />
