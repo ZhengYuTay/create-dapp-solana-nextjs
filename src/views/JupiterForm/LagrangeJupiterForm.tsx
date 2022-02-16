@@ -44,11 +44,6 @@ const TrustedTokenAddresses = [
 
  interface IJupiterFormProps {}
 
-
-
-// interface Wallet {
-//   wallet: any
-// }
 type UseJupiterProps = Parameters<typeof useJupiter>[0];
 
 const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props: any) => {
@@ -96,7 +91,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props: any) =
 
   // const { swappableOutputForSol } = props;
   const { connection } = useConnection();
-  const { wallet } = useWallet();
+  const  wallet  = useWallet();
   const { publicKey } = useWallet();
   const _publicKey = publicKey?.toBase58();
   const gelsolbalance = async () => {};
@@ -939,7 +934,7 @@ console.log("tobalance   "  + tobalance)
                         <div>
                           {route.outAmount /
                             10 ** (outputTokenInfo?.decimals || 1)}{" "}
-                      {/*    {outputTokenInfo?.symbol}*/}
+                        {/*  {outputTokenInfo?.symbol}*/}
                           {console.log(outputTokenInfo)}
                         </div>
                       </div>
@@ -1081,7 +1076,15 @@ console.log("tobalance   "  + tobalance)
             <button
               type="button"
               disabled={loading}
-              onClick={async (wallet: any) => {
+              onClick={async () => {
+                console.log("aaaaaa")
+                console.log(!loading)
+                console.log(routes?.[0])
+                console.log(wallet.signAllTransactions)
+                // console.log(wallet.signTransactionaction)
+                console.log( wallet.sendTransaction)
+                console.log(publicKey)
+
                 if (
                   !loading &&
                   routes?.[0] &&
