@@ -43,6 +43,11 @@ const TrustedTokenAddresses = [
 ];
 
 interface IJupiterFormProps {}
+
+
+// interface Wallet {
+//   wallet: any
+// }
 type UseJupiterProps = Parameters<typeof useJupiter>[0];
 
 const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
@@ -50,45 +55,45 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
 
   //////// ----- start  ---- ////////
 
- const [usd, setUsd] = useState();
+  const [usd, setUsd] = useState();
   const [ageur, setAgeur] = useState();
   const [brz, setBrz] = useState();
   const [jpyc, setJpyc] = useState();
   const [bilira, setBilira] = useState();
 
   //// FOR solana ////
-  const [changeUsdBalance, setChangeUsdBalance] = useState();
+  const [changeUsdBalance, setChangeUsdBalance] = useState<any>();
 
   //////-----  token balance ------/////////
-  const [usdbalance, setUsdbalance] = useState<undefined>();
-  const [ageurbalance, setAgeurbalance] = useState<undefined>();
-  const [brzbalance, setBrzbalance] = useState<undefined>();
-  const [usdtbalance, setUsdtbalance] = useState<undefined>();
-  const [bilirabalance, setBilirabalance] = useState<undefined>();
+  const [usdbalance, setUsdbalance] = useState<any>();
+  const [ageurbalance, setAgeurbalance] = useState<any>();
+  const [brzbalance, setBrzbalance] = useState<any>();
+  const [usdtbalance, setUsdtbalance] = useState<any>();
+  const [bilirabalance, setBilirabalance] = useState<any>();
   ////////////-----finish-----//////////////////////
 
   //////-----  token balance USD ------/////////
-  const [usdcbalance$, setUsdcbalance$] = useState<undefined>();
-  const [ageurbalance$, setAgeurbalance$] = useState<undefined>();
-  const [brzbalance$, setBrzbalance$] = useState<undefined>();
-  const [usdtbalance$, setUsdtbalance$] = useState<undefined>();
-  const [bilirabalance$, setBilirabalance$] = useState<undefined>();
+  const [usdcbalance$, setUsdcbalance$] = useState<any>();
+  const [ageurbalance$, setAgeurbalance$] = useState<any>();
+  const [brzbalance$, setBrzbalance$] = useState<any>();
+  const [usdtbalance$, setUsdtbalance$] = useState<any>();
+  const [bilirabalance$, setBilirabalance$] = useState<any>();
   ////////////-----finish-----//////////////////////
 
   //////----- current token balance USD ------/////////
-  const [usdcbalance$c, setUsdcbalance$c] = useState();
-  const [ageurbalance$c, setAgeurbalance$c] = useState();
-  const [brzbalance$c, setBrzbalance$c] = useState();
-  const [usdtbalance$c, setUsdtbalance$c] = useState();
-  const [bilirabalance$c, setBilirabalance$c] = useState();
+  const [usdcbalance$c, setUsdcbalance$c] = useState<any>();
+  const [ageurbalance$c, setAgeurbalance$c] = useState<any>();
+  const [brzbalance$c, setBrzbalance$c] = useState<any>();
+  const [usdtbalance$c, setUsdtbalance$c] = useState<any>();
+  const [bilirabalance$c, setBilirabalance$c] = useState<any>();
   ////////////-----finish-----//////////////////////
 
-  const [mytotalvalue, setMytotalvalue] = useState();
-  const [isExpanded, toggleExpansion] = useState(true);
-  const { data: any } = props;
-  const [mybalance, setMybalance] = useState(String);
+  const [mytotalvalue, setMytotalvalue] = useState<any>();
+  const [isExpanded, toggleExpansion] = useState<any>(true);
+  const { data } = props;
+  const [mybalance, setMybalance] = useState<any>();
 
-  const { swappableOutputForSol } = props;
+  // const { swappableOutputForSol } = props;
   const { connection } = useConnection();
   const { wallet } = useWallet();
   const { publicKey } = useWallet();
@@ -96,8 +101,8 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
   const gelsolbalance = async () => {};
 
 
-  const [frombalance, setFrombalance] = useState();
-  const [tobalance, setTobalance] = useState();
+  const [frombalance, setFrombalance] = useState<any>();
+  const [tobalance, setTobalance] = useState<any>();
 
   useEffect(() => {
     setUsdcbalance$c(Number(usdbalance * usdcbalance$).toFixed(2));
@@ -188,8 +193,8 @@ console.log("tobalance   "  + tobalance)
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=usd-coin&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       );
       const data = await response.json();
-      console.log(data.map((d) => d.total_volume));
-      setUsd(data.map((d) => d.total_volume));
+      console.log(data.map((d: any) => d.total_volume));
+      setUsd(data.map((d: any) => d.total_volume));
     }
     fetchUsd();
 
@@ -199,8 +204,8 @@ console.log("tobalance   "  + tobalance)
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=ageur&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       );
       const data = await response.json();
-      console.log(data.map((d) => d.total_volume));
-      setAgeur(data.map((d) => d.total_volume));
+      console.log(data.map((d: any) => d.total_volume));
+      setAgeur(data.map((d: any) => d.total_volume));
     }
     fetchAgeur();
 
@@ -210,8 +215,8 @@ console.log("tobalance   "  + tobalance)
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=jpyc&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       );
       const data = await response.json();
-      console.log(data.map((d) => d.total_volume));
-      setJpyc(data.map((d) => d.total_volume));
+      console.log(data.map((d: any) => d.total_volume));
+      setJpyc(data.map((d: any) => d.total_volume));
     }
     fetchJpyc();
 
@@ -221,8 +226,8 @@ console.log("tobalance   "  + tobalance)
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=brz&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       );
       const data = await response.json();
-      console.log(data.map((d) => d.total_volume));
-      setBrz(data.map((d) => d.total_volume));
+      console.log(data.map((d: any) => d.total_volume));
+      setBrz(data.map((d: any) => d.total_volume));
     }
     fetchBrz();
 
@@ -232,8 +237,8 @@ console.log("tobalance   "  + tobalance)
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bilira&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       );
       const data = await response.json();
-      console.log(data.map((d) => d.total_volume));
-      setBilira(data.map((d) => d.total_volume));
+      console.log(data.map((d: any) => d.total_volume));
+      setBilira(data.map((d: any) => d.total_volume));
     }
     fetchBilira();
 
