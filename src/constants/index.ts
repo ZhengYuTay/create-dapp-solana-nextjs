@@ -20,10 +20,14 @@ export const SOLANA_RPC_ENDPOINT = ENV === "devnet"
 export const INPUT_MINT_ADDRESS =
     ENV === "devnet"
         ? "So11111111111111111111111111111111111111112" // SOL
-        : "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"; // USDC
+           : "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"; // USDT
+       // : "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"; // USDC
+
+
 export const OUTPUT_MINT_ADDRESS = ENV === "devnet"
     ? "SRMuApVNdxXokk5GT7XD5cUUgXMBCoAz2LHeuAoKWRt" // SRM
-    : "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"; // USDT
+   // : "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"; // USDT
+       : "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"; // USDC
 
 // Interface
 export interface Token {

@@ -3,13 +3,16 @@ import React, {
   Fragment,
   useEffect,
   useMemo,
+  useCallback,
   useState,
+  useRef
 } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import { PublicKey } from "@solana/web3.js";
 import { TokenListProvider, TokenInfo } from "@solana/spl-token-registry";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import axios from "axios";
 import { useJupiter } from "@jup-ag/react-hook";
 import Image from "next/image";
 import {
@@ -17,6 +20,14 @@ import {
   INPUT_MINT_ADDRESS,
   OUTPUT_MINT_ADDRESS,
 } from "../../constants";
+import {
+  Keypair,
+  SystemProgram,
+  Transaction,
+  LAMPORTS_PER_SOL,
+  clusterApiUrl,
+  Connection,
+} from "@solana/web3.js";
 
 import styles from "./JupiterForm.module.css";
 import FeeInfo from "./FeeInfo";
@@ -35,9 +46,583 @@ interface IJupiterFormProps {}
 type UseJupiterProps = Parameters<typeof useJupiter>[0];
 
 const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
-  /*  const { publicKey } = useWallet(); */
-  const wallet = useWallet();
+
+
+  //////// ----- start  ---- ////////
+
+ const [usd, setUsd] = useState();
+  const [ageur, setAgeur] = useState();
+  const [brz, setBrz] = useState();
+  const [jpyc, setJpyc] = useState();
+  const [bilira, setBilira] = useState();
+
+  //// FOR solana ////
+  const [changeUsdBalance, setChangeUsdBalance] = useState();
+
+  //////-----  token balance ------/////////
+  const [usdbalance, setUsdbalance] = useState<undefined>();
+  const [ageurbalance, setAgeurbalance] = useState<undefined>();
+  const [brzbalance, setBrzbalance] = useState<undefined>();
+  const [usdtbalance, setUsdtbalance] = useState<undefined>();
+  const [bilirabalance, setBilirabalance] = useState<undefined>();
+  ////////////-----finish-----//////////////////////
+
+  //////-----  token balance USD ------/////////
+  const [usdcbalance$, setUsdcbalance$] = useState<undefined>();
+  const [ageurbalance$, setAgeurbalance$] = useState<undefined>();
+  const [brzbalance$, setBrzbalance$] = useState<undefined>();
+  const [usdtbalance$, setUsdtbalance$] = useState<undefined>();
+  const [bilirabalance$, setBilirabalance$] = useState<undefined>();
+  ////////////-----finish-----//////////////////////
+
+  //////----- current token balance USD ------/////////
+  const [usdcbalance$c, setUsdcbalance$c] = useState();
+  const [ageurbalance$c, setAgeurbalance$c] = useState();
+  const [brzbalance$c, setBrzbalance$c] = useState();
+  const [usdtbalance$c, setUsdtbalance$c] = useState();
+  const [bilirabalance$c, setBilirabalance$c] = useState();
+  ////////////-----finish-----//////////////////////
+
+  const [mytotalvalue, setMytotalvalue] = useState();
+  const [isExpanded, toggleExpansion] = useState(true);
+  const { data: any } = props;
+  const [mybalance, setMybalance] = useState(String);
+
+  const { swappableOutputForSol } = props;
   const { connection } = useConnection();
+  const { wallet } = useWallet();
+  const { publicKey } = useWallet();
+  const _publicKey = publicKey?.toBase58();
+  const gelsolbalance = async () => {};
+
+
+  const [frombalance, setFrombalance] = useState();
+  const [tobalance, setTobalance] = useState();
+
+  useEffect(() => {
+    setUsdcbalance$c(Number(usdbalance * usdcbalance$).toFixed(2));
+  }, [usd, usdbalance, usdcbalance$]);
+
+  useEffect(() => {
+    setAgeurbalance$c(Number(ageurbalance * ageurbalance$).toFixed(2));
+  }, [ageur, ageurbalance, ageurbalance$]);
+
+  useEffect(() => {
+    setBrzbalance$c(Number(brzbalance * brzbalance$).toFixed(2));
+  }, [brz, brzbalance, brzbalance$]);
+
+  useEffect(() => {
+    setUsdtbalance$c(Number(usdtbalance * usdtbalance$).toFixed(2));
+  }, [jpyc, usdtbalance, usdcbalance$]);
+
+  useEffect(() => {
+    setBilirabalance$c(Number(bilirabalance * bilirabalance$).toFixed(2));
+  }, [bilirabalance, bilirabalance$]);
+
+  useEffect(() => {
+    setMytotalvalue(
+      Number(
+        usdcbalance$ +
+          ageurbalance$ +
+          brzbalance$ +
+          usdtbalance$ +
+          bilirabalance$
+      ).toFixed(2)
+    );
+   
+if(inputTokenInfo?.symbol == "USDT"){
+setFrombalance(usdtbalance)
+}
+else if(inputTokenInfo?.symbol == undefined){
+setFrombalance(usdtbalance)
+}
+else if(inputTokenInfo?.symbol == "BRZ"){
+setFrombalance(brzbalance)
+}
+else if(inputTokenInfo?.symbol == "USDC"){
+setFrombalance(usdbalance)
+}
+else if(inputTokenInfo?.symbol == "agEUR"){
+setFrombalance(ageurbalance)
+}
+else if(inputTokenInfo?.symbol == "TRYB"){
+setFrombalance(bilirabalance)
+}
+console.log(inputTokenInfo?.symbol  )
+console.log(inputTokenInfo?.symbol == "USDT")
+console.log("frombalance   "  + frombalance)
+
+
+
+if(outputTokenInfo?.symbol == "USDT"){
+setTobalance(usdtbalance)
+}
+else if(outputTokenInfo?.symbol == undefined){
+setTobalance(usdtbalance)
+}
+else if(outputTokenInfo?.symbol == "BRZ"){
+setTobalance(brzbalance)
+}
+else if(outputTokenInfo?.symbol == "USDC"){
+setTobalance(usdbalance)
+}
+else if(outputTokenInfo?.symbol == "agEUR"){
+setTobalance(ageurbalance)
+}
+else if(outputTokenInfo?.symbol == "TRYB"){
+setTobalance(bilirabalance)
+}
+console.log(outputTokenInfo?.symbol  )
+console.log(outputTokenInfo?.symbol == "USDT")
+console.log("tobalance   "  + tobalance)
+
+
+   
+   
+  });
+
+  useEffect(() => {
+    //-----------------usd-----------------//
+    async function fetchUsd() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=usd-coin&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      );
+      const data = await response.json();
+      console.log(data.map((d) => d.total_volume));
+      setUsd(data.map((d) => d.total_volume));
+    }
+    fetchUsd();
+
+    //-----------------ageur-----------------//
+    async function fetchAgeur() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=ageur&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      );
+      const data = await response.json();
+      console.log(data.map((d) => d.total_volume));
+      setAgeur(data.map((d) => d.total_volume));
+    }
+    fetchAgeur();
+
+    //-----------------JPYC-----------------//
+    async function fetchJpyc() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=jpyc&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      );
+      const data = await response.json();
+      console.log(data.map((d) => d.total_volume));
+      setJpyc(data.map((d) => d.total_volume));
+    }
+    fetchJpyc();
+
+    //-----------------brz-----------------//
+    async function fetchBrz() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=brz&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      );
+      const data = await response.json();
+      console.log(data.map((d) => d.total_volume));
+      setBrz(data.map((d) => d.total_volume));
+    }
+    fetchBrz();
+
+    //-----------------brz-----------------//
+    async function fetchBilira() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bilira&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      );
+      const data = await response.json();
+      console.log(data.map((d) => d.total_volume));
+      setBilira(data.map((d) => d.total_volume));
+    }
+    fetchBilira();
+
+    //------------sol change usd------------///
+    async function changeUsd() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd"
+      );
+      const data = await response.json();
+      console.log("sol usd " + data.solana.usd);
+      setChangeUsdBalance(data.solana.usd);
+    }
+    changeUsd();
+
+    //------------USDC change usd------------///
+    async function changeUsdc() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=usd-coin&vs_currencies=usd"
+      );
+      const data = await response.json();
+      console.log("usdc usd  " + data["usd-coin"].usd);
+      setUsdcbalance$(data["usd-coin"].usd.toFixed(2));
+    }
+    changeUsdc();
+
+    //------------USDT change usd------------///
+    async function changeUsdt() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd"
+      );
+      const data = await response.json();
+      console.log("usdt usd  " + data.tether.usd);
+      setUsdtbalance$(data.tether.usd.toFixed(2));
+    }
+    changeUsdt();
+
+    //------------Ageur change usd------------///
+    async function changeAgeur() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=ageur&vs_currencies=usd"
+      );
+      const data = await response.json();
+      console.log("ageur usd  " + data.ageur.usd);
+      setAgeurbalance$(data.ageur.usd.toFixed(2));
+    }
+    changeAgeur();
+
+    //------------Brz change usd------------///
+    async function changeBrz() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=brz&vs_currencies=usd"
+      );
+      const data = await response.json();
+      console.log("brz usd  " + data.brz.usd);
+      setBrzbalance$(data.brz.usd.toFixed(2));
+    }
+    changeBrz();
+
+    //------------Brz change usd------------///
+    async function changeBilira() {
+      const response = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=bilira&vs_currencies=usd"
+      );
+      const data = await response.json();
+      console.log("bilira usd  " + data.bilira.usd);
+      setBilirabalance$(data.bilira.usd.toFixed(2));
+    }
+    changeBilira();
+
+    //----USDC balance -----///
+
+    const getUSDCBalance = async () => {
+      const walletAddress = publicKey;
+      const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v";
+      const response = await axios({
+        url: `https://api.mainnet-beta.solana.com`,
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        data: {
+          jsonrpc: "2.0",
+          id: 1,
+          method: "getTokenAccountsByOwner",
+          params: [
+            walletAddress,
+            {
+              mint: tokenMintAddress,
+            },
+            {
+              encoding: "jsonParsed",
+            },
+          ],
+        },
+      });
+
+      if (
+        Array.isArray(response?.data?.result?.value) &&
+        response?.data?.result?.value?.length > 0 &&
+        response?.data?.result?.value[0]?.account?.data?.parsed?.info
+          ?.tokenAmount?.amount > 0
+      ) {
+        Number(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        );
+        setUsdbalance(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        );
+        console.log(
+          "USDC Balance:   " +
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
+        );
+      } else {
+        setUsdbalance(0);
+        console.log(
+          "USDC Balance:   " +
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
+        );
+      }
+    };
+    getUSDCBalance();
+
+    ///--- USDC Balance FINISH ---- /////
+
+    //----USDT balance -----///
+
+    const getUSDTBalance = async () => {
+      const walletAddress = publicKey;
+      const tokenMintAddress = "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB";
+      const response = await axios({
+        url: `https://api.mainnet-beta.solana.com`,
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        data: {
+          jsonrpc: "2.0",
+          id: 1,
+          method: "getTokenAccountsByOwner",
+          params: [
+            walletAddress,
+            {
+              mint: tokenMintAddress,
+            },
+            {
+              encoding: "jsonParsed",
+            },
+          ],
+        },
+      });
+
+      // console.log(response.data.result.value[0].account.data.parsed.info.tokenAmount)
+
+      if (
+        Array.isArray(response?.data?.result?.value) &&
+        response?.data?.result?.value?.length > 0 &&
+        response?.data?.result?.value[0]?.account?.data?.parsed?.info
+          ?.tokenAmount?.amount > 0
+      ) {
+        Number(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        );
+        setUsdtbalance(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        );
+        console.log(
+          "USDT Balance:   " +
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
+        );
+      } else {
+        setUsdtbalance(0);
+        console.log(
+          "USDT Balance:   " +
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
+        );
+      }
+    };
+    getUSDTBalance();
+
+    ///--- USDT Balance FINISH ---- /////
+
+    //----Ageur balance -----///
+
+    const getAgeurBalance = async () => {
+      const walletAddress = publicKey;
+      const tokenMintAddress = "CbNYA9n3927uXUukee2Hf4tm3xxkffJPPZvGazc2EAH1";
+      const response = await axios({
+        url: `https://api.mainnet-beta.solana.com`,
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        data: {
+          jsonrpc: "2.0",
+          id: 1,
+          method: "getTokenAccountsByOwner",
+          params: [
+            walletAddress,
+            {
+              mint: tokenMintAddress,
+            },
+            {
+              encoding: "jsonParsed",
+            },
+          ],
+        },
+      });
+
+      if (
+        Array.isArray(response?.data?.result?.value) &&
+        response?.data?.result?.value?.length > 0 &&
+        response?.data?.result?.value[0]?.account?.data?.parsed?.info
+          ?.tokenAmount?.amount > 0
+      ) {
+        Number(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        );
+        setAgeurbalance(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        );
+        console.log(
+          "Ageur Balance:   " +
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
+        );
+      } else {
+        setAgeurbalance(0);
+        console.log(
+          "Ageur Balance:   " +
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
+        );
+      }
+    };
+    getAgeurBalance();
+
+    ///--- Ageur Balance FINISH ---- /////
+
+    //----Brz balance -----///
+
+    const getBrzBalance = async () => {
+      const walletAddress = publicKey;
+      const tokenMintAddress = "FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD";
+      const response = await axios({
+        url: `https://api.mainnet-beta.solana.com`,
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        data: {
+          jsonrpc: "2.0",
+          id: 1,
+          method: "getTokenAccountsByOwner",
+          params: [
+            walletAddress,
+            {
+              mint: tokenMintAddress,
+            },
+            {
+              encoding: "jsonParsed",
+            },
+          ],
+        },
+      });
+
+      // console.log(response.data.result.value[0].account.data.parsed.info.tokenAmount)
+
+      if (
+        Array.isArray(response?.data?.result?.value) &&
+        response?.data?.result?.value?.length > 0 &&
+        response?.data?.result?.value[0]?.account?.data?.parsed?.info
+          ?.tokenAmount?.amount > 0
+      ) {
+        Number(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        );
+        setBrzbalance(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        );
+        console.log(
+          "BRZ Balance:   " +
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
+        );
+      } else {
+        setBrzbalance(0);
+        console.log("BRZ Balance:   " + 0);
+      }
+    };
+    getBrzBalance();
+
+    ///--- Brz Balance FINISH ---- /////
+
+    //----BiLira balance -----///
+
+    const getBiliraBalance = async () => {
+      const walletAddress = publicKey;
+      const tokenMintAddress = "A94X2fRy3wydNShU4dRaDyap2UuoeWJGWyATtyp61WZf";
+      const response = await axios({
+        url: `https://api.mainnet-beta.solana.com`,
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        data: {
+          jsonrpc: "2.0",
+          id: 1,
+          method: "getTokenAccountsByOwner",
+          params: [
+            walletAddress,
+            {
+              mint: tokenMintAddress,
+            },
+            {
+              encoding: "jsonParsed",
+            },
+          ],
+        },
+      });
+
+      if (
+        Array.isArray(response?.data?.result?.value) &&
+        response?.data?.result?.value?.length > 0 &&
+        response?.data?.result?.value[0]?.account?.data?.parsed?.info
+          ?.tokenAmount?.amount > 0
+      ) {
+        Number(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        );
+        setBilirabalance(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        );
+       
+      } else {
+        setBilirabalance(0);
+     
+      }
+    };
+    getBiliraBalance();
+
+    /* BiLira Balance FINISH */
+    if (publicKey == null) {
+      setMybalance(0);
+    }
+    gelsolbalance();
+  
+  }, [publicKey]);
+
+
+  let fromKeypair = Keypair.generate();
+
+  const connectiontestnet = useRef(
+    new Connection(clusterApiUrl("mainnet-beta"))
+  );
+
+  const testnetbalance = async () => {
+    const testnetBalance = await connectiontestnet.current.getBalanceAndContext(
+      fromKeypair.publicKey,
+      "confirmed"
+    );
+  };
+
+
+
+  /////// -------- end -----////////
+
+  // const wallet = useWallet();
+  // const { connection } = useConnection();
   const [tokenMap, setTokenMap] = useState<Map<string, TokenInfo>>(new Map());
 
   const [formValue, setFormValue] = useState<UseJupiterProps>({
@@ -163,7 +748,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
             <div className="col-span-2 col-start-2">
               <div className="flex justify-end box">
                 <p className="py-2 mr-2 font-normal sm:text-lg xs:text-sm">
-                  Balance:--
+                  Balance: { frombalance == undefined ? 0 :  frombalance}
                 </p>
               </div>
               <div className="flex justify-end">
@@ -193,7 +778,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                         ) : (
                           <div className="flex items-center ml-2">
                             <Image
-                              src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png"
+                              src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB/logo.svg"
                               alt=""
                               width={29}
                               height={29}
@@ -360,7 +945,7 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
               <div className="flex justify-end box">
                 {" "}
                 <p className="py-2 mr-2 font-normal text-center sm:text-lg xs:text-sm">
-                  Balance:--
+                  Balance: { tobalance == undefined ? 0 : tobalance  }
                 </p>
               </div>
 
@@ -390,8 +975,14 @@ const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
                           />
                         ) : (
                           <>
+                           <Image
+                              src="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png"
+                              alt=""
+                              width={29}
+                              height={29}
+                            />
                             <span className="ml-2 text-sm text-center text-white">
-                              Select a Token
+                              USDC
                             </span>
                           </>
                         )}
