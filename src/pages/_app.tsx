@@ -26,7 +26,7 @@ const WalletProvider = dynamic(
 );
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const endpoint = useMemo(() => "https://api.mainnet-beta.solana.com", []);
+  const endpoint = useMemo(() => "https://solana-api.projectserum.com", []);
   /* const endpoint = useMemo(() => "https://solana-api.projectserum.com", []); */
   /* const endpoint = useMemo(() => "https://api.mainnet-beta.solana.com", []); */
 
