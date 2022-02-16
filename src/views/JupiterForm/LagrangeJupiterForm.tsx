@@ -42,7 +42,8 @@ const TrustedTokenAddresses = [
   "3uXMgtaMRBcyEtEChgiLMdHDjb5Azr17SQWwQo3ppEH8", // Wrapped BRZ
 ];
 
-interface IJupiterFormProps {}
+ interface IJupiterFormProps {}
+
 
 
 // interface Wallet {
@@ -50,7 +51,7 @@ interface IJupiterFormProps {}
 // }
 type UseJupiterProps = Parameters<typeof useJupiter>[0];
 
-const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props) => {
+const LagrangeJupiterForm: FunctionComponent<IJupiterFormProps> = (props: any) => {
 
 
   //////// ----- start  ---- ////////
@@ -163,7 +164,7 @@ if(outputTokenInfo?.symbol == "USDT"){
 setTobalance(usdtbalance)
 }
 else if(outputTokenInfo?.symbol == undefined){
-setTobalance(usdtbalance)
+setTobalance(usdbalance)
 }
 else if(outputTokenInfo?.symbol == "BRZ"){
 setTobalance(brzbalance)
@@ -938,7 +939,7 @@ console.log("tobalance   "  + tobalance)
                         <div>
                           {route.outAmount /
                             10 ** (outputTokenInfo?.decimals || 1)}{" "}
-                          {outputTokenInfo?.symbol}
+                      {/*    {outputTokenInfo?.symbol}*/}
                           {console.log(outputTokenInfo)}
                         </div>
                       </div>
@@ -1080,7 +1081,7 @@ console.log("tobalance   "  + tobalance)
             <button
               type="button"
               disabled={loading}
-              onClick={async () => {
+              onClick={async (wallet: any) => {
                 if (
                   !loading &&
                   routes?.[0] &&
