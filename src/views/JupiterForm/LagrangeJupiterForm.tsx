@@ -31,6 +31,7 @@ import {
 
 import styles from "./JupiterForm.module.css";
 import FeeInfo from "./FeeInfo";
+import SwapTokenInfo from "../../components/SwapTokenInfo"
 /*  "6CssfnBjF4Vo56EithaLHLWDF95fLrt48QHsUfZwNnhv", // JPYC */
 const TrustedTokenAddresses = [
   "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", // USDC
@@ -157,7 +158,7 @@ console.log("frombalance   "  + frombalance)
 
 if(outputTokenInfo?.symbol == "USDT"){
 setTobalance(usdtbalance)
-}
+} 
 else if(outputTokenInfo?.symbol == undefined){
 setTobalance(usdbalance)
 }
@@ -689,6 +690,7 @@ console.log("tobalance   "  + tobalance)
   }, [formValue.inputMint?.toBase58(), formValue.outputMint?.toBase58()]);
 
   return (
+    <>
     <div>
       <div className="mb-2 bg-white rounded shadow-lg xxl:px-5 xl:px-5 lg:px-5 md:px-5 sm:px-5 xs:px-2 border-lagrangeborder xxl:w-128 xl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-90">
         <div>
@@ -1171,6 +1173,12 @@ console.log("tobalance   "  + tobalance)
         <div className="h-4"></div>
       </div>
     </div>
+    dsdds
+           <SwapTokenInfo
+                inputTokenId={inputTokenInfo}
+                outputTokenId={outputTokenInfo}
+              />
+    </>
   );
 };
 export default LagrangeJupiterForm;

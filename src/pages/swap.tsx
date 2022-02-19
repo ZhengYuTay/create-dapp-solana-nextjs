@@ -25,6 +25,7 @@ import Nomics from "nomics";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import SelectDownIcon from "../../public/select-down.png";
 
+
 var Chance = require("chance");
 var chance = new Chance();
 /* ChartJS.register(
@@ -166,7 +167,14 @@ const ChartContentInside: NextPage<Props> = (props: {
     ],
   };
 
+
+
+  /////////////////////////
+
+
+
   return (
+    <>
     <div className="pb-5 ml-6 bg-white rounded shadow-lg xs:ml-0 border-lagrangeborder xxl:w-128 lg:w-128 md:w-128 sm:w-128 xs:w-90">
       <div>
         <div>
@@ -304,6 +312,8 @@ const ChartContentInside: NextPage<Props> = (props: {
         </div>
       </div>
     </div>
+   
+    </>
   );
 };
 
@@ -376,6 +386,7 @@ const Swap: NextPage<Props> = (props) => {
           </div>
         </div>
       </div>
+              
     </div>
   );
 };
